@@ -110,7 +110,7 @@ ob_start();
 <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>GPSPG - Sistema de Gestáo de Processos Seletivos - Pós-graduação</title>
-  <title>[DEVELOP] GPSPG - Sistema de Gestáo de Processos Seletivos - Pós-graduação</title>
+  <title><?php=DESENVOLVIMENTO == 1 ? "DEVELOPMENT :: " : ""?> GPSPG - Sistema de Gestáo de Processos Seletivos - Pós-graduação</title>
   <!-- base:css -->
   <link rel="stylesheet" href="regal/vendors/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="regal/vendors/feather/feather.css">
@@ -183,14 +183,14 @@ ob_start();
           <li class="nav-item nav-search d-none d-sm-none d-md-none d-lg-flex d-xs-none">
             <div class="input-group">
               <div class="input-group-prepend">
-                <h5><font size=3><b><font color=red>DEVELOPMENT</font> Sistema de Gestão de Processos Seletivos - Pós-Graduação</b></font></h5>
+                <h5><font size=3><b><?php=DESENVOLVIMENTO == 1 ? "<font color=red>DEVELOPMENT :: </font>" : ""?> Sistema de Gestão de Processos Seletivos - Pós-Graduação</b></font></h5>
               </div>
             </div>
           </li>
           <li class="nav-item nav-search d-block d-sm-block d-md-block d-lg-none d-xs-block">
             <div class="input-group">
               <div class="input-group-prepend">
-                <h5><font size=3><b><font color=red>DEVELOPMENT</font> Sistema de Gestão de Processos Seletivos - Pós-Graduação</b></font></h5>
+                <h5><font size=3><b><?php=DESENVOLVIMENTO == 1 ? "<font color=red>DEVELOPMENT :: </font>" : ""?> Sistema de Gestão de Processos Seletivos - Pós-Graduação</b></font></h5>
               </div>
             </div>
           </li>

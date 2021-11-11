@@ -20,5 +20,7 @@ define('SMTP_USER','gpspg@gemad.net');
 define('SMTP_PASS','S@V~T80!bt71');
 define('SMTP_MAIL','gpspg@gemad.net');
 define('SMTP_CONFIRM','gpspg@gemad.net');
+
+define('DESENVOLVIMENTO',1);
 fclose($myfile);
 ?>
