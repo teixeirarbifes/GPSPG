@@ -183,14 +183,14 @@ ob_start();
           <li class="nav-item nav-search d-none d-sm-none d-md-none d-lg-flex d-xs-none">
             <div class="input-group">
               <div class="input-group-prepend">
-                <h5><font size=3><b>Sistema de Gestão de Processos Seletivos - Pós-Graduação</b></font></h5>
+                <h5><font size=3><b><font color=red>DEVELOPMENT</font> Sistema de Gestão de Processos Seletivos - Pós-Graduação</b></font></h5>
               </div>
             </div>
           </li>
           <li class="nav-item nav-search d-block d-sm-block d-md-block d-lg-none d-xs-block">
             <div class="input-group">
               <div class="input-group-prepend">
-                <h5><font size=3><b>Sistema de Gestão de Processos Seletivos - Pós-Graduação</b></font></h5>
+                <h5><font size=3><b><font color=red>DEVELOPMENT</font> Sistema de Gestão de Processos Seletivos - Pós-Graduação</b></font></h5>
               </div>
             </div>
           </li>
