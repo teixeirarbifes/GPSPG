@@ -235,7 +235,6 @@ class InscricaoController extends Controller
         if($inscricoes)
         foreach($inscricoes as $i){
             $processo = Processos::find($i->id_processo);
-            $i->txt_processo = $processo->txt_processo;
             if($i->id_ficha_enviada==0)
                 $i->txt_status = "<font color=red>Inscrição não concluída</font>";
             else

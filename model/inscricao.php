@@ -172,7 +172,7 @@ class Inscricao
         if($offset <0) $offset  = 0;
         $limit = $num;
         //if($offset<=0) $offset = 1;
-        $stmt    = $conexao->prepare("SELECT tab_inscricao.*, tab_processos.txt_processo as status FROM tab_inscricao LEFT JOIN tab_processos ON tab_inscricao.id_processo = tab_processos.id_processo WHERE tab_inscricao.id_user = '{$id_user}' {$torder} LIMIT {$offset},{$limit}  ;");
+        $stmt    = $conexao->prepare("SELECT tab_inscricao.*, tab_processos.txt_processo as txt_processo FROM tab_inscricao INNER JOIN tab_processos ON tab_inscricao.id_processo = tab_processos.id_processo WHERE tab_inscricao.id_user = '{$id_user}' {$torder} LIMIT {$offset},{$limit}  ;");
         $result  = array();
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
         if ($stmt->execute()) {
