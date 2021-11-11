@@ -1,0 +1,482 @@
+Start Transmission
+ID: 7828e26ca6e4e6de27aad795800b9e1b
+Start Time: Fri, 17 Sep 2021 12:01:17 +0700
+
+Fri, 17 Sep 2021 12:01:17 +0700	[TRY] Attempting to connect ...
+Fri, 17 Sep 2021 12:01:17 +0700	[FSOCKOPEN] 220-mocha3035.mochahost.com ESMTP Exim 4.94.2 #2 Fri, 17 Sep 2021 01:01:17 -0400 
+220-We do not authorize the use of this system to transport unsolicited, 
+220 and/or bulk e-mail.
+Fri, 17 Sep 2021 12:01:17 +0700	[OPENED] Connection has been opened
+Fri, 17 Sep 2021 12:01:17 +0700	[TRY] Attempting to login ...
+Fri, 17 Sep 2021 12:01:17 +0700	[SEND HELLO MESSAGE] 250-mocha3035.mochahost.com Hello gemad.net [198.38.88.243]
+250-SIZE 52428800
+250-8BITMIME
+250-PIPELINING
+250-PIPE_CONNECT
+250-AUTH PLAIN LOGIN
+250-STARTTLS
+250 HELP
+Fri, 17 Sep 2021 12:01:17 +0700	[STARTTLS] 220 TLS go ahead
+Fri, 17 Sep 2021 12:01:17 +0700	[SEND HELLO MESSAGE] 250-mocha3035.mochahost.com Hello gemad.net [198.38.88.243]
+250-SIZE 52428800
+250-8BITMIME
+250-PIPELINING
+250-PIPE_CONNECT
+250-AUTH PLAIN LOGIN
+250 HELP
+Fri, 17 Sep 2021 12:01:17 +0700	[AUTH LOGIN] 334 VXNlcm5hbWU6
+Fri, 17 Sep 2021 12:01:17 +0700	[AUTH USERNAME] 334 UGFzc3dvcmQ6
+Fri, 17 Sep 2021 12:01:19 +0700	[AUTH PASSWORD] 535 Incorrect authentication data
+Fri, 17 Sep 2021 12:01:19 +0700	[REJECTED] Connection has been rejected (SMTP Password issue)
+Fri, 17 Sep 2021 12:01:19 +0700	[RESET] 250 Reset OK
+Fri, 17 Sep 2021 12:01:19 +0700	[QUIT] 221 mocha3035.mochahost.com closing connection
+Fri, 17 Sep 2021 12:01:19 +0700	[CLOSED] Connection has been closed
+
+End Transmission
+ID: 7828e26ca6e4e6de27aad795800b9e1b
+Finish Time: Fri, 17 Sep 2021 12:01:19 +0700
+
+--------------------------------------------------
+
+Start Transmission
+ID: 06fa6d017e87b9fe3d8dbb5fc7cbaca6
+Start Time: Fri, 17 Sep 2021 12:01:55 +0700
+
+Fri, 17 Sep 2021 12:01:55 +0700	[TRY] Attempting to connect ...
+Fri, 17 Sep 2021 12:01:55 +0700	[FSOCKOPEN] Error Response
+Fri, 17 Sep 2021 12:01:55 +0700	[REJECTED] Connection has been rejected by SMTP Host
+Fri, 17 Sep 2021 12:01:55 +0700	[TRY] Attempting to send message 06fa6d017e87b9fe3d8dbb5fc7cbaca6 ...
+Fri, 17 Sep 2021 12:01:55 +0700	[FAILED] You need to login to SMTP Host
+Fri, 17 Sep 2021 12:01:55 +0700	[MAIL STAT] Failed: Message 06fa6d017e87b9fe3d8dbb5fc7cbaca6 is not sent
+Start Transmission
+ID: 25b1547f702345a20be78c32ca28b6e0
+Start Time: Fri, 17 Sep 2021 12:02:15 +0700
+
+Fri, 17 Sep 2021 12:02:15 +0700	[TRY] Attempting to connect ...
+Fri, 17 Sep 2021 12:02:15 +0700	[FSOCKOPEN] Error Response
+Fri, 17 Sep 2021 12:02:15 +0700	[REJECTED] Connection has been rejected by SMTP Host
+Fri, 17 Sep 2021 12:02:15 +0700	[TRY] Attempting to send message 25b1547f702345a20be78c32ca28b6e0 ...
+Fri, 17 Sep 2021 12:02:15 +0700	[FAILED] You need to login to SMTP Host
+Fri, 17 Sep 2021 12:02:15 +0700	[MAIL STAT] Failed: Message 25b1547f702345a20be78c32ca28b6e0 is not sent
+Start Transmission
+ID: b4602d1fe251f8ca34dcfa110918865c
+Start Time: Fri, 17 Sep 2021 12:02:40 +0700
+
+Fri, 17 Sep 2021 12:02:40 +0700	[TRY] Attempting to connect ...
+Fri, 17 Sep 2021 12:02:40 +0700	[FSOCKOPEN] 220-mocha3035.mochahost.com ESMTP Exim 4.94.2 #2 Fri, 17 Sep 2021 01:02:40 -0400 
+220-We do not authorize the use of this system to transport unsolicited, 
+220 and/or bulk e-mail.
+Fri, 17 Sep 2021 12:02:40 +0700	[OPENED] Connection has been opened
+Fri, 17 Sep 2021 12:02:40 +0700	[TRY] Attempting to login ...
+Fri, 17 Sep 2021 12:02:40 +0700	[SEND HELLO MESSAGE] 250-mocha3035.mochahost.com Hello gemad.net [198.38.88.243]
+250-SIZE 52428800
+250-8BITMIME
+250-PIPELINING
+250-PIPE_CONNECT
+250-AUTH PLAIN LOGIN
+250-STARTTLS
+250 HELP
+Fri, 17 Sep 2021 12:02:40 +0700	[STARTTLS] 220 TLS go ahead
+Fri, 17 Sep 2021 12:02:40 +0700	[SEND HELLO MESSAGE] 250-mocha3035.mochahost.com Hello gemad.net [198.38.88.243]
+250-SIZE 52428800
+250-8BITMIME
+250-PIPELINING
+250-PIPE_CONNECT
+250-AUTH PLAIN LOGIN
+250 HELP
+Fri, 17 Sep 2021 12:02:40 +0700	[AUTH LOGIN] 334 VXNlcm5hbWU6
+Fri, 17 Sep 2021 12:02:40 +0700	[AUTH USERNAME] 334 UGFzc3dvcmQ6
+Fri, 17 Sep 2021 12:02:40 +0700	[AUTH PASSWORD] 235 Authentication succeeded
+Fri, 17 Sep 2021 12:02:40 +0700	[SUCCESS] Login accepted
+Fri, 17 Sep 2021 12:02:40 +0700	[TRY] Attempting to send message b4602d1fe251f8ca34dcfa110918865c ...
+Fri, 17 Sep 2021 12:02:40 +0700	[SET MAIL FROM: <PPGEP@GEMAD.NET>] 250 OK
+Fri, 17 Sep 2021 12:02:40 +0700	[SET RECIPIENT TO: <RAFAEL.TEIXEIRA@IFES.EDU.BR>] 250 Accepted
+Fri, 17 Sep 2021 12:02:40 +0700	[DATA - GET ATTACHMENT FILE] Attempting to get attachment file ...
+Fri, 17 Sep 2021 12:02:40 +0700	[DATA - GENERATE] Attempting to generate mail data ...
+Fri, 17 Sep 2021 12:02:40 +0700	[DATA - GENERATE] Success: Mail data has been generated
+Fri, 17 Sep 2021 12:02:40 +0700	[DATA - CHECK] 354 Enter message, ending with "." on a line by itself
+Fri, 17 Sep 2021 12:02:40 +0700	[DATA - SEND] 250 OK id=1mR61L-000JSk-E0
+Fri, 17 Sep 2021 12:02:40 +0700	[MAIL STAT] Success: Message b4602d1fe251f8ca34dcfa110918865c has been sent
+Fri, 17 Sep 2021 12:02:40 +0700	[] 500 unrecognized command
+Fri, 17 Sep 2021 12:02:40 +0700	[QUIT] 221 mocha3035.mochahost.com closing connection
+Fri, 17 Sep 2021 12:02:40 +0700	[CLOSED] Connection has been closed
+
+End Transmission
+ID: b4602d1fe251f8ca34dcfa110918865c
+Finish Time: Fri, 17 Sep 2021 12:02:40 +0700
+
+--------------------------------------------------
+
+Start Transmission
+ID: 46c89f1d32303664299a210aaa1228fb
+Start Time: Fri, 17 Sep 2021 12:03:07 +0700
+
+Fri, 17 Sep 2021 12:03:07 +0700	[TRY] Attempting to connect ...
+Fri, 17 Sep 2021 12:03:07 +0700	[FSOCKOPEN] 220-mocha3035.mochahost.com ESMTP Exim 4.94.2 #2 Fri, 17 Sep 2021 01:03:07 -0400 
+220-We do not authorize the use of this system to transport unsolicited, 
+220 and/or bulk e-mail.
+Fri, 17 Sep 2021 12:03:07 +0700	[OPENED] Connection has been opened
+Fri, 17 Sep 2021 12:03:07 +0700	[TRY] Attempting to login ...
+Fri, 17 Sep 2021 12:03:07 +0700	[SEND HELLO MESSAGE] 250-mocha3035.mochahost.com Hello gemad.net [198.38.88.243]
+250-SIZE 52428800
+250-8BITMIME
+250-PIPELINING
+250-PIPE_CONNECT
+250-AUTH PLAIN LOGIN
+250-STARTTLS
+250 HELP
+Fri, 17 Sep 2021 12:03:07 +0700	[STARTTLS] 220 TLS go ahead
+Fri, 17 Sep 2021 12:03:07 +0700	[SEND HELLO MESSAGE] 250-mocha3035.mochahost.com Hello gemad.net [198.38.88.243]
+250-SIZE 52428800
+250-8BITMIME
+250-PIPELINING
+250-PIPE_CONNECT
+250-AUTH PLAIN LOGIN
+250 HELP
+Fri, 17 Sep 2021 12:03:07 +0700	[AUTH LOGIN] 334 VXNlcm5hbWU6
+Fri, 17 Sep 2021 12:03:07 +0700	[AUTH USERNAME] 334 UGFzc3dvcmQ6
+Fri, 17 Sep 2021 12:03:07 +0700	[AUTH PASSWORD] 235 Authentication succeeded
+Fri, 17 Sep 2021 12:03:07 +0700	[SUCCESS] Login accepted
+Fri, 17 Sep 2021 12:03:07 +0700	[TRY] Attempting to send message 46c89f1d32303664299a210aaa1228fb ...
+Fri, 17 Sep 2021 12:03:07 +0700	[SET MAIL FROM: <PPGEP@GEMAD.NET>] 250 OK
+Fri, 17 Sep 2021 12:03:07 +0700	[SET RECIPIENT TO: <RAFAEL.TEIXEIRA@IFES.EDU.BR>] 250 Accepted
+Fri, 17 Sep 2021 12:03:07 +0700	[DATA - GET ATTACHMENT FILE] Attempting to get attachment file ...
+Fri, 17 Sep 2021 12:03:07 +0700	[DATA - GENERATE] Attempting to generate mail data ...
+Fri, 17 Sep 2021 12:03:07 +0700	[DATA - GENERATE] Success: Mail data has been generated
+Fri, 17 Sep 2021 12:03:07 +0700	[DATA - CHECK] 354 Enter message, ending with "." on a line by itself
+Fri, 17 Sep 2021 12:03:07 +0700	[DATA - SEND] 250 OK id=1mR61m-000MXt-FX
+Fri, 17 Sep 2021 12:03:07 +0700	[MAIL STAT] Success: Message 46c89f1d32303664299a210aaa1228fb has been sent
+Fri, 17 Sep 2021 12:03:07 +0700	[] 500 unrecognized command
+Fri, 17 Sep 2021 12:03:07 +0700	[QUIT] 221 mocha3035.mochahost.com closing connection
+Fri, 17 Sep 2021 12:03:07 +0700	[CLOSED] Connection has been closed
+
+End Transmission
+ID: 46c89f1d32303664299a210aaa1228fb
+Finish Time: Fri, 17 Sep 2021 12:03:07 +0700
+
+--------------------------------------------------
+
+Start Transmission
+ID: 04066c182a1978fe2c293930d82bf574
+Start Time: Fri, 17 Sep 2021 12:04:38 +0700
+
+Fri, 17 Sep 2021 12:04:38 +0700	[TRY] Attempting to connect ...
+Fri, 17 Sep 2021 12:04:38 +0700	[FSOCKOPEN] 220-mocha3035.mochahost.com ESMTP Exim 4.94.2 #2 Fri, 17 Sep 2021 01:04:38 -0400 
+220-We do not authorize the use of this system to transport unsolicited, 
+220 and/or bulk e-mail.
+Fri, 17 Sep 2021 12:04:38 +0700	[OPENED] Connection has been opened
+Fri, 17 Sep 2021 12:04:38 +0700	[TRY] Attempting to login ...
+Fri, 17 Sep 2021 12:04:38 +0700	[SEND HELLO MESSAGE] 250-mocha3035.mochahost.com Hello gemad.net [198.38.88.243]
+250-SIZE 52428800
+250-8BITMIME
+250-PIPELINING
+250-PIPE_CONNECT
+250-AUTH PLAIN LOGIN
+250-STARTTLS
+250 HELP
+Fri, 17 Sep 2021 12:04:38 +0700	[STARTTLS] 220 TLS go ahead
+Fri, 17 Sep 2021 12:04:38 +0700	[SEND HELLO MESSAGE] 250-mocha3035.mochahost.com Hello gemad.net [198.38.88.243]
+250-SIZE 52428800
+250-8BITMIME
+250-PIPELINING
+250-PIPE_CONNECT
+250-AUTH PLAIN LOGIN
+250 HELP
+Fri, 17 Sep 2021 12:04:38 +0700	[AUTH LOGIN] 334 VXNlcm5hbWU6
+Fri, 17 Sep 2021 12:04:38 +0700	[AUTH USERNAME] 334 UGFzc3dvcmQ6
+Fri, 17 Sep 2021 12:04:38 +0700	[AUTH PASSWORD] 235 Authentication succeeded
+Fri, 17 Sep 2021 12:04:38 +0700	[SUCCESS] Login accepted
+Fri, 17 Sep 2021 12:04:38 +0700	[TRY] Attempting to send message 04066c182a1978fe2c293930d82bf574 ...
+Fri, 17 Sep 2021 12:04:38 +0700	[SET MAIL FROM: <PPGEP@GEMAD.NET>] 250 OK
+Fri, 17 Sep 2021 12:04:38 +0700	[SET RECIPIENT TO: <RAFAEL.TEIXEIRA@IFES.EDU.BR>] 250 Accepted
+Fri, 17 Sep 2021 12:04:38 +0700	[DATA - GET ATTACHMENT FILE] Attempting to get attachment file ...
+Fri, 17 Sep 2021 12:04:38 +0700	[DATA - UPLOAD ATTACHMENT FILE] Success: File log/smtp-20210917.log has been uploaded
+Fri, 17 Sep 2021 12:04:38 +0700	[DATA - GENERATE] Attempting to generate mail data ...
+Fri, 17 Sep 2021 12:04:38 +0700	[DATA - GENERATE ATTACHMENT FILE] Attempting to generate attachment file ...
+Fri, 17 Sep 2021 12:04:38 +0700	[DATA - GENERATE ATTACHMENT FILE] Success: File smtp-20210917.log (9.67 KB) has been generated
+Fri, 17 Sep 2021 12:04:38 +0700	[DATA - INCLUDE ATTACHMENT FILE] Attempting to include attachment file ...
+Fri, 17 Sep 2021 12:04:38 +0700	[DATA - INCLUDE ATTACHMENT FILE] Success: File smtp-20210917.log has been included
+Fri, 17 Sep 2021 12:04:38 +0700	[DATA - GENERATE] Success: Mail data has been generated
+Fri, 17 Sep 2021 12:04:38 +0700	[DATA - CHECK] 354 Enter message, ending with "." on a line by itself
+Fri, 17 Sep 2021 12:04:38 +0700	[DATA - SEND] 250 OK id=1mR63E-000UqA-RW
+Fri, 17 Sep 2021 12:04:38 +0700	[MAIL STAT] Success: Message 04066c182a1978fe2c293930d82bf574 has been sent
+Fri, 17 Sep 2021 12:04:38 +0700	[] 500 unrecognized command
+Fri, 17 Sep 2021 12:04:38 +0700	[QUIT] 221 mocha3035.mochahost.com closing connection
+Fri, 17 Sep 2021 12:04:38 +0700	[CLOSED] Connection has been closed
+
+End Transmission
+ID: 04066c182a1978fe2c293930d82bf574
+Finish Time: Fri, 17 Sep 2021 12:04:38 +0700
+
+--------------------------------------------------
+
+Start Transmission
+ID: e75c65c8bda40cbb9e7f1dde5dc90b1c
+Start Time: Fri, 17 Sep 2021 12:07:19 +0700
+
+Fri, 17 Sep 2021 12:07:19 +0700	[TRY] Attempting to connect ...
+Fri, 17 Sep 2021 12:07:19 +0700	[FSOCKOPEN] 220-mocha3035.mochahost.com ESMTP Exim 4.94.2 #2 Fri, 17 Sep 2021 01:07:19 -0400 
+220-We do not authorize the use of this system to transport unsolicited, 
+220 and/or bulk e-mail.
+Fri, 17 Sep 2021 12:07:19 +0700	[OPENED] Connection has been opened
+Fri, 17 Sep 2021 12:07:19 +0700	[TRY] Attempting to login ...
+Fri, 17 Sep 2021 12:07:19 +0700	[SEND HELLO MESSAGE] 250-mocha3035.mochahost.com Hello gemad.net [198.38.88.243]
+250-SIZE 52428800
+250-8BITMIME
+250-PIPELINING
+250-PIPE_CONNECT
+250-AUTH PLAIN LOGIN
+250-STARTTLS
+250 HELP
+Fri, 17 Sep 2021 12:07:19 +0700	[STARTTLS] 220 TLS go ahead
+Fri, 17 Sep 2021 12:07:19 +0700	[SEND HELLO MESSAGE] 250-mocha3035.mochahost.com Hello gemad.net [198.38.88.243]
+250-SIZE 52428800
+250-8BITMIME
+250-PIPELINING
+250-PIPE_CONNECT
+250-AUTH PLAIN LOGIN
+250 HELP
+Fri, 17 Sep 2021 12:07:19 +0700	[AUTH LOGIN] 334 VXNlcm5hbWU6
+Fri, 17 Sep 2021 12:07:19 +0700	[AUTH USERNAME] 334 UGFzc3dvcmQ6
+Fri, 17 Sep 2021 12:07:19 +0700	[AUTH PASSWORD] 235 Authentication succeeded
+Fri, 17 Sep 2021 12:07:19 +0700	[SUCCESS] Login accepted
+Fri, 17 Sep 2021 12:07:19 +0700	[TRY] Attempting to send message e75c65c8bda40cbb9e7f1dde5dc90b1c ...
+Fri, 17 Sep 2021 12:07:19 +0700	[SET MAIL FROM: <SUPORTE.PPGEP@IFES.EDU.BR>] 250 OK
+Fri, 17 Sep 2021 12:07:19 +0700	[SET RECIPIENT TO: <RAFAEL.TEIXEIRA@IFES.EDU.BR>] 250 Accepted
+Fri, 17 Sep 2021 12:07:19 +0700	[DATA - GET ATTACHMENT FILE] Attempting to get attachment file ...
+Fri, 17 Sep 2021 12:07:19 +0700	[DATA - UPLOAD ATTACHMENT FILE] Success: File log/smtp-20210917.log has been uploaded
+Fri, 17 Sep 2021 12:07:19 +0700	[DATA - GENERATE] Attempting to generate mail data ...
+Fri, 17 Sep 2021 12:07:19 +0700	[DATA - GENERATE ATTACHMENT FILE] Attempting to generate attachment file ...
+Fri, 17 Sep 2021 12:07:19 +0700	[DATA - GENERATE ATTACHMENT FILE] Success: File smtp-20210917.log (12.7 KB) has been generated
+Fri, 17 Sep 2021 12:07:19 +0700	[DATA - INCLUDE ATTACHMENT FILE] Attempting to include attachment file ...
+Fri, 17 Sep 2021 12:07:19 +0700	[DATA - INCLUDE ATTACHMENT FILE] Success: File smtp-20210917.log has been included
+Fri, 17 Sep 2021 12:07:19 +0700	[DATA - GENERATE] Success: Mail data has been generated
+Fri, 17 Sep 2021 12:07:19 +0700	[DATA - CHECK] 354 Enter message, ending with "." on a line by itself
+Fri, 17 Sep 2021 12:07:19 +0700	[DATA - SEND] 250 OK id=1mR65p-000jnF-Pj
+Fri, 17 Sep 2021 12:07:19 +0700	[MAIL STAT] Success: Message e75c65c8bda40cbb9e7f1dde5dc90b1c has been sent
+Fri, 17 Sep 2021 12:07:19 +0700	[] 500 unrecognized command
+Fri, 17 Sep 2021 12:07:19 +0700	[QUIT] 221 mocha3035.mochahost.com closing connection
+Fri, 17 Sep 2021 12:07:19 +0700	[CLOSED] Connection has been closed
+
+End Transmission
+ID: e75c65c8bda40cbb9e7f1dde5dc90b1c
+Finish Time: Fri, 17 Sep 2021 12:07:19 +0700
+
+--------------------------------------------------
+
+Start Transmission
+ID: b6a67628fc74be420c8fbe2e99612c9d
+Start Time: Fri, 17 Sep 2021 12:07:52 +0700
+
+Fri, 17 Sep 2021 12:07:52 +0700	[TRY] Attempting to connect ...
+Fri, 17 Sep 2021 12:07:52 +0700	[FSOCKOPEN] 220-mocha3035.mochahost.com ESMTP Exim 4.94.2 #2 Fri, 17 Sep 2021 01:07:52 -0400 
+220-We do not authorize the use of this system to transport unsolicited, 
+220 and/or bulk e-mail.
+Fri, 17 Sep 2021 12:07:52 +0700	[OPENED] Connection has been opened
+Fri, 17 Sep 2021 12:07:52 +0700	[TRY] Attempting to login ...
+Fri, 17 Sep 2021 12:07:52 +0700	[SEND HELLO MESSAGE] 250-mocha3035.mochahost.com Hello ifes.edu.br [198.38.88.243]
+250-SIZE 52428800
+250-8BITMIME
+250-PIPELINING
+250-PIPE_CONNECT
+250-AUTH PLAIN LOGIN
+250-STARTTLS
+250 HELP
+Fri, 17 Sep 2021 12:07:52 +0700	[STARTTLS] 220 TLS go ahead
+Fri, 17 Sep 2021 12:07:52 +0700	[SEND HELLO MESSAGE] 250-mocha3035.mochahost.com Hello ifes.edu.br [198.38.88.243]
+250-SIZE 52428800
+250-8BITMIME
+250-PIPELINING
+250-PIPE_CONNECT
+250-AUTH PLAIN LOGIN
+250 HELP
+Fri, 17 Sep 2021 12:07:52 +0700	[AUTH LOGIN] 334 VXNlcm5hbWU6
+Fri, 17 Sep 2021 12:07:52 +0700	[AUTH USERNAME] 334 UGFzc3dvcmQ6
+Fri, 17 Sep 2021 12:07:52 +0700	[AUTH PASSWORD] 235 Authentication succeeded
+Fri, 17 Sep 2021 12:07:52 +0700	[SUCCESS] Login accepted
+Fri, 17 Sep 2021 12:07:52 +0700	[TRY] Attempting to send message b6a67628fc74be420c8fbe2e99612c9d ...
+Fri, 17 Sep 2021 12:07:52 +0700	[SET MAIL FROM: <SUPORTE.PPGEP@IFES.EDU.BR>] 250 OK
+Fri, 17 Sep 2021 12:07:52 +0700	[SET RECIPIENT TO: <RAFAEL.TEIXEIRA@IFES.EDU.BR>] 250 Accepted
+Fri, 17 Sep 2021 12:07:52 +0700	[DATA - GET ATTACHMENT FILE] Attempting to get attachment file ...
+Fri, 17 Sep 2021 12:07:52 +0700	[DATA - UPLOAD ATTACHMENT FILE] Success: File log/smtp-20210917.log has been uploaded
+Fri, 17 Sep 2021 12:07:52 +0700	[DATA - GENERATE] Attempting to generate mail data ...
+Fri, 17 Sep 2021 12:07:52 +0700	[DATA - GENERATE ATTACHMENT FILE] Attempting to generate attachment file ...
+Fri, 17 Sep 2021 12:07:52 +0700	[DATA - GENERATE ATTACHMENT FILE] Success: File smtp-20210917.log (15.73 KB) has been generated
+Fri, 17 Sep 2021 12:07:52 +0700	[DATA - INCLUDE ATTACHMENT FILE] Attempting to include attachment file ...
+Fri, 17 Sep 2021 12:07:52 +0700	[DATA - INCLUDE ATTACHMENT FILE] Success: File smtp-20210917.log has been included
+Fri, 17 Sep 2021 12:07:52 +0700	[DATA - GENERATE] Success: Mail data has been generated
+Fri, 17 Sep 2021 12:07:52 +0700	[DATA - CHECK] 354 Enter message, ending with "." on a line by itself
+Fri, 17 Sep 2021 12:07:52 +0700	[DATA - SEND] 250 OK id=1mR66M-000mwI-QN
+Fri, 17 Sep 2021 12:07:52 +0700	[MAIL STAT] Success: Message b6a67628fc74be420c8fbe2e99612c9d has been sent
+Fri, 17 Sep 2021 12:07:52 +0700	[] 500 unrecognized command
+Fri, 17 Sep 2021 12:07:52 +0700	[QUIT] 221 mocha3035.mochahost.com closing connection
+Fri, 17 Sep 2021 12:07:52 +0700	[CLOSED] Connection has been closed
+
+End Transmission
+ID: b6a67628fc74be420c8fbe2e99612c9d
+Finish Time: Fri, 17 Sep 2021 12:07:52 +0700
+
+--------------------------------------------------
+
+Start Transmission
+ID: a4431f19c867a8df8c455586180694d7
+Start Time: Fri, 17 Sep 2021 12:08:47 +0700
+
+Fri, 17 Sep 2021 12:08:47 +0700	[TRY] Attempting to connect ...
+Fri, 17 Sep 2021 12:08:47 +0700	[FSOCKOPEN] 220-mocha3035.mochahost.com ESMTP Exim 4.94.2 #2 Fri, 17 Sep 2021 01:08:47 -0400 
+220-We do not authorize the use of this system to transport unsolicited, 
+220 and/or bulk e-mail.
+Fri, 17 Sep 2021 12:08:47 +0700	[OPENED] Connection has been opened
+Fri, 17 Sep 2021 12:08:47 +0700	[TRY] Attempting to login ...
+Fri, 17 Sep 2021 12:08:47 +0700	[SEND HELLO MESSAGE] 250-mocha3035.mochahost.com Hello gemad.net [198.38.88.243]
+250-SIZE 52428800
+250-8BITMIME
+250-PIPELINING
+250-PIPE_CONNECT
+250-AUTH PLAIN LOGIN
+250-STARTTLS
+250 HELP
+Fri, 17 Sep 2021 12:08:47 +0700	[STARTTLS] 220 TLS go ahead
+Fri, 17 Sep 2021 12:08:47 +0700	[SEND HELLO MESSAGE] 250-mocha3035.mochahost.com Hello gemad.net [198.38.88.243]
+250-SIZE 52428800
+250-8BITMIME
+250-PIPELINING
+250-PIPE_CONNECT
+250-AUTH PLAIN LOGIN
+250 HELP
+Fri, 17 Sep 2021 12:08:47 +0700	[AUTH LOGIN] 334 VXNlcm5hbWU6
+Fri, 17 Sep 2021 12:08:47 +0700	[AUTH USERNAME] 334 UGFzc3dvcmQ6
+Fri, 17 Sep 2021 12:08:47 +0700	[AUTH PASSWORD] 235 Authentication succeeded
+Fri, 17 Sep 2021 12:08:47 +0700	[SUCCESS] Login accepted
+Fri, 17 Sep 2021 12:08:47 +0700	[TRY] Attempting to send message a4431f19c867a8df8c455586180694d7 ...
+Fri, 17 Sep 2021 12:08:47 +0700	[SET MAIL FROM: <PPGEP@GEMAD.NET>] 250 OK
+Fri, 17 Sep 2021 12:08:47 +0700	[SET RECIPIENT TO: <RAFAEL.TEIXEIRA@IFES.EDU.BR>] 250 Accepted
+Fri, 17 Sep 2021 12:08:47 +0700	[DATA - GET ATTACHMENT FILE] Attempting to get attachment file ...
+Fri, 17 Sep 2021 12:08:47 +0700	[DATA - UPLOAD ATTACHMENT FILE] Success: File log/smtp-20210917.log has been uploaded
+Fri, 17 Sep 2021 12:08:47 +0700	[DATA - GENERATE] Attempting to generate mail data ...
+Fri, 17 Sep 2021 12:08:47 +0700	[DATA - GENERATE ATTACHMENT FILE] Attempting to generate attachment file ...
+Fri, 17 Sep 2021 12:08:47 +0700	[DATA - GENERATE ATTACHMENT FILE] Success: File smtp-20210917.log (18.75 KB) has been generated
+Fri, 17 Sep 2021 12:08:47 +0700	[DATA - INCLUDE ATTACHMENT FILE] Attempting to include attachment file ...
+Fri, 17 Sep 2021 12:08:47 +0700	[DATA - INCLUDE ATTACHMENT FILE] Success: File smtp-20210917.log has been included
+Fri, 17 Sep 2021 12:08:47 +0700	[DATA - GENERATE] Success: Mail data has been generated
+Fri, 17 Sep 2021 12:08:47 +0700	[DATA - CHECK] 354 Enter message, ending with "." on a line by itself
+Fri, 17 Sep 2021 12:08:47 +0700	[DATA - SEND] 250 OK id=1mR67F-000sEl-V7
+Fri, 17 Sep 2021 12:08:47 +0700	[MAIL STAT] Success: Message a4431f19c867a8df8c455586180694d7 has been sent
+Fri, 17 Sep 2021 12:08:47 +0700	[] 500 unrecognized command
+Fri, 17 Sep 2021 12:08:47 +0700	[QUIT] 221 mocha3035.mochahost.com closing connection
+Fri, 17 Sep 2021 12:08:47 +0700	[CLOSED] Connection has been closed
+
+End Transmission
+ID: a4431f19c867a8df8c455586180694d7
+Finish Time: Fri, 17 Sep 2021 12:08:47 +0700
+
+--------------------------------------------------
+
+Start Transmission
+ID: 7a5aaf476d253625146d2245921607ca
+Start Time: Fri, 17 Sep 2021 12:10:28 +0700
+
+Fri, 17 Sep 2021 12:10:28 +0700	[TRY] Attempting to connect ...
+Fri, 17 Sep 2021 12:10:28 +0700	[FSOCKOPEN] 220-mocha3035.mochahost.com ESMTP Exim 4.94.2 #2 Fri, 17 Sep 2021 01:10:28 -0400 
+220-We do not authorize the use of this system to transport unsolicited, 
+220 and/or bulk e-mail.
+Fri, 17 Sep 2021 12:10:28 +0700	[OPENED] Connection has been opened
+Fri, 17 Sep 2021 12:10:28 +0700	[TRY] Attempting to login ...
+Fri, 17 Sep 2021 12:10:28 +0700	[SEND HELLO MESSAGE] 250-mocha3035.mochahost.com Hello gemad.net [198.38.88.243]
+250-SIZE 52428800
+250-8BITMIME
+250-PIPELINING
+250-PIPE_CONNECT
+250-AUTH PLAIN LOGIN
+250-STARTTLS
+250 HELP
+Fri, 17 Sep 2021 12:10:28 +0700	[STARTTLS] 220 TLS go ahead
+Fri, 17 Sep 2021 12:10:28 +0700	[SEND HELLO MESSAGE] 250-mocha3035.mochahost.com Hello gemad.net [198.38.88.243]
+250-SIZE 52428800
+250-8BITMIME
+250-PIPELINING
+250-PIPE_CONNECT
+250-AUTH PLAIN LOGIN
+250 HELP
+Fri, 17 Sep 2021 12:10:28 +0700	[AUTH LOGIN] 334 VXNlcm5hbWU6
+Fri, 17 Sep 2021 12:10:28 +0700	[AUTH USERNAME] 334 UGFzc3dvcmQ6
+Fri, 17 Sep 2021 12:10:28 +0700	[AUTH PASSWORD] 235 Authentication succeeded
+Fri, 17 Sep 2021 12:10:28 +0700	[SUCCESS] Login accepted
+Fri, 17 Sep 2021 12:10:28 +0700	[TRY] Attempting to send message 7a5aaf476d253625146d2245921607ca ...
+Fri, 17 Sep 2021 12:10:28 +0700	[SET MAIL FROM: <PPGEP@GEMAD.NET>] 250 OK
+Fri, 17 Sep 2021 12:10:28 +0700	[SET RECIPIENT TO: <RAFAEL.TEIXEIRA@IFES.EDU.BR>] 250 Accepted
+Fri, 17 Sep 2021 12:10:28 +0700	[DATA - GET ATTACHMENT FILE] Attempting to get attachment file ...
+Fri, 17 Sep 2021 12:10:28 +0700	[DATA - UPLOAD ATTACHMENT FILE] Success: File log/smtp-20210917.log has been uploaded
+Fri, 17 Sep 2021 12:10:28 +0700	[DATA - GENERATE] Attempting to generate mail data ...
+Fri, 17 Sep 2021 12:10:28 +0700	[DATA - GENERATE ATTACHMENT FILE] Attempting to generate attachment file ...
+Fri, 17 Sep 2021 12:10:28 +0700	[DATA - GENERATE ATTACHMENT FILE] Success: File smtp-20210917.log (21.77 KB) has been generated
+Fri, 17 Sep 2021 12:10:28 +0700	[DATA - INCLUDE ATTACHMENT FILE] Attempting to include attachment file ...
+Fri, 17 Sep 2021 12:10:28 +0700	[DATA - INCLUDE ATTACHMENT FILE] Success: File smtp-20210917.log has been included
+Fri, 17 Sep 2021 12:10:28 +0700	[DATA - GENERATE] Success: Mail data has been generated
+Fri, 17 Sep 2021 12:10:28 +0700	[DATA - CHECK] 354 Enter message, ending with "." on a line by itself
+Fri, 17 Sep 2021 12:10:28 +0700	[DATA - SEND] 250 OK id=1mR68t-0011XZ-FC
+Fri, 17 Sep 2021 12:10:28 +0700	[MAIL STAT] Success: Message 7a5aaf476d253625146d2245921607ca has been sent
+Fri, 17 Sep 2021 12:10:28 +0700	[] 500 unrecognized command
+Fri, 17 Sep 2021 12:10:28 +0700	[QUIT] 221 mocha3035.mochahost.com closing connection
+Fri, 17 Sep 2021 12:10:28 +0700	[CLOSED] Connection has been closed
+
+End Transmission
+ID: 7a5aaf476d253625146d2245921607ca
+Finish Time: Fri, 17 Sep 2021 12:10:28 +0700
+
+--------------------------------------------------
+
+Start Transmission
+ID: b39e45933147fd0b026ba70531f8cb78
+Start Time: Fri, 17 Sep 2021 12:24:00 +0700
+
+Fri, 17 Sep 2021 12:24:00 +0700	[TRY] Attempting to connect ...
+Fri, 17 Sep 2021 12:24:00 +0700	[FSOCKOPEN] 220-mocha3035.mochahost.com ESMTP Exim 4.94.2 #2 Fri, 17 Sep 2021 01:24:00 -0400 
+220-We do not authorize the use of this system to transport unsolicited, 
+220 and/or bulk e-mail.
+Fri, 17 Sep 2021 12:24:00 +0700	[OPENED] Connection has been opened
+Fri, 17 Sep 2021 12:24:00 +0700	[TRY] Attempting to login ...
+Fri, 17 Sep 2021 12:24:00 +0700	[SEND HELLO MESSAGE] 250-mocha3035.mochahost.com Hello gemad.net [198.38.88.243]
+250-SIZE 52428800
+250-8BITMIME
+250-PIPELINING
+250-PIPE_CONNECT
+250-AUTH PLAIN LOGIN
+250-STARTTLS
+250 HELP
+Fri, 17 Sep 2021 12:24:00 +0700	[STARTTLS] 220 TLS go ahead
+Fri, 17 Sep 2021 12:24:00 +0700	[SEND HELLO MESSAGE] 250-mocha3035.mochahost.com Hello gemad.net [198.38.88.243]
+250-SIZE 52428800
+250-8BITMIME
+250-PIPELINING
+250-PIPE_CONNECT
+250-AUTH PLAIN LOGIN
+250 HELP
+Fri, 17 Sep 2021 12:24:00 +0700	[AUTH LOGIN] 334 VXNlcm5hbWU6
+Fri, 17 Sep 2021 12:24:00 +0700	[AUTH USERNAME] 334 UGFzc3dvcmQ6
+Fri, 17 Sep 2021 12:24:00 +0700	[AUTH PASSWORD] 235 Authentication succeeded
+Fri, 17 Sep 2021 12:24:00 +0700	[SUCCESS] Login accepted
+Fri, 17 Sep 2021 12:24:00 +0700	[TRY] Attempting to send message b39e45933147fd0b026ba70531f8cb78 ...
+Fri, 17 Sep 2021 12:24:00 +0700	[SET MAIL FROM: <PPGEP@GEMAD.NET>] 250 OK
+Fri, 17 Sep 2021 12:24:00 +0700	[SET RECIPIENT TO: <RAFAEL.TEIXEIRA@IFES.EDU.BR>] 250 Accepted
+Fri, 17 Sep 2021 12:24:00 +0700	[DATA - GET ATTACHMENT FILE] Attempting to get attachment file ...
+Fri, 17 Sep 2021 12:24:00 +0700	[DATA - UPLOAD ATTACHMENT FILE] Success: File log/smtp-20210917.log has been uploaded
+Fri, 17 Sep 2021 12:24:00 +0700	[DATA - GENERATE] Attempting to generate mail data ...
+Fri, 17 Sep 2021 12:24:00 +0700	[DATA - GENERATE ATTACHMENT FILE] Attempting to generate attachment file ...
+Fri, 17 Sep 2021 12:24:00 +0700	[DATA - GENERATE ATTACHMENT FILE] Success: File smtp-20210917.log (24.79 KB) has been generated
+Fri, 17 Sep 2021 12:24:00 +0700	[DATA - INCLUDE ATTACHMENT FILE] Attempting to include attachment file ...
+Fri, 17 Sep 2021 12:24:00 +0700	[DATA - INCLUDE ATTACHMENT FILE] Success: File smtp-20210917.log has been included
+Fri, 17 Sep 2021 12:24:00 +0700	[DATA - GENERATE] Success: Mail data has been generated
+Fri, 17 Sep 2021 12:24:00 +0700	[DATA - CHECK] 354 Enter message, ending with "." on a line by itself
+Fri, 17 Sep 2021 12:24:00 +0700	[DATA - SEND] 250 OK id=1mR6Lz-00074c-1W
+Fri, 17 Sep 2021 12:24:00 +0700	[MAIL STAT] Success: Message b39e45933147fd0b026ba70531f8cb78 has been sent
+Fri, 17 Sep 2021 12:24:00 +0700	[] 500 unrecognized command
+Fri, 17 Sep 2021 12:24:00 +0700	[QUIT] 221 mocha3035.mochahost.com closing connection
+Fri, 17 Sep 2021 12:24:00 +0700	[CLOSED] Connection has been closed
+
+End Transmission
+ID: b39e45933147fd0b026ba70531f8cb78
+Finish Time: Fri, 17 Sep 2021 12:24:00 +0700
+
+--------------------------------------------------
+

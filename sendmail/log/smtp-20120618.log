@@ -1,0 +1,304 @@
+Start Transmission
+ID: 4be0bddcd71e886fcab7394d91ff050f
+Start Time: Mon, 18 Jun 2012 20:55:08 +0700
+
+Mon, 18 Jun 2012 20:55:08 +0700	[TRY] Attempting to connect ...
+Mon, 18 Jun 2012 20:55:09 +0700	[FSOCKOPEN] 220 mx.google.com ESMTP ka5sm28043395pcf.37
+Mon, 18 Jun 2012 20:55:09 +0700	[OPENED] Connection has been opened
+Mon, 18 Jun 2012 20:55:09 +0700	[TRY] Attempting to login ...
+Mon, 18 Jun 2012 20:55:10 +0700	[SEND HELLO MESSAGE] 250-mx.google.com at your service, [xxx.xxx.xxx.xxx]
+250-SIZE 35882577
+250-8BITMIME
+250-STARTTLS
+250 ENHANCEDSTATUSCODES
+Mon, 18 Jun 2012 20:55:10 +0700	[STARTTLS] 220 2.0.0 Ready to start TLS
+Mon, 18 Jun 2012 20:55:11 +0700	[SEND HELLO MESSAGE] 250-mx.google.com at your service, [xxx.xxx.xxx.xxx]
+250-SIZE 35882577
+250-8BITMIME
+250-AUTH LOGIN PLAIN XOAUTH
+250 ENHANCEDSTATUSCODES
+Mon, 18 Jun 2012 20:55:12 +0700	[AUTH LOGIN] 334 BXNlcDv7hbzU9
+Mon, 18 Jun 2012 20:55:12 +0700	[AUTH USERNAME] 334 UcVBg3dvcsW5
+Mon, 18 Jun 2012 20:55:12 +0700	[AUTH PASSWORD] 235 2.7.0 Accepted
+Mon, 18 Jun 2012 20:55:12 +0700	[SUCCESS] Login accepted
+Mon, 18 Jun 2012 20:55:12 +0700	[TRY] Attempting to send message 4be0bddcd71e886fcab7394d91ff050f ...
+Mon, 18 Jun 2012 20:55:12 +0700	[SET MAIL FROM: <A.MAIL@A-DOMAIN.COM>] 250 2.1.0 OK ka5sm28043395pcf.37
+Mon, 18 Jun 2012 20:55:13 +0700	[SET RECIPIENT TO: <ANOTHER.MAIL@ANOTHER-DOMAIN.COM>] 250 2.1.5 OK ka5sm28043395pcf.37
+Mon, 18 Jun 2012 20:55:13 +0700	[SET RECIPIENT TO: <ANOTHER.MAIL2@ANOTHER-DOMAIN.COM>] 250 2.1.5 OK ka5sm28043395pcf.37
+Mon, 18 Jun 2012 20:55:13 +0700	[SET CC TO: <ANOTHER.MAIL3@ANOTHER-DOMAIN.COM>] 250 2.1.5 OK ka5sm28043395pcf.37
+Mon, 18 Jun 2012 20:55:13 +0700	[SET BCC TO: <ANOTHER.MAIL4@ANOTHER-DOMAIN.COM>] 250 2.1.5 OK ka5sm28043395pcf.37
+Mon, 18 Jun 2012 20:55:13 +0700	[DATA - GET ATTACHMENT FILE] Attempting to get attachment file ...
+Mon, 18 Jun 2012 20:55:13 +0700	[DATA - UPLOAD ATTACHMENT FILE] Success: File docs/file.txt has been uploaded
+Mon, 18 Jun 2012 20:55:13 +0700	[DATA - GENERATE] Attempting to generate mail data ...
+Mon, 18 Jun 2012 20:55:13 +0700	[DATA - GENERATE ATTACHMENT FILE] Attempting to generate attachment file ...
+Mon, 18 Jun 2012 20:55:13 +0700	[DATA - GENERATE ATTACHMENT FILE] Success: File file.txt (619 B) has been generated
+Mon, 18 Jun 2012 20:55:13 +0700	[DATA - INCLUDE ATTACHMENT FILE] Attempting to include attachment file ...
+Mon, 18 Jun 2012 20:55:13 +0700	[DATA - INCLUDE ATTACHMENT FILE] Success: File file.txt has been included
+Mon, 18 Jun 2012 20:55:13 +0700	[DATA - GENERATE] Success: Mail data has been generated
+Mon, 18 Jun 2012 20:55:14 +0700	[DATA - CHECK] 354  Go ahead ka5sm28043395pcf.37
+Mon, 18 Jun 2012 20:55:15 +0700	[DATA - SEND] 250 2.0.0 OK 1340027716 ka5sm28043395pcf.37
+Mon, 18 Jun 2012 20:55:15 +0700	[MAIL STAT] Success: Message 4be0bddcd71e886fcab7394d91ff050f has been sent
+Mon, 18 Jun 2012 20:55:15 +0700	[] 502 5.5.1 Unrecognized command. ka5sm28043395pcf.37
+Mon, 18 Jun 2012 20:55:16 +0700	[QUIT] 221 2.0.0 closing connection ka5sm28043395pcf.37
+Mon, 18 Jun 2012 20:55:16 +0700	[CLOSED] Connection has been closed
+
+End Transmission
+ID: 4be0bddcd71e886fcab7394d91ff050f
+Finish Time: Mon, 18 Jun 2012 20:55:16 +0700
+
+--------------------------------------------------
+
+Start Transmission
+ID: 5815fb19e3691a16975636a8edcad160
+Start Time: Mon, 18 Jun 2012 21:09:51 +0700
+
+Mon, 18 Jun 2012 21:09:51 +0700	[TRY] Attempting to connect ...
+Mon, 18 Jun 2012 21:09:55 +0700	[FSOCKOPEN] 220 mx.google.com ESMTP 603m2401pbcqm6s0.10
+Mon, 18 Jun 2012 21:09:55 +0700	[OPENED] Connection has been opened
+Mon, 18 Jun 2012 21:09:55 +0700	[TRY] Attempting to login ...
+Mon, 18 Jun 2012 21:09:56 +0700	[SEND HELLO MESSAGE] 250-mx.google.com at your service, [xxx.xxx.xxx.xxx]
+250-SIZE 35882577
+250-8BITMIME
+250-STARTTLS
+250 ENHANCEDSTATUSCODES
+Mon, 18 Jun 2012 21:09:56 +0700	[STARTTLS] 220 2.0.0 Ready to start TLS
+Mon, 18 Jun 2012 21:09:57 +0700	[SEND HELLO MESSAGE] 250-mx.google.com at your service, [xxx.xxx.xxx.xxx]
+250-SIZE 35882577
+250-8BITMIME
+250-AUTH LOGIN PLAIN XOAUTH
+250 ENHANCEDSTATUSCODES
+Mon, 18 Jun 2012 21:09:57 +0700	[AUTH LOGIN] 334 BXNlcDv7hbzU9
+Mon, 18 Jun 2012 21:09:57 +0700	[AUTH USERNAME] 334 UcVBg3dvcsW5
+Mon, 18 Jun 2012 21:09:57 +0700	[AUTH PASSWORD] 235 2.7.0 Accepted
+Mon, 18 Jun 2012 21:09:57 +0700	[SUCCESS] Login accepted
+Mon, 18 Jun 2012 21:09:57 +0700	[TRY] Attempting to send message 5815fb19e3691a16975636a8edcad160 ...
+Mon, 18 Jun 2012 21:09:58 +0700	[SET MAIL FROM: <A.MAIL@A-DOMAIN.COM>] 250 2.1.0 OK 603m2401pbcqm6s0.10
+Mon, 18 Jun 2012 21:09:58 +0700	[SET RECIPIENT TO: <ANOTHER.MAIL@ANOTHER-DOMAIN.COM>] 250 2.1.5 OK 603m2401pbcqm6s0.10
+Mon, 18 Jun 2012 21:09:58 +0700	[SET RECIPIENT TO: <ANOTHER.MAIL2@ANOTHER-DOMAIN.COM>] 250 2.1.5 OK 603m2401pbcqm6s0.10
+Mon, 18 Jun 2012 21:09:58 +0700	[SET CC TO: <ANOTHER.MAIL3@ANOTHER-DOMAIN.COM>] 250 2.1.5 OK 603m2401pbcqm6s0.10
+Mon, 18 Jun 2012 21:09:59 +0700	[SET BCC TO: <ANOTHER.MAIL4@ANOTHER-DOMAIN.COM>] 250 2.1.5 OK 603m2401pbcqm6s0.10
+Mon, 18 Jun 2012 21:09:59 +0700	[DATA - GET ATTACHMENT FILE] Attempting to get attachment file ...
+Mon, 18 Jun 2012 21:09:59 +0700	[DATA - UPLOAD ATTACHMENT FILE] Success: File docs/image.png has been uploaded
+Mon, 18 Jun 2012 21:09:59 +0700	[DATA - UPLOAD ATTACHMENT FILE] Success: File docs/file.pdf has been uploaded
+Mon, 18 Jun 2012 21:09:59 +0700	[DATA - UPLOAD ATTACHMENT FILE] Success: File docs/file.txt has been uploaded
+Mon, 18 Jun 2012 21:09:59 +0700	[DATA - GENERATE] Attempting to generate mail data ...
+Mon, 18 Jun 2012 21:09:59 +0700	[DATA - GENERATE ATTACHMENT FILE] Attempting to generate attachment file ...
+Mon, 18 Jun 2012 21:09:59 +0700	[DATA - GENERATE ATTACHMENT FILE] Success: File image.png (42.47 KB) has been generated
+Mon, 18 Jun 2012 21:09:59 +0700	[DATA - GENERATE ATTACHMENT FILE] Success: File file.pdf (24.34 KB) has been generated
+Mon, 18 Jun 2012 21:09:59 +0700	[DATA - GENERATE ATTACHMENT FILE] Success: File file.txt (619 B) has been generated
+Mon, 18 Jun 2012 21:09:59 +0700	[DATA - INCLUDE ATTACHMENT FILE] Attempting to include attachment file ...
+Mon, 18 Jun 2012 21:09:59 +0700	[DATA - INCLUDE ATTACHMENT FILE] Success: File image.png has been included
+Mon, 18 Jun 2012 21:09:59 +0700	[DATA - INCLUDE ATTACHMENT FILE] Success: File file.pdf has been included
+Mon, 18 Jun 2012 21:09:59 +0700	[DATA - INCLUDE ATTACHMENT FILE] Success: File file.txt has been included
+Mon, 18 Jun 2012 21:09:59 +0700	[DATA - GENERATE] Success: Mail data has been generated
+Mon, 18 Jun 2012 21:10:00 +0700	[DATA - CHECK] 354  Go ahead 603m2401pbcqm6s0.10
+Mon, 18 Jun 2012 21:10:04 +0700	[DATA - SEND] Error Response
+Mon, 18 Jun 2012 21:10:04 +0700	[MAIL STAT] Failed: Message 5815fb19e3691a16975636a8edcad160 is not sent
+Mon, 18 Jun 2012 21:10:04 +0700	[QUIT] Error Response
+Mon, 18 Jun 2012 21:10:04 +0700	[CLOSED] Connection has been closed
+
+End Transmission
+ID: 5815fb19e3691a16975636a8edcad160
+Finish Time: Mon, 18 Jun 2012 21:10:04 +0700
+
+--------------------------------------------------
+
+Start Transmission
+ID: 77f676ad0b6e772f33e351910247c1fb
+Start Time: Mon, 18 Jun 2012 21:15:00 +0700
+
+Mon, 18 Jun 2012 21:15:00 +0700	[TRY] Attempting to connect ...
+Mon, 18 Jun 2012 21:15:01 +0700	[FSOCKOPEN] 220 mx.google.com ESMTP u9pbu539949sm21.89
+Mon, 18 Jun 2012 21:15:01 +0700	[OPENED] Connection has been opened
+Mon, 18 Jun 2012 21:15:01 +0700	[TRY] Attempting to login ...
+Mon, 18 Jun 2012 21:15:01 +0700	[SEND HELLO MESSAGE] 250-mx.google.com at your service, [xxx.xxx.xxx.xxx]
+250-SIZE 35882577
+250-8BITMIME
+250-STARTTLS
+250 ENHANCEDSTATUSCODES
+Mon, 18 Jun 2012 21:15:02 +0700	[STARTTLS] 220 2.0.0 Ready to start TLS
+Mon, 18 Jun 2012 21:15:02 +0700	[SEND HELLO MESSAGE] 250-mx.google.com at your service, [xxx.xxx.xxx.xxx]
+250-SIZE 35882577
+250-8BITMIME
+250-AUTH LOGIN PLAIN XOAUTH
+250 ENHANCEDSTATUSCODES
+Mon, 18 Jun 2012 21:15:03 +0700	[AUTH LOGIN] 334 BXNlcDv7hbzU9
+Mon, 18 Jun 2012 21:15:03 +0700	[AUTH USERNAME] 334 UcVBg3dvcsW5
+Mon, 18 Jun 2012 21:15:03 +0700	[AUTH PASSWORD] 235 2.7.0 Accepted
+Mon, 18 Jun 2012 21:15:03 +0700	[SUCCESS] Login accepted
+Mon, 18 Jun 2012 21:15:03 +0700	[TRY] Attempting to send message 77f676ad0b6e772f33e351910247c1fb ...
+Mon, 18 Jun 2012 21:15:04 +0700	[SET MAIL FROM: <A.MAIL@A-DOMAIN.COM>] 250 2.1.0 OK u9pbu539949sm21.89
+Mon, 18 Jun 2012 21:15:04 +0700	[SET RECIPIENT TO: <ANOTHER.MAIL@ANOTHER-DOMAIN.COM>] Error Response
+Mon, 18 Jun 2012 21:15:04 +0700	[SET RECIPIENT TO: <ANOTHER.MAIL2@ANOTHER-DOMAIN.COM>] Error Response
+Mon, 18 Jun 2012 21:15:04 +0700	[SET CC TO: <ANOTHER.MAIL3@ANOTHER-DOMAIN.COM>] Error Response
+Mon, 18 Jun 2012 21:15:04 +0700	[SET BCC TO: <ANOTHER.MAIL4@ANOTHER-DOMAIN.COM>] Error Response
+Mon, 18 Jun 2012 21:15:04 +0700	[DATA - GET ATTACHMENT FILE] Attempting to get attachment file ...
+Mon, 18 Jun 2012 21:15:04 +0700	[DATA - UPLOAD ATTACHMENT FILE] Success: File docs/image.png has been uploaded
+Mon, 18 Jun 2012 21:15:04 +0700	[DATA - UPLOAD ATTACHMENT FILE] Success: File docs/file.pdf has been uploaded
+Mon, 18 Jun 2012 21:15:04 +0700	[DATA - UPLOAD ATTACHMENT FILE] Success: File docs/file.txt has been uploaded
+Mon, 18 Jun 2012 21:15:04 +0700	[DATA - GENERATE] Attempting to generate mail data ...
+Mon, 18 Jun 2012 21:15:04 +0700	[DATA - GENERATE ATTACHMENT FILE] Attempting to generate attachment file ...
+Mon, 18 Jun 2012 21:15:04 +0700	[DATA - GENERATE ATTACHMENT FILE] Success: File image.png (42.47 KB) has been generated
+Mon, 18 Jun 2012 21:15:04 +0700	[DATA - GENERATE ATTACHMENT FILE] Success: File file.pdf (24.34 KB) has been generated
+Mon, 18 Jun 2012 21:15:04 +0700	[DATA - GENERATE ATTACHMENT FILE] Success: File file.txt (619 B) has been generated
+Mon, 18 Jun 2012 21:15:04 +0700	[DATA - INCLUDE ATTACHMENT FILE] Attempting to include attachment file ...
+Mon, 18 Jun 2012 21:15:04 +0700	[DATA - INCLUDE ATTACHMENT FILE] Success: File image.png has been included
+Mon, 18 Jun 2012 21:15:04 +0700	[DATA - INCLUDE ATTACHMENT FILE] Success: File file.pdf has been included
+Mon, 18 Jun 2012 21:15:04 +0700	[DATA - INCLUDE ATTACHMENT FILE] Success: File file.txt has been included
+Mon, 18 Jun 2012 21:15:04 +0700	[DATA - GENERATE] Success: Mail data has been generated
+Mon, 18 Jun 2012 21:15:04 +0700	[DATA - CHECK] Error Response
+Mon, 18 Jun 2012 21:15:04 +0700	[DATA - SEND] Error Response
+Mon, 18 Jun 2012 21:15:04 +0700	[MAIL STAT] Failed: Message 77f676ad0b6e772f33e351910247c1fb is not sent
+Mon, 18 Jun 2012 21:15:04 +0700	[QUIT] Error Response
+Mon, 18 Jun 2012 21:15:04 +0700	[CLOSED] Connection has been closed
+
+End Transmission
+ID: 77f676ad0b6e772f33e351910247c1fb
+Finish Time: Mon, 18 Jun 2012 21:15:04 +0700
+
+--------------------------------------------------
+
+Start Transmission
+ID: 91b2996193e3cde5c8137fd7b067f9b4
+Start Time: Mon, 18 Jun 2012 21:16:23 +0700
+
+Mon, 18 Jun 2012 21:16:23 +0700	[TRY] Attempting to connect ...
+Mon, 18 Jun 2012 21:16:24 +0700	[FSOCKOPEN] 220 mx.google.com ESMTP m647qp6dsc9s348.9
+Mon, 18 Jun 2012 21:16:24 +0700	[OPENED] Connection has been opened
+Mon, 18 Jun 2012 21:16:24 +0700	[TRY] Attempting to login ...
+Mon, 18 Jun 2012 21:16:24 +0700	[SEND HELLO MESSAGE] 250-mx.google.com at your service, [xxx.xxx.xxx.xxx]
+250-SIZE 35882577
+250-8BITMIME
+250-STARTTLS
+250 ENHANCEDSTATUSCODES
+Mon, 18 Jun 2012 21:16:25 +0700	[STARTTLS] 220 2.0.0 Ready to start TLS
+Mon, 18 Jun 2012 21:16:25 +0700	[SEND HELLO MESSAGE] 250-mx.google.com at your service, [xxx.xxx.xxx.xxx]
+250-SIZE 35882577
+250-8BITMIME
+250-AUTH LOGIN PLAIN XOAUTH
+250 ENHANCEDSTATUSCODES
+Mon, 18 Jun 2012 21:16:26 +0700	[AUTH LOGIN] 334 BXNlcDv7hbzU9
+Mon, 18 Jun 2012 21:16:26 +0700	[AUTH USERNAME] Error Response
+Mon, 18 Jun 2012 21:16:26 +0700	[REJECTED] Connection has been rejected (SMTP Username issue)
+Mon, 18 Jun 2012 21:16:26 +0700	[RESET] Error Response
+Mon, 18 Jun 2012 21:16:26 +0700	[QUIT] Error Response
+Mon, 18 Jun 2012 21:16:26 +0700	[CLOSED] Connection has been closed
+
+End Transmission
+ID: 91b2996193e3cde5c8137fd7b067f9b4
+Finish Time: Mon, 18 Jun 2012 21:16:26 +0700
+
+--------------------------------------------------
+
+Start Transmission
+ID: 10685f76e7ad9e19033d63a5b74f764e
+Start Time: Mon, 18 Jun 2012 21:53:07 +0700
+
+Mon, 18 Jun 2012 21:53:07 +0700	[TRY] Attempting to connect ...
+Mon, 18 Jun 2012 21:53:08 +0700	[FSOCKOPEN] 220 mx.google.com ESMTP 16483hf1pbc5wm92.5
+Mon, 18 Jun 2012 21:53:08 +0700	[OPENED] Connection has been opened
+Mon, 18 Jun 2012 21:53:08 +0700	[TRY] Attempting to login ...
+Mon, 18 Jun 2012 21:53:08 +0700	[SEND HELLO MESSAGE] 250-mx.google.com at your service, [xxx.xxx.xxx.xxx]
+250-SIZE 35882577
+250-8BITMIME
+250-STARTTLS
+250 ENHANCEDSTATUSCODES
+Mon, 18 Jun 2012 21:53:08 +0700	[STARTTLS] 220 2.0.0 Ready to start TLS
+Mon, 18 Jun 2012 21:53:09 +0700	[SEND HELLO MESSAGE] 250-mx.google.com at your service, [xxx.xxx.xxx.xxx]
+250-SIZE 35882577
+250-8BITMIME
+250-AUTH LOGIN PLAIN XOAUTH
+250 ENHANCEDSTATUSCODES
+Mon, 18 Jun 2012 21:53:09 +0700	[AUTH LOGIN] 334 BXNlcDv7hbzU9
+Mon, 18 Jun 2012 21:53:10 +0700	[AUTH USERNAME] 334 UcVBg3dvcsW5
+Mon, 18 Jun 2012 21:53:10 +0700	[AUTH PASSWORD] 235 2.7.0 Accepted
+Mon, 18 Jun 2012 21:53:10 +0700	[SUCCESS] Login accepted
+Mon, 18 Jun 2012 21:53:10 +0700	[TRY] Attempting to send message 10685f76e7ad9e19033d63a5b74f764e ...
+Mon, 18 Jun 2012 21:53:10 +0700	[SET MAIL FROM: <A.MAIL@A-DOMAIN.COM>] 250 2.1.0 OK 16483hf1pbc5wm92.5
+Mon, 18 Jun 2012 21:53:11 +0700	[SET RECIPIENT TO: <ANOTHER.MAIL@ANOTHER-DOMAIN.COM>] 250 2.1.5 OK 16483hf1pbc5wm92.5
+Mon, 18 Jun 2012 21:53:11 +0700	[SET RECIPIENT TO: <ANOTHER.MAIL2@ANOTHER-DOMAIN.COM>] 250 2.1.5 OK 16483hf1pbc5wm92.5
+Mon, 18 Jun 2012 21:53:11 +0700	[SET CC TO: <ANOTHER.MAIL3@ANOTHER-DOMAIN.COM>] 250 2.1.5 OK 16483hf1pbc5wm92.5
+Mon, 18 Jun 2012 21:53:11 +0700	[SET BCC TO: <ANOTHER.MAIL4@ANOTHER-DOMAIN.COM>] 250 2.1.5 OK 16483hf1pbc5wm92.5
+Mon, 18 Jun 2012 21:53:11 +0700	[DATA - GET ATTACHMENT FILE] Attempting to get attachment file ...
+Mon, 18 Jun 2012 21:53:11 +0700	[DATA - UPLOAD ATTACHMENT FILE] Success: File docs/image.png has been uploaded
+Mon, 18 Jun 2012 21:53:11 +0700	[DATA - UPLOAD ATTACHMENT FILE] Success: File docs/file.pdf has been uploaded
+Mon, 18 Jun 2012 21:53:11 +0700	[DATA - UPLOAD ATTACHMENT FILE] Success: File docs/file.txt has been uploaded
+Mon, 18 Jun 2012 21:53:11 +0700	[DATA - UPLOAD ATTACHMENT FILE] Error: File docs/audio.mp3 is not exists
+Mon, 18 Jun 2012 21:53:11 +0700	[DATA - GENERATE] Attempting to generate mail data ...
+Mon, 18 Jun 2012 21:53:11 +0700	[DATA - GENERATE ATTACHMENT FILE] Attempting to generate attachment file ...
+Mon, 18 Jun 2012 21:53:11 +0700	[DATA - GENERATE ATTACHMENT FILE] Success: File image.png (42.47 KB) has been generated
+Mon, 18 Jun 2012 21:53:11 +0700	[DATA - GENERATE ATTACHMENT FILE] Success: File file.pdf (24.34 KB) has been generated
+Mon, 18 Jun 2012 21:53:11 +0700	[DATA - GENERATE ATTACHMENT FILE] Success: File file.txt (619 B) has been generated
+Mon, 18 Jun 2012 21:53:11 +0700	[DATA - INCLUDE ATTACHMENT FILE] Attempting to include attachment file ...
+Mon, 18 Jun 2012 21:53:11 +0700	[DATA - INCLUDE ATTACHMENT FILE] Success: File image.png has been included
+Mon, 18 Jun 2012 21:53:11 +0700	[DATA - INCLUDE ATTACHMENT FILE] Success: File file.pdf has been included
+Mon, 18 Jun 2012 21:53:11 +0700	[DATA - INCLUDE ATTACHMENT FILE] Success: File file.txt has been included
+Mon, 18 Jun 2012 21:53:11 +0700	[DATA - GENERATE] Success: Mail data has been generated
+Mon, 18 Jun 2012 21:53:12 +0700	[DATA - CHECK] 354  Go ahead 16483hf1pbc5wm92.5
+Mon, 18 Jun 2012 21:53:18 +0700	[DATA - SEND] 250 2.0.0 OK 1340031199 16483hf1pbc5wm92.5
+Mon, 18 Jun 2012 21:53:18 +0700	[MAIL STAT] Success: Message 10685f76e7ad9e19033d63a5b74f764e has been sent
+Mon, 18 Jun 2012 21:53:18 +0700	[] 502 5.5.1 Unrecognized command. 16483hf1pbc5wm92.5
+Mon, 18 Jun 2012 21:53:18 +0700	[QUIT] 221 2.0.0 closing connection 16483hf1pbc5wm92.5
+Mon, 18 Jun 2012 21:53:18 +0700	[CLOSED] Connection has been closed
+
+End Transmission
+ID: 10685f76e7ad9e19033d63a5b74f764e
+Finish Time: Mon, 18 Jun 2012 21:53:18 +0700
+
+--------------------------------------------------
+
+Start Transmission
+ID: 14590835256bccb17ef8716d67f42174
+Start Time: Mon, 18 Jun 2012 22:04:12 +0700
+
+Mon, 18 Jun 2012 22:04:12 +0700	[TRY] Attempting to connect ...
+Mon, 18 Jun 2012 22:04:13 +0700	[FSOCKOPEN] 220 mx.google.com ESMTP 49949pbsd8sm241c.36
+Mon, 18 Jun 2012 22:04:13 +0700	[OPENED] Connection has been opened
+Mon, 18 Jun 2012 22:04:13 +0700	[TRY] Attempting to login ...
+Mon, 18 Jun 2012 22:04:13 +0700	[SEND HELLO MESSAGE] 250-mx.google.com at your service, [xxx.xxx.xxx.xxx]
+250-SIZE 35882577
+250-8BITMIME
+250-STARTTLS
+250 ENHANCEDSTATUSCODES
+Mon, 18 Jun 2012 22:04:13 +0700	[STARTTLS] 220 2.0.0 Ready to start TLS
+Mon, 18 Jun 2012 22:04:15 +0700	[SEND HELLO MESSAGE] 250-mx.google.com at your service, [xxx.xxx.xxx.xxx]
+250-SIZE 35882577
+250-8BITMIME
+250-AUTH LOGIN PLAIN XOAUTH
+250 ENHANCEDSTATUSCODES
+Mon, 18 Jun 2012 22:04:15 +0700	[AUTH LOGIN] 334 BXNlcDv7hbzU9
+Mon, 18 Jun 2012 22:04:15 +0700	[AUTH USERNAME] 334 UcVBg3dvcsW5
+Mon, 18 Jun 2012 22:04:15 +0700	[AUTH PASSWORD] 235 2.7.0 Accepted
+Mon, 18 Jun 2012 22:04:15 +0700	[SUCCESS] Login accepted
+Mon, 18 Jun 2012 22:04:15 +0700	[TRY] Attempting to send message 14590835256bccb17ef8716d67f42174 ...
+Mon, 18 Jun 2012 22:04:16 +0700	[SET MAIL FROM: <A.MAIL@A-DOMAIN.COM>] 250 2.1.0 OK 49949pbsd8sm241c.36
+Mon, 18 Jun 2012 22:04:20 +0700	[SET RECIPIENT TO: <ANOTHER.MAIL@ANOTHER-DOMAIN.COM>] Error Response
+Mon, 18 Jun 2012 22:04:20 +0700	[SET RECIPIENT TO: <ANOTHER.MAIL2@ANOTHER-DOMAIN.COM>] Error Response
+Mon, 18 Jun 2012 22:04:20 +0700	[SET CC TO: <ANOTHER.MAIL3@ANOTHER-DOMAIN.COM>] Error Response
+Mon, 18 Jun 2012 22:04:20 +0700	[SET BCC TO: <ANOTHER.MAIL4@ANOTHER-DOMAIN.COM>] Error Response
+Mon, 18 Jun 2012 22:04:20 +0700	[DATA - GET ATTACHMENT FILE] Attempting to get attachment file ...
+Mon, 18 Jun 2012 22:04:20 +0700	[DATA - UPLOAD ATTACHMENT FILE] Success: File docs/image.png has been uploaded
+Mon, 18 Jun 2012 22:04:20 +0700	[DATA - UPLOAD ATTACHMENT FILE] Success: File docs/file.pdf has been uploaded
+Mon, 18 Jun 2012 22:04:20 +0700	[DATA - UPLOAD ATTACHMENT FILE] Success: File docs/file.txt has been uploaded
+Mon, 18 Jun 2012 22:04:20 +0700	[DATA - GENERATE] Attempting to generate mail data ...
+Mon, 18 Jun 2012 22:04:20 +0700	[DATA - GENERATE ATTACHMENT FILE] Attempting to generate attachment file ...
+Mon, 18 Jun 2012 22:04:20 +0700	[DATA - GENERATE ATTACHMENT FILE] Success: File image.png (42.47 KB) has been generated
+Mon, 18 Jun 2012 22:04:20 +0700	[DATA - GENERATE ATTACHMENT FILE] Success: File file.pdf (24.34 KB) has been generated
+Mon, 18 Jun 2012 22:04:20 +0700	[DATA - GENERATE ATTACHMENT FILE] Success: File file.txt (619 B) has been generated
+Mon, 18 Jun 2012 22:04:20 +0700	[DATA - INCLUDE ATTACHMENT FILE] Attempting to include attachment file ...
+Mon, 18 Jun 2012 22:04:20 +0700	[DATA - INCLUDE ATTACHMENT FILE] Success: File image.png has been included
+Mon, 18 Jun 2012 22:04:20 +0700	[DATA - INCLUDE ATTACHMENT FILE] Success: File file.pdf has been included
+Mon, 18 Jun 2012 22:04:20 +0700	[DATA - INCLUDE ATTACHMENT FILE] Success: File file.txt has been included
+Mon, 18 Jun 2012 22:04:20 +0700	[DATA - GENERATE] Success: Mail data has been generated
+Mon, 18 Jun 2012 22:04:20 +0700	[DATA - CHECK] Error Response
+Mon, 18 Jun 2012 22:04:20 +0700	[DATA - SEND] Error Response
+Mon, 18 Jun 2012 22:04:20 +0700	[MAIL STAT] Failed: Message 14590835256bccb17ef8716d67f42174 is not sent
+Mon, 18 Jun 2012 22:04:20 +0700	[QUIT] Error Response
+Mon, 18 Jun 2012 22:04:20 +0700	[CLOSED] Connection has been closed
+
+End Transmission
+ID: 14590835256bccb17ef8716d67f42174
+Finish Time: Mon, 18 Jun 2012 22:04:20 +0700
+
+--------------------------------------------------
+

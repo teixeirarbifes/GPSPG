@@ -1,0 +1,144 @@
+@import url(fontawesome-all.min.css);
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,400italic,600italic|Roboto+Slab:400,700");
+.alert_error {
+  padding: 5px;
+  background-color: #a33c35; /* Red */
+  color: white;
+  margin-bottom: 15px;
+}
+
+.alert_warning {
+  padding: 5px;
+  background-color: #9e943c; /* Red */
+  color: white;
+  margin-bottom: 15px;
+}
+
+.alert_info {
+  padding: 5px;
+  background-color: #1a7030; /* Red */
+  color: white;
+  margin-bottom: 15px;
+}
+
+
+
+/* The close button */
+.closebtn_top {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.closebtn_top:hover {
+  color: black;
+  cursor: pointer;
+}
+
+.centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 5 Columns */
+
+.col-xs-5,
+.col-sm-5,
+.col-md-5,
+.col-lg-5 {
+    position: relative;
+    min-height: 1px;
+    padding-right: 10px;
+    padding-left: 10px;
+    width: 50%;
+}
+
+.col-xs-5 {
+    width: 30%;
+    float: left;
+}
+@media (min-width: 768px) {
+    .col-sm-5 {
+        width: 30%;
+        float: left;
+    }
+}
+@media (min-width: 992px) {
+    .col-md-5 {
+        width: 30%;
+        float: left;
+    }
+}
+@media (min-width: 1200px) {
+    .col-lg-5 {
+        width: 30%;
+        float: left;
+    }
+}
+
+input.field-with-error  {
+  border: 1px solid red !important;
+}
+
+div.field-with-error  {
+  border: 1px solid red !important;
+}
+
+span.msg_error{
+  color:red !important;
+  font-size:10px !important;
+  font-weight:bold !important;
+}
+
+.dialog-loading-wrapper {
+background: none repeat scroll 0 0 rgba(234, 241, 208, 0.815);
+border: 2mm ridge;
+left : 50%;
+top : 50%;
+position : fixed;
+z-index: 9999999;
+width : 350px;
+margin-left : -175px;
+margin-top : -150px;
+}
+
+/* Container */
+.container_photo{
+  margin: 0 auto;
+  border: 0px solid black;
+  width: 50%;
+  height: 250px;
+  border-radius: 3px;
+  background-color: ghostwhite;
+  text-align: center;
+}
+/* Preview */
+.preview_photo{
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+  margin: 0 auto;
+  background: white;
+}
+
+.preview img{
+  display: none;
+}
+/* Button */
+.button_photo{
+  border: 0px;
+  background-color: deepskyblue;
+  color: white;
+  padding: 5px 15px;
+  margin-left: 10px;
+}
+.sidebar-icon-only .descricao{
+      display: none;
+}

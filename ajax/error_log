@@ -1,0 +1,110 @@
+[14-Oct-2021 05:09:05 UTC] PHP Notice:  Constant S already defined in /home/gemadne2/gpspg/conf.php on line 4
+[14-Oct-2021 05:09:05 UTC] PHP Notice:  Constant GPATH already defined in /home/gemadne2/gpspg/conf.php on line 7
+[14-Oct-2021 05:09:05 UTC] PHP Notice:  Undefined variable: _SESSION in /home/gemadne2/gpspg/controller/controller.php on line 5
+[14-Oct-2021 05:09:05 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/gemadne2/gpspg/controller/controller.php on line 5
+[14-Oct-2021 05:15:02 UTC] PHP Notice:  Constant S already defined in /home/gemadne2/gpspg/conf.php on line 4
+[14-Oct-2021 05:15:02 UTC] PHP Notice:  Constant GPATH already defined in /home/gemadne2/gpspg/conf.php on line 7
+[14-Oct-2021 05:15:02 UTC] PHP Notice:  Undefined variable: _SESSION in /home/gemadne2/gpspg/controller/controller.php on line 5
+[14-Oct-2021 05:15:02 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/gemadne2/gpspg/controller/controller.php on line 5
+[14-Oct-2021 05:15:44 UTC] PHP Notice:  Constant S already defined in /home/gemadne2/gpspg/conf.php on line 4
+[14-Oct-2021 05:15:44 UTC] PHP Notice:  Constant GPATH already defined in /home/gemadne2/gpspg/conf.php on line 7
+[14-Oct-2021 05:15:44 UTC] PHP Notice:  Undefined variable: _SESSION in /home/gemadne2/gpspg/controller/controller.php on line 5
+[14-Oct-2021 05:15:44 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/gemadne2/gpspg/controller/controller.php on line 5
+[14-Oct-2021 05:15:57 UTC] PHP Notice:  Constant S already defined in /home/gemadne2/gpspg/conf.php on line 4
+[14-Oct-2021 05:15:57 UTC] PHP Notice:  Constant GPATH already defined in /home/gemadne2/gpspg/conf.php on line 7
+[14-Oct-2021 05:15:57 UTC] PHP Notice:  Undefined variable: _SESSION in /home/gemadne2/gpspg/controller/controller.php on line 5
+[14-Oct-2021 05:15:57 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/gemadne2/gpspg/controller/controller.php on line 5
+[14-Oct-2021 05:35:08 UTC] PHP Notice:  Constant S already defined in /home/gemadne2/gpspg/conf.php on line 4
+[14-Oct-2021 05:35:08 UTC] PHP Notice:  Constant GPATH already defined in /home/gemadne2/gpspg/conf.php on line 7
+[14-Oct-2021 05:35:08 UTC] PHP Notice:  Undefined variable: _SESSION in /home/gemadne2/gpspg/controller/controller.php on line 5
+[14-Oct-2021 05:35:08 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/gemadne2/gpspg/controller/controller.php on line 5
+[14-Oct-2021 05:35:59 UTC] PHP Notice:  Constant S already defined in /home/gemadne2/gpspg/conf.php on line 4
+[14-Oct-2021 05:35:59 UTC] PHP Notice:  Constant GPATH already defined in /home/gemadne2/gpspg/conf.php on line 7
+[14-Oct-2021 05:35:59 UTC] PHP Notice:  Undefined variable: _SESSION in /home/gemadne2/gpspg/controller/controller.php on line 5
+[14-Oct-2021 05:35:59 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/gemadne2/gpspg/controller/controller.php on line 5
+[14-Oct-2021 09:06:58 UTC] PHP Notice:  Constant S already defined in /home/gemadne2/gpspg/conf.php on line 4
+[14-Oct-2021 09:06:58 UTC] PHP Notice:  Constant GPATH already defined in /home/gemadne2/gpspg/conf.php on line 7
+[14-Oct-2021 09:06:58 UTC] PHP Notice:  Undefined variable: _SESSION in /home/gemadne2/gpspg/controller/controller.php on line 5
+[14-Oct-2021 09:06:58 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/gemadne2/gpspg/controller/controller.php on line 5
+[14-Oct-2021 09:06:58 UTC] PHP Notice:  Undefined index: id_user in /home/gemadne2/gpspg/utils/validation.php on line 59
+[14-Oct-2021 09:06:58 UTC] PHP Notice:  Undefined index: id_user in /home/gemadne2/gpspg/utils/validation.php on line 60
+[14-Oct-2021 09:07:05 UTC] PHP Notice:  Constant S already defined in /home/gemadne2/gpspg/conf.php on line 4
+[14-Oct-2021 09:07:05 UTC] PHP Notice:  Constant GPATH already defined in /home/gemadne2/gpspg/conf.php on line 7
+[14-Oct-2021 09:07:05 UTC] PHP Notice:  Undefined variable: _SESSION in /home/gemadne2/gpspg/controller/controller.php on line 5
+[14-Oct-2021 09:07:05 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/gemadne2/gpspg/controller/controller.php on line 5
+[14-Oct-2021 09:07:05 UTC] PHP Notice:  Undefined index: id_user in /home/gemadne2/gpspg/utils/validation.php on line 59
+[14-Oct-2021 09:07:05 UTC] PHP Notice:  Undefined index: id_user in /home/gemadne2/gpspg/utils/validation.php on line 60
+[14-Oct-2021 09:07:23 UTC] PHP Notice:  Constant S already defined in /home/gemadne2/gpspg/conf.php on line 4
+[14-Oct-2021 09:07:23 UTC] PHP Notice:  Constant GPATH already defined in /home/gemadne2/gpspg/conf.php on line 7
+[14-Oct-2021 09:07:23 UTC] PHP Notice:  Undefined variable: _SESSION in /home/gemadne2/gpspg/controller/controller.php on line 5
+[14-Oct-2021 09:07:23 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/gemadne2/gpspg/controller/controller.php on line 5
+[14-Oct-2021 09:07:23 UTC] PHP Notice:  Undefined index: id_user in /home/gemadne2/gpspg/utils/validation.php on line 59
+[14-Oct-2021 09:07:23 UTC] PHP Notice:  Undefined index: id_user in /home/gemadne2/gpspg/utils/validation.php on line 60
+[14-Oct-2021 09:09:05 UTC] PHP Notice:  Constant S already defined in /home/gemadne2/gpspg/conf.php on line 4
+[14-Oct-2021 09:09:05 UTC] PHP Notice:  Constant GPATH already defined in /home/gemadne2/gpspg/conf.php on line 7
+[14-Oct-2021 09:09:05 UTC] PHP Notice:  Undefined variable: _SESSION in /home/gemadne2/gpspg/controller/controller.php on line 5
+[14-Oct-2021 09:09:05 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/gemadne2/gpspg/controller/controller.php on line 5
+[14-Oct-2021 09:09:05 UTC] PHP Notice:  Undefined index: id_user in /home/gemadne2/gpspg/utils/validation.php on line 59
+[14-Oct-2021 09:09:05 UTC] PHP Notice:  Undefined index: id_user in /home/gemadne2/gpspg/utils/validation.php on line 60
+[14-Oct-2021 09:09:05 UTC] PHP Warning:  A non-numeric value encountered in /home/gemadne2/gpspg/utils/validation.php on line 289
+[14-Oct-2021 09:09:05 UTC] PHP Notice:  Undefined offset: 1 in /home/gemadne2/gpspg/utils/validation.php on line 289
+[14-Oct-2021 09:09:05 UTC] PHP Notice:  Undefined offset: 2 in /home/gemadne2/gpspg/utils/validation.php on line 289
+[14-Oct-2021 09:09:05 UTC] PHP Notice:  Undefined offset: 3 in /home/gemadne2/gpspg/utils/validation.php on line 289
+[14-Oct-2021 09:09:05 UTC] PHP Notice:  Undefined offset: 4 in /home/gemadne2/gpspg/utils/validation.php on line 289
+[14-Oct-2021 09:09:05 UTC] PHP Notice:  Undefined offset: 5 in /home/gemadne2/gpspg/utils/validation.php on line 289
+[14-Oct-2021 09:09:05 UTC] PHP Notice:  Undefined offset: 6 in /home/gemadne2/gpspg/utils/validation.php on line 289
+[14-Oct-2021 09:09:05 UTC] PHP Notice:  Undefined offset: 7 in /home/gemadne2/gpspg/utils/validation.php on line 289
+[14-Oct-2021 09:09:05 UTC] PHP Notice:  Undefined offset: 8 in /home/gemadne2/gpspg/utils/validation.php on line 289
+[14-Oct-2021 09:09:05 UTC] PHP Warning:  A non-numeric value encountered in /home/gemadne2/gpspg/utils/validation.php on line 305
+[14-Oct-2021 09:09:05 UTC] PHP Notice:  Undefined offset: 1 in /home/gemadne2/gpspg/utils/validation.php on line 305
+[14-Oct-2021 09:09:05 UTC] PHP Notice:  Undefined offset: 2 in /home/gemadne2/gpspg/utils/validation.php on line 305
+[14-Oct-2021 09:09:05 UTC] PHP Notice:  Undefined offset: 3 in /home/gemadne2/gpspg/utils/validation.php on line 305
+[14-Oct-2021 09:09:05 UTC] PHP Notice:  Undefined offset: 4 in /home/gemadne2/gpspg/utils/validation.php on line 305
+[14-Oct-2021 09:09:05 UTC] PHP Notice:  Undefined offset: 5 in /home/gemadne2/gpspg/utils/validation.php on line 305
+[14-Oct-2021 09:09:05 UTC] PHP Notice:  Undefined offset: 6 in /home/gemadne2/gpspg/utils/validation.php on line 305
+[14-Oct-2021 09:09:05 UTC] PHP Notice:  Undefined offset: 7 in /home/gemadne2/gpspg/utils/validation.php on line 305
+[14-Oct-2021 09:09:05 UTC] PHP Notice:  Undefined offset: 8 in /home/gemadne2/gpspg/utils/validation.php on line 305
+[14-Oct-2021 09:09:12 UTC] PHP Notice:  Constant S already defined in /home/gemadne2/gpspg/conf.php on line 4
+[14-Oct-2021 09:09:12 UTC] PHP Notice:  Constant GPATH already defined in /home/gemadne2/gpspg/conf.php on line 7
+[14-Oct-2021 09:09:12 UTC] PHP Notice:  Undefined variable: _SESSION in /home/gemadne2/gpspg/controller/controller.php on line 5
+[14-Oct-2021 09:09:12 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/gemadne2/gpspg/controller/controller.php on line 5
+[14-Oct-2021 09:09:12 UTC] PHP Notice:  Undefined index: id_user in /home/gemadne2/gpspg/utils/validation.php on line 59
+[14-Oct-2021 09:09:12 UTC] PHP Notice:  Undefined index: id_user in /home/gemadne2/gpspg/utils/validation.php on line 60
+[14-Oct-2021 09:09:18 UTC] PHP Notice:  Constant S already defined in /home/gemadne2/gpspg/conf.php on line 4
+[14-Oct-2021 09:09:18 UTC] PHP Notice:  Constant GPATH already defined in /home/gemadne2/gpspg/conf.php on line 7
+[14-Oct-2021 09:09:18 UTC] PHP Notice:  Undefined variable: _SESSION in /home/gemadne2/gpspg/controller/controller.php on line 5
+[14-Oct-2021 09:09:18 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/gemadne2/gpspg/controller/controller.php on line 5
+[14-Oct-2021 09:09:18 UTC] PHP Notice:  Undefined index: id_user in /home/gemadne2/gpspg/utils/validation.php on line 59
+[14-Oct-2021 09:09:18 UTC] PHP Notice:  Undefined index: id_user in /home/gemadne2/gpspg/utils/validation.php on line 60
+[14-Oct-2021 20:44:19 UTC] PHP Notice:  Constant S already defined in /home/gemadne2/gpspg/conf.php on line 4
+[14-Oct-2021 20:44:19 UTC] PHP Notice:  Constant GPATH already defined in /home/gemadne2/gpspg/conf.php on line 7
+[14-Oct-2021 20:44:19 UTC] PHP Notice:  Undefined variable: _SESSION in /home/gemadne2/gpspg/controller/controller.php on line 5
+[14-Oct-2021 20:44:19 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/gemadne2/gpspg/controller/controller.php on line 5
+[14-Oct-2021 20:44:25 UTC] PHP Notice:  Constant S already defined in /home/gemadne2/gpspg/conf.php on line 4
+[14-Oct-2021 20:44:25 UTC] PHP Notice:  Constant GPATH already defined in /home/gemadne2/gpspg/conf.php on line 7
+[14-Oct-2021 20:44:25 UTC] PHP Notice:  Undefined variable: _SESSION in /home/gemadne2/gpspg/controller/controller.php on line 5
+[14-Oct-2021 20:44:25 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/gemadne2/gpspg/controller/controller.php on line 5
+[14-Oct-2021 20:53:03 UTC] PHP Notice:  Constant S already defined in /home/gemadne2/gpspg/conf.php on line 4
+[14-Oct-2021 20:53:03 UTC] PHP Notice:  Constant GPATH already defined in /home/gemadne2/gpspg/conf.php on line 7
+[14-Oct-2021 20:53:03 UTC] PHP Notice:  Undefined variable: _SESSION in /home/gemadne2/gpspg/controller/controller.php on line 5
+[14-Oct-2021 20:53:03 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/gemadne2/gpspg/controller/controller.php on line 5
+[14-Oct-2021 20:53:56 UTC] PHP Notice:  Constant S already defined in /home/gemadne2/gpspg/conf.php on line 4
+[14-Oct-2021 20:53:56 UTC] PHP Notice:  Constant GPATH already defined in /home/gemadne2/gpspg/conf.php on line 7
+[14-Oct-2021 20:53:56 UTC] PHP Notice:  Undefined variable: _SESSION in /home/gemadne2/gpspg/controller/controller.php on line 5
+[14-Oct-2021 20:53:56 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/gemadne2/gpspg/controller/controller.php on line 5
+[14-Oct-2021 20:54:12 UTC] PHP Notice:  Constant S already defined in /home/gemadne2/gpspg/conf.php on line 4
+[14-Oct-2021 20:54:12 UTC] PHP Notice:  Constant GPATH already defined in /home/gemadne2/gpspg/conf.php on line 7
+[14-Oct-2021 20:54:12 UTC] PHP Notice:  Undefined variable: _SESSION in /home/gemadne2/gpspg/controller/controller.php on line 5
+[14-Oct-2021 20:54:12 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/gemadne2/gpspg/controller/controller.php on line 5
+[14-Oct-2021 21:55:11 UTC] PHP Notice:  Constant S already defined in /home/gemadne2/gpspg/conf.php on line 4
+[14-Oct-2021 21:55:11 UTC] PHP Notice:  Constant GPATH already defined in /home/gemadne2/gpspg/conf.php on line 7
+[14-Oct-2021 21:55:11 UTC] PHP Notice:  Undefined variable: _SESSION in /home/gemadne2/gpspg/controller/controller.php on line 5
+[14-Oct-2021 21:55:11 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/gemadne2/gpspg/controller/controller.php on line 5
+[25-Oct-2021 00:23:36 UTC] PHP Notice:  Constant S already defined in /home/gemadne2/gpspg/conf.php on line 4
+[25-Oct-2021 00:23:36 UTC] PHP Notice:  Constant GPATH already defined in /home/gemadne2/gpspg/conf.php on line 7
+[25-Oct-2021 00:23:36 UTC] PHP Notice:  Undefined variable: _SESSION in /home/gemadne2/gpspg/controller/controller.php on line 5
+[25-Oct-2021 00:23:36 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/gemadne2/gpspg/controller/controller.php on line 5
+[25-Oct-2021 00:23:41 UTC] PHP Notice:  Constant S already defined in /home/gemadne2/gpspg/conf.php on line 4
+[25-Oct-2021 00:23:41 UTC] PHP Notice:  Constant GPATH already defined in /home/gemadne2/gpspg/conf.php on line 7
+[25-Oct-2021 00:23:41 UTC] PHP Notice:  Undefined variable: _SESSION in /home/gemadne2/gpspg/controller/controller.php on line 5
+[25-Oct-2021 00:23:41 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/gemadne2/gpspg/controller/controller.php on line 5
