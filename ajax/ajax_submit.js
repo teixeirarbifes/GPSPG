@@ -182,6 +182,7 @@ function ChangeUrl(title, url) {
 }
  
  function result_ajax(data,destino,loading=true,sobe = true){
+    if(sobe) $('.sidebar-offcanvas').removeClass('active');
     data = data.trim();
     if(data.substr(-6) == 'reload'){
         window.location.replace('/');

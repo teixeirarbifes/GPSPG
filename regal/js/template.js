@@ -73,12 +73,16 @@
       }
     }
 
-    $('[data-toggle="minimize"]').on("click", function() {
+    function minimize_menu(){  
       if ((body.hasClass('sidebar-toggle-display')) || (body.hasClass('sidebar-absolute'))) {
         body.toggleClass('sidebar-hidden');
       } else {
         body.toggleClass('sidebar-icon-only');
       }
+    }
+
+    $('[data-toggle="minimize"]').on("click", function() {
+      minimize_menu();
     });
 
     //checkbox and radios

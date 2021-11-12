@@ -194,9 +194,7 @@ ob_start();
               </div>
             </div>
           </li>
-        </ul>
-        
-           				  teste				
+        </ul>	
 
         </ul>
         
@@ -209,7 +207,7 @@ ob_start();
                     <a onclick="go_link('/?controller=usuarioscontroller&method=form_login');" style="cursor:pointer" class="dropdown-item preview-item">
                         <i class="icon-inbox"></i> Login
                     </a>
-                    <a style="cursor:pointer" class="dropdown-item preview-item" href="mailto:suporte@gpspg.gemad.net"  onclicka="go_link('/?controller=usuarioscontroller&method=sair');"><i class="icon-mail"></i>Contato</a>
+                    <!--a style="cursor:pointer" class="dropdown-item preview-item" href="mailto:suporte@gpspg.gemad.net"  onclicka="go_link('/?controller=usuarioscontroller&method=sair');"><i class="icon-mail"></i>Contato</a-->
                   </li>    
             <?php }else{ ?>
 
