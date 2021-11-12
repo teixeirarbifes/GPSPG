@@ -139,7 +139,8 @@ ob_start();
     <script src="/assets/function.js"></script>
 		<script src="/assets/js/captcha.js"></script>
 		<script src="/ajax/ajax_submit.js?v=<?php echo date('H:i:s');?>"></script>
-		<script src="https://cdn.tiny.cloud/1/l5hr79dltkjldhpincf3rzg93ch5tz7yjblanibpzinyjize/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>	
+		<script src="https://cdn.tiny.cloud/1/l5hr79dltkjldhpincf3rzg93ch5tz7yjblanibpzinyjize/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <link rel="stylesheet" href="https://unpkg.com/balloon-css/balloon.min.css">	
 
 
   <link rel="shortcut icon" href="images/favicon.png" />

@@ -82,7 +82,6 @@ function validar_upload(form,classe,sobe=true){
 
 var xhr = 3;
 function validar(form, classe,dados = null,sobe=true){
-    alert('validar '+form);
     display_modal_loading('Validando formulário...');
     display_modal_loading_before();
     $('.msg_error').html('');

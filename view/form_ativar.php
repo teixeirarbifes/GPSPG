@@ -22,13 +22,20 @@
                     <div class="form-group">
                         <label for="key">Digite o seu código de validação:</label>
                         <input type="text" class="form-control" id="key" placeholder="Digite o código..." name="key"
-                        value="<?=isset($_GET["key"]) ? $_GET["key"] : ""?>">
+                        value="<?=isset($_GET["key"]) ? $_GET["key"] : ""?>"></br>
+                        <b>O código de validação é enviado para o e-mail de cadastro.</b></br>
                     </div>
                     <div class="form-group">
                     <h3>Criação de nova senha</h3>
                     <p class="description"><span style="color:red">Nesse ato da validação da sua conta, defina sua senha.</span></p>
                     </div>
                     <!-- Input fields -->
+                    A senha deve ter de 8 a 20 caracteres com, pelo menos:</br>
+                    * uma letra maiúscula</br>
+                    * uma letra minúscula</br>
+                    * um número de 0 a 9</br>
+                    * um caractere especial @ $ ! % * ? &</br></br>
+
                     <div class="form-group">
                         <label for="txt_senha">Digite sua senha:</label>
                         <input type="password" class="form-control password" id="txt_senha" placeholder="Digite sua senha..." name="txt_senha">
