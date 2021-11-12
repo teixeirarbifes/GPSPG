@@ -1,7 +1,5 @@
-    <br/><br/><br/>
         <div class="row justify-content-center">
-            <div class="container" style="max-width:500px;width:100%;">
-                </br></br>
+            <div class=".container border p-2 " style="max-width:500px;width:100%;">
                 <form id=form class="form-horizontal" action="/?controller=usuarioscontroller&method=ativar_conta" method="post" >    
                 <div class=row>
                 <div id=display_erro class="alert alert-danger display-error" style="display: none">
@@ -11,7 +9,7 @@
 
                     <div class="form-group">
                     <h1>Validação da sua conta</h1>
-                    <p class="description">Sua conta precisa ser validada para gerar sua senha.</p>
+                    <p class="description" style="color:red">Sua conta precisa ser validada para gerar sua senha.</p>
                     </div>
                     <!-- Input fields -->
                     <div class="form-group">
@@ -23,7 +21,8 @@
                         <label for="key">Digite o seu código de validação:</label>
                         <input type="text" class="form-control" id="key" placeholder="Digite o código..." name="key"
                         value="<?=isset($_GET["key"]) ? $_GET["key"] : ""?>"></br>
-                        <b>O código de validação é enviado para o e-mail de cadastro.</b></br>
+                        <b>O código de validação é enviado para o e-mail de cadastro.</b></br></br>
+                        <a class="btn btn-warning" style="cursor:pointer;padding-left: 6px;padding-top: 6px;padding-right: 6px;padding-bottom: 6px;cursor:pointer" onclick="go_link('?controller=usuarioscontroller&method=form_recuperar');"><font color=black>Reenviar e-mail com o código.</font></a>
                     </div>
                     <div class="form-group">
                     <h3>Criação de nova senha</h3>
@@ -45,7 +44,10 @@
                         <input type="password" class="form-control password" id="txt_senha2" placeholder="Digite novamente sua senha..." name="txt_senha2">
                     </div>
                     <a class="btn btn-success" onclick="validar('form','ativar');"><font color=black>Validar conta</font></a>
-                    <a class="btn btn-secondary" onclick="$('#form').clear();"><font color=black>Limpar</font></a>
+                    <a class="btn btn-secondary" onclick="go_link('/?controller=usuarioscontroller&method=form_login');"><font color=black>Cancelar</font></a>
+
+                    
+
                     <input type="hidden" name="validar" id="validar" value="1" />
                     <!-- End input fields -->
                 <!-- Form end -->
