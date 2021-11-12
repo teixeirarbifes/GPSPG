@@ -187,12 +187,13 @@ ob_start();
         </br>
         
         <?php if(!UsuariosController::is_logged()){ ?>
-              <a onclick="go_link('/?controller=usuarioscontroller&method=registrar1');" style="cursor:pointer" >
-                <i class="icon-head"></i> Registrar novo usuário
-            </a> | 
-            <a onclick="go_link('/?controller=usuarioscontroller&method=form_login');" style="cursor:pointer">
+          <a onclick="go_link('/?controller=usuarioscontroller&method=form_login');" style="cursor:pointer">
                 <i class="icon-inbox"></i> Acessar o sistema
+            </a> | 
+            <a onclick="go_link('/?controller=usuarioscontroller&method=registrar1');" style="cursor:pointer" >
+                <i class="icon-head"></i> Novo Cadastro
             </a>
+
             <?php }else{?>
               <a style="cursor:pointer" onclick="go_link('/?controller=usuarioscontroller&method=form_perfil	');"><i class="icon-head"></i> Perfil de Usuário</span></a> | 
               <a style="cursor:pointer" onclick="go_link('/?controller=usuarioscontroller&method=alterar_senha');"><i class="icon-repeat"></i> Alterar senha</a> | 
