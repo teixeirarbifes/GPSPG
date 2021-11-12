@@ -197,7 +197,7 @@ ob_start();
                 <i class="icon-inbox"></i> Acessar o sistema
             </a>
             <?php }else{?>
-              <a style="cursor:pointer" onclick="go_link('/?controller=usuarioscontroller&method=form_perfil	');"><i class="icon-head"></i> Perfil de Usuário</span></a> | 
+              <a style="cursor:pointer" onclick="go_link('/?controller=usuarioscontroller&method=form_perfil	');"><i class="icon-head"></i> Perfil</span></a> | 
               <a style="cursor:pointer" onclick="go_link('/?controller=usuarioscontroller&method=alterar_senha');"><i class="icon-repeat"></i> Alterar senha</a> | 
               <a style="cursor:pointer" onclick="go_link('/?controller=usuarioscontroller&method=sair');"><i class="icon-outbox"></i> Sair</a> 
             <?php } ?>
