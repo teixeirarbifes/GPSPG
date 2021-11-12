@@ -168,7 +168,6 @@ ob_start();
 				}
 			}
 		</script>
-    teste2
   <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
@@ -180,51 +179,41 @@ ob_start();
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
           <span class="icon-menu"></span>
         </button>
-        <ul class="navbar-nav mr-lg-12">
-          <li class="nav-item nav-search d-none d-sm-none d-md-none d-lg-flex d-xs-none">
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <h5><font size=3><b><?=DESENVOLVIMENTO == 1 ? "<font color=red>DEVELOPMENT :: </font>" : ""?> Sistema de Gestão de Processos Seletivos - Pós-Graduação</b></font></h5>
-              </div>
-            </div>
-          </li>
-          <li class="nav-item nav-search d-block d-sm-block d-md-block d-lg-none d-xs-block">
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <h5><font size=3><b><?=DESENVOLVIMENTO == 1 ? "<font color=red>DEVELOPMENT :: </font>" : ""?> Sistema de Gestão de Processos Seletivos - Pós-Graduação</b></font></h5>
-              </div>
-            </div>
-          </li>
-        </ul>
-        
-           								
+        <div class="p-2">
+        <table><tr><td>
+        <font size=3><b><?=DESENVOLVIMENTO == 1 ? "<font color=red>DEVELOPMENT :: </font>" : ""?> Sistema de Gestão de Processos Seletivos - Pós-Graduação</b></font>
+        </td></tr><tr><td>
 
-        </ul>
+        </br>
         
+        <?php if(!UsuariosController::is_logged()){ ?>
+              <a onclick="go_link('/?controller=usuarioscontroller&method=registrar1');" style="cursor:pointer" >
+                <i class="icon-head"></i> Registrar novo usuário
+            </a> | 
+            <a onclick="go_link('/?controller=usuarioscontroller&method=form_login');" style="cursor:pointer">
+                <i class="icon-inbox"></i> Acessar o sistema
+            </a>
+            <?php }else{?>
+              <a style="cursor:pointer" onclick="go_link('/?controller=usuarioscontroller&method=form_perfil	');"><i class="icon-head"></i> Perfil de Usuário</span></a> | 
+              <a style="cursor:pointer" onclick="go_link('/?controller=usuarioscontroller&method=alterar_senha');"><i class="icon-repeat"></i> Alterar senha</a> | 
+              <a style="cursor:pointer" onclick="go_link('/?controller=usuarioscontroller&method=sair');"><i class="icon-outbox"></i> Sair</a> 
+            <?php } ?>
+        </td></tr></table>
+      </div>
+      
         <ul class="navbar-nav navbar-nav-right">
         <?php if(!UsuariosController::is_logged()){ ?>
-                  <li class="nav-item dropdown d-none d-sm-none d-md-none d-lg-flex d-xs-none">
-                    <a onclick="go_link('/?controller=usuarioscontroller&method=registrar1');" style="cursor:pointer" class="dropdown-item preview-item">
-                        <i class="icon-head"></i> Registrar
-                    </a>
-                    <a onclick="go_link('/?controller=usuarioscontroller&method=form_login');" style="cursor:pointer" class="dropdown-item preview-item">
-                        <i class="icon-inbox"></i> Login
-                    </a>
-                    <a style="cursor:pointer" class="dropdown-item preview-item" href="mailto:suporte@gpspg.gemad.net"  onclicka="go_link('/?controller=usuarioscontroller&method=sair');"><i class="icon-mail"></i>Contato</a>
-                  </li>    
             <?php }else{ ?>
-
-              <li class="nav-item dropdown d-flex mr-4 ">
+              <!--li class="nav-item dropdown d-flex mr-4 ">
             <a style="cursor:pointer" class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center" id="notificationDropdown" href="#" data-toggle="dropdown">
               <i class="icon-cog"></i>
             </a>            
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
-              <a style="cursor:pointer" class="dropdown-item preview-item" onclick="go_link('/?controller=usuarioscontroller&method=form_perfil	');"><i class="icon-head"></i> Perfil</span></a>												
+              <a style="cursor:pointer" class="dropdown-item preview-item" onclick="go_link('/?controller=usuarioscontroller&method=form_perfil	');"><i class="icon-head"></i> Perfil</span></a>										
               <a style="cursor:pointer" class="dropdown-item preview-item" onclick="go_link('/?controller=usuarioscontroller&method=alterar_senha');"><i class="icon-repeat"></i> Alterar senha</a>
               <a style="cursor:pointer" class="dropdown-item preview-item" onclick="go_link('/?controller=usuarioscontroller&method=sair');"><i class="icon-outbox"></i> Sair</a>
-            </div>
-            <a style="cursor:pointer" class="dropdown-item preview-item" href="mailto:suporte@gpspg.gemad.net" onclicka="go_link('/?controller=usuarioscontroller&method=sair');"><i class="icon-mail"></i>Contato</a>
-          </li>	
+            </div>            
+          </li-->	
           
           <?php } ?>
         </ul>
