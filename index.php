@@ -176,13 +176,13 @@ ob_start();
         <a class="navbar-brand brand-logo" href="/"><img src="images/logotiny.png" alt="logo"/></a>
         <a class="navbar-brand brand-logo-mini" href="/"><img src="images/simbol.png" alt="logo"/></a>
       </div>
-      <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+      <div class="navbar-menu-wrapper d-flex align-items-center">
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
           <span class="icon-menu"></span>
         </button>
 
-        <div class="p-2">
-        <table><tr><td>
+        <div class="container-fluid p-2">
+        <table style="width:100%"><tr><td>
         <font size=3><b><?=DESENVOLVIMENTO == 1 ? "<font color=red>DEVELOPMENT :: </font>" : ""?> Sistema de Gestão de Processos Seletivos - Pós-Graduação</b></font>
         </td></tr><tr><td>
 
@@ -201,28 +201,13 @@ ob_start();
               <a style="cursor:pointer;padding-left: 6px;padding-top: 3px;padding-right: 6px;padding-bottom: 3px;cursor:pointer"  class="btn btn-secondary"  onclick="go_link('/?controller=usuarioscontroller&method=alterar_senha');"><i class="icon-repeat"></i> Alterar Senha</a> 
               <a style="cursor:pointer;padding-left: 6px;padding-top: 3px;padding-right: 6px;padding-bottom: 3px;cursor:pointer"   class="btn btn-secondary"  onclick="go_link('/?controller=usuarioscontroller&method=sair');"><i class="icon-outbox"></i> Sair</a> 
             <?php } ?>
-        </td></tr></table>
-      </div>
-      
-        <ul class="navbar-nav navbar-nav-right">
-        <?php if(!UsuariosController::is_logged()){ ?>
-            <?php }else{ ?>
-              <!--li class="nav-item dropdown d-flex mr-4 ">
-            <a style="cursor:pointer" class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center" id="notificationDropdown" href="#" data-toggle="dropdown">
-              <i class="icon-cog"></i>
-            </a>            
-            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
-              <a style="cursor:pointer" class="dropdown-item preview-item" onclick="go_link('/?controller=usuarioscontroller&method=form_perfil	');"><i class="icon-head"></i> Perfil</span></a>										
-              <a style="cursor:pointer" class="dropdown-item preview-item" onclick="go_link('/?controller=usuarioscontroller&method=alterar_senha');"><i class="icon-repeat"></i> Alterar senha</a>
-              <a style="cursor:pointer" class="dropdown-item preview-item" onclick="go_link('/?controller=usuarioscontroller&method=sair');"><i class="icon-outbox"></i> Sair</a>
-            </div>            
-          </li-->	
-          
-          <?php } ?>
-        </ul>
+        </td><td>
         <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
           <span class="icon-menu"></span>
-        </button>
+        </button></td></tr></table>
+      </div>
+      
+        
       </div>
     </nav>
     <!-- partial -->
@@ -325,7 +310,7 @@ ob_start();
               <ul class="nav flex-column sub-menu">
               <?php if($controller->check_auth([4])) { ?> 
               <li class="nav-item">
-                <a class="nav-link" style="cursor:pointer" onclick="go_link('/?controller=usuarioscontroller&method=listar');"><span >
+                <a class="nav-link" href="#" style="cursor:pointer" onclick="go_link('/?controller=usuarioscontroller&method=listar');"><span >
                   <span class="menu-title">Usuários</span>
                 </a>
               </li> 
@@ -333,7 +318,7 @@ ob_start();
 
               <?php if($controller->check_auth([4])) { ?> 
               <li class="nav-item">
-                <a class="nav-link" style="cursor:pointer" onclick="go_link('/?controller=usuarioscontroller&method=listar');"><span>
+                <a class="nav-link" href="#" style="cursor:pointer" onclick="go_link('/?controller=usuarioscontroller&method=listar');"><span>
                   <span class="menu-title">Controle de Acesso</span>
                 </a>
               </li> 
@@ -341,7 +326,7 @@ ob_start();
               
               <?php if($controller->check_auth([3,4])) { ?> 
               <li class="nav-item">
-                <a class="nav-link" style="cursor:pointer" onclick="go_link('/?controller=processoscontroller&method=listar');"><span>
+                <a class="nav-link" href="#" style="cursor:pointer" onclick="go_link('/?controller=processoscontroller&method=listar');"><span>
                   <span class="menu-title">Processos</span>
                 </a>
               </li> 
@@ -349,7 +334,7 @@ ob_start();
 
               <?php if($controller->check_auth([3,4])) { ?> 
               <li class="nav-item">
-                <a class="nav-link" style="cursor:pointer" onclick="go_link('/?controller=statuscontroller&method=listar');"><span>
+                <a class="nav-link" href="#" style="cursor:pointer" onclick="go_link('/?controller=statuscontroller&method=listar');"><span>
                   <span class="menu-title">Cadastro de Status</span>
                 </a>
               </li> 
@@ -357,7 +342,7 @@ ob_start();
 
               <?php if($controller->check_auth([4])) { ?> 
               <li class="nav-item">
-                <a class="nav-link" style="cursor:pointer" onclick="go_link('/?controller=emailscontroller&method=listar');"><span>
+                <a class="nav-link" href="#" style="cursor:pointer" onclick="go_link('/?controller=emailscontroller&method=listar');"><span>
                   <span class="menu-title">Log de Emails</span>
                 </a>
               </li> 
