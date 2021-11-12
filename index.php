@@ -179,21 +179,22 @@ ob_start();
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
           <span class="icon-menu"></span>
         </button>
+
         <div class="p-2">
         <table><tr><td>
         <font size=3><b><?=DESENVOLVIMENTO == 1 ? "<font color=red>DEVELOPMENT :: </font>" : ""?> Sistema de Gestão de Processos Seletivos - Pós-Graduação</b></font>
         </td></tr><tr><td>
 
+
         </br>
         
         <?php if(!UsuariosController::is_logged()){ ?>
-          <a onclick="go_link('/?controller=usuarioscontroller&method=form_login');" style="cursor:pointer">
-                <i class="icon-inbox"></i> Acessar o sistema
+              <a onclick="go_link('/?controller=usuarioscontroller&method=registrar1');" style="cursor:pointer" >
+                <i class="icon-head"></i> Registrar novo usuário
             </a> | 
-            <a onclick="go_link('/?controller=usuarioscontroller&method=registrar1');" style="cursor:pointer" >
-                <i class="icon-head"></i> Novo Cadastro
+            <a onclick="go_link('/?controller=usuarioscontroller&method=form_login');" style="cursor:pointer">
+                <i class="icon-inbox"></i> Acessar o sistema
             </a>
-
             <?php }else{?>
               <a style="cursor:pointer" onclick="go_link('/?controller=usuarioscontroller&method=form_perfil	');"><i class="icon-head"></i> Perfil de Usuário</span></a> | 
               <a style="cursor:pointer" onclick="go_link('/?controller=usuarioscontroller&method=alterar_senha');"><i class="icon-repeat"></i> Alterar senha</a> | 
