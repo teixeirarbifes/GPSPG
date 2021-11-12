@@ -190,16 +190,16 @@ ob_start();
         </br>
         
         <?php if(!UsuariosController::is_logged()){ ?>
-              <a onclick="go_link('/?controller=usuarioscontroller&method=registrar1');" style="cursor:pointer" >
-                <i class="icon-head"></i> Registrar novo usuário
-            </a> | 
-            <a onclick="go_link('/?controller=usuarioscontroller&method=form_login');" style="cursor:pointer">
-                <i class="icon-inbox"></i> Acessar o sistema
+              <a style="color:black;cursor:pointer;padding-left: 6px;padding-top: 3px;padding-right: 6px;padding-bottom: 3px;cursor:pointer" class="btn btn-success" onclick="go_link('/?controller=usuarioscontroller&method=registrar1');"  >
+                <i class="icon-head"></i> Registrar-se!
+            </a> 
+            <a style="cursor:pointer;padding-left: 6px;padding-top: 3px;padding-right: 6px;padding-bottom: 3px;cursor:pointer" class="btn btn-secondary"  onclick="go_link('/?controller=usuarioscontroller&method=form_login');">
+                <i class="icon-inbox"></i> Acessar
             </a>
             <?php }else{?>
-              <a style="cursor:pointer" onclick="go_link('/?controller=usuarioscontroller&method=form_perfil	');"><i class="icon-head"></i> Perfil de Usuário</span></a> | 
-              <a style="cursor:pointer" onclick="go_link('/?controller=usuarioscontroller&method=alterar_senha');"><i class="icon-repeat"></i> Alterar senha</a> | 
-              <a style="cursor:pointer" onclick="go_link('/?controller=usuarioscontroller&method=sair');"><i class="icon-outbox"></i> Sair</a> 
+              <a style="cursor:pointer;padding-left: 6px;padding-top: 3px;padding-right: 6px;padding-bottom: 3px;cursor:pointer"  class="btn btn-secondary"  onclick="go_link('/?controller=usuarioscontroller&method=form_perfil	');"><i class="icon-head"></i> Perfil</span></a> 
+              <a style="cursor:pointer;padding-left: 6px;padding-top: 3px;padding-right: 6px;padding-bottom: 3px;cursor:pointer"  class="btn btn-secondary"  onclick="go_link('/?controller=usuarioscontroller&method=alterar_senha');"><i class="icon-repeat"></i> Alterar Senha</a> 
+              <a style="cursor:pointer;padding-left: 6px;padding-top: 3px;padding-right: 6px;padding-bottom: 3px;cursor:pointer"   class="btn btn-secondary"  onclick="go_link('/?controller=usuarioscontroller&method=sair');"><i class="icon-outbox"></i> Sair</a> 
             <?php } ?>
         </td></tr></table>
       </div>
@@ -279,8 +279,8 @@ ob_start();
             </a>
           </li> 
           <?php }else{ ?> 
-            <li class="nav-item">
-            <a class="nav-link" href="#" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+            <!--li class="nav-item">
+            <a class="nav-link" href="#ui-basic" data-toggle="collapse" aria-expanded="false" aria-controls="ui-basic">
               <i class="icon-disc menu-icon" style="color:black"></i>
               <span class="menu-title" style="color:black">Usuário</span>
               <i class="menu-arrow"></i>
@@ -307,7 +307,7 @@ ob_start();
 
             </ul>
             </div>
-            </li>    
+            </li-->    
           <?php } ?>	
 
       

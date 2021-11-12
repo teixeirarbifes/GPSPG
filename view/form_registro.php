@@ -35,9 +35,8 @@
                     </div>
 
                     <input type="hidden" name="logando" id="logando" value="1" />
-                    <a class="btn btn-success" onclick="validar('form','registro1');"><font color=black>Entrar</font></a>
-                    <a class="btn btn-secondary" onclick="$('#form').clear();"><font color=black>Limpar</font></a>
-                    <a class="btn btn-danger" onclick="go_link('?controller=homecontroller&method=home');">Cancelar</a>
+                    <a class="btn btn-success" onclick="validar('form','registro1');"><font color=black>Solicitar registro</font></a>
+                    <a class="btn btn-secondary" onclick="go_link('/?controller=usuarioscontroller&method=form_login');">Já sou registrado!</a>
                     <!-- End input fields -->
                 <!-- Form end -->
         </div>
