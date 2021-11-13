@@ -10,9 +10,9 @@
     <span width=100% style="text-align: center;" id="content"></span>
     </br>
     <div class="row" style="justify-content: center;"> 
-    <a id="bt_acao1" class="btn btn-danger btn-sm"><font color=white><span id="acao1"></span></font></a>    
+    <a id="bt_acao1" class="btn btn-sm btn-danger"><font color=white><span id="acao1"></span></font></a>    
     &nbsp;
-    <a id="bt_acao2" class="btn btn-primary btn-sm"><font color=white><span id="acao2"></span></font></a>
+    <a id="bt_acao2" class="btn btn-sm btn-success"><font color=black><span id="acao2"></span></font></a>
     </div>
   </div>
 
@@ -48,7 +48,7 @@ var myCallback = null;
 //    alert(acao);
 //}
 
-function display_modal(txt_titulo,txt,Callback,acao1="",acao2="") {
+function display_modal(txt_titulo,txt,Callback,acao1="",acao2="",classe1="danger",classe2="success") {
   myCallback = Callback;
   titulo.innerHTML = txt_titulo;
   content.innerHTML = txt;
@@ -58,6 +58,8 @@ function display_modal(txt_titulo,txt,Callback,acao1="",acao2="") {
   bt_acao2.onclick = function(event){
     Callback(2);
   }
+  bt_acao1.setAttribute("class","btn btn-sm btn-" + classe1);
+  bt_acao2.setAttribute("class","btn btn-sm btn-" + classe2);
   txt_acao1.innerHTML = acao1;
   txt_acao2.innerHTML = acao2;
   if(acao2==""){

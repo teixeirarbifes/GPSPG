@@ -4,6 +4,8 @@ require_once(GPATH.'controller'.S.'mensageirocontroller.php');
 require_once(GPATH.'controller'.S.'usuarioscontroller.php');
 require_once(GPATH.'request'.S.'session.php');
 
+setlocale(LC_ALL, 'pt_BR.utf-8', 'portuguese');
+date_default_timezone_set('America/Sao_Paulo');
 
 $data = Session::getInstance(); 
 
@@ -51,21 +53,22 @@ if(empty($txt_controller)){
 }	
 
 $result = "";
-
 if(UsuariosController::is_logged())
-if($txt_controller!=""){
-	if(!($txt_controller=="usuarioscontroller" && $txt_method=="sair") && $txt_controller!="mensageirocontroller"){		
-		if(isset($usuario->id_user)){
-			if($usuario->bl_force_change){
-				$txt_controller = "usuarioscontroller";
-				$txt_method = "alterar_senha";
-				$controller = new Controller();
-				$controller->msg('Para sua segurança, é necessário alterar a sua senha para continuar acessando o sistema.',0);
-			}
-		}
-	}
+  if(UsuariosController::primeiroacesso()){
+    $txt_controller = "usuarioscontroller";
+    $txt_method="welcome"; 
+  }else if($txt_controller!=""){
+    if(!($txt_controller=="usuarioscontroller" && $txt_method=="sair") && $txt_controller!="mensageirocontroller"){		
+      if(isset($usuario->id_user)){
+        if($usuario->bl_force_change){
+          $txt_controller = "usuarioscontroller";
+          $txt_method = "alterar_senha";
+          $controller = new Controller();
+          $controller->msg('Para sua segurança, é necessário alterar a sua senha para continuar acessando o sistema.',0);
+        }
+      }
+    }
 }
-
 
 $controller = isset($txt_controller) ? ((class_exists($txt_controller)) ? new $txt_controller : NULL ) : null;
 $method     = isset($txt_method) ? $txt_method : null;
@@ -87,7 +90,10 @@ if($method!=null && $method=='download'){
 	exit();
 }
 
+if($result!="reload")
 $msgs = (new MensageiroController())->listar_session();
+else
+$msgs = "";
 
 //if(is_numeric($request->__get('ajax')) && $request->__get('ajax')==1){
 if($ajax == 1 && (!isset($_REQUEST['noajax']) || $_REQUEST['noajax'] != 1)){
@@ -100,6 +106,7 @@ if($ajax == 1 && (!isset($_REQUEST['noajax']) || $_REQUEST['noajax'] != 1)){
   exit();
 }
 ob_start();
+#exit();
 ?>
 
 <!DOCTYPE html>
@@ -141,7 +148,7 @@ ob_start();
 		<script src="/ajax/ajax_submit.js?v=<?php echo date('H:i:s');?>"></script>
 		<script src="https://cdn.tiny.cloud/1/l5hr79dltkjldhpincf3rzg93ch5tz7yjblanibpzinyjize/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <link rel="stylesheet" href="https://unpkg.com/balloon-css/balloon.min.css">	
-
+    <script src="/utils/change_form.js"></script>
 
   <link rel="shortcut icon" href="images/favicon.png" />
 </head>
@@ -198,7 +205,6 @@ ob_start();
             </a>
             <?php }else{?>
               <a style="cursor:pointer;padding-left: 6px;padding-top: 3px;padding-right: 6px;padding-bottom: 3px;cursor:pointer"  class="btn btn-secondary"  onclick="go_link('/?controller=usuarioscontroller&method=form_perfil	');"><i class="icon-head"></i> Perfil</span></a> 
-              <a style="cursor:pointer;padding-left: 6px;padding-top: 3px;padding-right: 6px;padding-bottom: 3px;cursor:pointer"  class="btn btn-secondary"  onclick="go_link('/?controller=usuarioscontroller&method=alterar_senha');"><i class="icon-repeat"></i> Alterar Senha</a> 
               <a style="cursor:pointer;padding-left: 6px;padding-top: 3px;padding-right: 6px;padding-bottom: 3px;cursor:pointer"   class="btn btn-secondary"  onclick="go_link('/?controller=usuarioscontroller&method=sair');"><i class="icon-outbox"></i> Sair</a> 
             <?php } ?>
         </td><td>
@@ -439,7 +445,7 @@ ob_start();
       </nav>
       <div style="position:fixed;right:10px;top:60px;z-index:999999999">
     </br>
-    <div id="msgs" ></div>
+    <div id="msgs" ><?=$msgs?></div>
         <script>
           //go_link('/?controller=mensageirocontroller&method=listar_session&ajax=1','msgs',false);
         </script>   
@@ -451,8 +457,9 @@ ob_start();
           <div class="row">
             <div class="col-sm-12 mb-4 mb-xl-0">
             <?php if(UsuariosController::is_logged()){ ?>
-              <h4 class="font-weight-bold text-dark">Olá, <?=UsuariosController::get_usuario()['txt_nome']?>!</h4>
-              <p class="font-weight-normal mb-2 text-muted">Seja bem vindo ao GPS-PG.</p>
+              <h4 class="font-weight-bold text-dark" style="font-size:18px">Olá, <?=UsuariosController::get_usuario()['txt_nome']?>!</h4>
+              <p class="font-weight-normal mb-2 text-muted" style="font-size:15px">Seja bem vindo ao GPS-PG.</p>
+              <p class="font-weight-normal mb-2 text-muted" style="font-size:12px"><?=UsuariosController::get_usuario()['dt_ultimoacesso'] == 0 ? "Este é seu primeiro acesso." : "Último acesso: ".utf8_encode(strftime('%A, %d de %B de %Y &agrave;s %H:%M:%S',strtotime(UsuariosController::get_usuario()['dt_ultimoacesso'])))?></p>
             <?php }else{ ?>
               <h4 class="font-weight-bold text-dark">Olá, candidato!</h4>
             <?php } ?>

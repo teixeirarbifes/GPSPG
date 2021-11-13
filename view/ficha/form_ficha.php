@@ -314,4 +314,8 @@ $("#file_picture").change(function(){
 });
 });
 </script>
-;
+
+<script>
+setup_check_change();
+</script>
+<input type=hidden id=formulario value="form"/>

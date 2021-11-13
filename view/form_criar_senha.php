@@ -1,6 +1,6 @@
-    <br/><br/><br/>
-        <div class="row justify-content-center">          
-            <div class="container" style="max-width:500px;width:100%;">
+    <br/>
+     
+            <div class="container" style="max-width:100%;width:500px">
                <form id="form" class="form-horizontal" action="/?controller=usuarioscontroller&method=save_alterar_senha" method="post" >
                     <div class=row>                    
                     <div id=display_erro class="alert alert-danger display-error" style="display: none">
@@ -26,11 +26,16 @@
                         <input type="password" class="form-control password" id="txt_senha2" placeholder="Repita a sua senha..." name="txt_senha2">
                     </div>
                     <a class="btn btn-success" onclick="validar('form','senha');"><font color=black>Alterar senha</font></a>
-                    <a class="btn btn-secondary" onclick="$('#form').clear();"><font color=black>Limpar</font></a>
+                    <a class="btn btn-secondary" onclick="go_link('/?controller=usuarioscontroller&method=form_perfil');"><font color=black>Voltar ao perfil</font></a>
                     <input type="hidden" name="change_pass" id="change_pass" value="1" />
                     <!-- End input fields -->
                 <!-- Form end -->
                 </form>
             </div>
-        </div>
+
     <script src="../ajax/ajax_submit.js"></script>
+
+<script>
+setup_check_change();
+</script>
+<input type=hidden id=formulario value="form"/>

@@ -21,8 +21,7 @@ function confirma_inscricao(){
 </div>
  <div class="form-group">
 <?php
-setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
-date_default_timezone_set('America/Sao_Paulo');
+
 
 $date1 = $processo->dt_inicio_inscricao;
 $date2 = $processo->dt_fim_inscricao;
@@ -31,15 +30,15 @@ if(isset($inscricao->dt_enviado)){
 $date3 = $inscricao->dt_enviado;
 $hora = $inscricao->hora_enviado;
 $t3 = strtotime($date3);
-$s3 = strftime('%d de %B de %Y às ',$t3).$hora;
+$s3 = utf8_encode(strftime('%d de %B de %Y &agrave;s ',$t3)).$hora;
 }
 
 $t1 = strtotime($date1);
 $t2 = strtotime($date2);
 
 
-$s1 = strftime('%A, %d de %B de %Y às %H:%M:%S',$t1);
-$s2 = strftime('%A, %d de %B de %Y às %H:%M:%S',$t2);
+$s1 = utf8_encode(strftime('%A, %d de %B de %Y &agrave;s %H:%M:%S',$t1));
+$s2 = utf8_encode(strftime('%A, %d de %B de %Y &agrave;s %H:%M:%S',$t2));
 $aberto = ProcessosController::aberto($processo->id_processo);
 ?>
 <a class="btn btn-secondary" onclick="go_link('?controller=processoscontroller&method=listar_candidato&pag=<?php echo isset($data_table['pag']) ? $data_table['pag'] : 1; ?>&num=<?php echo isset($data_table['num']) ? $data_table['num'] : 5; ?>');"><font color=black><< Voltar à lista de processos</font></a>          
@@ -111,7 +110,7 @@ $aberto = ProcessosController::aberto($processo->id_processo);
                 <?php if($evento==null){ ?>
                   Última ocorrência: <font color=red>-----</font>
                 <?php }else{ ?>                  
-                  Última ocorrência: <b><?=$evento->txt_descricao?> em <?=strftime('%d de %B de %Y às %H:%M:%S',strtotime($evento->dt_inicio))?></b>
+                  Última ocorrência: <b><?=$evento->txt_descricao?> em <?=utf8_encode(strftime('%d de %B de %Y &agrave;s %H:%M:%S',strtotime($evento->dt_inicio)))?></b>
                 <?php } ?>
                 </h6>
               </div>       
