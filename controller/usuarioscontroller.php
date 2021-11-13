@@ -161,12 +161,21 @@ class UsuariosController extends Controller
             $usuario = Usuarios::find_by_email($dados['txt_email']);        
             if(isset($usuario->id_user)){
                 if($usuario->txt_chave == hash('sha256',$dados['key'])){
+                    $primeiroacesso = false;
+                    if($usuario->bl_bloqueado == true){
+                        $primeiroacesso = true;
+                    }
                     $usuario->bl_bloqueado = false;
                     $usuario->txt_chave = 'nothing';
                     $usuario->txt_senha = hash('sha256',$dados['txt_senha']);
                     if($usuario->save($dados)){
-                        $this->msg('Sua conta foi validada com sucesso e a senha definida. Efetue seu login.',0);                        
-                        return $this->form_login($dados);
+                        $this->msg('Sua conta foi validada com sucesso e a senha definida.',0);                        
+                        $this->process_login($usuario->txt_usuario,$dados['txt_senha']);
+                        return "reload";
+                        /*if($primeiroacesso)
+                        return $this->welcome($dados);
+                        else
+                        return $this->form_login($dados);*/
                     }else{
                         $this->msg('Erro ao tentar salvar dados de usuário.',2);
                         return $this->form_ativar($dados);
@@ -289,8 +298,7 @@ class UsuariosController extends Controller
                             if($usuario->save()){                            
                                 $this->msg('Senha alterada com êxito! Use-a no próximo acesso.',0);            
                                 $usuario->save($dados);
-                                $home = new HomeController();       
-                                return $home->home();         
+                                return $this->form_perfil($dados);
                             }else{
                                 $this->msg('Não foi possível salvar a senha.',2);                                            
                                 return $this->view('form_criar_senha');  
@@ -560,6 +568,10 @@ class UsuariosController extends Controller
     }
 
 
+    public function welcome($dados){
+        return $this->view('view_welcome',$dados);
+    }
+
     public function process_login($user,$pass){
         if($user==""){
             $this->msg('Você precisa digitar o seu usuário e senha. Como usuário, pode ser o cpf ou e-mail.',1);                            
@@ -582,9 +594,14 @@ class UsuariosController extends Controller
                 $_SESSION['usuario']['txt_cpf'] = $usuario->txt_cpf;
                 $_SESSION['usuario']['txt_email'] = $usuario->txt_email;
                 $_SESSION['usuario']['id_role'] = $usuario->id_role;
-                            
-                $this->msg($usuario->txt_nome.', seja bem vindo do GPS-GP.',0);            
+                $_SESSION['usuario']['dt_ultimoacesso'] = $usuario->dt_ultimoacesso;
 
+                if($usuario->dt_ultimoacesso == 0)
+                    $_SESSION['usuario']['primeiroacesso'] = 1;
+                else
+                    $_SESSION['usuario']['primeiroacesso'] = 0;
+                $usuario->dt_ultimoacesso = date('Y-m-d H-i-s');
+                $usuario->save();
                 return true;
             }else{
                 $_SESSION['usuario'] = NULL;
@@ -595,7 +612,6 @@ class UsuariosController extends Controller
             $this->msg('O seu usuário ou senha informados estão inválidos!',2);                            
             return false;        
         }
-
         return false;
     }
 
@@ -604,6 +620,7 @@ class UsuariosController extends Controller
             if($this->process_login($this->request->txt_usuario,$this->request->txt_senha)){
                 $usuario = Usuarios::find(UsuariosController::get_usuario()['id_user']);
                 if(isset($usuario->id_user)){
+                    $this->msg($usuario->txt_nome.', seja bem vindo do GPS-GP.',0);  
                     return "reload";
                 }else{
                     return $this->view('form_login',$dados);    
@@ -625,6 +642,16 @@ class UsuariosController extends Controller
 
     public static function get_usuario(){
         return $_SESSION['usuario'];
+    }
+
+    public static function primeiroacesso(){
+        if(isset($_SESSION['usuario']))
+        if(isset($_SESSION['usuario']['primeiroacesso']))
+        if($_SESSION['usuario']['primeiroacesso'] == 1){
+            $_SESSION['usuario']['primeiroacesso'] = 0;
+            return true;
+        }
+        return false;
     }
 
     public function sair(){

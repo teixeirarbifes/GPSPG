@@ -81,7 +81,7 @@ function validar_upload(form,classe,sobe=true){
 }
 
 var xhr = 3;
-function validar(form, classe,dados = null,sobe=true){
+function validar(form, classe,dados = null,sobe=true,changecheck=true){    
     display_modal_loading('Validando formulário...');
     display_modal_loading_before();
     $('.msg_error').html('');
@@ -138,7 +138,18 @@ function validar(form, classe,dados = null,sobe=true){
     });
 }
 
-function submit(form,sobe = true){
+function check_change(){
+    if ($("#formulario").length > 0){
+        if($("#"+$("#formulario").val())){
+            if($("#"+$("#formulario").val()).data('changed')){
+                return true;
+            }else
+                return false;
+        }
+    }
+}
+
+function submit(form,sobe = true,changecheck = true){
     display_modal_loading();
     display_modal_loading_before();
     var dados = new FormData($('#'+form)[0]);
@@ -180,7 +191,8 @@ function ChangeUrl(title, url) {
     }
 }
  
- function result_ajax(data,destino,loading=true,sobe = true){
+ function result_ajax(data,destino,loading=true,sobe = true,changecheck = true){
+
     if(sobe) $('.sidebar-offcanvas').removeClass('active');
     data = data.trim();
     if(data.substr(-6) == 'reload'){
@@ -216,9 +228,13 @@ function ChangeUrl(title, url) {
      alert('');
   }
 
-  function go_link(url,destino = 'conteudo',loading=true){
+  function go_link(url,destino = 'conteudo',loading=true,changecheck = true){
     if((url.indexOf('&method=download') > -1) ) {
         document.location.href = url;        
+        return;
+    }
+    if(changecheck && check_change()){
+        ignorar_alteracoes(1,url,destino,loading);
         return;
     }
     if(loading){

@@ -30,16 +30,15 @@ include GPATH."utils".S."pagination.php";
   <div class="col-sm-12 col-md-12">
   <p class="card-text" style="text-align:left">
     <?php
-    setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
-    date_default_timezone_set('America/Sao_Paulo');
+
     $date1 = $processo->dt_inicio_inscricao;
     $date2 = $processo->dt_fim_inscricao;
 
     $t1 = strtotime($date1);
     $t2 = strtotime($date2);
 
-    $s1 = strftime('%A, %d de %B de %Y às %H:%M:%S',$t1);
-    $s2 = strftime('%A, %d de %B de %Y às %H:%M:%S',$t2);
+    $s1 = utf8_encode(strftime('%A, %d de %B de %Y &agrave;s %H:%M:%S',$t1));
+    $s2 = utf8_encode(strftime('%A, %d de %B de %Y &agrave;s %H:%M:%S',$t2));
     ?>
     <font size=4><div style="text-align:left;" ><i class="icon-calendar" ></i>PERÍODO DE INSCRIÇÃO</br></br>
             Inicio: &nbsp&nbsp&nbsp&nbsp <b><font color=darkgreen><?=$s1?></font></b></br></br>Término: <b><font color=red><?=$s2?></font></b></div></div>
@@ -58,7 +57,7 @@ include GPATH."utils".S."pagination.php";
                 <?php if($processo->cronograma==null){ ?>
                   Última ocorrência: <font color=red>-----</font>
                 <?php }else{ ?>                  
-                  Última ocorrência: <b><?=$processo->cronograma->txt_descricao?> em <?=strftime('%d de %B de %Y às %H:%M:%S',strtotime($processo->cronograma->dt_inicio))?></b>
+                  Última ocorrência: <b><?=$processo->cronograma->txt_descricao?> em <?=utf8_encode(strftime('%d de %B de %Y &agrave;s %H:%M:%S',strtotime($processo->cronograma->dt_inicio)))?></b>
                 <?php } ?>
                 </h6>
               </div>
