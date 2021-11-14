@@ -84,6 +84,16 @@ class ProcessosController extends Controller
         $processos = Processos::all($num=$plim,$pag=$ppag,$orderby=$order,false,true);        
         if($processos)    
         for($i = 0;$i<count($processos);$i++){
+                if(UsuariosController::is_logged()){
+                    $inscricao = Inscricao::get_id_by_processo($processos[$i]->id_processo,UsuariosController::get_usuario()['id_user'],false);
+                    if(isset($inscricao->id_inscricao))
+                    $processos[$i]->inscrito = true;
+                    else
+                    $processos[$i]->inscrito = false;
+                }else{
+                    $processos[$i]->inscrito = false;
+                }
+            
             if($processos[$i]->status == "") $processos[$i]->status = "<font color=red>Sem status</font>";
             $processos[$i]->cronograma = CronogramaController::get_cronograma_atual($processos[$i]->id_processo);
         }
