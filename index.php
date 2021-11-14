@@ -133,9 +133,9 @@ ob_start();
   <link rel="stylesheet" href="regal/css/style.css">
   <!-- endinject -->
 
-    <link rel="stylesheet" href="assets/css/main2.css" />
+    <link rel="stylesheet" href="assets/css/main2.css?v=1" />
     <link href='https://use.fontawesome.com/releases/v5.1.0/css/all.css' rel='stylesheet' integrity='sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt' crossorigin='anonymous' />
-    <link href='/utils/css/modal.css' rel='stylesheet' />
+    <link href='/utils/css/modal.css?v=1' rel='stylesheet' />
     <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js' integrity='sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49' crossorigin='anonymous'></script>
     <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js' integrity='sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T' crossorigin='anonymous'></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -143,12 +143,12 @@ ob_start();
 		<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
 		<script src="http://code.jquery.com/jquery-1.8.2.js"></script>
 		<script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
-    <script src="/assets/function.js"></script>
-		<script src="/assets/js/captcha.js"></script>
-		<script src="/ajax/ajax_submit.js?v=<?php echo date('H:i:s');?>"></script>
+    <script src="/assets/function.js?v=1"></script>
+		<script src="/assets/js/captcha.js?v=1"></script>
+		<script src="/ajax/ajax_submit.js??v=1"></script>
 		<script src="https://cdn.tiny.cloud/1/l5hr79dltkjldhpincf3rzg93ch5tz7yjblanibpzinyjize/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <link rel="stylesheet" href="https://unpkg.com/balloon-css/balloon.min.css">	
-    <script src="/utils/change_form.js"></script>
+    <script src="/utils/change_form.js?v=1"></script>
 
   <link rel="shortcut icon" href="images/favicon.png" />
 </head>
@@ -495,27 +495,27 @@ ob_start();
   <!-- container-scroller -->
 
   <!-- base:js -->
-  <script src="regal/vendors/base/vendor.bundle.base.js"></script>
+  <script src="regal/vendors/base/vendor.bundle.base.js?v=1"></script>
   <!-- endinject -->
   <!-- Plugin js for this page-->
   <!-- End plugin js for this page-->
   <!-- inject:js -->
-  <script src="regal/js/off-canvas.js"></script>
-  <script src="regal/js/hoverable-collapse.js"></script>
-  <script src="regal/js/template.js"></script>
+  <script src="regal/js/off-canvas.js?v=1"></script>
+  <script src="regal/js/hoverable-collapse.js?v=1"></script>
+  <script src="regal/js/template.js?v=1"></script>
   <!-- endinject -->
   <!-- plugin js for this page -->
-  <script src="regal/vendors/chart.js/Chart.min.js"></script>
-  <script src="regal/vendors/jquery-bar-rating/jquery.barrating.min.js"></script>
+  <script src="regal/vendors/chart.js/Chart.min.js?v=1"></script>
+  <script src="regal/vendors/jquery-bar-rating/jquery.barrating.min.js?v=1"></script>
   <!-- End plugin js for this page -->
   <!-- Custom js for this page-->
-  <script src="regal/js/dashboard.js"></script>
+  <script src="regal/js/dashboard.js?v=1"></script>
   <!-- End custom js for this page-->
 		<!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
+    <script src="assets/js/jquery.min.js?v=1"></script>
+			<script src="assets/js/browser.min.js?v=1"></script>
+			<script src="assets/js/breakpoints.min.js?v=1"></script>
+			<script src="assets/js/util.js?v=1"></script>
 			<!--script src="assets/js/main.js"></script-->
 		
 <script>
