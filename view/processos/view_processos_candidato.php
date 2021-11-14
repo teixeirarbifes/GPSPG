@@ -45,19 +45,19 @@ $aberto = ProcessosController::aberto($processo->id_processo);
 <?php 
     if($data_table['id_inscricao']==0){ ?>
               
-              <?php
-              if($aberto==2){ ?>
-                <?php if($usuario!=null){ ?>
-                  <a class="btn btn-success" onclick="confirma_inscricao();"><font color=black>Iniciar a minha inscrição!</font></a>
-                <?php }else{ ?>
-                  <a class="btn btn-success disabled"><font color=black>Iniciar a minha inscrição!</font></a>
-                <?php } ?>
-              <?php
-              }else if($aberto==1){ ?>
-                <a class="btn btn-danger disabled" ><font color=black>Inscrições encerradas!</font></a>
+            <?php
+            if($aberto==2){ ?>
+              <?php if($usuario!=null){ ?>
+                <a class="btn btn-success" onclick="confirma_inscricao();"><font color=black>Iniciar a minha inscrição!</font></a>
               <?php }else{ ?>
-                <a class="btn btn-warning disabled" ><font color=black>Inscrições em breve!</font></a>
+                <a class="btn btn-success disabled"><font color=black>Iniciar a minha inscrição!</font></a>
               <?php } ?>
+            <?php
+            }else if($aberto==1){ ?>
+              <a class="btn btn-danger disabled" ><font color=black>Inscrições encerradas!</font></a>
+            <?php }else{ ?>
+              <a class="btn btn-warning disabled" ><font color=black>Inscrições em breve!</font></a>
+            <?php } ?>
     <?php }else{ ?>
     <a class="btn btn-warning " onclick="go_link('?controller=inscricaocontroller&method=dashboard&id_processo=<?=$processo->id_processo?>');"><font color=black>Ir para a inscrição</font></a>
     <?php } ?>

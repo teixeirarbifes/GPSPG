@@ -11,9 +11,17 @@ $funcao_excluir = "excluir_grade_processos";
 ?>
 
 <?php include GPATH."utils".S."modal.php"; ?>
-<h1>Processos Seletivos Públicos</h1>
+<h3>Processos Seletivos Públicos</h3>
 </br>
-<b>Para iniciar a inscrição para um processo seletivo com inscrições abertas, clique em <font color=red>Mais informações</font> e, depois, na página do processo seletivo, clique em <font color=red>Iniciar inscrição</font>.</b>
+<?php if(UsuariosController::is_logged()){?>
+<b>Para iniciar a sua inscrição, escolha um processo seletivo e clique no botão <font color=darkred>Iniciar a minha inscrição.</font></br>
+Obtenha <font color=darkblue>mais informações</font> sobre um processo seletivo clicando no botão correspondente.</b>
+</br></br>
+Caso já tenha iniciado sua inscrição, clique no botão <font color=darkblue>mais informações</font>.
+<?php }else{ ?>
+<b>Para iniciar a sua inscrição, primeiramente, registre-se! Caso já tenha registro, acesse o sistema.</br>
+Obtenha <font color=darkblue>mais informações</font> sobre um processo seletivo clicando no botão correspondente.</b>
+<?php } ?>
 <hr>
 <div class="container">
 
@@ -65,7 +73,28 @@ include GPATH."utils".S."pagination.php";
         </p>
           <p class="card-text" style="text-align:left">
         </br>
-                <a class="btn btn-primary" onclick="go_link('?controller=processoscontroller&method=visualizar_candidato&id_processo=<?php echo $processo->id_processo; ?>&pag=<?php echo $params['pag']; ?>&num=<?php echo $params['limit']; ?>');"><font color=black>Mais informações...</font></a> 
+                  <?php 
+                  
+                  $pag = $params['pag'];
+                  $limit = $params['limit'];
+                  if(!$processo->inscrito){ ?>                        
+                        <?php
+                        if($aberto==2){ ?>
+                          <?php if(UsuariosController::is_logged()){ ?>
+                            <a class="btn btn-success" onclick="go_link('?controller=processoscontroller&method=visualizar_candidato&iniciar=1&id_processo=<?=$processo->id_processo?>&pag=<?php echo $pag ?>&num=<?php echo $limit; ?>');"><font color=black>Iniciar a minha inscrição!</font></a>
+                          <?php }else{ ?>
+                            <a class="btn btn-success disabled"><font color=black>Iniciar a minha inscrição</font></a>
+                          <?php } ?>
+                        <?php
+                        }else if($aberto==1){ ?>
+                          <a class="btn btn-danger disabled" ><font color=black>Inscrições encerradas!</font></a>
+                        <?php }else{ ?>
+                          <a class="btn btn-warning disabled" ><font color=black>Inscrições em breve!</font></a>
+                        <?php } ?>
+                <?php }else{ ?>
+                <a class="btn btn-warning " onclick="go_link('?controller=inscricaocontroller&method=dashboard&id_processo=<?=$processo->id_processo?>');"><font color=black>Ir para minha inscrição</font></a>
+                <?php } ?>
+                <a class="btn btn-primary" onclick="go_link('?controller=processoscontroller&method=visualizar_candidato&id_processo=<?php echo $processo->id_processo; ?>&pag=<?php echo $pag ?>&num=<?php echo $limit; ?>');"><font color=black>Mais informações</font></a> 
             </p>
 
     </div>
