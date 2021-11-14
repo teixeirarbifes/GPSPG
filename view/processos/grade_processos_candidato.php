@@ -65,9 +65,36 @@ include GPATH."utils".S."pagination.php";
                 <?php if($processo->cronograma==null){ ?>
                   Última ocorrência: <font color=red>-----</font>
                 <?php }else{ ?>                  
-                  Última ocorrência: <b><?=$processo->cronograma->txt_descricao?> em <?=utf8_encode(strftime('%d de %B de %Y &agrave;s %H:%M:%S',strtotime($processo->cronograma->dt_inicio)))?></b>
+                  Última ocorrência: <b><?=$processo->cronograma->txt_descricao?> em <?=utf8_encode(strftime('%d de %B de %Y',strtotime($processo->cronograma->dt_inicio)))?></b>
                 <?php } ?>
-                </h6>
+                </br>
+                <?php if(!UsuariosController::is_logged()){
+                    if($aberto==2){ ?>
+                      </br><font color=red>O período de inscrições está aberto. Para se inscrever acesse o sistema (login) com o seu usuário.</font>
+                    <?php }else if($aberto==1){ ?>
+                      </br><font color=red>O período de inscrições está encerrado. Tenha seu cadastro no sistema para outros processos seletivos.</font>
+                    <?php }else{ ?>
+                    </br><font color=blue>O período de inscrições começará em breve. Faça seu registro de usuário. Caso já tenha, aguarde o início das inscrições.</font>
+                    <?php } ?>
+                <?php }else if($processo->inscrito){ ?>
+                  <?php if($aberto==2){ ?>
+                  <?php }else if($aberto==1){ ?>
+                      </br><font color=red>O período de inscrições está encerrado. Consulte os dados da sua inscrição.</font>
+                    <?php }else{ ?>
+                      </br><font color=blue>O período de inscrições comecará em breve. Aguarde o início para iniciar sua inscrição.</font>
+                    <?php } ?>    
+                <?php }else{ ?>
+                  <?php if($aberto==2){ ?>
+                    </br><font color=darkgreen>O período de inscrições está aberto. Você ainda não se inscreveu. Increva-se!</font>
+                  <?php }else if($aberto==1){ ?>
+                      </br><font color=red>O período de inscrições está encerrado. Não é possível mais iniciar sua inscrição.</font>
+                    <?php }else{ ?>
+                      </br><font color=blue>O período de inscrições comecará em breve. Aguarde o início para iniciar sua inscrição.</font>
+                    <?php } ?>  
+                  <?php } ?>                
+                  </h6>
+                 
+
               </div>
 
         </p>

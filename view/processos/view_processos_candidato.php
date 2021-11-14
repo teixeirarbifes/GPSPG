@@ -7,7 +7,7 @@ function callback_inscricao(evento){
 };
 function confirma_inscricao(){
   display_modal("INCRIÇÃO DE PROCESSO SELETIVO","Você está se inscrevendo no processo seletivo '<?php echo $processo->txt_processo; ?>'. <font color=red>Importante preencher todo o formulário, anexar todos documentos exigidos e enviar a sua inscrição ao final.</font></br></br>A sua inscrição no processo seletivo somente é garantida após cumprir todos preenchimentos e envios exigidos.</br></br>Continuar?",callback_inscricao,"Não. Verei isso depois!","Sim, iniciar inscrição!");
-};
+};   
 </script>
 
 <h3><b><font color="darkblue"><?php echo $processo->txt_processo; ?></font></b></h3>
@@ -47,7 +47,10 @@ $aberto = ProcessosController::aberto($processo->id_processo);
               
             <?php
             if($aberto==2){ ?>
-              <?php if($usuario!=null){ ?>
+              <?php if($usuario!=null){                 
+                if($iniciar == 1) echo "<script>confirma_inscricao();</script>";
+                ?>
+
                 <a class="btn btn-success" onclick="confirma_inscricao();"><font color=black>Iniciar a minha inscrição!</font></a>
               <?php }else{ ?>
                 <a class="btn btn-success disabled"><font color=black>Iniciar a minha inscrição!</font></a>
@@ -84,7 +87,8 @@ $aberto = ProcessosController::aberto($processo->id_processo);
           </br><font color=red>O período de inscrições está encerrado. Não é possível mais iniciar sua inscrição.</font>
         <?php }else{ ?>
           </br><font color=blue>O período de inscrições comecará em breve. Aguarde o início para iniciar sua inscrição.</font>
-        <?php } ?>  <?php } ?>
+        <?php } ?>  
+      <?php } ?>
 <hr>              
 <div class=row>
   <div class="col-sm-12 col-md-12">  

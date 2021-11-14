@@ -206,7 +206,7 @@ class ProcessosController extends Controller
 
             $cronograma = CronogramaController::get_cronograma_atual($processo->id_processo);
 
-            return $this->view('processos'.S.'view_processos_candidato', ['evento' => $cronograma, 'usuario' => $usuario, 'data_table' => $dados, 'inscricao' => $inscricao, 'processo' => $processo, 'status' => $status]);
+            return $this->view('processos'.S.'view_processos_candidato', ['iniciar' => isset($dados['iniciar']) ? $dados['iniciar'] : 0, 'evento' => $cronograma, 'usuario' => $usuario, 'data_table' => $dados, 'inscricao' => $inscricao, 'processo' => $processo, 'status' => $status]);
         }else{  
             $this->msg('Processos id#'.$id_processo.' não encontrado.',1);
             return $this->listar($dados);
