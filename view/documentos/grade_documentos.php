@@ -38,17 +38,8 @@ delete callback_grade_pessoal;
 </script>
 
 
-<h3><b><font color="darkblue"><?php echo $processo->txt_processo; ?></font></b></h3>
-<hr>
-<img src="images/editardoc.png" style="width:400px;"/></br>
-<font color="darkred">Os documentos, bem como toda inscrição, somente serão considerados após finalizar tudo com o envio final.</font>
-<hr>
+<?php $pagina = "pessoal"; include GPATH."view".S.'ficha'.S."ficha_header.php"; ?>    
 
-<div class="row">
-    <div class='col-md-12'>
-                <a class="btn btn-secondary" id="bt_voltar"  onclick="go_link('?controller=inscricaocontroller&method=dashboard&id_processo=<?php echo $processo->id_processo; ?>');"><font color="black">Voltar ao Dashboard</font></a>
-</div>
-</div>
 <hr>
 
 <form id="excluir" action="" method="post">
@@ -59,7 +50,7 @@ delete callback_grade_pessoal;
 
 <div class="container p-2">
   <div class="row">        
-  <h4><b>Carregar novos documentos pessoais e formulários<b></h4>
+  <h4><b>DOCUMENTOS PESSOAIS E FORMULÁRIOS<b></h4>
   </div>
   <div class="row">
         <div class="form-group">    

@@ -16,21 +16,18 @@ function textfield($label,$field,$class,$obrigatorio = false,$adicional="",$msg=
   if(isset($ficha->{$field})) $value = $ficha->{$field};
   echo str_replace('{msg}',$msg,str_replace('{adicional}',$adicional,str_replace('{label}',$label.($obrigatorio ? '<font color=red>*</font>' : ''),str_replace('{class}',$class,str_replace('{value}',$value,str_replace('{field}',$field,$tmp_textfield))))));
 }
+$pagina = "ficha";
 ?>
-<h3><b><font color="darkblue"><?php echo $processo->txt_processo; ?></font></b></h3>
-<hr>
-<img src="images/editarficha.png" style="width:400px;"/></br>
-<font color="darkred">A ficha, bem como toda inscrição, somente será considerada após o envio (ou reenvio). Lembre-se de salvar a sua inscrição após edição.</font>
-<hr>
+
+<?php include GPATH."view".S.'ficha'.S."ficha_header.php"; ?>    
 
 <div style="text-align:left">
 <div class="container p-2">
 <div class="row">
     <div class='col-md-12'>
       
-                <a class="btn btn-primary" id=salvar  onclick="$('#voltar').val(0); validar('form','ficha');"><font color=black>Salvar</font></a>&nbsp;  
-                <a class="btn btn-primary" id=salvar  onclick="$('#voltar').val(1); validar('form','ficha');"><font color=black>Salvar e Voltar</font></a>&nbsp;                
-                <a class="btn btn-secondary" id=bt_cancelar  onclick="go_link('?controller=inscricaocontroller&method=dashboard&id_processo=<?php echo $processo->id_processo; ?>');"><font color=black>Voltar</font></a>
+                <a class="btn btn-success" id=salvar  onclick="$('#voltar').val(0); validar('form','ficha');"><font color=black>Salvar ficha</font></a>&nbsp;  
+                <!--a class="btn btn-success" id=salvar  onclick="$('#voltar').val(1); validar('form','ficha');"><font color=black>Salvar e Voltar</font></a-->&nbsp;                
 </div></div></div>
 <form id=form class="form-horizontal" action="?controller=fichacontroller&method=atualizar&id=<?php echo $ficha->id_ficha; ?>" method="post" >
 <input type=hidden id=voltar name=voltar value=0/>
@@ -195,10 +192,9 @@ function textfield($label,$field,$class,$obrigatorio = false,$adicional="",$msg=
 <div class="container p-2">
 <div class="row">
     <div class='col-md-12'>
-                <a class="btn btn-primary" id=salvar  onclick="$('#voltar').val(0); validar('form','ficha');"><font color=black>Salvar</font></a>&nbsp;  
-                <a class="btn btn-primary" id=salvar  onclick="$('#voltar').val(1); validar('form','ficha');"><font color=black>Salvar e Voltar</font></a>&nbsp;
-                <a class="btn btn-secondary" id=bt_cancelar  onclick="go_link('?controller=inscricaocontroller&method=dashboard&id_processo=<?php echo $processo->id_processo; ?>');"><font color=black>Voltar</font></a>
-</div></div></div>
+    <a class="btn btn-success" id=salvar  onclick="$('#voltar').val(0); validar('form','ficha');"><font color=black>Salvar ficha</font></a>&nbsp;  
+    <!--a class="btn btn-success" id=salvar  onclick="$('#voltar').val(1); validar('form','ficha');"><font color=black>Salvar e Continuar</font></a-->&nbsp;       
+              </div></div></div>
 
 <script src="../ajax/ajax_submit.js"></script>
 
