@@ -35,17 +35,9 @@ let modal_id = 0;
     }
 </script>
 
-<h3><b><font color="darkblue"><?php echo $processo->txt_processo; ?></font></b></h3>
-<hr>
-<img src="images/editarcurr.png" style="width:400px;"/></br>
-<font color="darkred">Os documentos, bem como toda inscrição, somente serão considerados após finalizar tudo com o envio final.</font>
-<hr>
+<?php $pagina = "curriculo"; include GPATH."view".S.'ficha'.S."ficha_header.php"; ?>    
 
-<div class="row">
-    <div class='col-md-12'>
-                <a class="btn btn-secondary" id="bt_voltar"  onclick="go_link('?controller=inscricaocontroller&method=dashboard&id_processo=<?php echo $processo->id_processo; ?>');"><font color="black">Voltar ao Dashboard</font></a>
-</div>
-</div>
+
 <hr>
 
 <form id="excluir" action="" method="post">
@@ -55,8 +47,8 @@ let modal_id = 0;
 <form method="post" action="?controller=DocumentosController&method=upload&tipo=2&id_ficha=<?=$ficha->id_ficha?>" enctype="multipart/form-data" id="form">
 
 <div class="container p-2">
-  <div class="row">        
-        <h4><b>Carregar novos documentos de currículo</b></h4>
+<div class="row">        
+  <h4><b>CURRÍCULO E ANEXOS<b></h4>
   </div>
   <div class="row">
         <div class="form-group">    
