@@ -417,8 +417,15 @@ class InscricaoController extends Controller
                     $ficha->desc_modalidade = '';    
                 }
                 $documentos = Documentos::all_ficha($ficha->id_ficha);  
+
+                
+                $documentos_pessoais = Documentos::all_ficha($ficha->id_ficha,1);  
+                $documentos_curriculo = Documentos::all_ficha($ficha->id_ficha,2);  
+
+                $matriz_classe = Documentos::matriz($ficha->id_ficha);
+
                 if(isset($ficha->id_ficha)){
-                    return $this->view('ficha'.S.'form_verificar', ['documentos' => $documentos, 'data_table' => $dados, 'processo' => $processo, 'inscricao' => $inscricao, 'ficha' => $ficha, 'usuario' => UsuariosController::get_usuario()]);    
+                    return $this->view('ficha'.S.'form_verificar', ['matriz_classe' => $matriz_classe,'documentos_curriculo' => $documentos_curriculo, 'documentos_pessoais' => $documentos_pessoais, 'documentos' => $documentos, 'data_table' => $dados, 'processo' => $processo, 'inscricao' => $inscricao, 'ficha' => $ficha, 'usuario' => UsuariosController::get_usuario()]);    
                 }else{
                     $this->msg("Você ainda não realizou o envio dessa inscrição.",2);
                     return $pproc->visualizar_candidato($dados);                    
@@ -504,10 +511,16 @@ class InscricaoController extends Controller
                 $inscricao->id_ficha_rascunho = $rascunho->id_ficha;
                 if($inscricao->save($dados)){
                     $this->msg('Sua inscrição para o processo seletivo foi iniciada corretamente.',0);   
+                    $dados['id_ficha'] = $rascunho->id_ficha;
+                    $proc = new FichaController();
+                    return $proc->editar($dados);
                 }else{
-                    $this->msg('Sua inscrição para o processo seletivo foi iniciada parcialmente.',0);   
+                    $this->msg('Sua inscrição para o processo seletivo foi iniciada parcialmente.',0); 
+                    $dados['id_ficha'] = $rascunho->id_ficha;
+                    $proc = new ProcessosController();
+                    return $proc->visualizar_candidato($dados);  
                 }
-                return $this->dashboard($dados);
+                
             }else{
                 $this->msg('Problema para inicializar ficha',0);  
                 $control = new ProcessosController();

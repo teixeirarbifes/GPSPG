@@ -107,7 +107,7 @@
 
         public static function validation_entregar($data){
             $val = new Validation();
-            session_start();
+            if(!isset($_SESSION['usuario'])){session_start();}
             if(!UsuariosController::is_logged()){
                 $val->errors['falha'] = 'Você precisa estar logado.';
                 return $val->getErrors();

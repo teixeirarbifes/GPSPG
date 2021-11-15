@@ -200,13 +200,18 @@ class ProcessosController extends Controller
             }
             
             //$dados['id_inscricao'] = 0;
+
+            if(isset($inscricao->id_inscricao))
+            $ficha = FichaController::ficha_rascunho($inscricao->id_inscricao);
+            else
+            $ficha = null;
             //$dados['id_ficha_enviada']= 0;
 
             $status = Processos::all_status();
 
             $cronograma = CronogramaController::get_cronograma_atual($processo->id_processo);
 
-            return $this->view('processos'.S.'view_processos_candidato', ['iniciar' => isset($dados['iniciar']) ? $dados['iniciar'] : 0, 'evento' => $cronograma, 'usuario' => $usuario, 'data_table' => $dados, 'inscricao' => $inscricao, 'processo' => $processo, 'status' => $status]);
+            return $this->view('processos'.S.'view_processos_candidato', ['ficha' => $ficha, 'iniciar' => isset($dados['iniciar']) ? $dados['iniciar'] : 0, 'evento' => $cronograma, 'usuario' => $usuario, 'data_table' => $dados, 'inscricao' => $inscricao, 'processo' => $processo, 'status' => $status]);
         }else{  
             $this->msg('Processos id#'.$id_processo.' não encontrado.',1);
             return $this->listar($dados);

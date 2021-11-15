@@ -1,38 +1,34 @@
 
-<h3><b><font color="darkblue"><?php echo $processo->txt_processo; ?></font></b></h3>
+
+  <?php 
+if($data_table['rascunho']==1)
+$pagina = "verificar";
+else
+$pagina = "conferir";
+
+?>
+<?php include GPATH."view".S.'ficha'.S."ficha_header.php"; ?>    
+<?php if($data_table['rascunho']==1){ ?>
+<h3>Verificar inscrição e enviar para avaliação</h3>
+<?php }else{ ?>
+<h3>Dados do último envio para análise</h3>
+<?php } ?>
 <hr>
 <?php if($data_table['rascunho']==1){ ?>
-</BR>
-<h4><font color=red>PÁGINA DE VERIFIÇÃO DOS DADOS ANTES DO ENVIO</font></h4>
 <div>
     <B>Você está no área de verificação final da sua inscrição antes do envio.</B></br>
-</br></br><a class="btn btn-secondary" id=bt_cancelar  onclick="go_link('?controller=inscricaocontroller&method=dashboard&id_processo=<?php echo $processo->id_processo; ?>');"><font color=black>Editar inscrição antes do envio</font></a> 
-    <hr>
-    Confira a sua ficha de inscrição os documentos anexados.</br>
-    Ao final, clique no botão "Enviar inscrição", aceitando os termos e digitando sua senha.</br>
-    </br>
-    <b><font color=red>Inscrições que não forem enviadas não serão consideradas no processo seletivo</font></b>
-    <b><font color=red>Somente a última inscrição enviada será considerada.</font></b>
+    <b><font color=red>Inscrições que não forem enviadas não serão consideradas no processo seletivo.</font></b>  <b><font color=red>Somente a última inscrição enviada será considerada.</font></b>
+    </br></br>Ao final da sua conferëncia, no final dessa página, aceite os termos, digite sua senha e clique em ENVIAR PARA ANÁLISE.</br>
+    </br>   
 </div>
 <?php }else{ ?>
-</br>
-<h4><font color=darkblue>VISUALIZANDO INSCRIÇÃO JÁ ENTREGUE!</font></h4>
-</br>Esta inscrição já foi enviada. Para retificar, continue editando sua inscrição.</br>
-Lembre-se de reenviar sua retificação ainda durante o prazo de envio.</br></br>
-<a class="btn btn-secondary" id=bt_cancelar  onclick="go_link('?controller=inscricaocontroller&method=dashboard&id_processo=<?php echo $processo->id_processo; ?>');"><font color=black>Editar inscrição (Retificação)</font></a>
+  <div>
+    <B>Os dados abaixo referem-se a um último envio de inscrição para análise.</B></br>
+    <b><font color=red>Somente a última inscrição enviada será considerada.</font></b>
+  </br></br>Caso identifique alguma inconsistência, ainda dentro do prazo de inscrição, uma retificação poderá ser realizada, bastando editar a sua inscrição e realizar novo envio.</br>
+    </br>   
+</div>
 <?php } ?>
-</br></br>
-<div class="row">
-<div class="col-md-12 col-sm-12">  
-<?php if($data_table['rascunho']==1){ ?>
- Em caso de inconsistência na ficha de inscrição, <a style="cursor:pointer" onclick="go_link('/?controller=FichaController&method=editar&id_ficha=<?php echo $ficha->id_ficha; ?>');"><font color=red>clique aqui</font></a> para corrigir.
-<?php }else{ ?>
-  Em caso de inconsistência na ficha de inscrição, <a style="cursor:pointer" onclick="go_link('/?controller=FichaController&method=editar&id_ficha=<?php echo $ficha->id_ficha; ?>');"><font color=red>clique aqui</font></a> para corrigir.
-<?php } ?>
-</div></div>
-
-
-<hr>
 <div style="text-align:left">
 <?php include "ficha_verificar.php"; ?>
 
@@ -173,6 +169,3 @@ foreach($documentos_curriculo as $doc){ ?>
 <script>
     conf_form('form');
 </script>
-
-
-

@@ -10,10 +10,8 @@ function confirma_inscricao(){
 };   
 </script>
 
-<h3><b><font color="darkblue"><?php echo $processo->txt_processo; ?></font></b></h3>
-</br>
-<h3>Informações sobre o processo seletivo</h3>
-<hr>
+
+
 <div class=row>
 <div id=display_erro class="alert alert-danger display-error col-10 col-md-5 col-lg-5" style="display: none">
  <b>Não foi possível enviar o formulário pelos seguintes motivos:</br></b><ul><span id="erro" name="erro"></span></ul>
@@ -41,29 +39,14 @@ $s1 = utf8_encode(strftime('%A, %d de %B de %Y &agrave;s %H:%M:%S',$t1));
 $s2 = utf8_encode(strftime('%A, %d de %B de %Y &agrave;s %H:%M:%S',$t2));
 $aberto = ProcessosController::aberto($processo->id_processo);
 ?>
-<a class="btn btn-secondary" onclick="go_link('?controller=processoscontroller&method=listar_candidato&pag=<?php echo isset($data_table['pag']) ? $data_table['pag'] : 1; ?>&num=<?php echo isset($data_table['num']) ? $data_table['num'] : 5; ?>');"><font color=black><< Voltar à lista de processos</font></a>          
-<?php 
-    if($data_table['id_inscricao']==0){ ?>
-              
-            <?php
-            if($aberto==2){ ?>
-              <?php if($usuario!=null){                 
-                if($iniciar == 1) echo "<script>confirma_inscricao();</script>";
-                ?>
 
-                <a class="btn btn-success" onclick="confirma_inscricao();"><font color=black>Iniciar a minha inscrição!</font></a>
-              <?php }else{ ?>
-                <a class="btn btn-success disabled"><font color=black>Iniciar a minha inscrição!</font></a>
-              <?php } ?>
-            <?php
-            }else if($aberto==1){ ?>
-              <a class="btn btn-danger disabled" ><font color=black>Inscrições encerradas!</font></a>
-            <?php }else{ ?>
-              <a class="btn btn-warning disabled" ><font color=black>Inscrições em breve!</font></a>
-            <?php } ?>
-    <?php }else{ ?>
-    <a class="btn btn-warning " onclick="go_link('?controller=inscricaocontroller&method=dashboard&id_processo=<?=$processo->id_processo?>');"><font color=black>Ir para a inscrição</font></a>
-    <?php } ?>
+<?php 
+$pagina = "informação";
+$habilitar_inscricao = false
+?>
+<?php include GPATH."view".S.'ficha'.S."ficha_header.php"; ?>  
+<h3>Informações sobre o processo seletivo</h3>
+
     </br>
     <?php if($usuario==null){
         if($aberto==2){ ?>
@@ -124,12 +107,11 @@ $aberto = ProcessosController::aberto($processo->id_processo);
                       <?php if($data_table['id_inscricao']==0){ ?>
                           Não há inscrição do seu usuário para esse processo seletivo.
                       <?php }else if($data_table['id_ficha_enviada']==0){ ?>
-                          $
                           <?php $aberto = ProcessosController::aberto($processo->id_processo);
-                          if($aberto == 1){ ?>
-                            </br><img style="float:left" src="images/warning.png" width="40px"/> <b><font color=red> Você iniciou a sua inscrição mas não enviou. Faça o envio da sua inscrição ainda dentro do prazo.</font></b>
-                          <?php }else if($aberto == 2){ ?>
-                            </br><img style="float:left" src="images/warning.png" width="40px"/> <b><font color=red> Você iniciou a sua inscrição mas não enviou. Considerando que o prazo de inscrição expirou, sua inscrição não poderá mais ser aceita.</font></b>
+                          if($aberto == 2){ ?>
+                            </br><img style="float:left" src="images/warning.png" width="40px"/> <b><font color=red> Você iniciou a sua inscrição mas não enviou.</br>Faça o envio da sua inscrição ainda dentro do prazo.</font></b>
+                          <?php }else if($aberto == 1){ ?>
+                            </br><img style="float:left" src="images/warning.png" width="40px"/> <b><font color=red> Você iniciou a sua inscrição mas não enviou.</br>Considerando que o prazo de inscrição expirou, sua inscrição não poderá mais ser aceita.</font></b>
                           <?php } ?>
 
                       <?php }else{ ?>

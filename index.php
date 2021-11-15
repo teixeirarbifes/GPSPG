@@ -197,18 +197,19 @@ ob_start();
         </td></tr><tr><td>
 
 
-        </br>
         
         <?php if(!UsuariosController::is_logged()){ ?>
-              <a style="color:black;cursor:pointer;padding-left: 6px;padding-top: 3px;padding-right: 6px;padding-bottom: 3px;cursor:pointer" class="btn btn-success" onclick="go_link('/?controller=usuarioscontroller&method=registrar1');"  >
+          <font size=1><b>Olá, candidato!</b> </font></br>
+            <a style="color:black;cursor:pointer;padding-left: 6px;padding-top: 3px;padding-right: 6px;padding-bottom: 3px;cursor:pointer" class="btn btn-success" onclick="go_link('/?controller=usuarioscontroller&method=registrar1');"  >
                 <i class="icon-head"></i> Registrar-se!
             </a> 
             <a style="cursor:pointer;padding-left: 6px;padding-top: 3px;padding-right: 6px;padding-bottom: 3px;cursor:pointer" class="btn btn-secondary"  onclick="go_link('/?controller=usuarioscontroller&method=form_login');">
                 <i class="icon-inbox"></i> Acessar
             </a>
             <?php }else{?>
+              <font size=1><b>Olá, <?=UsuariosController::get_usuario()['txt_nome']?></b> </font></br>
               <a style="cursor:pointer;padding-left: 6px;padding-top: 3px;padding-right: 6px;padding-bottom: 3px;cursor:pointer"  class="btn btn-secondary"  onclick="go_link('/?controller=usuarioscontroller&method=form_perfil	');"><i class="icon-head"></i> Perfil</span></a> 
-              <a style="cursor:pointer;padding-left: 6px;padding-top: 3px;padding-right: 6px;padding-bottom: 3px;cursor:pointer"   class="btn btn-secondary"  onclick="go_link('/?controller=usuarioscontroller&method=sair');"><i class="icon-outbox"></i> Sair</a> 
+              <a style="cursor:pointer;padding-left: 6px;padding-top: 3px;padding-right: 6px;padding-bottom: 3px;cursor:pointer"   class="btn btn-secondary"  onclick="go_link('/?controller=usuarioscontroller&method=sair');"><i class="icon-outbox"></i> Sair</a>             
             <?php } ?>
         </td><td>
         <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
@@ -455,21 +456,11 @@ ob_start();
     </div>
    
       <!-- partial -->
-      <div class="main-panel">
-        <div class="content-wrapper">
-          <div class="row">
-            <div class="col-sm-12 mb-4 mb-xl-0">
-            <?php if(UsuariosController::is_logged()){ ?>
-              <h4 class="font-weight-bold text-dark" style="font-size:18px">Olá, <?=UsuariosController::get_usuario()['txt_nome']?>!</h4>
-              <p class="font-weight-normal mb-2 text-muted" style="font-size:15px">Seja bem vindo ao GPS-PG.</p>
-              <p class="font-weight-normal mb-2 text-muted" style="font-size:12px"><?=UsuariosController::get_usuario()['dt_ultimoacesso'] == 0 ? "Este é seu primeiro acesso." : "Último acesso: ".utf8_encode(strftime('%A, %d de %B de %Y &agrave;s %H:%M:%S',strtotime(UsuariosController::get_usuario()['dt_ultimoacesso'])))?></p>
-            <?php }else{ ?>
-              <h4 class="font-weight-bold text-dark">Olá, candidato!</h4>
-            <?php } ?>
-            </div>
-          </div>
-          <div class="row mt-3">
-          <span id="conteudo" style="width:100%">
+      <div class="main-panel justify-content-right">
+        <div class="content-wrapper  justify-content-right">
+
+          <div class="row mt-3  justify-content-right">
+          <span id="conteudo" class="justify-content-right"  style="width:100%">
 								<?php echo $result; ?>
 								</span>            
           </div>

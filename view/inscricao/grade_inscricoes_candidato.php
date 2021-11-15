@@ -8,15 +8,9 @@ $id = 'id_processo';
 $exclusao = 0;
 $novo = 0;
 $visualizar = 2;
-$visualizar_controller = "inscricaocontroller";
-$visualizar_method = "dashboard";
-$visualizar_txt = "Visualizar inscrição";
-
-$botao_extra_1 = 1;
-$botao_extra_1_controller = "processoscontroller";
-$botao_extra_1_method = "visualizar_candidato";
-$botao_extra_1_txt = "Mais informações</br>do processo seletivo";
-
+$visualizar_controller = "processoscontroller";
+$visualizar_method = "visualizar_candidato";
+$visualizar_txt = "Ir para...";
 ?>
 <?php include GPATH."utils".S."modal.php"; ?>
 <h1>Minhas inscrições em processos seletivos</h1>

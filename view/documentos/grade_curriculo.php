@@ -36,7 +36,7 @@ let modal_id = 0;
 </script>
 
 <?php $pagina = "curriculo"; include GPATH."view".S.'ficha'.S."ficha_header.php"; ?>    
-
+<h3>Matriz de pontuação e comprovações</h3>
 
 <hr>
 
@@ -48,7 +48,7 @@ let modal_id = 0;
 
 <div class="container p-2">
 <div class="row">        
-  <h4><b>CURRÍCULO E ANEXOS<b></h4>
+  <h4><b>CURRÍCULO E ANEXOS</b></h4>
   </div>
   <div class="row">
         <div class="form-group">    

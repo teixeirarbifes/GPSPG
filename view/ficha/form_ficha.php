@@ -20,7 +20,8 @@ $pagina = "ficha";
 ?>
 
 <?php include GPATH."view".S.'ficha'.S."ficha_header.php"; ?>    
-
+<h3>Editar a ficha de inscrição</h3>
+<hr>
 <div style="text-align:left">
 <div class="container p-2">
 <div class="row">
