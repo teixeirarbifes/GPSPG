@@ -138,10 +138,16 @@ class FichaController extends Controller
                             return $this->listar_candidato($dados); 
                         }
 
-                        if($ficha->txt_photo!="")
-                        if(!file_exists($_SERVER['DOCUMENT_ROOT'].S.'upload'.S.'photos'.S.$ficha->txt_photo)){
-                            $this->msg('Foto não encontrada!',1);
-                            $ficha->txt_photo = "";
+                        if($ficha->txt_photo!=""){
+                            if(DESENVOLVIMENTO==1)
+                            $location = str_replace('GPSPG','',str_replace("gpspgbeta","",$_SERVER['DOCUMENT_ROOT'])).'betaupload'.S.'photos'.S.$ficha->txt_photo;
+                            else
+                            $location = str_replace("gpspg","",$_SERVER['DOCUMENT_ROOT']).'upload'.S.'photos'.S.$ficha->txt_photo;
+
+                            if(!file_exists($location)){
+                                $this->msg('Foto não encontrada!',1);
+                                $ficha->txt_photo = "";
+                            }
                         }
                         $modalidade = Modalidade::get_vagas($inscricao->id_processo);
                         return $this->view('ficha'.S.'form_ficha', ['data_table' => $dados, 'modalidade' => $modalidade, 'ficha' => $ficha,'processo' => $processo, 'inscricao' => $inscricao]);
@@ -272,10 +278,19 @@ class FichaController extends Controller
                 $ext = isset($_SESSION['ext'.$id]) ? $_SESSION['ext'.$id] : "";
                 if($ext !=""){                    
                     $filename = $session_id.'_'.$id.'.'.$ext;
-                    $temp = $_SERVER['DOCUMENT_ROOT'].S.'upload'.S.'temp_photos'.S.$filename;
+                    if(DESENVOLVIMENTO==1)
+                    $temp = str_replace('GPSPG','',str_replace("gpspgbeta","",$_SERVER['DOCUMENT_ROOT'])).S.'betaupload'.S.'temp_photos'.S.$filename;
+                    else
+                    $temp = str_replace("gpspg","",$_SERVER['DOCUMENT_ROOT']).S.'upload'.S.'temp_photos'.S.$filename;
+
                     if(file_exists($temp)){
                         $filename_new = 'photo_'.$ficha->id_ficha."_".uniqid().".".$ext;
-                        $new = $_SERVER['DOCUMENT_ROOT'].S.'upload'.S.'photos'.S.$filename_new;
+                        
+                        if(DESENVOLVIMENTO==1)
+                        $new = str_replace('GPSPG','',str_replace("gpspgbeta","",$_SERVER['DOCUMENT_ROOT'])).S.'betaupload'.S.'photos'.S.$filename_new;
+                        else
+                        $new = str_replace("gpspg","",$_SERVER['DOCUMENT_ROOT']).S.'upload'.S.'photos'.S.$filename_new;
+
                         if($filename_new==$old) $old = "";
                         $ficha->txt_photo = $filename_new;
                         $change = true;
@@ -283,7 +298,12 @@ class FichaController extends Controller
                 }
             }else{
                 if($ficha->txt_photo!=""){
-                    if(!file_exists($_SERVER['DOCUMENT_ROOT'].S.'upload'.S.'photos'.S.$ficha->txt_photo)){
+                    if(DESENVOLVIMENTO==1)
+                    $local = str_replace('GPSPG','',str_replace("gpspgbeta","",$_SERVER['DOCUMENT_ROOT'])).S.'betaupload'.S.'photos'.S.$ficha->txt_photo;
+                    else
+                    $local = str_replace("gpspg","",$_SERVER['DOCUMENT_ROOT']).S.'upload'.S.'photos'.S.$ficha->txt_photo;
+
+                    if(!file_exists($local)){
                         $ficha->txt_photo = "";
                         $change = true;                  
                     }

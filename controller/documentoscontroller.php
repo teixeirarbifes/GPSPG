@@ -166,7 +166,7 @@ class DocumentosController extends Controller
                                 if(DESENVOLVIMENTO==1)
                                 $dir = str_replace('GPSPG','',str_replace('gpspgbeta','',$_SERVER['DOCUMENT_ROOT'])).'betaupload'.S.'user_'.UsuariosController::get_usuario()['id_user'];
                                 else
-                                $dir = str_replace('GPSPG','',str_replace('gpspg','',$_SERVER['DOCUMENT_ROOT'])).'upload'.S.'user_'.UsuariosController::get_usuario()['id_user'];
+                                $dir = str_replace('gpspg','',$_SERVER['DOCUMENT_ROOT']).'upload'.S.'user_'.UsuariosController::get_usuario()['id_user'];
 
                                 if (!file_exists($dir.S)) {
                                     mkdir($dir, 0777);
