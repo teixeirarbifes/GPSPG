@@ -203,8 +203,7 @@ class DocumentosController extends Controller
         /*}else if(!$this->check_auth([1,3,4],true)){
             return $this->listar();*/
         }
-        
-        $id_ficha      = (int) $dados['id_ficha'];
+        $id_ficha      = $dados['id_ficha'];
         $ficha = Ficha::find($id_ficha);       
 
         $controllerficha = new FichaController();
@@ -212,7 +211,8 @@ class DocumentosController extends Controller
 
         if(isset($ficha->id_ficha)){
             $inscricao = Inscricao::find($ficha->id_inscricao);        
-            if(isset($inscricao->id_inscricao) && $inscricao->id_ficha_rascunho == $id_ficha){
+            echo $inscricao->id_ficha_rascunho.'' == ''.$id_ficha;
+            if($inscricao->id_ficha_rascunho.'' == ''.$id_ficha){
                 if($this->check_auth([1],false) && $inscricao->id_user != UsuariosController::get_usuario()['id_user']){
                     $this->msg('Não autorizado para gerenciar os documentos da Ficha id#'.$id_ficha.' com o seu usuário.',2);
                 }else{
