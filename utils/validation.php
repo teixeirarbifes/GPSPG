@@ -24,7 +24,8 @@
         
         public static function senha_confere($validation){            
             $conexao = Conexao::getInstance();
-            $stmt    = $conexao->prepare("SELECT * FROM tab_users WHERE NOT id_user = 0".$validation->id." AND txt_senha = '". hash('sha256',$validation->value) ."';");
+            $stmt    = $conexao->prepare("SELECT * FROM tab_users WHERE id_user = 0".$validation->id." AND txt_senha = '". hash('sha256',$validation->value) ."';");
+
             if ($stmt->execute()) {
                 if ($stmt->rowCount() == 0) {
                     $validation->errors[$validation->field] = 'Senha incorreta. Informe a senha correta para continuar.';
@@ -106,8 +107,8 @@
         }
 
         public static function validation_entregar($data){
-            $val = new Validation();
-            if(!isset($_SESSION['usuario'])){session_start();}
+            $val = new Validation();         
+            $control = new UsuariosController();
             if(!UsuariosController::is_logged()){
                 $val->errors['falha'] = 'Você precisa estar logado.';
                 return $val->getErrors();
@@ -116,7 +117,7 @@
             }
 
             $val->field('concordo')->name('De acordo (checkbox)')->value($data['concordo'])->required();            
-            $val->field('txt_senha')->name('Senha')->id($user)->value($data['txt_senha'])->required(); 
+            $val->field('txt_senha')->name('Senha')->id($user)->value($data['txt_senha'])->funcao('senha_confere')->required(); 
             if($val->isSuccess()){
                 return null;
             }else{

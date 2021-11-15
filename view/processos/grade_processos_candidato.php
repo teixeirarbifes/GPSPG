@@ -119,9 +119,17 @@ include GPATH."utils".S."pagination.php";
                           <a class="btn btn-warning disabled" ><font color=black>Inscrições em breve!</font></a>
                         <?php } ?>
                 <?php }else{ ?>
-                <a class="btn btn-warning " onclick="go_link('?controller=inscricaocontroller&method=dashboard&id_processo=<?=$processo->id_processo?>');"><font color=black>Ir para minha inscrição</font></a>
+                    <?php if($processo->enviado){ ?>
+                      <a class="btn btn-success " onclick="go_link('?controller=inscricaocontroller&method=ver_entregue&id_processo=<?=$processo->id_processo?>');"><font color=black>Inscrição enviada</font></a>                    
+                      <?php }else{ ?>
+                        <?php if($aberto==2){ ?>
+                          <a class="btn btn-warning " onclick="go_link('?controller=inscricaocontroller&method=verificar&id_processo=<?=$processo->id_processo?>');"><font color=black>Em edição</font></a>               
+                        <?php }else{ ?>
+                          <a class="btn btn-danger " onclick="go_link('?controller=inscricaocontroller&method=verificar&id_processo=<?=$processo->id_processo?>');"><font color=black>Inscrição NÁO enviada</font></a>               
+                        <?php } ?>
+                      <?php } ?>
                 <?php } ?>
-                <a class="btn btn-primary" onclick="go_link('?controller=processoscontroller&method=visualizar_candidato&id_processo=<?php echo $processo->id_processo; ?>&pag=<?php echo $pag ?>&num=<?php echo $limit; ?>');"><font color=black>Mais informações</font></a> 
+                <a class="btn btn-primary" onclick="go_link('?controller=processoscontroller&method=visualizar_candidato&id_processo=<?php echo $processo->id_processo; ?>&pag=<?php echo $pag ?>&num=<?php echo $limit; ?>');"><font color=black>Mais informações...</font></a> 
             </p>
 
     </div>

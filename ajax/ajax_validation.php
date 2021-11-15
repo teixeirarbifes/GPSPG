@@ -21,7 +21,7 @@
         $data['id_user'] = 0;
     }
    
-
+    session_start();
     if($data['classe'] == 'usuario'){
         $retorna = Validation_Classe::validation_usuario($data);
     }else if($data['classe'] == 'registro1'){

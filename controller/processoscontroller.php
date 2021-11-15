@@ -86,12 +86,20 @@ class ProcessosController extends Controller
         for($i = 0;$i<count($processos);$i++){
                 if(UsuariosController::is_logged()){
                     $inscricao = Inscricao::get_id_by_processo($processos[$i]->id_processo,UsuariosController::get_usuario()['id_user'],false);
-                    if(isset($inscricao->id_inscricao))
-                    $processos[$i]->inscrito = true;
-                    else
-                    $processos[$i]->inscrito = false;
+                    if(isset($inscricao->id_inscricao)){
+                        $processos[$i]->inscrito = true;
+                        if($inscricao->id_ficha_enviada>0){
+                            $processos[$i]->enviado = true;
+                        }else{
+                            $processos[$i]->enviado = false;
+                        }
+                    }else{
+                        $processos[$i]->inscrito = false;
+                        $processos[$i]->enviado = false;
+                    }
                 }else{
                     $processos[$i]->inscrito = false;
+                    $processos[$i]->enviado = false;
                 }
             
             if($processos[$i]->status == "") $processos[$i]->status = "<font color=red>Sem status</font>";
