@@ -7,6 +7,16 @@ require_once(GPATH.'request'.S.'session.php');
 setlocale(LC_ALL, 'pt_BR.utf-8', 'portuguese');
 date_default_timezone_set('America/Sao_Paulo');
 
+
+if($_REQUEST['action'] == 'download'){
+    $_REQUEST['controller'] = "documentoscontroller";
+    $_REQUEST['method'] = 'download';
+    $_REQUEST['id_doc'] = $_REQUEST['d'];
+    $_REQUEST['id_ficha'] = $_REQUEST['f'];
+    $_REQUEST['pag'] = 1;
+    $_REQUEST['num'] = 1000;
+}
+
 $data = Session::getInstance(); 
 
 if(!$data->__isset("mensagens")) $data->mensagens = new ArrayObject();

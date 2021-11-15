@@ -86,7 +86,8 @@ class DocumentosController extends Controller
                             $file=$doc->txt_location;
                             $name=str_replace(' ','_',$classe->txt_classe).'_'.$doc->id_doc.'_'.str_replace(' ','_',$doc->txt_filename);
                             header('Content-type: application/pdf');
-                            header('Content-Disposition: attachment; filename="'.$name.'"');
+                            header('Content-Disposition: filename="'.$name.'"');
+                            //echo $file;
                             readfile($file);
                             exit();
                         }

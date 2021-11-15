@@ -7,11 +7,12 @@ $campos = [['Tipo documento','txt_classe'],['Nome do arquivo','txt_filename']];
 $id = 'id_doc';
 $exclusao = 1;
 $novo = 0;
-$visualizar = 2;
-$visualizar_controller = "documentoscontroller";
-$visualizar_method = "download";
+$visualizar = 3;
+$visualizar_url = "/?action=download&d=";
+#$visualizar_controller = "documentoscontroller";
+#$visualizar_method = "download";
 $visualizar_txt = "Baixar PDF";
-$visualizar_extra = "id_ficha=".$ficha->id_ficha;
+$visualizar_extra = "f=".$ficha->id_ficha;
 
 $botao_extra_1 = 0;
 $botao_extra_1_controller = "processoscontroller";

@@ -229,8 +229,8 @@ function ChangeUrl(title, url) {
   }
 
   function go_link(url,destino = 'conteudo',loading=true,changecheck = true){
-    if((url.indexOf('&method=download') > -1) ) {
-        document.location.href = url;        
+    if((url.indexOf('action=download') > -1) ) {
+        window.open(url, '_blank');
         return;
     }
     if(changecheck && check_change()){
