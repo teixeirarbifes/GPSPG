@@ -29,7 +29,9 @@ Obtenha <font color=darkblue>mais informações</font> sobre um processo seletiv
 $pagination = "";
 include GPATH."utils".S."pagination.php";
 ?>
-<?php foreach($data_table as $processo){ ?>
+<?php 
+if($data_table)
+foreach($data_table as $processo){ ?>
  <div class="card text-center">
   <div class="card-header" style="text-align:left">
   <h4><b><?php echo $processo->txt_processo; ?></b></h4>

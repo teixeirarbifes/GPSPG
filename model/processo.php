@@ -129,13 +129,25 @@ class Processos
         $offset = ($pag-1)*$num;
         if($offset <0) $offset  = 0;
         $limit = $num;
-        if($publicado) $where = " WHERE tab_processos.bl_publicado = true ";
-        else $where = "";
+        $control = new UsuariosController();
+        if(!DESENVOLVIMENTO && !$control->check_auth([3,4],false)){
+            if($publicado) $where = " WHERE tab_processos.bl_publicado = true AND tab_processos.id_processo != 45";
+            else $where = "";
+        }else{
+            if($publicado) $where = " WHERE tab_processos.bl_publicado = true";
+              else $where = "";
+        }
+
+        
+        
+
         if($semstatus)
         $stmt    = $conexao->prepare("SELECT tab_processos.* FROM tab_processos {$where} {$torder} LIMIT {$offset},{$limit} ;");
         else
         $stmt    = $conexao->prepare("SELECT tab_processos.*, tab_status.txt_status as status FROM tab_processos LEFT JOIN tab_status ON tab_processos.id_status = tab_status.id_status {$where} {$torder} LIMIT {$offset},{$limit}  ;");
         $result  = array();
+
+        
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
         if ($stmt->execute()) {
             while ($rs = $stmt->fetchObject(Processos::class)) {
