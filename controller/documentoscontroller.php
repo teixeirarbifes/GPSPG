@@ -216,7 +216,6 @@ class DocumentosController extends Controller
 
         if(isset($ficha->id_ficha)){
             $inscricao = Inscricao::find($ficha->id_inscricao);        
-            echo $inscricao->id_ficha_rascunho.'' == ''.$id_ficha;
             if($inscricao->id_ficha_rascunho.'' == ''.$id_ficha){
                 if($this->check_auth([1],false) && $inscricao->id_user != UsuariosController::get_usuario()['id_user']){
                     $this->msg('Não autorizado para gerenciar os documentos da Ficha id#'.$id_ficha.' com o seu usuário.',2);

@@ -32,13 +32,6 @@ delete callback_grade_pessoal;
 //}
 </script>   
 
-<script>
-    $("#txt_filename").change(function(){
-        alert('');
-    }
-</script>
-
-
 <?php $pagina = "pessoal"; include GPATH."view".S.'ficha'.S."ficha_header.php"; ?>    
 <h3>Anexar os documentos pessoais e formulários</h3>
 <hr>
