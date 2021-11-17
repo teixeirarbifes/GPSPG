@@ -129,10 +129,12 @@ foreach($documentos_curriculo as $doc){ ?>
   </div>
 <h3>Declaração</h3>
 
-<b><font color=darkblue size=2px>Marque a declaração se estiver de acordo.</font></b>
+<b><font color=darkblue size=2px>Esteja de acordo com a declaração e digite sua senha para enviar para avaliação.</font></b>
 <div class="container" id="concordo">
-  <input type="checkbox" name="concordo">
+</br>
   <label for="concordo"><font color=black>Eu, <?php echo $usuario['txt_nome']; ?>, CPF nº <?php echo $usuario['txt_cpf']; ?>, declaro, sob as penas da Lei, que são verdadeiras e completas as informações prestadas neste sistema eletrônico para essa inscrição. Entendo que somente será considerado o último protocolo de envio de inscrição conforme edital. Entendo que os dados da inscrição devem estar em consonância com as normas do edital do processo seletivo.</font>
+  </br>  </br>  </br>  
+  <input type="checkbox" name="concordo"> Estou de acordo com a declaração. 
 </label>
 </div>
 </br><div>
@@ -146,7 +148,7 @@ foreach($documentos_curriculo as $doc){ ?>
 </div>
 <div class="row">
     <div class="col-sm-12 col-md-4"> 
-    <a class="btn btn-primary" id=salvar  onclick="validar('form','entregar',null,false);"><font color=black>Enviar e protocolar inscrição</font></a>&nbsp;  
+    <a class="btn btn-success" id=salvar  onclick="validar('form','entregar',null,false);"><font color=black>Enviar inscrição para análise</font></a>&nbsp;  
 </div>
 </form>
 <?php }else{ ?>

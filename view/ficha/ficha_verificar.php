@@ -33,8 +33,9 @@ function textfield($label,$field,$class,$obrigatorio = false,$adicional="",$msg=
       <div class='col-md-12'><h4><b><font color=darkblue>Confira seus dados iniciais:</font></b></h4></div>
       <?php textfield('Nome completo',  '',         'col-lg-6 col-md-6 col-sm-12',  false, 'disabled',"<b><font color=green size=1px>O nome completo pode ser alterado na página do perfil.</font></b>",UsuariosController::get_usuario()['txt_nome'] ); ?>
       <?php textfield('E-mail',         '',        'col-lg-6 col-md-6 col-sm-12', false, 'disabled',"<b><font color=green size=1px>O e-mail pode ser alterado na página do perfil.</font></b>",UsuariosController::get_usuario()['txt_email']); ?>
-      <?php textfield('Nome da mãe',    'txt_nome_mae',     'col-lg-6 col-md-6 col-sm-12'); ?>
-      <?php textfield('Nome do pai',    'txt_nome_pai',     'col-lg-6 col-md-6 col-sm-12'); ?>
+      <?php textfield('Data de nascimento',    'txt_nascimento',     'col-lg-3 col-md-3 col-sm-12'); ?>
+      <?php textfield('Nome da mãe',    'txt_nome_mae',     'col-lg-5 col-md-5 col-sm-12'); ?>
+      <?php textfield('Nome do pai',    'txt_nome_pai',     'col-lg-4 col-md-4 col-sm-12'); ?>
       <?php textfield('Telefone',       'txt_telefone',     'col-lg-3 col-md-6 col-sm-12',false,"mask='(999) 9999–9999'"); ?>
       <?php textfield('Celular',        'txt_celular',      'col-lg-3 col-md-6 col-sm-12',false,"mask='(999) 99999–9999'"); ?>
       <?php textfield('Estado civil',   'txt_civil',        'col-md-3 col-sm-5'); ?>
@@ -65,11 +66,7 @@ function textfield($label,$field,$class,$obrigatorio = false,$adicional="",$msg=
     <?php textfield('RG',             'txt_rg',           'col-md-4 col-sm-12'); ?>
     <?php textfield('Orgão Expedidor','txt_rg_orgao',     'col-md-2 col-sm-12'); ?>
     <?php textfield('UF',             'txt_rg_uf',        'col-md-2 col-sm-12'); ?>
-    <div class="col-md-2 col-sm-12">      
-    <label for="txt_rg_expedicao">Data de Expedição</label>
-    <input disabled type="date" id="txt_rg_expedicao" class="maskField form-control" aria-describedby="erro_txt_rg_expedicao" name="txt_rg_expedicao" value="<?php echo $ficha->txt_rg_expedicao; ?>" {adicional}/>
-    <div  class="form-text text-muted"><font color=red><div class="msg_error" id="erro_txt_rg_expedicao"></div></font></div>
-    </div>
+    <?php textfield('Data de expedição',         'txt_rg_expedicao','col-md-2 col-sm-12'); ?>
   </div>
   <hr/>
   <div class="row">
@@ -79,11 +76,7 @@ function textfield($label,$field,$class,$obrigatorio = false,$adicional="",$msg=
     <?php textfield('Zona',           'txt_eleitor_zona', 'col-md-1 col-sm-12'); ?>
     <?php textfield('Seção',          'txt_eleitor_secao','col-md-1 col-sm-12'); ?>
     <?php textfield('Estado',         'txt_eleitor_estado','col-md-2 col-sm-12'); ?>
-    <div class="col-md-2 col-sm-12">      
-    <label for="txt_eleitor_emissao">Data de Emissão</label>
-    <input disabled type="date" id=txt_eleitor_emissao" class="maskField form-control" aria-describedby="erro_txt_eleitor_emissao" name="txt_eleitor_emissao" value="<?php echo $ficha->txt_eleitor_emissao; ?>" {adicional}/>
-    <div  class="form-text text-muted"><font color=red><div class="msg_error" id="erro_txt_eleitor_emissao"></div></font></div>
-    </div>
+    <?php textfield('Data de emissão',         'txt_eleitor_emissao','col-md-2 col-sm-12'); ?>
     </div>
 </div>
 </br>
