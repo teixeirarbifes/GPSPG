@@ -453,6 +453,40 @@ class InscricaoController extends Controller
                 }
                 $documentos = Documentos::all_ficha($ficha->id_ficha);  
 
+                if(isset($ficha->txt_sexo)){
+                    if($ficha->txt_sexo == 1)   
+                        $ficha->txt_sexo = "Masculino";
+                    else if($ficha->txt_sexo == 2)   
+                        $ficha->txt_sexo = "Feminino";
+                    else                        
+                        $ficha->txt_sexo = "Ignorado";                    
+                }
+
+                if(isset($ficha->txt_civil)){
+                    if($ficha->txt_civil == 1)   
+                        $ficha->txt_civil = "Casado";
+                    else if($ficha->txt_civil == 2)   
+                        $ficha->txt_civil = "Divorciado";
+                    else if($ficha->txt_civil == 3)   
+                        $ficha->txt_civil = "Separado";
+                    else if($ficha->txt_civil == 4)   
+                        $ficha->txt_civil = "Solteiro";
+                    else if($ficha->txt_civil == 5)   
+                        $ficha->txt_civil = "União estável";
+                    else                        
+                        $ficha->txt_civil = "Viúvo";                    
+                }
+
+                if(isset($ficha->txt_nascimento)){
+                    $ficha->txt_nascimento = date('d-m-Y', strtotime($ficha->txt_nascimento) );
+                }
+
+                if(isset($ficha->txt_rg_expedicao)){
+                    $ficha->txt_rg_expedicao = date('d-m-Y', strtotime($ficha->txt_rg_expedicao) );
+                }
+                if(isset($ficha->txt_eleitor_emissao)){
+                    $ficha->txt_eleitor_emissao = date('d-m-Y', strtotime($ficha->txt_eleitor_emissao) );
+                }
                 
                 $documentos_pessoais = Documentos::all_ficha($ficha->id_ficha,1);  
                 $documentos_curriculo = Documentos::all_ficha($ficha->id_ficha,2);  
