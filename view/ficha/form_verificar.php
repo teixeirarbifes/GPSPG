@@ -49,7 +49,7 @@ foreach($documentos_pessoais as $doc){ ?>
   <hr>
   <div class="row">
   <div class="col-md-1 col-sm-12">
-    <a class="btn btn-success stretched-link" style="cursor:pointer" onclick="go_link('/?controller=documentoscontroller&method=download&id_doc=<?=$doc->id_doc?>&id_ficha=<?=$ficha->id_ficha?>');">Baixar</a>
+    <a class="btn btn-success stretched-link" style="cursor:pointer" onclick="go_link('/?action=download&d=<?=$doc->id_doc?>&f=<?=$ficha->id_ficha?>');");">Baixar</a>
  </div>
   <div class="col-md-3 col-sm-12"> 
     <span style="width:100%"><b><font size=4><?=$doc->txt_classe?></font></b></span>
@@ -94,13 +94,14 @@ foreach($documentos_curriculo as $doc){ ?>
   <hr>
   <div class="row">
   <div class="col-md-1 col-sm-12">
-    <a class="btn btn-success stretched-link" style="cursor:pointer" onclick="go_link('/?controller=documentoscontroller&method=download&id_doc=<?=$doc->id_doc?>&id_ficha=<?=$ficha->id_ficha?>');">Baixar</a>
+    <a class="btn btn-success stretched-link" style="cursor:pointer" onclick="go_link('/?action=download&d=<?=$doc->id_doc?>&f=<?=$ficha->id_ficha?>');">Baixar</a>
  </div>
   <div class="col-md-3 col-sm-12"> 
     <span style="width:100%"><b><font size=4><?=$doc->txt_classe?></font></b></span>
   </div>
   <div class="col-md-8 col-sm-12">
     <?=$doc->txt_filename?>
+
  </div>
  
 </div>
