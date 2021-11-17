@@ -28,7 +28,6 @@ $pagina = "ficha";
     <div class='col-md-12'>
       
                 <a class="btn btn-success" id=salvar  onclick="$('#voltar').val(0); validar('form','ficha');"><font color=black>Salvar ficha</font></a>&nbsp;  
-                <!--a class="btn btn-success" id=salvar  onclick="$('#voltar').val(1); validar('form','ficha');"><font color=black>Salvar e Voltar</font></a-->&nbsp;                
 </div></div></div>
 <form id=form class="form-horizontal" action="?controller=fichacontroller&method=atualizar&id=<?php echo $ficha->id_ficha; ?>" method="post" >
 <input type=hidden id=voltar name=voltar value=0/>

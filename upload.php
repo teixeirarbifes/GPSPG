@@ -31,11 +31,8 @@ if(isset($_FILES['file']['name'])){
       }
       $_SESSION['ext'.$id] = $imageFileType;
       
-      if(DESENVOLVIMENTO==1)
-      $location_transfer = str_replace('GPSPG','',str_replace("gpspgbeta","",$_SERVER['DOCUMENT_ROOT'])).S.'betaupload'.S.'temp_photos'.S.$session_id.'_'.$id.'.'.$imageFileType;
-      else
-      $location_transfer = str_replace("gpspg","",$_SERVER['DOCUMENT_ROOT']).S.'upload'.S.'temp_photos'.S.$session_id.'_'.$id.'.'.$imageFileType;
-
+      $location_transfer =  UPLOAD_DIR_TEMP_PHOTOS.$session_id.'_'.$id.'.'.$imageFileType;
+      
       
       /* Upload file */
       if(move_uploaded_file($_FILES['file']['tmp_name'],$location_transfer)){

@@ -26,16 +26,16 @@ foreach($matriz_classe as $item){
         <font size=1><?=$item->txt_classe?></font>
     </div>
     <div style="" class=" border col-2 ">
-        <?=$item->num_ponto?> pontos/doc
+        <?=$item->num_ponto?> ponto<?=$item->num_ponto > 1 ? "s" : ""?>/doc
     </div>
     <div style="" class=" border col-2 ">
-        <?=$item->num_maximo?> doc(s)
+        <?=$item->num_maximo?> ponto<?=$item->num_maximo > 1 ? "s" : ""?>
     </div>
     <div style="" class="border col-2 ">
-        <?=$item->num_docs?> doc(s).
+        <?=$item->num_docs?> doc<?=$item->num_docs > 1 ? "s" : ""?>
     </div>
     <div style="" class="border col-2">
-        <?=$item->total?> pontos
+        <?=$item->total?> ponto<?=$item->total > 1 ? "s" : ""?>
     </div>
     <!--div style="" class="border col-md-1 col-sm-12">
       <a class="btn-primary">Upload</a>
@@ -53,7 +53,7 @@ foreach($matriz_classe as $item){
        Total Geral:
     </div>
     <div style="color:blue" class="border col-2 d-sm-none d-lg-block d-md-block d-block">
-    <?=$total?> pontos
+    <?=$total?> ponto<?=$total > 1 ? "s" : ""?>
     </div>
     </div>
 </div>
@@ -73,7 +73,7 @@ foreach($matriz_classe as $item){
             Pontos por doc.
         </div>
         <div style="" class="border col-6">
-            <?=$item->num_ponto?> pontos/doc
+            <?=$item->num_ponto?> ponto<?=$item->num_ponto > 1 ? "s" : ""?>/doc
         </div>
     </div>
     <div class="row">
@@ -81,15 +81,15 @@ foreach($matriz_classe as $item){
             Máximo
         </div>
         <div style="" class="border col-6">
-            <?=$item->num_maximo?> doc(s)
+            <?=$item->num_maximo?> ponto<?=$item->num_maximo > 1 ? "s" : ""?>
         </div>
     </div>
   <div class="row">
         <div style="color:blue" class="border col-4">
-            Carregado(s)
+            Carregado
         </div>
         <div style="" class="border col-6">
-        <?=$item->num_docs?> doc(s)
+        <?=$item->num_docs?> doc<?=$item->num_docs > 1 ? "s" : ""?>
         </div>
   </div>  
   <div class="row">
@@ -97,7 +97,7 @@ foreach($matriz_classe as $item){
             Total de Pontos
         </div>
         <div style="" class="border col-6">
-        <?=$item->total?> pontos
+        <?=$item->total?> ponto<?=$item->total > 1 ? "s" : ""?>
         </div>
   </div>    
   </br>
@@ -107,7 +107,7 @@ foreach($matriz_classe as $item){
             Total Geral:
         </div>
         <div style="" class="border col-6">
-        <?=$total?> pontos
+        <?=$total?> ponto<?=$total > 1 ? "s" : ""?>
         </div>
     </div>
 </div>

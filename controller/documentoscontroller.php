@@ -163,11 +163,8 @@ class DocumentosController extends Controller
                                 $doc->id_user = UsuariosController::get_usuario()['id_user'];
                                 $doc->txt_filename = $_FILES['txt_filename']['name'];
                                 $doc->id_classe = $dados['id_classe'];
-                                if(DESENVOLVIMENTO==1)
-                                $dir = str_replace('GPSPG','',str_replace('gpspgbeta','',$_SERVER['DOCUMENT_ROOT'])).'betaupload'.S.'user_'.UsuariosController::get_usuario()['id_user'];
-                                else
-                                $dir = str_replace('gpspg','',$_SERVER['DOCUMENT_ROOT']).'upload'.S.'user_'.UsuariosController::get_usuario()['id_user'];
-
+                                
+                                $dir = UPLOAD_DIR_FILES.'user_'.UsuariosController::get_usuario()['id_user'];
                                 if (!file_exists($dir.S)) {
                                     mkdir($dir, 0777);
                                 }
