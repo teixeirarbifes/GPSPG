@@ -33,7 +33,8 @@ delete callback_grade_pessoal;
 </script>   
 
 <?php $pagina = "pessoal"; include GPATH."view".S.'ficha'.S."ficha_header.php"; ?>    
-<h3>Anexar os documentos pessoais e formulários</h3>
+<h3><font color=black>Anexar os documentos pessoais e formulários</font></h3>
+
 <hr>
 
 <form id="excluir" action="" method="post">
@@ -44,7 +45,12 @@ delete callback_grade_pessoal;
 
 <div class="container p-2">
   <div class="row">        
-  <h4><b>DOCUMENTOS PESSOAIS E FORMULÁRIOS<b></h4>
+  <a class="btn btn-secondary" id=salvar onclick="go_link('/?controller=FichaController&method=editar&id_ficha=<?php echo $ficha->id_ficha; ?>');"><font color=black>Voltar para ficha</font></a>&nbsp;
+  <a class="btn btn-success" id=salvar onclick="go_link('/?controller=DocumentosController&method=listar_curriculo&id_ficha=<?php echo $ficha->id_ficha; ?>');"><font color=black>Continuar >></font></a>&nbsp;
+</div>
+</br>
+<div class="row">
+  <b>Utilize esse formulário para enviar os documentos.<b>
   </div>
   <div class="row">
         <div class="form-group">    

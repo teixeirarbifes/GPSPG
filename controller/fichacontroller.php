@@ -301,6 +301,7 @@ class FichaController extends Controller
             return [$change,$ficha->txt_photo,$old,$temp,$new,'teste',$id,session_id()];
     }
 
+
     public function atualizar($dados)
     {      
         if(!UsuariosController::is_logged()){
@@ -328,6 +329,7 @@ class FichaController extends Controller
             $ficha->txt_nome = UsuariosController::get_usuario()['txt_nome'];
             $ficha->txt_nome_mae = $dados['txt_nome_mae'];
             $ficha->txt_nome_pai = $dados['txt_nome_pai'];
+            $ficha->txt_nascimento = $dados['txt_nascimento'];
             $ficha->txt_email = UsuariosController::get_usuario()['txt_email'];
             $ficha->txt_civil = $dados['txt_civil'];
             $ficha->txt_sexo = $dados['txt_sexo'];
@@ -336,6 +338,8 @@ class FichaController extends Controller
             $ficha->txt_natural_pais = $dados['txt_natural_pais'];
             $ficha->txt_natural_estado = $dados['txt_natural_estado'];
             $ficha->txt_natural_cidade = $dados['txt_natural_cidade'];
+            $ficha->txt_natural_estado_exterior = $dados['txt_natural_estado_exterior'];
+            $ficha->txt_natural_cidade_exterior = $dados['txt_natural_cidade_exterior'];
             $ficha->txt_rg = $dados['txt_rg'];
             $ficha->txt_rg_orgao = $dados['txt_rg_orgao'];
             $ficha->txt_rg_uf = $dados['txt_rg_uf'];
@@ -345,12 +349,21 @@ class FichaController extends Controller
             $ficha->txt_eleitor_secao = $dados['txt_eleitor_secao'];
             $ficha->txt_eleitor_estado = $dados['txt_eleitor_estado'];
             $ficha->txt_eleitor_emissao = $dados['txt_eleitor_emissao'];
+            $ficha->txt_cep = $dados['txt_cep'];
+            
+            $cep = get_by_CEP($dados['txt_cep'],true);
+                                    
+            $dados['txt_logadouro'] = $cep['logradouro'];
+            $dados['txt_bairro'] = $cep['bairro'];
+            $dados['txt_cidade'] = $cep['localidade'];
+            $dados['txt_estado'] = $cep['uf'];
+
             $ficha->txt_logadouro = $dados['txt_logadouro'];
             $ficha->txt_numero = $dados['txt_numero'];
             $ficha->txt_complemento = $dados['txt_complemento'];
-            $ficha->txt_cep = $dados['txt_cep'];
             $ficha->txt_bairro = $dados['txt_bairro'];
             $ficha->txt_cidade = $dados['txt_cidade'];
+            //$ficha->txt_cidade = get_code_by_city($ficha->txt_code_cidade);
             $ficha->txt_estado = $dados['txt_estado'];
             $ficha->id_modalidade = $dados['id_modalidade'];
             
@@ -398,7 +411,7 @@ class FichaController extends Controller
             $data['id'] = $dados['id'];
             $data['id_saved'] = $dados['id_saved'];*/
             
-            if(Validation_Classe::validation_ficha($dados)==null){
+            if(Validation_Classe::validation_ficha($dados,false)==null){
                 if($ficha->save($dados)){
                     if($change){  
                         if($new!=""){
@@ -411,13 +424,12 @@ class FichaController extends Controller
                     }else{
                     }
 
-                    $insc = new InscricaoController();
+                    $insc = new DocumentosController();
+                    $this->msg('Sua ficha de inscrição foi salva com sucesso!',0);
                     if($dados['voltar'] == 1){
-                        $this->msg('Salvo com sucesso e volta',0);
                         $dados['id_processo'] = $inscricao->id_processo;
-                        return $insc->dashboard($dados);                    
-                    }else{
-                        $this->msg('Salvo com sucesso',0);
+                        return $insc->listar_ficha($dados);                    
+                    }else{                       
                         return $this->editar($dados);
                     }
                 }else{

@@ -9,9 +9,9 @@ $pagina = "conferir";
 ?>
 <?php include GPATH."view".S.'ficha'.S."ficha_header.php"; ?>    
 <?php if($data_table['rascunho']==1){ ?>
-<h3>Verificar inscrição e enviar para avaliação</h3>
+<h3><font color=black>Verificar inscrição e enviar para avaliação</font></h3>
 <?php }else{ ?>
-<h3>Dados do último envio para análise</h3>
+<h3><font color=black>Dados do último envio para análise</font></h3>
 <?php } ?>
 <hr>
 <?php if($data_table['rascunho']==1){ ?>
@@ -23,7 +23,7 @@ $pagina = "conferir";
 </div>
 <?php }else{ ?>
   <div>
-    <B>Os dados abaixo referem-se a um último envio de inscrição para análise.</B></br>
+    Os dados abaixo referem-se a um último envio de inscrição para análise.</b></br></br>
     <b><font color=red>Somente a última inscrição enviada será considerada.</font></b>
   </br></br>Caso identifique alguma inconsistência, ainda dentro do prazo de inscrição, uma retificação poderá ser realizada, bastando editar a sua inscrição e realizar novo envio.</br>
     </br>   

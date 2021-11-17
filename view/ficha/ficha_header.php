@@ -1,4 +1,32 @@
+
+<?php
+  if(UsuariosController::is_logged()){
+    $h_usuario = UsuariosController::get_usuario();
+    $h_aberto = ProcessosController::aberto($processo->id_processo);
+    $p_inscricao = Inscricao::get_id_by_processo($processo->id_processo,$h_usuario['id_user']);  
+  }else{
+    $usuario = null;
+  }
+
+?>
 <h3><b><font color="darkblue"><?php echo $processo->txt_processo; ?></font></b></h3>
+<?php if($h_usuario!=null){ ?>
+  <div class="col-lg-6">
+      <?php if(!isset($p_inscricao->id_inscricao)){  ?>
+            <img style="float:left" src="images/warning.png" width="20px"/> <b><font size=2 color=red> Sua inscrição para esse processo seletivo ainda não foi iniciada.</font></b>
+      <? }else if($p_inscricao->id_ficha_enviada>0){ ?>
+            <?php if($h_aberto == 2){ ?>
+              </br><img style="float:left" src="images/warning.png" width="20px"/> <b><font size=2 color=red> Sua inscrição ainda não foi enviada! Importante enviar para análise a sua inscrição dentro do prazo.</font></b>
+            <?php }else if($h_aberto == 1){ ?>
+              </br><img style="float:left" src="images/warning.png" width="20px"/> <b><font size=2 color=red> Sua inscrição foi enviada dentro do prazo e não poderá ser enviada para análise.</font></b>
+            <?php } ?>
+      <?php }else{ ?>
+         </br><b><font size=2 color=darkgreen> Já consta um envio para análise da sua inscrição. Sempre o último que será considerado para análise.</font></b>                      
+      <?php } ?>
+  </div>        
+
+<?php } ?>
+<hr>
 <?php 
 if(!isset($habilitar_inscricao)) $habilitar_inscricao = false;
  if(isset($inscricao->id_inscricao) && $inscricao->id_inscricao>0){

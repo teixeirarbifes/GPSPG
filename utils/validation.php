@@ -5,10 +5,19 @@
     require_once(GPATH.'controller'.S.'usuarioscontroller.php');
     require_once(GPATH.'model'.S.'ficha.php');
     require_once(GPATH.'model'.S.'documentos.php');
+    require_once(GPATH.'utils'.S.'util_local.php');
     
 
     class Validation_Classe{
         
+
+        public static function exist_cep($validation){
+            $cep = get_by_CEP($validation->value,true);
+            if($cep['logradouro']==false)
+                $validation->errors[$validation->field] = 'O CEP informado é inexistente.';
+            else
+                return true;
+        }
 
         public static function exist_usuario($validation){            
             $conexao = Conexao::getInstance();
@@ -164,6 +173,7 @@
             }
         }
 
+        
 
         public static function validation_status($data){
             $val = new Validation();            
@@ -202,7 +212,7 @@
             }
         }
 
-        public static function validation_ficha($data){
+        public static function validation_ficha($data,$buscacep=true){
             if(session_id() == '') session_start();
             $val = new Validation();            
         
@@ -230,7 +240,7 @@
             $val->field('txt_civil')->name('Estado Civil')->value((int)$data['txt_civil'])->min(1)->required();
             $val->field('txt_sexo')->name('Sexo')->value((int)$data['txt_sexo'])->min(1)->required();
             
-            $val->field('txt_natural_pais')->name('"Naturalidade: País"')->value($data['txt_natural_pais'])->pattern('words')->required();
+            $val->field('txt_natural_pais')->name('"Naturalidade: País"')->value($data['txt_natural_pais'])->required();
             $val->field('txt_natural_estado')->name('"Naturalidade: Estado"')->value($data['txt_natural_estado'])->required();
             $val->field('txt_natural_cidade')->name('"Naturalidade: Cidade"')->value($data['txt_natural_cidade'])->required();
 
@@ -245,16 +255,24 @@
             $val->field('txt_eleitor_secao')->name('Seção')->value($data['txt_eleitor_secao'])->pattern('int')->required();
             $val->field('txt_eleitor_estado')->name('Estado do Título de Eleitor')->value($data['txt_eleitor_estado'])->required();
             
+            $val->field('txt_cep')->name('CEP')->value($data['txt_cep'])->pattern('cep')->funcao('exist_cep')->required();
 
-            $val->field('txt_logadouro')->name('Logadouro')->value($data['txt_logadouro'])->required();
+                       
+              //  $data['txt_logadouro'] = $cep['logradouro'];
+              //  $data['txt_bairro'] = $cep['bairro'];
+             //  $data['txt_cidade'] = $cep['localidade'];
+            //$data['txt_estado'] = $cep['uf'];
+            //    }
             
-            $val->field('txt_cep')->name('CEP')->value($data['txt_cep'])->pattern('cep')->required();
+            
+            //$val->field('txt_logadouro')->name('Logadouro')->value($data['txt_logadouro'])->required();
+            
             
             $val->field('txt_numero')->name('Número')->value($data['txt_numero'])->required();
 
-            $val->field('txt_bairro')->name('Bairro')->value($data['txt_bairro'])->required();
-            $val->field('txt_cidade')->name('Cidade')->value($data['txt_cidade'])->required();
-            $val->field('txt_estado')->name('Estado')->value($data['txt_estado'])->required();
+            //$val->field('txt_bairro')->name('Bairro')->value($data['txt_bairro'])->required();
+            //$val->field('txt_cidade')->name('Cidade')->value($data['txt_cidade'])->required();
+            //$val->field('txt_estado')->name('Estado')->value($data['txt_estado'])->required();
 
             $val->field('id_modalidade_box')->name('Modalidade de Inscrição')->value($data['id_modalidade'])->required();
 

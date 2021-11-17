@@ -37,7 +37,7 @@ let modal_id = 0;
 </script>
 
 <?php $pagina = "curriculo"; include GPATH."view".S.'ficha'.S."ficha_header.php"; ?>    
-<h3>Matriz de pontuação e comprovações</h3>
+<h3><font color=black>Matriz de pontuação e comprovações</font></h3>
 
 <hr>
 
@@ -48,8 +48,13 @@ let modal_id = 0;
 <form method="post" action="?controller=DocumentosController&method=upload&tipo=2&id_ficha=<?=$ficha->id_ficha?>" enctype="multipart/form-data" id="form">
 
 <div class="container p-2">
+<div class="row">
+    <a class="btn btn-secondary" id="salvar" onclick="go_link('/?controller=DocumentosController&method=listar_ficha&id_ficha=<?php echo $ficha->id_ficha; ?>');"><font color=black>Voltar</font></a>&nbsp;
+    <a class="btn btn-success" id="salvar" onclick="go_link('/?controller=InscricaoController&method=verificar&id_processo=<?php echo $processo->id_processo; ?>');"><font color=black>Verificar & enviar >></font></a>&nbsp;
+</div>
+</br>
 <div class="row">        
-  <h4><b>CURRÍCULO E ANEXOS</b></h4>
+<b>Utilize esse formulário para enviar os documentos.<b>
   </div>
   <div class="row">
         <div class="form-group">    

@@ -1,8 +1,7 @@
 <?php ob_start(); ?>
-  <div class="{class}">      
-    <label for="{field}">{label}</label>
-    <input type="text" id="{field}" class="maskField form-control" aria-describedby="erro_{field}" name="{field}" value="{value}" disabled {adicional}/>
-    <div style="font-color:red;font-size:12px" class="form-text text-muted"><font color=red><div class="msg_error" id="erro_{field}">{msg}</div></font></div>
+  <div class="{class} border p-2">      
+    <font color=darkblue>{label}:</font></br>
+    <div class="row p-2"><b>{value}</b></div>   
   </div>
 <?php global $tmp_textfield;
 $tmp_textfield = ob_get_contents(); 
@@ -18,7 +17,7 @@ function textfield($label,$field,$class,$obrigatorio = false,$adicional="",$msg=
 ?>
 
 <div class="form-group">
- <div class="container border p-2">
+ <div class="container p-2">
   <div class="row">
   <div class="col-md-2 col-sm-12">    
         <div>
@@ -29,7 +28,7 @@ function textfield($label,$field,$class,$obrigatorio = false,$adicional="",$msg=
         
    </div>
 
-   <div class="col-md-10 col-sm-12">
+   <div class="col-md-10 col-sm-12 p-2">
     <div class="row">
       <div class='col-md-12'><h4><b><font color=darkblue>Confira seus dados iniciais:</font></b></h4></div>
       <?php textfield('Nome completo',  '',         'col-lg-6 col-md-6 col-sm-12',  false, 'disabled',"<b><font color=green size=1px>O nome completo pode ser alterado na página do perfil.</font></b>",UsuariosController::get_usuario()['txt_nome'] ); ?>
@@ -55,14 +54,14 @@ function textfield($label,$field,$class,$obrigatorio = false,$adicional="",$msg=
   </div>
 </div>
 <br/>
-<div class="container border p-2">
+<div class="container p-2">
   <div class="row">
     <div class='col-md-12'><h4><b><font color=darkblue>Configura os documentos:</font></b></h4></div>
     <?php textfield('CPF',  '',         'col-lg-2 col-md-3 col-sm-12',  false, 'disabled',"<b><font color=green size=1px>O CPF foi informado no cadastro.</font></b>",UsuariosController::get_usuario()['txt_cpf'] ); ?>
   </div>
   <hr/>
   <div class="row">
-    <div class='col-md-12'><h5><b>Registro Geral (RG)</b></54></div>
+    <div class='col-md-12'><h6><b>Registro Geral (RG)</b></h6></div>
     <?php textfield('RG',             'txt_rg',           'col-md-4 col-sm-12'); ?>
     <?php textfield('Orgão Expedidor','txt_rg_orgao',     'col-md-2 col-sm-12'); ?>
     <?php textfield('UF',             'txt_rg_uf',        'col-md-2 col-sm-12'); ?>
@@ -74,7 +73,7 @@ function textfield($label,$field,$class,$obrigatorio = false,$adicional="",$msg=
   </div>
   <hr/>
   <div class="row">
-    <div class='col-md-12'><h5><b>Título de Eleitor</b></54></div>
+    <div class='col-md-12'><h6><b>Título de Eleitor</b></h6></div>
   
     <?php textfield('Título de Eleitor','txt_eleitor',    'col-md-4 col-sm-12'); ?>
     <?php textfield('Zona',           'txt_eleitor_zona', 'col-md-1 col-sm-12'); ?>
@@ -88,7 +87,7 @@ function textfield($label,$field,$class,$obrigatorio = false,$adicional="",$msg=
     </div>
 </div>
 </br>
-<div class="container border p-2">
+<div class="container p-2">
 <div class="row">
     <div class='col-md-12'><h4><b><font color=darkblue>Confira o seu endereço</font></b></h4></div>
     <?php textfield('Logadouro',      'txt_logadouro',    'col-md-8 col-sm-12'); ?>
@@ -102,10 +101,10 @@ function textfield($label,$field,$class,$obrigatorio = false,$adicional="",$msg=
 </div>    
 </div>
 
-<div class="container border p-2">
+<div class="container p-2">
 <div class="row">
 <div class='col-md-12'>
-<h4>Configura sua modalidade de inscrição</h4></br>
+<h4>Confira sua modalidade de inscrição</h4></br>
 A modalidade de inscrição selecionada foi <b><?=$ficha->sigla?> - <?=$ficha->modalidade?></b>, <?=$ficha->desc_modalidade?>
 </div>
 </div>    

@@ -45,7 +45,7 @@ $pagina = "informação";
 $habilitar_inscricao = false
 ?>
 <?php include GPATH."view".S.'ficha'.S."ficha_header.php"; ?>  
-<h3>Informações sobre o processo seletivo</h3>
+<h3><font color=black>Informações sobre o processo seletivo</font></h3>
 
     </br>
     <?php if($usuario==null){

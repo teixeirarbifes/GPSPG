@@ -28,6 +28,7 @@ $pagina = "ficha";
     <div class='col-md-12'>
       
                 <a class="btn btn-success" id=salvar  onclick="$('#voltar').val(0); validar('form','ficha');"><font color=black>Salvar ficha</font></a>&nbsp;  
+                <a class="btn btn-success" id=salvar  onclick="$('#voltar').val(1); validar('form','ficha');"><font color=black>Salvar ficha & Continuar >></font></a>&nbsp;  
 </div></div></div>
 <form id=form class="form-horizontal" action="?controller=fichacontroller&method=atualizar&id=<?php echo $ficha->id_ficha; ?>" method="post" >
 <input type=hidden id=voltar name=voltar value=0/>
@@ -74,8 +75,15 @@ $pagina = "ficha";
       <div class='col-md-12'><h4><b><font color=darkblue>Informe alguns dados iniciais:</font></b></h4></div>
       <?php textfield('Nome completo',  '',         'col-lg-6 col-md-6 col-sm-12',  false, 'disabled',"<b><font color=green size=1px>O nome completo pode ser alterado na página do perfil.</font></b>",UsuariosController::get_usuario()['txt_nome'] ); ?>
       <?php textfield('E-mail',         '',        'col-lg-6 col-md-6 col-sm-12', false, 'disabled',"<b><font color=green size=1px>O e-mail pode ser alterado na página do perfil.</font></b>",UsuariosController::get_usuario()['txt_email']); ?>
-      <?php textfield('Nome da mãe',    'txt_nome_mae',     'col-lg-6 col-md-6 col-sm-12'); ?>
-      <?php textfield('Nome do pai',    'txt_nome_pai',     'col-lg-6 col-md-6 col-sm-12'); ?>
+      <div class="col-lg-3 col-md-3 col-sm-12">      
+      <label for="txt_nascimento">Data de Nascimento</label>
+      <input type="date" id="txt_nascimento" class="maskField form-control" aria-describedby="erro_txt_nascimento" name="txt_nascimento" value="<?php echo $ficha->txt_nascimento; ?>" />
+      <div  class="form-text text-muted"><font color=red><div class="msg_error" id="erro_txt_nascimento"></div></font></div>
+      </div>
+     
+     
+      <?php textfield('Nome da mãe',    'txt_nome_mae',     'col-lg-5 col-md-5 col-sm-12'); ?>
+      <?php textfield('Nome do pai',    'txt_nome_pai',     'col-lg-4 col-md-4 col-sm-12'); ?>
       <?php textfield('Telefone',       'txt_telefone',     'col-lg-3 col-md-6 col-sm-12',false,"mask='(999) 9999–9999'"); ?>
       <?php textfield('Celular',        'txt_celular',      'col-lg-3 col-md-6 col-sm-12',false,"mask='(999) 99999–9999'"); ?>
       
@@ -117,9 +125,39 @@ $pagina = "ficha";
 <div class="container border p-2">
   <div class="row">
       <div class='col-md-12'><h4><b><font color=darkblue>Informe a sua naturalidade:</font></b></h4></div>
-      <?php textfield('País',           'txt_natural_pais', 'col-md-3 col-sm-12'); ?>
-      <?php textfield('Estado',         'txt_natural_estado','col-md-2 col-sm-12'); ?>
-      <?php textfield('Cidade',         'txt_natural_cidade','col-md-4 col-sm-12'); ?>
+      <div class="col-md-3 col-sm-5">      
+        <label for="txt_natural_pais">País</label>
+        <div class="container p-2" id="txt_natural_pais">
+        <select onchange="if(this.value==76){$('#txt_natural_estado_select').show();$('#txt_natural_estado_exterior').hide();$('#txt_natural_cidade_select').show();$('#txt_natural_cidade_exterior').hide(); }else{$('#txt_natural_estado_select').hide();$('#txt_natural_estado_exterior').show();$('#txt_natural_cidade_select').hide();$('#txt_natural_cidade_exterior').show(); } " class="form-control" aria-describedby="erro_txt_natural_pais" name="txt_natural_pais" >
+            <option value=""></option>
+            <?=get_ajax_paises($ficha->txt_natural_pais > 0 ? $ficha->txt_natural_pais : 76)?>
+            </select>               
+        </div>     
+        <div style="font-color:red;font-size:12px" class="form-text text-muted"><font color=red><div class="msg_error" id="erro_txt_natural_pais"></div></font></div>
+      </div>
+      <div class="col-md-3 col-sm-5">      
+        <label for="txt_natural_estado">Estado</label>
+        <div class="container p-2"  id="txt_natural_estado">
+        <select id="txt_natural_estado_select" <?=(($ficha->txt_natural_pais > 0 && $ficha->txt_natural_pais!=76)) ? "style='display:none'" : "" ?> onchange="montaCidade(this.value,'txt_natural_cidade_select');" class="form-control" aria-describedby="erro_txt_natural_estado" name="txt_natural_estado" >
+            <option value=''></option>
+            <?=get_ajax_ufs($ficha->txt_natural_estado)?>
+            </select>   
+            <input <?=((!($ficha->txt_natural_pais > 0) || $ficha->txt_natural_pais==76)) ? "style='display:none'" : "" ?> type="text" id="txt_natural_estado_exterior" class="maskField form-control" aria-describedby="erro_txt_natural_estado" name="txt_natural_estado_exterior" value="<?=$ficha->txt_natural_estado_exterior?>"/>
+        </div>     
+        <div style="font-color:red;font-size:12px" class="form-text text-muted"><font color=red><div class="msg_error" id="erro_txt_natural_estado"></div></font></div>
+      </div>
+      <div class="col-md-3 col-sm-5">      
+        <label for="txt_natural_cidade">Cidade</label>
+        <div class="container p-2" id="txt_natural_cidade" >
+        <select id="txt_natural_cidade_select" <?=(($ficha->txt_natural_pais > 0 && $ficha->txt_natural_pais!=76)) ? "style='display:none'" : "" ?> class="form-control" aria-describedby="erro_txt_natural_cidade" name="txt_natural_cidade" >
+            <option value=''></option>
+            <?=get_ajax_cities($ficha->txt_natural_estado,$ficha->txt_natural_cidade)?>
+            </select>   
+            <input <?=((!($ficha->txt_natural_pais > 0) || $ficha->txt_natural_pais==76)) ? "style='display:none'" : "" ?> type="text" id="txt_natural_cidade_exterior" class="maskField form-control" aria-describedby="erro_txt_natural_cidade" name="txt_natural_cidade_exterior" value="<?=$ficha->txt_natural_cidade_exterior?>"/>
+        </div>     
+        <div style="font-color:red;font-size:12px" class="form-text text-muted"><font color=red><div class="msg_error" id="erro_txt_natural_cidade"></div></font></div>
+        
+      </div>
   </div>
 </div>
 <br/>
@@ -159,13 +197,20 @@ $pagina = "ficha";
 <div class="container border p-2">
 <div class="row">
     <div class='col-md-12'><h4><b><font color=darkblue>Informe o seu endereço</font></b></h4></div>
-    <?php textfield('Logadouro',      'txt_logadouro',    'col-md-8 col-sm-12'); ?>
-    <?php textfield('Número',         'txt_numero',       'col-md-1 col-sm-12'); ?>
-    <?php textfield('Complemento',    'txt_complemento',  'col-md-4 col-sm-12'); ?>
     <?php textfield('CEP',            'txt_cep',          'col-md-2 col-sm-12'); ?>
-    <?php textfield('Bairro',         'txt_bairro',       'col-md-3 col-sm-12'); ?>
-    <?php textfield('Cidade',         'txt_cidade',       'col-md-4 col-sm-12'); ?>
-    <?php textfield('Estado',         'txt_estado',       'col-md-2 col-sm-12'); ?>
+    </div>
+    <div class="row">
+    <?php textfield('Logadouro',      'txt_logadouro',    'col-md-8 col-sm-12', false,' disabled '); ?>
+    <?php textfield('Número',         'txt_numero',       'col-md-1 col-sm-12'); ?>
+    </div>
+    <div class="row">
+    <?php textfield('Bairro',         'txt_bairro',       'col-md-3 col-sm-12', false,' disabled '); ?>
+    <?php textfield('Complemento',    'txt_complemento',  'col-md-6 col-sm-12'); ?>
+</div>
+    <div class="row">   
+    <?php textfield('Estado',         'txt_estado',       'col-md-3 col-sm-12', false,' disabled '); ?>
+    <?php textfield('Cidade',         'txt_cidade',       'col-md-6 col-sm-12', false,' disabled '); ?>
+    </div>
   </div>
     </br></br></br>
                 <input type="hidden" name="id_ficha" id="id_ficha" value="<?php echo $ficha->id_ficha;?>" />
@@ -312,6 +357,7 @@ $("#file_picture").change(function(){
 </script>
 
 <script>
+$('#txt_cep').change(function(){ getbyCEP($('#txt_cep').val()); })
 setup_check_change();
 </script>
 <input type=hidden id=formulario value="form"/>

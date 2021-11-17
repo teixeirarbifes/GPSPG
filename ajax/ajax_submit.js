@@ -150,7 +150,7 @@ function check_change(){
 }
 
 function submit(form,sobe = true,changecheck = true){
-    display_modal_loading();
+    display_modal_loading('Processando dados...');
     display_modal_loading_before();
     var dados = new FormData($('#'+form)[0]);
     xhr = $.ajax({
@@ -238,7 +238,7 @@ function ChangeUrl(title, url) {
         return;
     }
     if(loading){
-        display_modal_loading();
+        display_modal_loading('Carregando página...');
         display_modal_loading_before();
     }
     //window.location.replace(url);
@@ -274,33 +274,65 @@ function ChangeUrl(title, url) {
         }
     }
 
-
-    function montaCidade(estado, pais){
-        $.ajax({
-            type:'GET',
-            url:'http://api.londrinaweb.com.br/PUC/Cidades/'+estado+'/'+pais+'/0/10000',
+    function getbyCEP(CEP){
+        $('#erro_txt_cep').html('<font color=blue><b>Buscando endereço...</b><font>'); 
+        xhr = $.ajax({
+            url:'/utils/util_local.php?tipo=cep&cep='+CEP,
+            type: "GET",
+            crossDomain: true,
+            processData: false,
+            cache: false,
             contentType: "application/json; charset=utf-8",
-            dataType: "jsonp",
-            async:false
-        }).done(function(response){
-            cidades='';
-    
-            $.each(response, function(c, cidade){
-    
-                cidades+='<option value="'+cidade+'">'+cidade+'</option>';
-    
-            });
-    
-            // PREENCHE AS CIDADES DE ACORDO COM O ESTADO
-            $('#cidade').html(cidades);
-    
-        });
+            contentType: false,
+            dataType: false,
+            success: function( resultado ) {
+                var retorna = JSON.parse(resultado);
+                if(retorna.localidade_code!=false){
+                    $('#erro_txt_cep').html('');                      
+                    $('#txt_cep').removeClass( "field-with-error" );
+                    $('#txt_logadouro').val(retorna.logradouro);
+                    $('#txt_bairro').val(retorna.bairro);
+                    $('#txt_cidade').val(retorna.localidade);
+                    $('#txt_estado').val(retorna.uf);
+                }else{
+                    $('#txt_logadouro').val('');
+                    $('#txt_bairro').val('');
+                    $('#txt_cidade').val('');
+                    $('#txt_estado').val('');
+                    $('#erro_txt_cep').html('CEP inválido.');                    
+                    $('#txt_cep').addClass( "field-with-error" );
+                }
+            },
+            error: function (xhr, status, error) {
+                alert(error);
+            }
+        });    
+    }
+
+    function montaCidade(uf,field){
+        
+        xhr = $.ajax({
+            url:'/utils/util_local.php?tipo=cidade&uf='+uf,
+            type: "GET",
+            crossDomain: true,
+            processData: false,
+            cache: false,
+            contentType: "application/json; charset=utf-8",
+            contentType: false,
+            dataType: false,
+            success: function( retorna ) {
+                $('#'+field).html(retorna,$('#'+field).val());
+            },
+            error: function (xhr, status, error) {
+                //error_ajax(xhr,status,error);
+            }
+        });    
     }
     
     function montaUF(pais){
         $.ajax({
             type:'GET',
-            url:'http://api.londrinaweb.com.br/PUC/Estados/'+pais+'/0/10000',
+            url:'/utils/util_local.php?tipo=cidade&uf='+$('#'),
             contentType: "application/json; charset=utf-8",
             dataType: "jsonp",
             async:false
