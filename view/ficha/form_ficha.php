@@ -20,7 +20,7 @@ $pagina = "ficha";
 ?>
 
 <?php include GPATH."view".S.'ficha'.S."ficha_header.php"; ?>    
-<h3>Editar a ficha de inscrição</h3>
+<h3><font color=black>Editar a ficha de inscrição</font></h3>
 <hr>
 <div style="text-align:left">
 <div class="container p-2">
@@ -72,7 +72,7 @@ $pagina = "ficha";
 
    <div class="col-md-10 col-sm-12">
     <div class="row">
-      <div class='col-md-12'><h4><b><font color=darkblue>Informe alguns dados iniciais:</font></b></h4></div>
+      <div class='col-md-12'><b><font color=darkblue>Informe seus dados gerais:</font></b></div>
       <?php textfield('Nome completo',  '',         'col-lg-6 col-md-6 col-sm-12',  false, 'disabled',"<b><font color=green size=1px>O nome completo pode ser alterado na página do perfil.</font></b>",UsuariosController::get_usuario()['txt_nome'] ); ?>
       <?php textfield('E-mail',         '',        'col-lg-6 col-md-6 col-sm-12', false, 'disabled',"<b><font color=green size=1px>O e-mail pode ser alterado na página do perfil.</font></b>",UsuariosController::get_usuario()['txt_email']); ?>
       <div class="col-lg-3 col-md-3 col-sm-12">      
@@ -84,10 +84,10 @@ $pagina = "ficha";
      
       <?php textfield('Nome da mãe',    'txt_nome_mae',     'col-lg-5 col-md-5 col-sm-12'); ?>
       <?php textfield('Nome do pai',    'txt_nome_pai',     'col-lg-4 col-md-4 col-sm-12'); ?>
-      <?php textfield('Telefone',       'txt_telefone',     'col-lg-3 col-md-6 col-sm-12',false,"mask='(999) 9999–9999'"); ?>
-      <?php textfield('Celular',        'txt_celular',      'col-lg-3 col-md-6 col-sm-12',false,"mask='(999) 99999–9999'"); ?>
+      <?php textfield('Telefone',       'txt_telefone',     'col-lg-6 col-md-6 col-sm-12',false,"mask='(999) 9999–9999'"); ?>
+      <?php textfield('Celular',        'txt_celular',      'col-lg-6 col-md-6 col-sm-12',false,"mask='(999) 99999–9999'"); ?>
       
-      <div class="col-md-3 col-sm-5">      
+      <div class="col-md-3 col-sm-12">      
         <label for="txt_civil">Estado Civil</label>
         <div class="container p-2" id="txt_civil">
         <select id="txt_civil" class="form-control" aria-describedby="erro_txt_civil" name="txt_civil" >
@@ -103,7 +103,7 @@ $pagina = "ficha";
         <div style="font-color:red;font-size:12px" class="form-text text-muted"><font color=red><div class="msg_error" id="erro_txt_civil"></div></font></div>
       </div>
       
-      <div class="col-md-3 col-sm-5">      
+      <div class="col-md-3 col-sm-12">      
         <label for="txt_sexo">Sexo</label>
         <div class="container p-2" id="txt_sexo">
         <select id="txt_sexo" class="form-control" aria-describedby="erro_txt_sexo" name="txt_sexo" >
@@ -115,6 +115,26 @@ $pagina = "ficha";
         </div>     
         <div style="font-color:red;font-size:12px" class="form-text text-muted"><font color=red><div class="msg_error" id="erro_txt_civil"></div></font></div>
       </div>
+
+
+      <div class="col-lg-6 col-md-6 col-sm-12">      
+        <label for="txt_escolaridade">Escolaridade</label>
+        <div class="container p-2" id="txt_escolaridade">
+        <select id="txt_civil" class="form-control" aria-describedby="erro_txt_escolaridade" name="txt_escolaridade" >
+                        <option value="0"></option>
+                        <option <?=$ficha->txt_escolaridade == 1 ? "selected" : ""?> value="1">Doutorado</option>
+                        <option <?=$ficha->txt_escolaridade == 2 ? "selected" : ""?> value="2">Mestrado</option>
+                        <option <?=$ficha->txt_escolaridade == 3 ? "selected" : ""?> value="3">Superior completo</option>
+                        <option <?=$ficha->txt_escolaridade == 4 ? "selected" : ""?> value="4">Superior incompleto</option>
+                        <option <?=$ficha->txt_escolaridade == 5 ? "selected" : ""?> value="5">Ensino médio completo</option>
+                        <option <?=$ficha->txt_escolaridade == 6 ? "selected" : ""?> value="6">Ensino médio incompleto</option>
+                        <option <?=$ficha->txt_escolaridade == 7 ? "selected" : ""?> value="7">Ensino fundamental completo</option>
+                        <option <?=$ficha->txt_escolaridade == 8 ? "selected" : ""?> value="8">Ensino fundamental incompleto</option>
+                        <option <?=$ficha->txt_escolaridade == 9 ? "selected" : ""?> value="9">Não sei informar</option>
+                            </select> 
+        </div>     
+        <div style="font-color:red;font-size:12px" class="form-text text-muted"><font color=red><div class="msg_error" id="erro_txt_escolaridade"></div></font></div>
+      </div>
     
     </div>
    </div>
@@ -124,7 +144,7 @@ $pagina = "ficha";
 </BR>
 <div class="container border p-2">
   <div class="row">
-      <div class='col-md-12'><h4><b><font color=darkblue>Informe a sua naturalidade:</font></b></h4></div>
+      <div class='col-md-12'><b><font color=darkblue>Informe a sua naturalidade:</font></b></div>
       <div class="col-md-3 col-sm-5">      
         <label for="txt_natural_pais">País</label>
         <div class="container p-2" id="txt_natural_pais">
@@ -163,12 +183,12 @@ $pagina = "ficha";
 <br/>
 <div class="container border p-2">
   <div class="row">
-    <div class='col-md-12'><h4><b><font color=darkblue>Informe os seus documentos</font></b></h4></div>
+    <div class='col-md-12'><b><font color=darkblue>Informe os seus documentos:</font></b></div>
     <?php textfield('CPF',  '',         'col-lg-2 col-md-3 col-sm-12',  false, 'disabled',"<b><font color=green size=1px>O CPF foi informado no cadastro.</font></b>",UsuariosController::get_usuario()['txt_cpf'] ); ?>
   </div>
   <hr/>
   <div class="row">
-    <div class='col-md-12'><h5><b>Registro Geral (RG)</b></54></div>
+    <div class='col-md-12'><b>Registro Geral (RG)</b></div>
     <?php textfield('RG',             'txt_rg',           'col-md-4 col-sm-12'); ?>
     <?php textfield('Orgão Expedidor','txt_rg_orgao',     'col-md-2 col-sm-12'); ?>
     <?php textfield('UF',             'txt_rg_uf',        'col-md-2 col-sm-12'); ?>
@@ -180,7 +200,7 @@ $pagina = "ficha";
   </div>
   <hr/>
   <div class="row">
-    <div class='col-md-12'><h5><b>Título de Eleitor</b></54></div>
+    <div class='col-md-12'><b>Título de Eleitor</b></div>
   
     <?php textfield('Título de Eleitor','txt_eleitor',    'col-md-4 col-sm-12'); ?>
     <?php textfield('Zona',           'txt_eleitor_zona', 'col-md-1 col-sm-12'); ?>
@@ -196,7 +216,7 @@ $pagina = "ficha";
 </br>
 <div class="container border p-2">
 <div class="row">
-    <div class='col-md-12'><h4><b><font color=darkblue>Informe o seu endereço</font></b></h4></div>
+    <div class='col-md-12'><b><font color=darkblue>Informe o seu endereço residencial:</font></b></div>
     <?php textfield('CEP',            'txt_cep',          'col-md-2 col-sm-12'); ?>
     </div>
     <div class="row">
@@ -222,7 +242,7 @@ $pagina = "ficha";
 <div class="container border p-2">
     <div class="row">
         <div class="col-lg-12" id="id_modalidade_box">
-            <h3>Escolha a modalidade para a inscrição:</h3>
+            <b>Escolha a modalidade para a inscrição:</b></br>
             <div  class="form-text text-muted"><font color=red><div class="msg_error" id="erro_id_modalidade"></div></font></div>
         </div>
     </div>    

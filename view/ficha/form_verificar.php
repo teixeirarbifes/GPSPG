@@ -1,5 +1,4 @@
 
-
   <?php 
 if($data_table['rascunho']==1)
 $pagina = "verificar";
@@ -20,6 +19,10 @@ $pagina = "conferir";
     <b><font color=red>Inscrições que não forem enviadas não serão consideradas no processo seletivo.</font></b>  <b><font color=red>Somente a última inscrição enviada será considerada.</font></b>
     </br></br>Ao final da sua conferëncia, no final dessa página, aceite os termos, digite sua senha e clique em ENVIAR PARA ANÁLISE.</br>
     </br>   
+    <div class="row">
+    <div class="col-sm-12 col-md-4"> 
+    <a class="btn btn-success" id=salvar  onclick="$('html, body').animate({ scrollTop: $('#enviar_analise').offset().top }, 'slow');"><font color=black>Ir para formulário de envio</font></a>&nbsp;  
+</div>
 </div>
 <?php }else{ ?>
   <div>
@@ -29,6 +32,7 @@ $pagina = "conferir";
     </br>   
 </div>
 <?php } ?>
+<hr>
 <div style="text-align:left">
 <?php include "ficha_verificar.php"; ?>
 
@@ -49,10 +53,10 @@ foreach($documentos_pessoais as $doc){ ?>
   <hr>
   <div class="row">
   <div class="col-md-1 col-sm-12">
-    <a class="btn btn-success stretched-link" style="cursor:pointer" onclick="go_link('/?action=download&d=<?=$doc->id_doc?>&f=<?=$ficha->id_ficha?>');");">Baixar</a>
+  <a class="btn btn-light stretched-link" style="cursor:pointer" onclick="go_link('/?action=download&d=<?=$doc->id_doc?>&f=<?=$ficha->id_ficha?>');"><font color=black>Baixar</font></a>
  </div>
   <div class="col-md-3 col-sm-12"> 
-    <span style="width:100%"><b><font size=4><?=$doc->txt_classe?></font></b></span>
+    <span style="width:100%"><?=$doc->txt_classe?></span>
   </div>
   <div class="col-md-8 col-sm-12">
     <?=$doc->txt_filename?>
@@ -94,10 +98,10 @@ foreach($documentos_curriculo as $doc){ ?>
   <hr>
   <div class="row">
   <div class="col-md-1 col-sm-12">
-    <a class="btn btn-success stretched-link" style="cursor:pointer" onclick="go_link('/?action=download&d=<?=$doc->id_doc?>&f=<?=$ficha->id_ficha?>');">Baixar</a>
+    <a class="btn btn-light stretched-link" style="cursor:pointer" onclick="go_link('/?action=download&d=<?=$doc->id_doc?>&f=<?=$ficha->id_ficha?>');"><font color=black>Baixar</font></a>
  </div>
   <div class="col-md-3 col-sm-12"> 
-    <span style="width:100%"><b><font size=4><?=$doc->txt_classe?></font></b></span>
+    <span style="width:100%"><?=$doc->txt_classe?></span>
   </div>
   <div class="col-md-8 col-sm-12">
     <?=$doc->txt_filename?>
@@ -116,7 +120,7 @@ foreach($documentos_curriculo as $doc){ ?>
 <?php if($data_table['rascunho']==1){ ?>
 <form id=form class="form-horizontal" action="?controller=inscricaocontroller&method=entregar&id_processo=<?php echo $inscricao->id_processo; ?>" method="post" >
 
-<div class='container border'>
+<div class='container border bg-white'>
 </br>
 <div class=row>
     <div class=row>
@@ -127,9 +131,9 @@ foreach($documentos_curriculo as $doc){ ?>
       </div>
     </div>
   </div>
-<h3>Declaração</h3>
+<h3><font color=red>Enviar para análise</font></h3>
 
-<b><font color=darkblue size=2px>Esteja de acordo com a declaração e digite sua senha para enviar para avaliação.</font></b>
+<b><font color=darkblue size=2px>Atenção! Esteja de acordo com a declaração e digite sua senha para enviar sua inscrição para análise.</font></b>
 <div class="container" id="concordo">
 </br>
   <label for="concordo"><font color=black>Eu, <?php echo $usuario['txt_nome']; ?>, CPF nº <?php echo $usuario['txt_cpf']; ?>, declaro, sob as penas da Lei, que são verdadeiras e completas as informações prestadas neste sistema eletrônico para essa inscrição. Entendo que somente será considerado o último protocolo de envio de inscrição conforme edital. Entendo que os dados da inscrição devem estar em consonância com as normas do edital do processo seletivo.</font>
@@ -147,18 +151,11 @@ foreach($documentos_curriculo as $doc){ ?>
   </div>
 </div>
 <div class="row">
-    <div class="col-sm-12 col-md-4"> 
+    <div class="col-sm-12 col-md-4" id="enviar_analise"> 
     <a class="btn btn-success" id=salvar  onclick="validar('form','entregar',null,false);"><font color=black>Enviar inscrição para análise</font></a>&nbsp;  
 </div>
 </form>
-<?php }else{ ?>
-  <div class="container border p-2">
-      <div class="row">
-    <div class="col-md-12 col-sm-12">
-  <h4>Os dados informados acima já constam como inscrição enviada.</h4>
-</div>
-</div>
-</div>
+<?php }else{ ?>  
 <?php } ?>
 </br>
 </br>

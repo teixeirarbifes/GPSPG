@@ -9,7 +9,7 @@ echo $get_string;
             <tr>
                 <?php foreach($campos as $row){ $txt = $row[0]; echo "<th>".$txt."</th>"; } ?>
                 <th><?php if(!isset($novo) || $novo!=0){ ?>
-                    <a onclick="go_link('?controller=<?php echo $txt_controller.$get_string;?>&method=criar&pag=<?php echo $params['pag']; ?>&num=<?php echo $params['limit']; ?>');" class="btn btn-primary btn-sm">Novo</a></th>
+                    <a onclick="go_link('?controller=<?php echo $txt_controller.$get_string;?>&method=criar&pag=<?php echo $params['pag']; ?>&num=<?php echo $params['limit']; ?>');" class="btn btn-primary btn-sm"><font color=black>Novo</font></a></th>
                     <?php } ?>
             </tr>
         </thead>
@@ -41,7 +41,7 @@ echo $get_string;
                             <?php }else if(isset($visualizar) && $visualizar==2){ ?>    
                                 <a onclick="go_link('?controller=<?=$visualizar_controller?>&method=<?=$visualizar_method?>&<?php echo $id.'='.$row->$id; ?><?=isset($visualizar_extra) ? '&'.$visualizar_extra : ''?>&pag=<?php echo $params['pag']; ?>&num=<?php echo $params['limit'].$get_string; ?>');" class="btn btn-primary btn-sm"><font color=white><?=$visualizar_txt?></font></a>    
                             <?php }else if(isset($visualizar) && $visualizar==3){ ?>    
-                                <a onclick="go_link('<?php echo $visualizar_url.$row->$id; ?><?=isset($visualizar_extra) ? '&'.$visualizar_extra : ''?>');" class="btn btn-secondary btn-sm"><font color=white><?=$visualizar_txt?></font></a>    
+                                <a onclick="go_link('<?php echo $visualizar_url.$row->$id; ?><?=isset($visualizar_extra) ? '&'.$visualizar_extra : ''?>');" class="btn btn-light btn-sm"><font color=black><?=$visualizar_txt?></font></a>    
                             <?php }else{ ?>
                             <a onclick="go_link('?controller=<?php echo $txt_controller;?>&method=editar&<?php echo $id.'='.$row->$id; ?>&pag=<?php echo $params['pag']; ?>&num=<?php echo $params['limit'].$get_string; ?>');" class="btn btn-primary btn-sm">Detalhe</a>
                             <?php } ?>

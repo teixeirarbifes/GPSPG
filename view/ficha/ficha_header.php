@@ -10,7 +10,7 @@
 
 ?>
 <h3><b><font color="darkblue"><?php echo $processo->txt_processo; ?></font></b></h3>
-<?php if($h_usuario!=null){ ?>
+<?php if(UsuariosController::is_logged() && $h_usuario!=null){ ?>
   <div class="col-lg-6">
       <?php if(!isset($p_inscricao->id_inscricao)){  ?>
             <img style="float:left" src="images/warning.png" width="20px"/> <b><font size=2 color=red> Sua inscrição para esse processo seletivo ainda não foi iniciada.</font></b>
@@ -21,7 +21,7 @@
               </br><img style="float:left" src="images/warning.png" width="20px"/> <b><font size=2 color=red> Sua inscrição foi enviada dentro do prazo e não poderá ser enviada para análise.</font></b>
             <?php } ?>
       <?php }else{ ?>
-         </br><b><font size=2 color=darkgreen> Já consta um envio para análise da sua inscrição. Sempre o último que será considerado para análise.</font></b>                      
+         </br><b><font size=2 color=darkgreen> Sua inscrição já foi enviada para análise.</br>Sempre o último que será considerado para análise.</font></b>                      
       <?php } ?>
   </div>        
 

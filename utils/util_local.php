@@ -25,6 +25,18 @@ function get_paises(){
     return $arr;
 }
 
+function get_pais($codigo){
+    $readJSONFile = file_get_contents('https://servicodados.ibge.gov.br/api/v1/localidades/paises/'.$codigo);
+    $array = json_decode($readJSONFile, TRUE);    
+
+    $arr = array();
+    foreach($array as $pais){
+        $arr[] = array('id' =>  $pais['id']['M49'],'nome' =>  $pais['nome']);
+    }
+    return $arr;
+}
+
+
 
 function get_by_CEP($cep,$json=False){
     $readJSONFile = file_get_contents("https://viacep.com.br/ws/".str_replace('-','',str_replace(".","",$cep))."/json/");

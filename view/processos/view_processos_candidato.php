@@ -81,25 +81,17 @@ $habilitar_inscricao = false
     </div-->
     <div class="card-body">
       <div class="col-lg-6">
-      <font size=4><div style="text-align:left;" ><i class="icon-calendar" ></i>PERÍODO DE INSCRIÇÃO</br></br>
-            Inicio: &nbsp&nbsp&nbsp&nbsp <b><font color=darkgreen><?=$s1?></font></b></br></br>Término: <b><font color=red><?=$s2?></font></b></div></div>
-  <div class="col-md-12">
-              <?php 
+      <font size=2><div style="text-align:left;" ><i class="icon-calendar" ></i>PERÍODO DE INSCRIÇÃO</br></br>
+            Inicio: &nbsp&nbsp&nbsp&nbsp <b><font color=darkgreen><?=$processo->data_inicio.' às '.$processo->hora_inicio?></font></b></br></br>Término: <b><font color=red><?=$processo->data_fim.' às '.$processo->hora_fim?></font></b></div></div>  <div class="col-md-12">
+            <?php 
               $aberto = ProcessosController::aberto($processo->id_processo);
-              if($aberto == 2){ ?>
-              </br><h4 style="text-align:left"><span class="glyphicon glyphicon-plus" style="font-size:16px;"></span><font color=darkgreen>Aceitando envio de inscrições...</font></br></br></h4>
-              <?php }else if($aberto == 0){ ?>
-                </br><h4 style="text-align:left"><span class="glyphicon glyphicon-plus" style="font-size:16px;"></span><font color=darkblue>O período de inscrição iniciará em breve.</font></br></br></h4>
+                if($aberto==2){ ?>
+              </br><span class="glyphicon glyphicon-plus" style="font-size:12px;"></span><font color=darkgreen></br>Aceitando envio de inscrições...</br></br></font>
+              <?php }else if($aberto==0){ ?>
+                </br><span class="glyphicon glyphicon-plus" style="font-size:12px;"></span><font color=darkblue>O período de inscrição iniciará em breve.</br></br></font>
               <?php }else{ ?>
-              </br><h4 style="text-align:left"><span class="glyphicon glyphicon-lock" style="font-size:16px;"></span>&nbsp <b><font color=red>Envio de inscrições encerrado.</font></br></br></h4>
+              </br><span class="glyphicon glyphicon-lock" style="font-size:12px;"></span>&nbsp <b><font color=red>Envio de inscrições encerrado!</br></br></font>
               <?php } ?>
-                <h6 style="text-align:left">
-                <?php if($evento==null){ ?>
-                  Última ocorrência: <font color=red>-----</font>
-                <?php }else{ ?>                  
-                  Última ocorrência: <b><?=$evento->txt_descricao?> em <?=utf8_encode(strftime('%d de %B de %Y &agrave;s %H:%M:%S',strtotime($evento->dt_inicio)))?></b>
-                <?php } ?>
-                </h6>
               </div>       
 
         <?php if($usuario!=null){ ?>
@@ -115,14 +107,13 @@ $habilitar_inscricao = false
                           <?php } ?>
 
                       <?php }else{ ?>
-                      </br></br>
+                      </br>
                       <img width=150px align=left src="/images/enviado.png"/>
                       <p><b><font color=darkgreen>Você já enviou sua inscrição para esse processo seletivo.</font></b></p>
-                      <p>Data e hora do último envio: <?=$s3?></p>
+                      <p>Data e hora do último envio:</br><b><?=$inscricao->data_enviado." às ".$inscricao->hora_enviado?></b></p>
                       <p>Chave de protocolo: <?=$inscricao->key_inscricao?></p>
-                      <p>Aguarde as próximas etapas do processo seletivo.</p>
                       <?php } ?>
-                      </br></br>
+                      </br>
 
         </div>
         <?php } ?>

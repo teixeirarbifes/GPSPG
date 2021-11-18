@@ -142,9 +142,9 @@ class Processos
         
 
         if($semstatus)
-        $stmt    = $conexao->prepare("SELECT tab_processos.* FROM tab_processos {$where} {$torder} LIMIT {$offset},{$limit} ;");
+        $stmt    = $conexao->prepare("SELECT  DATE_FORMAT(tab_processos.dt_fim_inscricao, '%d de %M de %Y') as data_fim, DATE_FORMAT(tab_processos.dt_fim_inscricao, '%H:%i:%S') as hora_fim, DATE_FORMAT(tab_processos.dt_inicio_inscricao, '%d de %M de %Y') as data_inicio, DATE_FORMAT(tab_processos.dt_inicio_inscricao, '%H:%i:%S') as hora_inicio,  tab_processos.* FROM tab_processos {$where} {$torder} LIMIT {$offset},{$limit} ;");
         else
-        $stmt    = $conexao->prepare("SELECT tab_processos.*, tab_status.txt_status as status FROM tab_processos LEFT JOIN tab_status ON tab_processos.id_status = tab_status.id_status {$where} {$torder} LIMIT {$offset},{$limit}  ;");
+        $stmt    = $conexao->prepare("SELECT  DATE_FORMAT(tab_processos.dt_fim_inscricao, '%d de %M de %Y') as data_fim, DATE_FORMAT(tab_processos.dt_fim_inscricao, '%H:%i:%S') as hora_fim, DATE_FORMAT(tab_processos.dt_inicio_inscricao, '%d de %M de %Y') as data_inicio, DATE_FORMAT(tab_processos.dt_inicio_inscricao, '%H:%i:%S') as hora_inicio,   tab_processos.*, tab_status.txt_status as status FROM tab_processos LEFT JOIN tab_status ON tab_processos.id_status = tab_status.id_status {$where} {$torder} LIMIT {$offset},{$limit}  ;");
         $result  = array();
 
         
@@ -204,9 +204,9 @@ class Processos
     {
         $conexao = Conexao::getInstance();
         if($with_role)
-            $stmt    = $conexao->prepare("SELECT tab_processos.*,  tab_status.txt_status as status FROM tab_processos LEFT JOIN tab_status ON tab_processos.id_status = tab_status.id_status WHERE id_processo={$id_processo};");
+            $stmt    = $conexao->prepare("SELECT DATE_FORMAT(tab_processos.dt_fim_inscricao, '%d de %M de %Y') as data_fim, DATE_FORMAT(tab_processos.dt_fim_inscricao, '%H:%i:%S') as hora_fim, DATE_FORMAT(tab_processos.dt_inicio_inscricao, '%d de %M de %Y') as data_inicio, DATE_FORMAT(tab_processos.dt_inicio_inscricao, '%H:%i:%S') as hora_inicio,  tab_processos.*,  tab_status.txt_status as status FROM tab_processos LEFT JOIN tab_status ON tab_processos.id_status = tab_status.id_status WHERE id_processo={$id_processo};");
         else{
-            $stmt    = $conexao->prepare("SELECT tab_processos.* FROM tab_processos WHERE id_processo='{$id_processo}';");
+            $stmt    = $conexao->prepare("SELECT DATE_FORMAT(tab_processos.dt_fim_inscricao, '%d de %M de %Y') as data_fim, DATE_FORMAT(tab_processos.dt_fim_inscricao, '%H:%i:%S') as hora_fim, DATE_FORMAT(tab_processos.dt_inicio_inscricao, '%d de %M de %Y') as data_inicio, DATE_FORMAT(tab_processos.dt_inicio_inscricao, '%H:%i:%S') as hora_inicio,   tab_processos.* FROM tab_processos WHERE id_processo='{$id_processo}';");
         }
         //$controller = new MensageiroController();
         //$controller->msg("SELECT tab_processos.*,  tab_status.txt_status as status FROM tab_processos LEFT JOIN tab_status ON tab_processos.id_status = tab_status.id_status WHERE id_processo={$id_processo};",1);

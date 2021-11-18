@@ -193,7 +193,7 @@ class FichaController extends Controller
         }
 
         $id_ficha = $inscricao->id_ficha_enviada;
-        $ficha = Ficha::find($id_ficha);
+        $ficha = Inscricao::find($id_ficha);
 
         if(isset($ficha->id_ficha)){
             return $ficha;
@@ -333,6 +333,7 @@ class FichaController extends Controller
             $ficha->txt_email = UsuariosController::get_usuario()['txt_email'];
             $ficha->txt_civil = $dados['txt_civil'];
             $ficha->txt_sexo = $dados['txt_sexo'];
+            $ficha->txt_escolaridade = $dados['txt_escolaridade'];
             $ficha->txt_telefone = $dados['txt_telefone'];
             $ficha->txt_celular = $dados['txt_celular'];
             $ficha->txt_natural_pais = $dados['txt_natural_pais'];

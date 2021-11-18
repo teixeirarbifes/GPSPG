@@ -312,6 +312,29 @@ class InscricaoController extends Controller
                         $ficha->txt_civil = "Viúvo";                    
                 }
 
+                if(isset($ficha->txt_escolaridade)){
+                    if($ficha->txt_escolaridade == 1)   
+                        $ficha->txt_escolaridade = "Doutorado";
+                    else if($ficha->txt_escolaridade == 2)   
+                        $ficha->txt_escolaridade = "Mestrado";
+                    else if($ficha->txt_escolaridade == 3)   
+                        $ficha->txt_escolaridade = "Superior completo";
+                    else if($ficha->txt_escolaridade == 4)   
+                        $ficha->txt_escolaridade = "Superior incompleto";
+                    else if($ficha->txt_escolaridade == 5)   
+                        $ficha->txt_escolaridade = "Ensino médio completo";
+                    else if($ficha->txt_escolaridade == 6)   
+                        $ficha->txt_escolaridade = "Ensino médio incompleto";
+                    else if($ficha->txt_escolaridade == 7)   
+                        $ficha->txt_escolaridade = "Ensino fundamental completo";
+                    else if($ficha->txt_escolaridade == 8)   
+                        $ficha->txt_escolaridade = "Ensino fundamental incompleto"; 
+                    else                        
+                        $ficha->txt_escolaridade = "Não sei informar";                 
+                }
+
+                //$ficha->txt_natural_pais = get_pais
+
                 if(isset($ficha->txt_nascimento)){
                     $ficha->txt_nascimento = date('d-m-Y', strtotime($ficha->txt_nascimento) );
                 }
@@ -420,7 +443,11 @@ class InscricaoController extends Controller
         return true;
     }
 
-    public function ver_entregue($dados)
+    public function ver_entregue_pdf($dados){
+        return $this->ver_entregue($dados,true);
+    }
+
+    public function ver_entregue($dados,$pdf = false)
     {
         $home = new HomeController();
         $pproc = new ProcessosController();
@@ -439,7 +466,19 @@ class InscricaoController extends Controller
             $inscricao = Inscricao::find_user($dados['id_processo'],UsuariosController::get_usuario()['id_user']);
             if(isset($inscricao->id_inscricao)){
                 $dados['rascunho'] = 0;
-                $ficha = FichaController::ficha_entregue($inscricao->id_inscricao);
+                $id_ficha = $inscricao->id_ficha_enviada;
+                if($id_ficha>0){
+                    
+                }else{
+                    $this->msg("Você ainda não realizou o envio dessa inscrição.",2);
+                    return $pproc->visualizar_candidato($dados); 
+                }
+                $ficha = Ficha::find($id_ficha);
+
+                if(!isset($ficha->id_ficha)){
+                    $this->msg("Ocorreu um erro ao procurar sua ficha.",2);
+                    return $pproc->visualizar_candidato($dados); 
+                }
 
                 $modalidade = Modalidade::find($ficha->id_modalidade);
                 if(isset($modalidade->id_modalidade)){
@@ -477,6 +516,29 @@ class InscricaoController extends Controller
                         $ficha->txt_civil = "Viúvo";                    
                 }
 
+               
+
+                if(isset($ficha->txt_escolaridade)){
+                    if($ficha->txt_escolaridade == 1)   
+                        $ficha->txt_escolaridade = "Doutorado";
+                    else if($ficha->txt_escolaridade == 2)   
+                        $ficha->txt_escolaridade = "Mestrado";
+                    else if($ficha->txt_escolaridade == 3)   
+                        $ficha->txt_escolaridade = "Superior completo";
+                    else if($ficha->txt_escolaridade == 4)   
+                        $ficha->txt_escolaridade = "Superior incompleto";
+                    else if($ficha->txt_escolaridade == 5)   
+                        $ficha->txt_escolaridade = "Ensino médio completo";
+                    else if($ficha->txt_escolaridade == 6)   
+                        $ficha->txt_escolaridade = "Ensino médio incompleto";
+                    else if($ficha->txt_escolaridade == 7)   
+                        $ficha->txt_escolaridade = "Ensino fundamental completo";
+                    else if($ficha->txt_escolaridade == 8)   
+                        $ficha->txt_escolaridade = "Ensino fundamental incompleto"; 
+                    else                        
+                        $ficha->txt_escolaridade = "Não sei informar";                 
+                }
+
                 if(isset($ficha->txt_nascimento)){
                     $ficha->txt_nascimento = date('d-m-Y', strtotime($ficha->txt_nascimento) );
                 }
@@ -492,13 +554,10 @@ class InscricaoController extends Controller
                 $documentos_curriculo = Documentos::all_ficha($ficha->id_ficha,2);  
 
                 $matriz_classe = Documentos::matriz($ficha->id_ficha);
-
-                if(isset($ficha->id_ficha)){
-                    return $this->view('ficha'.S.'form_verificar', ['matriz_classe' => $matriz_classe,'documentos_curriculo' => $documentos_curriculo, 'documentos_pessoais' => $documentos_pessoais, 'documentos' => $documentos, 'data_table' => $dados, 'processo' => $processo, 'inscricao' => $inscricao, 'ficha' => $ficha, 'usuario' => UsuariosController::get_usuario()]);    
-                }else{
-                    $this->msg("Você ainda não realizou o envio dessa inscrição.",2);
-                    return $pproc->visualizar_candidato($dados);                    
-                }
+                if($pdf)
+                return $this->view('ficha'.S.'template_ficha_pdf', ['matriz_classe' => $matriz_classe,'documentos_curriculo' => $documentos_curriculo, 'documentos_pessoais' => $documentos_pessoais, 'documentos' => $documentos, 'data_table' => $dados, 'processo' => $processo, 'inscricao' => $inscricao, 'ficha' => $ficha, 'usuario' => UsuariosController::get_usuario()]);                    
+                else
+                return $this->view('ficha'.S.'form_verificar', ['matriz_classe' => $matriz_classe,'documentos_curriculo' => $documentos_curriculo, 'documentos_pessoais' => $documentos_pessoais, 'documentos' => $documentos, 'data_table' => $dados, 'processo' => $processo, 'inscricao' => $inscricao, 'ficha' => $ficha, 'usuario' => UsuariosController::get_usuario()]);                    
             }else{
                 $this->msg("Não há inscricao para esse processo seletivo",2);
                 return $pproc->visualizar_candidato($dados);

@@ -215,9 +215,9 @@ class Inscricao
     {
         $conexao = Conexao::getInstance();
         if($hora_format)
-        $stmt    = $conexao->prepare("SELECT DATE_FORMAT(dt_enviado, '%H:%i:%S') as hora_enviado, tab_inscricao.* FROM tab_inscricao WHERE id_processo='{$id_processo}' AND id_user='{$id_user}';");
+        $stmt    = $conexao->prepare("SELECT DATE_FORMAT(dt_enviado, '%d de %M de %Y') as data_enviado, DATE_FORMAT(dt_enviado, '%H:%i:%S') as hora_enviado, tab_inscricao.* FROM tab_inscricao WHERE id_processo='{$id_processo}' AND id_user='{$id_user}';");
         else
-        $stmt    = $conexao->prepare("SELECT tab_inscricao.* FROM tab_inscricao WHERE id_processo='{$id_processo}' AND id_user='{$id_user}';");
+        $stmt    = $conexao->prepare("SELECT DATE_FORMAT(dt_enviado, '%d de %M de %Y') as data_enviado, DATE_FORMAT(dt_enviado, '%H:%i:%S') as hora_enviado, tab_inscricao.* FROM tab_inscricao WHERE id_processo='{$id_processo}' AND id_user='{$id_user}';");
 
         if ($stmt->execute()) {
             if ($stmt->rowCount() > 0) {
@@ -271,9 +271,9 @@ class Inscricao
     {
         $conexao = Conexao::getInstance();
         if($with_role)
-            $stmt    = $conexao->prepare("SELECT tab_inscricao.*,  tab_processos.txt_processo as processo FROM tab_inscricao LEFT JOIN tab_processos ON tab_inscricao.id_processo = tab_processos.id_processo WHERE tab_inscricao.id_processo='{$id_processo}' AND id_user='{$id_user}';");
+            $stmt    = $conexao->prepare("SELECT DATE_FORMAT(dt_enviado, '%d de %M de %Y') as data_enviado, DATE_FORMAT(dt_enviado, '%H:%i:%S') as hora_enviado, tab_inscricao.*,  tab_processos.txt_processo as processo FROM tab_inscricao LEFT JOIN tab_processos ON tab_inscricao.id_processo = tab_processos.id_processo WHERE tab_inscricao.id_processo='{$id_processo}' AND id_user='{$id_user}';");
         else{
-            $stmt    = $conexao->prepare("SELECT tab_inscricao.* FROM tab_inscricao WHERE tab_inscricao.id_processo='{$id_processo}' AND id_user='{$id_user}';");
+            $stmt    = $conexao->prepare("SELECT DATE_FORMAT(dt_enviado, '%d de %M de %Y') as data_enviado, DATE_FORMAT(dt_enviado, '%H:%i:%S') as hora_enviado, tab_inscricao.* FROM tab_inscricao WHERE tab_inscricao.id_processo='{$id_processo}' AND id_user='{$id_user}';");
         }
         //$controller = new MensageiroController();
         //$controller->msg("SELECT tab_processos.*,  tab_status.txt_status as status FROM tab_processos LEFT JOIN tab_status ON tab_processos.id_status = tab_status.id_status WHERE id_processo={$id_processo};",1);

@@ -34,36 +34,30 @@ if($data_table)
 foreach($data_table as $processo){ ?>
  <div class="card text-center">
   <div class="card-header" style="text-align:left">
-  <h4><b><?php echo $processo->txt_processo; ?></b></h4>
+  <b><?php echo $processo->txt_processo; ?></b>
   </div>
   <div class="card-body">
+  <div class=row  style="text-align:left">
   <div class="col-sm-12 col-md-12">
   <p class="card-text" style="text-align:left">
-    <?php
-
-    $date1 = $processo->dt_inicio_inscricao;
-    $date2 = $processo->dt_fim_inscricao;
-
-    $t1 = strtotime($date1);
-    $t2 = strtotime($date2);
-
-    $s1 = utf8_encode(strftime('%A, %d de %B de %Y &agrave;s %H:%M:%S',$t1));
-    $s2 = utf8_encode(strftime('%A, %d de %B de %Y &agrave;s %H:%M:%S',$t2));
-    ?>
-    <font size=4><div style="text-align:left;" ><i class="icon-calendar" ></i>PERÍODO DE INSCRIÇÃO</br></br>
-            Inicio: &nbsp&nbsp&nbsp&nbsp <b><font color=darkgreen><?=$s1?></font></b></br></br>Término: <b><font color=red><?=$s2?></font></b></div></div>
-  <div class="col-md-12">
-              <?php 
+    <font size=2><div style="text-align:left;" ><i class="icon-calendar" ></i>PERÍODO DE INSCRIÇÃO</br></br>
+            Inicio: &nbsp&nbsp&nbsp&nbsp <b><font color=darkgreen><?=$processo->data_inicio.' às '.$processo->hora_inicio?></font></b></br></br>Término: <b><font color=red><?=$processo->data_fim.' às '.$processo->hora_fim?></font></b></div></div>
+</div>
+  <div class=row  style="text-align:left">
+  <div class=col>
+            <?php 
               $aberto = ProcessosController::aberto($processo->id_processo);
                 if($aberto==2){ ?>
-              </br><h4 style="text-align:left"><span class="glyphicon glyphicon-plus" style="font-size:16px;"></span><font color=darkgreen>Aceitando envio de inscrições...</font></br></br></h4>
+              </br><span class="glyphicon glyphicon-plus" style="font-size:12px;"></span><font color=darkgreen></br>Aceitando envio de inscrições...</br></br></font>
               <?php }else if($aberto==0){ ?>
-                </br><h4 style="text-align:left"><span class="glyphicon glyphicon-plus" style="font-size:16px;"></span><font color=darkblue>O período de inscrição iniciará em breve.</font></br></br></h4>
+                </br><span class="glyphicon glyphicon-plus" style="font-size:12px;"></span><font color=darkblue>O período de inscrição iniciará em breve.</br></br></font>
               <?php }else{ ?>
-              </br><h4 style="text-align:left"><span class="glyphicon glyphicon-lock" style="font-size:16px;"></span>&nbsp <b><font color=red>Envio de inscrições encerrado!</font></br></br></h4>
+              </br><span class="glyphicon glyphicon-lock" style="font-size:12px;"></span>&nbsp <b><font color=red>Envio de inscrições encerrado!</br></br></font>
               <?php } ?>
-
-                            <h6 style="text-align:left">
+              </div>
+              </div>
+              <div class=row  style="text-align:left">
+              <div class=col>
                 <?php if($processo->cronograma==null){ ?>
                   Última ocorrência: <font color=red>-----</font>
                 <?php }else{ ?>                  
@@ -93,11 +87,9 @@ foreach($data_table as $processo){ ?>
                     <?php }else{ ?>
                       </br><font color=blue>O período de inscrições comecará em breve. Aguarde o início para iniciar sua inscrição.</font>
                     <?php } ?>  
-                  <?php } ?>                
-                  </h6>
+                  <?php } ?>              
+       </div></div>
                  
-
-              </div>
 
         </p>
           <p class="card-text" style="text-align:left">
