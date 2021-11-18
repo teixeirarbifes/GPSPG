@@ -7,7 +7,7 @@
   }else{
     $usuario = null;
   }
-  echo $h_aberto;
+  echo $inscricao->id_ficha_enviada;
 ?>
 
 <h3><b><font color="darkblue"><?php echo $processo->txt_processo; ?></font></b></h3>
