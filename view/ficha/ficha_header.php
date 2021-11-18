@@ -7,27 +7,26 @@
   }else{
     $usuario = null;
   }
-  echo $inscricao->id_ficha_enviada;
-  echo isset($inscricao->id_inscricao);
 ?>
 
 <h3><b><font color="darkblue"><?php echo $processo->txt_processo; ?></font></b></h3>
 <?php if(UsuariosController::is_logged() && $h_usuario!=null){ ?>
   <div class="col-lg-6">
-      <? if($inscricao->id_ficha_enviada > 0){ ?>
+      <?php if($inscricao->id_ficha_enviada > 0){ ?>
            <?php if($h_aberto == 2){ ?>
-              </br><img style="float:left" src="images/warning.png" width="20px"/> <b><font size=2 color=red> Sua inscrição foi enviada!</font></b>
+              </br><!--img style="float:left" src="images/warning.png" width="20px"/--> <b><font size=4 color=green> Sua inscrição foi enviada!</font></b>
             <?php }else if($h_aberto == 1){ ?>
-              </br><img style="float:left" src="images/warning.png" width="20px"/> <b><font size=2 color=red> Sua inscrição foi enviada!</font></b>
+              </br><!--img style="float:left" src="images/warning.png" width="20px"/--> <b><font size=4 color=green> Sua inscrição foi enviada!</font></b>
             <?php } ?>
-      <? }else{ ?>
+      <?php }else{ ?>
         <?php if($h_aberto == 2){ ?>
-              </br><img style="float:left" src="images/warning.png" width="20px"/> <b><font size=2 color=red> Sua inscrição ainda não foi enviada! Importante enviar para análise a sua inscrição dentro do prazo.</font></b>
+              </br><img style="float:left" src="images/warning.png" width="20px"/> <b><font size=4 color=red> Sua inscrição ainda não foi enviada! Importante enviar para análise a sua inscrição dentro do prazo.</font></b>
             <?php }else if($h_aberto == 1){ ?>
-              </br><img style="float:left" src="images/warning.png" width="20px"/> <b><font size=2 color=red> Sua inscrição foi enviada dentro do prazo e não poderá ser enviada para análise.</font></b>
+              </br><img style="float:left" src="images/warning.png" width="20px"/> <b><font size=4 color=red> Sua inscrição foi enviada dentro do prazo e não poderá ser enviada para análise.</font></b>
             <?php } ?>
       <?php } ?>
-  </div>        
+  </div>  
+<?php } ?>  
 <hr>
 <?php 
 if(!isset($habilitar_inscricao)) $habilitar_inscricao = false;
