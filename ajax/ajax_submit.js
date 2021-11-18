@@ -89,11 +89,6 @@ function validar(form, classe,dados = null,sobe=true,changecheck=true){
     $("#display_erro").finish().fadeOut('slow');
     if(dados == null)
         dados = new FormData($('#'+form)[0]); 
-
-    var checkbox = $("#" + form).find("input[type=checkbox]");
-    $.each(checkbox, function(key, val) {
-        dados.append($(val).attr('name'), this.is(':checked'))
-    });
     var urlRand = new Date().getTime(); 
     //var json = "";
     //    for(var i = 0;i<formData.length;i++){
@@ -159,15 +154,6 @@ function submit(form,sobe = true,changecheck = true){
     display_modal_loading_before();
     var dados = new FormData($('#'+form)[0]);
 
-    var checkbox = $("#" + form).find("input[type=checkbox]");
-    $.each(checkbox, function(key, val) {
-        dados.append($(val).attr('name'), this.is(':checked'))
-    });
-
-    $("#"+form).find("input[type='checkbox']").each(function () {
-        alert('teste');
-        $(this).prop('checked', this.checked);
-     });
     xhr = $.ajax({
         url: $('#' + form).attr('action'),
         type: "POST",
