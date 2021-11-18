@@ -50,7 +50,7 @@ class Inscricao
                 implode(', ', array_values($colunas)).");";
         } else {
             foreach ($colunas as $key => $value) {
-                if ($key !== 'id_inscricao') {
+                if ($key !== 'id_inscricao' && $key !== 'data_enviado'  && $key !== 'hora_enviado') {
                     $definir[] = "{$key}={$value}";
                 }
             }
