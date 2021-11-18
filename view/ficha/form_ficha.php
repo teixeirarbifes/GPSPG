@@ -31,6 +31,7 @@ $pagina = "ficha";
                 <a class="btn btn-success" id=salvar  onclick="$('#voltar').val(1); validar('form','ficha');"><font color=black>Salvar ficha & Continuar >></font></a>&nbsp;  
 </div></div></div>
 <form id=form class="form-horizontal" action="?controller=fichacontroller&method=atualizar&id=<?php echo $ficha->id_ficha; ?>" method="post" >
+<input type="hidden" id="bl_condicao_especial_valor" name="bl_condicao_especial2" value=<?=$ficha->bl_condicao_especial ? 1 : 0?> >
 <input type=hidden id=voltar name=voltar value=0/>
 <div class="form-group">
  <div class="container border p-2">
@@ -250,6 +251,13 @@ $pagina = "ficha";
     <input onclick="$('#id_modalidade').val(<?=$m->id_modalidade?>);" type="radio" name="id_modalidade_select" id="id_modalidade<?=$m->id_modalidade?>" <?php echo $ficha->id_modalidade == $m->id_modalidade ? "checked" : "";?>
     <font size=4><b><font color=darkblue><?=$m->sigla?></font></b> - <b><?=$m->modalidade?></b> [<font color=black><?=$m->num_vagas?> vagas</font>]</font>      </br></br>
     <?php } ?>
+</div>
+
+<div class="container border p-2" id="bl_condicao_especial">
+</br>
+  <input onchange="if($('#bl_condicao_especial_check').prop('checked')){ $('#bl_condicao_especial_valor').val(1); }else{$('#bl_condicao_especial_valor').val(0);}" type="checkbox" id="bl_condicao_especial_check" <?=$ficha->bl_condicao_especial ? "checked" : ""?> > Solicito condições especiais para a realização da prova.
+    </br>  </br>
+  Verifique, no edital, a apresentação de documento necessária para o atendimento da sua solicitação.
 </div>
 
 </form>

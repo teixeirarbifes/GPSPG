@@ -99,9 +99,25 @@ function textfield($label,$field,$class,$obrigatorio = false,$adicional="",$msg=
 <div class="row">
 <div class='col-md-12'>
 <!--h4>Confira sua modalidade de inscrição</h4></br-->
-A modalidade de inscrição selecionada foi <b><?=$ficha->sigla?> - <?=$ficha->modalidade?></b>, <?=$ficha->desc_modalidade?>
+<?php if($ficha->bl_condicao_especial){ ?>
+  <font size=3>Foi solicitada uma condição especial para a realização da prova. Tenha atenção às exigências do edital para o atendimento desta solicitação.</font>
+<?php }else{ ?>
+  <font size=3>Não foi solicitada condição especial para a realização da prova.</font>
+<?php } ?>
 </div>
 </div>    
 </div>
+
+
+<div class="container p-2 border">
+<div class="row">
+<div class='col-md-12'>
+<!--h4>Confira sua modalidade de inscrição</h4></br-->
+<font size=3>A modalidade de inscrição selecionada foi <b><?=$ficha->sigla?> - <?=$ficha->modalidade?></b>, <?=$ficha->desc_modalidade?></font>
+</div>
+</div>    
+</div>
+
+<hr>
 
 <script src="../ajax/ajax_submit.js"></script>

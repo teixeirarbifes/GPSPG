@@ -367,7 +367,8 @@ class FichaController extends Controller
             //$ficha->txt_cidade = get_code_by_city($ficha->txt_code_cidade);
             $ficha->txt_estado = $dados['txt_estado'];
             $ficha->id_modalidade = $dados['id_modalidade'];
-            
+            $ficha->bl_condicao_especial = $dados['bl_condicao_especial2'];
+
             #$inscricao = Inscricao::find($ficha->id_inscricao,false);
             #$inscricao->id_modalidade = $dados['id_modalidade'];
             

@@ -12,7 +12,7 @@
 <h3><b><font color="darkblue"><?php echo $processo->txt_processo; ?></font></b></h3>
 <?php if(UsuariosController::is_logged() && $h_usuario!=null){ ?>
   <div class="col-lg-6">
-      <?php if($inscricao->id_ficha_enviada > 0){ ?>
+      <?php if(isset($inscricao->id_ficha_enviada) && $inscricao->id_ficha_enviada > 0){ ?>
            <?php if($h_aberto == 2){ ?>
               </br><!--img style="float:left" src="images/warning.png" width="20px"/--> <b><font size=4 color=green> Sua inscrição foi enviada!</font></b>
             <?php }else if($h_aberto == 1){ ?>
