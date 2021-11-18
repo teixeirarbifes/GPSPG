@@ -7,8 +7,9 @@
   }else{
     $usuario = null;
   }
-
+  echo $h_aberto;
 ?>
+
 <h3><b><font color="darkblue"><?php echo $processo->txt_processo; ?></font></b></h3>
 <?php if(UsuariosController::is_logged() && $h_usuario!=null){ ?>
   <div class="col-lg-6">
