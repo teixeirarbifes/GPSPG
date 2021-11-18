@@ -14,7 +14,7 @@
   <div class="col-lg-6">
         <?php if(!isset($inscricao->id_inscricao) || !($inscricao->id_ficha_enviada > 0)){ ?>
             <img style="float:left" src="images/warning.png" width="20px"/> <b><font size=2 color=red> Sua inscrição para esse processo seletivo ainda não foi iniciada.</font></b>
-      <? }else if($inscricao->id_ficha_enviada > 0)){ ?>
+      <? }else if($inscricao->id_ficha_enviada > 0){ ?>
             <?php if($h_aberto == 2){ ?>
               </br><img style="float:left" src="images/warning.png" width="20px"/> <b><font size=2 color=red> Sua inscrição ainda não foi enviada! Importante enviar para análise a sua inscrição dentro do prazo.</font></b>
             <?php }else if($h_aberto == 1){ ?>
