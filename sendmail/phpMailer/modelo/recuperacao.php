@@ -1,5 +1,5 @@
 <?php
-$titulo = "Ativação de nova conta";
+$titulo = "Recuperação de acesso";
 ?>
 
 <div style="font-size:14px; border: 20px solid #969696;text-align:center;max-width:700px;padding:2ex">
@@ -10,8 +10,7 @@ $titulo = "Ativação de nova conta";
 <div style="text-align:left;font-family: Arial, Helvetica, sans-serif;">
 <p>
 <span style="font-size:14px">
-Obrigado por se cadastrar no GPS-PG, um sistema eficiente para facilitar o processo seletivo de programa de pós-graduação, em todas etapas.
-Para continuar com seu cadastro, é importante que você forneça o código abaixo para gerar a sua nova senha e ativar a sua conta. Somente após gerar sua senha e ativar sua conta, poderás ter acesso ao sistema e se inscrever no processo seletivo.
+Para continuar a sua recuperação de acesso, é importante que você forneça o código abaixo para gerar a sua nova senha.
 <span>
 </p>
 <p>

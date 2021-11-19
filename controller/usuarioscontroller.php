@@ -121,7 +121,10 @@ class UsuariosController extends Controller
             $modelo = 'changeemail';
         }else{
             $to_email = $dados['txt_email'];
-            $modelo = 'ativacao';
+            if($dados['bl_bloqueado'])
+                $modelo = 'ativacao';
+            else
+                $modelo = 'recuperacao';
         }
         $data = ['key' => $dados['chave'],'txt_chave2' => isset($dados['txt_chave2']) ? $dados['txt_chave2'] : "" ];
         $status = criar_email($to_email,$to_nome,'',$modelo,$data);
@@ -361,6 +364,7 @@ class UsuariosController extends Controller
                 //$this->msg('Salvo com sucesso',0);
                 $id = Usuarios::find_by_user($data['txt_usuario']);
                 $dados['id_user'] = $id->id_user;
+                $dados['bl_bloqueado'] = $id->bl_bloqueado;
                 if($this->envio_email_validacao($dados)){
                     return $this->form_ativar($dados);
                 }else{
