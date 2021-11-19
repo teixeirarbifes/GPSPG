@@ -24,7 +24,8 @@ Este e-mail confirma o envio de sua inscrição para o processo seletivo <b><?=$
 <p>
 Cordialmente,
 </br></br>
-GPS-PG - Ifes - Campus Cariacica
+GPS-PG - Sistema de Gestão de Processos Seletivos
+GEMAD - Grupo de Estudos em Manufatura Digital
 <a href="https://gpspg.gemad.net">https://gpspg.gemad.net</a>
 </p>
 </div>

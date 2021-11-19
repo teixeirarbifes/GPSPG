@@ -28,7 +28,8 @@ Para continuar com seu cadastro, é importante que você forneça o código abai
 <p>
 Cordialmente,
 </br></br>
-GPS-PG - Ifes - Campus Cariacica
+GPS-PG - Sistema de Gestão de Processos Seletivos
+GEMAD - Grupo de Estudos em Manufatura Digital
 <a href="https://gpspg.gemad.net">https://gpspg.gemad.net</a>
 </p>
 </div>

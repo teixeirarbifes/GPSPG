@@ -23,7 +23,8 @@ Uma nova senha foi cadastrada para a sua conta pelo Administrador. Utilize essa 
 <p>
 Cordialmente,
 </br></br>
-GPS-PG - Ifes - Campus Cariacica
+GPS-PG - Sistema de Gestão de Processos Seletivos
+GEMAD - Grupo de Estudos em Manufatura Digital
 <a href="https://gpspg.gemad.net">https://gpspg.gemad.net</a>
 </p>
 </div>
