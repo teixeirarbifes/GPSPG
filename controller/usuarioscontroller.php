@@ -409,7 +409,8 @@ class UsuariosController extends Controller
         $dados['txt_email'] = $usuario->txt_email;
         $dados['txt_cpf'] = $usuario->txt_cpf;
         $dados['id_user'] = $usuario->id_user;
-        if($usuario->save($dados)){                
+        if($usuario->save($dados)){            
+                $dados['bl_bloqueado'] = $usuario->bl_bloqueado;    
                 if($this->envio_email_validacao($dados)){
                     return $this->form_ativar($dados);
                 }else{
