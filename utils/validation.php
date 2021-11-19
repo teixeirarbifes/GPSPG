@@ -235,6 +235,7 @@
 
             }
 
+            $val->field('txt_nascimento')->name('Data nascimento')->value($data['txt_nascimento'])->required();
             
             
             $val->field('txt_civil')->name('Estado Civil')->value((int)$data['txt_civil'])->min(1)->required();

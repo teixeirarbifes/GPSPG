@@ -14,7 +14,7 @@ function textfield($label,$field,$class,$obrigatorio = false,$adicional="",$msg=
   global $ficha;
   if($field!="" && $field!=null)
   if(isset($ficha->{$field})) $value = $ficha->{$field};
-  echo str_replace('{msg}',$msg,str_replace('{adicional}',$adicional,str_replace('{label}',$label.($obrigatorio ? '<font color=red>*</font>' : ''),str_replace('{class}',$class,str_replace('{value}',$value,str_replace('{field}',$field,$tmp_textfield))))));
+  echo str_replace('{msg}',$msg,str_replace('{adicional}',$adicional,str_replace('{label}',$label.($obrigatorio ? '<font color=red> ⋆</font>' : ''),str_replace('{class}',$class,str_replace('{value}',$value,str_replace('{field}',$field,$tmp_textfield))))));
 }
 $pagina = "ficha";
 ?>
@@ -29,6 +29,14 @@ $pagina = "ficha";
       
                 <a class="btn btn-success" id=salvar  onclick="$('#voltar').val(0); validar('form','ficha');"><font color=black>Salvar ficha</font></a>&nbsp;  
                 <a class="btn btn-success" id=salvar  onclick="$('#voltar').val(1); validar('form','ficha');"><font color=black>Salvar ficha & Continuar >></font></a>&nbsp;  
+                </br>
+                </br>
+                <div>
+<font size=2>
+- Os campos sinalizados são obrigatórios (<font color=red>⋆</font>).</br>
+- Por exceção, somente um telefone ou celular é obrigatório.</br>
+</font>
+                </div>
 </div></div></div>
 <form id=form class="form-horizontal" action="?controller=fichacontroller&method=atualizar&id=<?php echo $ficha->id_ficha; ?>" method="post" >
 <input type="hidden" id="bl_condicao_especial_valor" name="bl_condicao_especial2" value=<?=$ficha->bl_condicao_especial ? 1 : 0?> >
@@ -48,7 +56,7 @@ $pagina = "ficha";
   <form method="post" action="" enctype="multipart/form-data" id="myform">
   <div class="col-md-2 col-sm-12">    
         <div>
-        <b>Sua foto:</b><br/>
+        <b>Sua foto<font color=red> ⋆</font>:</b><br/>
         <img style="display:<?php echo isset($ficha->txt_photo) ? "block" : "none" ?>" src="<?php echo isset($ficha->txt_photo) ? "/photo.php?uq=".uniqid()."&id=".$ficha->id_ficha : "" ?>" id="img" width="162" height="180">
         </div>
         <div >
@@ -77,19 +85,19 @@ $pagina = "ficha";
       <?php textfield('Nome completo',  '',         'col-lg-6 col-md-6 col-sm-12',  false, 'disabled',"<b><font color=green size=1px>O nome completo pode ser alterado na página do perfil.</font></b>",UsuariosController::get_usuario()['txt_nome'] ); ?>
       <?php textfield('E-mail',         '',        'col-lg-6 col-md-6 col-sm-12', false, 'disabled',"<b><font color=green size=1px>O e-mail pode ser alterado na página do perfil.</font></b>",UsuariosController::get_usuario()['txt_email']); ?>
       <div class="col-lg-3 col-md-3 col-sm-12">      
-      <label for="txt_nascimento">Data de Nascimento</label>
+      <label for="txt_nascimento">Data de Nascimento<font color=red> ⋆</font></label>
       <input type="date" id="txt_nascimento" class="maskField form-control" aria-describedby="erro_txt_nascimento" name="txt_nascimento" value="<?php echo $ficha->txt_nascimento; ?>" />
       <div  class="form-text text-muted"><font color=red><div class="msg_error" id="erro_txt_nascimento"></div></font></div>
       </div>
      
      
-      <?php textfield('Nome da mãe',    'txt_nome_mae',     'col-lg-5 col-md-5 col-sm-12'); ?>
-      <?php textfield('Nome do pai',    'txt_nome_pai',     'col-lg-4 col-md-4 col-sm-12'); ?>
-      <?php textfield('Telefone',       'txt_telefone',     'col-lg-6 col-md-6 col-sm-12',false,"mask='(999) 9999–9999'"); ?>
-      <?php textfield('Celular',        'txt_celular',      'col-lg-6 col-md-6 col-sm-12',false,"mask='(999) 99999–9999'"); ?>
+      <?php textfield('Nome da mãe',    'txt_nome_mae',     'col-lg-5 col-md-5 col-sm-12',true); ?>
+      <?php textfield('Nome do pai',    'txt_nome_pai',     'col-lg-4 col-md-4 col-sm-12',true); ?>
+      <?php textfield('Telefone',       'txt_telefone',     'col-lg-6 col-md-6 col-sm-12',true,"mask='(999) 9999–9999'"); ?>
+      <?php textfield('Celular',        'txt_celular',      'col-lg-6 col-md-6 col-sm-12',true,"mask='(999) 99999–9999'"); ?>
       
       <div class="col-md-3 col-sm-12">      
-        <label for="txt_civil">Estado Civil</label>
+        <label for="txt_civil">Estado Civil<font color=red> ⋆</font></label>
         <div class="container p-2" id="txt_civil">
         <select id="txt_civil" class="form-control" aria-describedby="erro_txt_civil" name="txt_civil" >
                         <option value="0"></option>
@@ -105,7 +113,7 @@ $pagina = "ficha";
       </div>
       
       <div class="col-md-3 col-sm-12">      
-        <label for="txt_sexo">Sexo</label>
+        <label for="txt_sexo">Sexo<font color=red> ⋆</font></label>
         <div class="container p-2" id="txt_sexo">
         <select id="txt_sexo" class="form-control" aria-describedby="erro_txt_sexo" name="txt_sexo" >
                         <option value="0"></option>
@@ -119,7 +127,7 @@ $pagina = "ficha";
 
 
       <div class="col-lg-6 col-md-6 col-sm-12">      
-        <label for="txt_escolaridade">Escolaridade</label>
+        <label for="txt_escolaridade">Escolaridade<font color=red> ⋆</font></label>
         <div class="container p-2" id="txt_escolaridade">
         <select id="txt_civil" class="form-control" aria-describedby="erro_txt_escolaridade" name="txt_escolaridade" >
                         <option value="0"></option>
@@ -147,7 +155,7 @@ $pagina = "ficha";
   <div class="row">
       <div class='col-md-12'><b><font color=darkblue>Informe a sua naturalidade:</font></b></div>
       <div class="col-md-3 col-sm-5">      
-        <label for="txt_natural_pais">País</label>
+        <label for="txt_natural_pais">País<font color=red> ⋆</font></label>
         <div class="container p-2" id="txt_natural_pais">
         <select onchange="if(this.value==76){$('#txt_natural_estado_select').show();$('#txt_natural_estado_exterior').hide();$('#txt_natural_cidade_select').show();$('#txt_natural_cidade_exterior').hide(); }else{$('#txt_natural_estado_select').hide();$('#txt_natural_estado_exterior').show();$('#txt_natural_cidade_select').hide();$('#txt_natural_cidade_exterior').show(); } " class="form-control" aria-describedby="erro_txt_natural_pais" name="txt_natural_pais" >
             <option value=""></option>
@@ -157,7 +165,7 @@ $pagina = "ficha";
         <div style="font-color:red;font-size:12px" class="form-text text-muted"><font color=red><div class="msg_error" id="erro_txt_natural_pais"></div></font></div>
       </div>
       <div class="col-md-3 col-sm-5">      
-        <label for="txt_natural_estado">Estado</label>
+        <label for="txt_natural_estado">Estado<font color=red> ⋆</font></label>
         <div class="container p-2"  id="txt_natural_estado">
         <select id="txt_natural_estado_select" <?=(($ficha->txt_natural_pais > 0 && $ficha->txt_natural_pais!=76)) ? "style='display:none'" : "" ?> onchange="montaCidade(this.value,'txt_natural_cidade_select');" class="form-control" aria-describedby="erro_txt_natural_estado" name="txt_natural_estado" >
             <option value=''></option>
@@ -168,7 +176,7 @@ $pagina = "ficha";
         <div style="font-color:red;font-size:12px" class="form-text text-muted"><font color=red><div class="msg_error" id="erro_txt_natural_estado"></div></font></div>
       </div>
       <div class="col-md-3 col-sm-5">      
-        <label for="txt_natural_cidade">Cidade</label>
+        <label for="txt_natural_cidade">Cidade<font color=red> ⋆</font></label>
         <div class="container p-2" id="txt_natural_cidade" >
         <select id="txt_natural_cidade_select" <?=(($ficha->txt_natural_pais > 0 && $ficha->txt_natural_pais!=76)) ? "style='display:none'" : "" ?> class="form-control" aria-describedby="erro_txt_natural_cidade" name="txt_natural_cidade" >
             <option value=''></option>
@@ -190,11 +198,11 @@ $pagina = "ficha";
   <hr/>
   <div class="row">
     <div class='col-md-12'><b>Registro Geral (RG)</b></div>
-    <?php textfield('RG',             'txt_rg',           'col-md-4 col-sm-12'); ?>
-    <?php textfield('Orgão Expedidor','txt_rg_orgao',     'col-md-2 col-sm-12'); ?>
-    <?php textfield('UF',             'txt_rg_uf',        'col-md-2 col-sm-12'); ?>
+    <?php textfield('RG',             'txt_rg',           'col-md-4 col-sm-12',true); ?>
+    <?php textfield('Orgão Expedidor','txt_rg_orgao',     'col-md-2 col-sm-12',true); ?>
+    <?php textfield('UF',             'txt_rg_uf',        'col-md-2 col-sm-12',true); ?>
     <div class="col-md-2 col-sm-12">      
-    <label for="txt_rg_expedicao">Data de Expedição</label>
+    <label for="txt_rg_expedicao">Data de Expedição<font color=red> ⋆</font></label>
     <input type="date" id="txt_rg_expedicao" class="maskField form-control" aria-describedby="erro_txt_rg_expedicao" name="txt_rg_expedicao" value="<?php echo $ficha->txt_rg_expedicao; ?>" {adicional}/>
     <div  class="form-text text-muted"><font color=red><div class="msg_error" id="erro_txt_rg_expedicao"></div></font></div>
     </div>
@@ -203,12 +211,12 @@ $pagina = "ficha";
   <div class="row">
     <div class='col-md-12'><b>Título de Eleitor</b></div>
   
-    <?php textfield('Título de Eleitor','txt_eleitor',    'col-md-4 col-sm-12'); ?>
-    <?php textfield('Zona',           'txt_eleitor_zona', 'col-md-1 col-sm-12'); ?>
-    <?php textfield('Seção',          'txt_eleitor_secao','col-md-1 col-sm-12'); ?>
-    <?php textfield('Estado',         'txt_eleitor_estado','col-md-2 col-sm-12'); ?>
+    <?php textfield('Título de Eleitor','txt_eleitor',    'col-md-4 col-sm-12',true); ?>
+    <?php textfield('Zona',           'txt_eleitor_zona', 'col-md-1 col-sm-12',true); ?>
+    <?php textfield('Seção',          'txt_eleitor_secao','col-md-1 col-sm-12',true); ?>
+    <?php textfield('Estado',         'txt_eleitor_estado','col-md-2 col-sm-12',true); ?>
     <div class="col-md-2 col-sm-12">      
-    <label for="txt_eleitor_emissao">Data de Emissão</label>
+    <label for="txt_eleitor_emissao">Data de Emissão<font color=red> ⋆</font></label>
     <input type="date" id=txt_eleitor_emissao" class="maskField form-control" aria-describedby="erro_txt_eleitor_emissao" name="txt_eleitor_emissao" value="<?php echo $ficha->txt_eleitor_emissao; ?>" {adicional}/>
     <div  class="form-text text-muted"><font color=red><div class="msg_error" id="erro_txt_eleitor_emissao"></div></font></div>
     </div>
@@ -218,11 +226,11 @@ $pagina = "ficha";
 <div class="container border p-2">
 <div class="row">
     <div class='col-md-12'><b><font color=darkblue>Informe o seu endereço residencial:</font></b></div>
-    <?php textfield('CEP',            'txt_cep',          'col-md-2 col-sm-12'); ?>
+    <?php textfield('CEP',            'txt_cep',          'col-md-2 col-sm-12',true); ?>
     </div>
     <div class="row">
     <?php textfield('Logadouro',      'txt_logadouro',    'col-md-8 col-sm-12', false,' disabled '); ?>
-    <?php textfield('Número',         'txt_numero',       'col-md-1 col-sm-12'); ?>
+    <?php textfield('Número',         'txt_numero',       'col-md-1 col-sm-12',true); ?>
     </div>
     <div class="row">
     <?php textfield('Bairro',         'txt_bairro',       'col-md-3 col-sm-12', false,' disabled '); ?>
@@ -243,7 +251,7 @@ $pagina = "ficha";
 <div class="container border p-2">
     <div class="row">
         <div class="col-lg-12" id="id_modalidade_box">
-            <b>Escolha a modalidade para a inscrição:</b></br>
+            <b>Escolha a modalidade para a inscrição<font color=red> ⋆</font>:</b></br>
             <div  class="form-text text-muted"><font color=red><div class="msg_error" id="erro_id_modalidade"></div></font></div>
         </div>
     </div>    
