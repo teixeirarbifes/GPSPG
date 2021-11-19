@@ -235,7 +235,7 @@
 
             }
 
-            $val->field('txt_nascimento')->name('Data nascimento')->value($data['txt_nascimento'])->required();
+            $val->field('txt_nascimento')->name('Data nascimento')->value($data['txt_nascimento'])->isdate()->required();
             
             
             $val->field('txt_civil')->name('Estado Civil')->value((int)$data['txt_civil'])->min(1)->required();
@@ -248,10 +248,10 @@
             $val->field('txt_rg')->name('RG')->value($data['txt_rg'])->pattern('int')->required();
             $val->field('txt_rg_orgao')->name('Orgão Expedidor')->value($data['txt_rg_orgao'])->required();
             $val->field('txt_rg_uf')->name('UF do RG')->value($data['txt_rg_uf'])->required();
-            $val->field('txt_rg_expedicao')->name('Data de expedição do RG')->value($data['txt_rg_expedicao'])->required();
+            $val->field('txt_rg_expedicao')->name('Data de expedição do RG')->value($data['txt_rg_expedicao'])->isdate()->required();
             
             $val->field('txt_eleitor')->name('Título de Eleitor')->value($data['txt_eleitor'])->pattern('int')->required();
-            $val->field('txt_eleitor_emissao')->name('Data de emissão do título de eleitor')->value($data['txt_eleitor_emissao'])->required();
+            $val->field('txt_eleitor_emissao')->name('Data de emissão do título de eleitor')->value($data['txt_eleitor_emissao'])->isdate()->required();
             $val->field('txt_eleitor_zona')->name('Zona')->value($data['txt_eleitor_zona'])->pattern('int')->required();
             $val->field('txt_eleitor_secao')->name('Seção')->value($data['txt_eleitor_secao'])->pattern('int')->required();
             $val->field('txt_eleitor_estado')->name('Estado do Título de Eleitor')->value($data['txt_eleitor_estado'])->required();
@@ -474,6 +474,27 @@
                 $this->errors[$this->field] = 'No campo "'.$this->name.'" informe nome(s) e sobrenome(s) separado(s) por espaço.';
             }
             return $this;
+        }
+
+        public function isdate(){
+            if (DateTime::createFromFormat('Y-m-d', $this->value) == false) {
+                $this->errors[$this->field] = 'O campo '.$this->name.' precisa ter uma data válida.';
+            }
+            return $this;
+        }
+
+        public function istime(){
+            if (DateTime::createFromFormat('H:i:s', $this->value) == false) {
+                $this->errors[$this->field] = 'O campo '.$this->name.' precisa ter um horário válido.';
+            }
+            return $this;
+        }
+
+        public function isdatetime($format = 'Y-m-d H:i:s'){
+            if (DateTime::createFromFormat($format, $this->value) == false) {
+                    $this->errors[$this->field] = 'O campo '.$this->name.' precisa ter uma data e hora válida.';
+              }
+              return $this;
         }
 
         /**
