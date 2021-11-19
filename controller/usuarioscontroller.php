@@ -111,6 +111,23 @@ class UsuariosController extends Controller
         return $this->editar($dados);
     }
     
+    function mask($str, $first, $last) {
+        $len = strlen($str);
+        $toShow = $first + $last;
+        return substr($str, 0, $len <= $toShow ? 0 : $first).str_repeat("*", $len - ($len <= $toShow ? 0 : $toShow)).substr($str, $len - $last, $len <= $toShow ? 0 : $last);
+    }
+    
+    function mask_email($email) {
+        $mail_parts = explode("@", $email);
+        $domain_parts = explode('.', $mail_parts[1]);
+    
+        $mail_parts[0] = $this->mask($mail_parts[0], 2, 1); // show first 2 letters and last 1 letter
+        $domain_parts[0] = $this->mask($domain_parts[0], 2, 1); // same here
+        $mail_parts[1] = implode('.', $domain_parts);
+    
+        return implode("@", $mail_parts);
+    }
+    
     
     public function envio_email_validacao($dados,$oculta_email = true,$changeemail = false){
         $mensagem = "body";      
@@ -129,20 +146,20 @@ class UsuariosController extends Controller
         $data = ['key' => $dados['chave'],'txt_chave2' => isset($dados['txt_chave2']) ? $dados['txt_chave2'] : "" ];
         $status = criar_email($to_email,$to_nome,'',$modelo,$data);
         if($oculta_email){
-            $email = $dados['txt_email'];
+            $email = $this->mask_email($dados['txt_email']);
         }else{
             $email = $dados['txt_email'];
         }
         if($status==2){        
             if($changeemail)    
-                $this->msg('Um e-mail de validação já foi enviado para o email "'.$email.'" alterado. Siga as instruções!',0);
+                $this->msg('Um e-mail de validação foi enviado para "'.$dados['txt_usuario'].'". Siga as instruções!',0);
             else
-                $this->msg('Um e-mail de validação já foi enviado para "'.$email.'". Siga as instruções!',0);
+                $this->msg('Um e-mail de validação foi enviado para "'.$dados['txt_usuario'].'". Siga as instruções!',0);
         }else{
             if($changeemail)    
-                $this->msg('Um e-mail de validação será enviado para o email "'.$email.'" alterado em até 1 hora. Aguarde e siga as instruções!',0);        
+                $this->msg('Um e-mail de validação está sendo enviado para "'.$dados['txt_usuario'].'". Após recebê-lo em até 1h, siga as instruções!',0);      
             else
-                $this->msg('Um e-mail de validação será enviado para o "'.$email.'" em até 1 hora. Aguarde e siga as instruções!',0);        
+                $this->msg('Um e-mail de validação está sendo enviado para "'.$dados['txt_usuario'].'". Após recebê-lo em até 1h, siga as instruções!',0);        
         }
         return true;
     }
@@ -397,21 +414,24 @@ class UsuariosController extends Controller
         $usuario  = Usuarios::find_by_user($dados['txt_usuario']);
 
         if(!isset($usuario->id_user)){
-            $this->msg('Usuário não identificado.Usuário',1);
-            $controller = new HomeController();
-            return $controller->home();    
+            $this->msg('Um e-mail de validação foi enviado para "'.$dados['txt_usuario'].'". Siga as instruções!',0);
+            return $this->form_ativar($dados);
         }        
         $key = $this->getRandomString(10);
         $usuario->txt_chave = hash('sha256',$key);
         $dados['chave'] =  $key;
         $dados['txt_nome'] = $usuario->txt_nome;
-        $dados['txt_usuario'] = $usuario->txt_usuario;
+        //$dados['txt_usuario'] = $usuario->txt_usuario;
         $dados['txt_email'] = $usuario->txt_email;
         $dados['txt_cpf'] = $usuario->txt_cpf;
         $dados['id_user'] = $usuario->id_user;
         if($usuario->save($dados)){            
-                $dados['bl_bloqueado'] = $usuario->bl_bloqueado;    
-                if($this->envio_email_validacao($dados)){
+                $dados['bl_bloqueado'] = $usuario->bl_bloqueado;
+                $oculta = false;
+                if($dados['txt_email']!=$dados['txt_usuario']){
+                    $oculta = false;
+                }
+                if($this->envio_email_validacao($dados,$oculta)){
                     return $this->form_ativar($dados);
                 }else{
                     $this->msg('Ocorreu um problema ao tentar enviar e-mail.',2); 
