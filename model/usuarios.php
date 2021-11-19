@@ -242,7 +242,8 @@ class Usuarios
         $conexao = Conexao::getInstance();
         //$cpf = Usuarios::formatCnpjCpf($username);
         //$email = $username;
-        $stmt    = $conexao->prepare("SELECT * FROM tab_users WHERE txt_usuario LIKE '{$username}';");
+        $cpf = Usuarios::formatCnpjCpf($username);
+        $stmt    = $conexao->prepare("SELECT * FROM tab_users WHERE txt_usuario LIKE '{$username}' OR txt_email LIKE '{$username}' OR txt_cpf LIKE '{$cpf}';");
         if ($stmt->execute()) {
             if ($stmt->rowCount() > 0) {
                 $resultado = $stmt->fetchObject('Usuarios');
