@@ -4,6 +4,7 @@
     $h_usuario = UsuariosController::get_usuario();
     $h_aberto = ProcessosController::aberto($processo->id_processo);
     $p_inscricao = Inscricao::get_id_by_processo($processo->id_processo,$h_usuario['id_user']);  
+    if(isset($p_inscricao->id_ficha_rascunho))
     $ficha_rascunho = $p_inscricao->id_ficha_rascunho;
   }else{
     $usuario = null;
@@ -15,15 +16,27 @@
   <div class="col-lg-6">
       <?php if(isset($inscricao->id_ficha_enviada) && $inscricao->id_ficha_enviada > 0){ ?>
            <?php if($h_aberto == 2){ ?>
-              </br><!--img style="float:left" src="images/warning.png" width="20px"/--> <b><font size=4 color=green> Sua inscrição foi enviada!</font></b>
+              </br><!--img style="float:left" src="images/warning.png" width="20px"/--> <b><font size=3 color=green> Sua inscrição foi enviada!</font></b>
             <?php }else if($h_aberto == 1){ ?>
-              </br><!--img style="float:left" src="images/warning.png" width="20px"/--> <b><font size=4 color=green> Sua inscrição foi enviada!</font></b>
+              </br><!--img style="float:left" src="images/warning.png" width="20px"/--> <b><font size=3 color=green> Sua inscrição foi enviada!</font></b>
             <?php } ?>
       <?php }else{ ?>
-        <?php if($h_aberto == 2){ ?>
-              </br><img style="float:left" src="images/warning.png" width="20px"/> <b><font size=4 color=red> Sua inscrição ainda não foi enviada! Importante enviar para análise a sua inscrição dentro do prazo.</font></b>
-            <?php }else if($h_aberto == 1){ ?>
-              </br><img style="float:left" src="images/warning.png" width="20px"/> <b><font size=4 color=red> Sua inscrição foi enviada dentro do prazo e não poderá ser enviada para análise.</font></b>
+           <?php if(isset($inscricao->id_inscricao)){ ?>
+        
+              <?php if($h_aberto == 2){ ?>
+                </br><img style="float:left" src="images/warning.png" width="20px"/> <b><font size=3 color=red> Sua inscrição ainda não foi enviada! Importante enviar para análise a sua inscrição dentro do prazo.</font></b>
+              <?php }else if($h_aberto == 1){ ?>
+                </br><img style="float:left" src="images/warning.png" width="20px"/> <b><font size=3 color=red> Sua inscrição não foi enviada dentro do prazo.</font></b>
+              <?php } ?>
+
+            <?php }else{ ?>
+        
+              <?php if($h_aberto == 2){ ?>
+                </br><img style="float:left" src="images/warning.png" width="20px"/> <b><font size=3 color=red> Você não iniciou a sua inscrição! Importante iniciar e enviar para análise dentro do prazo.</font></b>
+              <?php }else if($h_aberto == 1){ ?>
+                </br><img style="float:left" src="images/warning.png" width="20px"/> <b><font size=3 color=red> Esse processo seletivo não aberto para receber novas inscrições.</font></b>
+              <?php } ?>
+
             <?php } ?>
       <?php } ?>
   </div>  
