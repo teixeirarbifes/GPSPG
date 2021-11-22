@@ -207,7 +207,7 @@ class Cronograma
     public static function get_act_event($id_processo)
     {
         $conexao = Conexao::getInstance();
-        $stmt    = $conexao->prepare("SELECT tab_cronograma.*, tab_status.txt_status as status, tab_status.bl_publicado as bl_publicado, tab_status.bl_aberto as bl_aberto, tab_status.bl_recurso as bl_recurso FROM tab_cronograma LEFT JOIN tab_status ON tab_cronograma.id_status = tab_status.id_status LEFT JOIN tab_processos ON tab_cronograma.id_processo = tab_processos.id_processo WHERE (dt_inicio > tab_processos.id_data_cronograma or tab_processos.id_data_cronograma = null) and dt_inicio <= NOW() and tab_cronograma.id_processo={$id_processo} ORDER BY dt_inicio ASC LIMIT 1");
+        $stmt    = $conexao->prepare("SELECT tab_cronograma.*, tab_status.txt_status as status, tab_status.bl_publicado as bl_publicado, tab_status.bl_aberto as bl_aberto, tab_status.bl_recurso as bl_recurso FROM tab_cronograma LEFT JOIN tab_status ON tab_cronograma.id_status = tab_status.id_status LEFT JOIN tab_processos ON tab_cronograma.id_processo = tab_processos.id_processo WHERE (dt_inicio > tab_processos.id_data_cronograma or tab_processos.id_data_cronograma = null) and DATE_SUB(dt_inicio,INTERVAL 2 HOUR) <= NOW() and tab_cronograma.id_processo={$id_processo} ORDER BY dt_inicio ASC LIMIT 1");
         
         //$controller = new MensageiroController();
         //$controller->msg("SELECT tab_cronograma.*,  tab_status.txt_status as status FROM tab_cronograma LEFT JOIN tab_status ON tab_cronograma.id_status = tab_status.id_status WHERE id_cronograma={$id_cronograma};",1);
