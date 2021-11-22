@@ -410,6 +410,7 @@ class InscricaoController extends Controller
             $inscricao->key_inscricao = $this->getRandomString(3,true).$this->getRandomString(2,false).$usuario['id_usuario'].$this->getRandomString(2,false).$inscricao->id_inscricao.$this->getRandomString(2,false);        
             $date = new DateTime();
             $inscricao->dt_enviado = $date->format('Y-m-d H:i:s');
+            $inscricao->ip_envio = $_SERVER['REMOTE_ADDR'];
             $inscricao->save($dados);
 
             $dados['protocolo'] = $inscricao->key_inscricao.' ';
