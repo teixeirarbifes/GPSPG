@@ -165,6 +165,13 @@ ob_start();
     <link rel="stylesheet" href="https://unpkg.com/balloon-css/balloon.min.css">	
     <script src="/utils/change_form.js?v=13"></script>
 
+    <link href="/utils/vendor/jtable/themes/redmond/jquery-ui-1.8.16.custom.css" rel="stylesheet" type="text/css" />
+    <link href="/utils/vendor/jtable/Scripts/jtable/themes/lightcolor/blue/jtable.css" rel="stylesheet" type="text/css" />
+    
+    <!--script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script-->
+    <!--script src="/utils/vendor/jtable/scripts/jquery-1.6.4.min.js" type="text/javascript"></script-->
+    <!--script src="/utils/vendor/jtable/scripts/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script-->
+    <script src="/utils/vendor/jtable/scripts/jtable/jquery.jtable.js" type="text/javascript"></script>  
   <link rel="shortcut icon" href="images/favicon.png" />
 </head>
 <body>
@@ -518,7 +525,7 @@ ob_start();
   <script src="regal/js/dashboard.js?v=12"></script>
   <!-- End custom js for this page-->
 		<!-- Scripts -->
-    <script src="assets/js/jquery.min.js?v=12"></script>
+    <!--script src="assets/js/jquery.min.js?v=12"></script-->
 			<script src="assets/js/browser.min.js?v=12"></script>
 			<script src="assets/js/breakpoints.min.js?v=12"></script>
 			<script src="assets/js/util.js?v=12"></script>
