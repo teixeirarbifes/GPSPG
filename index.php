@@ -96,7 +96,7 @@ if ($controller && $method) {
 	echo "Controller não encontrado!";
 }
 
-if($method!=null && $method=='download'){
+if(isset($_REQUEST['action']) || ($method!=null && $method=='download')){
 	echo $result;
 	exit();
 }
@@ -147,23 +147,31 @@ ob_start();
   <!-- inject:css -->
   <link rel="stylesheet" href="regal/css/style.css">
   <!-- endinject -->
-
+  
     <link rel="stylesheet" href="assets/css/main2.css?v=13" />
     <link href='https://use.fontawesome.com/releases/v5.1.0/css/all.css' rel='stylesheet' integrity='sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt' crossorigin='anonymous' />
     <link href='/utils/css/modal.css?v=13' rel='stylesheet' />
     <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js' integrity='sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49' crossorigin='anonymous'></script>
     <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js' integrity='sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T' crossorigin='anonymous'></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<!--script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script-->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-		<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
-		<script src="http://code.jquery.com/jquery-1.8.2.js"></script>
-		<script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
+		<!--link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" /-->
+		<!--script src="http://code.jquery.com/jquery-1.8.2.js"></script-->
+		<!--script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script-->
     <script src="/assets/function.js?v=13"></script>
 		<script src="/assets/js/captcha.js?v=13"></script>
 		<script src="/ajax/ajax_submit.js??v=13"></script>
 		<script src="https://cdn.tiny.cloud/1/l5hr79dltkjldhpincf3rzg93ch5tz7yjblanibpzinyjize/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <link rel="stylesheet" href="https://unpkg.com/balloon-css/balloon.min.css">	
     <script src="/utils/change_form.js?v=13"></script>
+    
+    <link href="/utils/vendor/jtable/themes/redmond/jquery-ui-1.8.16.custom.css" rel="stylesheet" type="text/css" />
+    <link href="/utils/vendor/jtable/Scripts/jtable/themes/lightcolor/blue/jtable.css" rel="stylesheet" type="text/css" />
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!--script src="/utils/vendor/jtable/scripts/jquery-1.6.4.min.js" type="text/javascript"></script-->
+    <script src="/utils/vendor/jtable/scripts/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
+    <script src="/utils/vendor/jtable/scripts/jtable/jquery.jtable.js" type="text/javascript"></script>  
 
   <link rel="shortcut icon" href="images/favicon.png" />
 </head>
@@ -501,7 +509,7 @@ ob_start();
   <!-- container-scroller -->
 
   <!-- base:js -->
-  <script src="regal/vendors/base/vendor.bundle.base.js?v=12"></script>
+  <!--script src="regal/vendors/base/vendor.bundle.base.js?v=12"></script-->
   <!-- endinject -->
   <!-- Plugin js for this page-->
   <!-- End plugin js for this page-->
@@ -518,7 +526,7 @@ ob_start();
   <script src="regal/js/dashboard.js?v=12"></script>
   <!-- End custom js for this page-->
 		<!-- Scripts -->
-    <script src="assets/js/jquery.min.js?v=12"></script>
+    <!--script src="assets/js/jquery.min.js?v=12"></script-->
 			<script src="assets/js/browser.min.js?v=12"></script>
 			<script src="assets/js/breakpoints.min.js?v=12"></script>
 			<script src="assets/js/util.js?v=12"></script>
@@ -544,7 +552,8 @@ ob_start();
 </script>
 
 <script type="text/javascript" src="/utils/vendor/mask2/jquery.mask.js"></script>
-		</body>
+
+</body>
 </html>
 <?php 
 
@@ -573,4 +582,6 @@ ob_end_clean();
 //$content = PHPWee\Minify::html($content);
 echo $content;
 ?>
+
+
 
