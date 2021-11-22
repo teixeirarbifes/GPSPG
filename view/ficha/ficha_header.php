@@ -4,6 +4,7 @@
     $h_usuario = UsuariosController::get_usuario();
     $h_aberto = ProcessosController::aberto($processo->id_processo);
     $p_inscricao = Inscricao::get_id_by_processo($processo->id_processo,$h_usuario['id_user']);  
+    $ficha_rascunho = $p_inscricao->id_ficha_rascunho;
   }else{
     $usuario = null;
   }
@@ -40,7 +41,7 @@ if(isset($inscricao->id_inscricao) && $inscricao->id_inscricao>0){?>
 </br>
 <a style="color:black;cursor:pointer;padding-left: 6px;padding-top: 3px;padding-right: 6px;padding-bottom: 3px;cursor:pointer" class="btn btn-sm btn-<?=$pagina=="ficha" ? 'secondary"' : 'light'?> <?=$habilitar_inscricao ? "" : "disabled"?>" id=salvar  onclick="go_link('/?controller=FichaController&method=editar&id_ficha=<?php echo $inscricao->id_ficha_rascunho; ?>');"><font size=3 color=black><?=$pagina=="ficha"?'<b><font color=blue>':''?>1. Editar ficha</br>de inscrição</font><?=$pagina=="ficha"?'</font></b>':''?></a>&nbsp;  
 <a style="color:black;cursor:pointer;padding-left: 6px;padding-top: 3px;padding-right: 6px;padding-bottom: 3px;cursor:pointer" class="btn btn-sm btn-<?=$pagina=="pessoais" ? 'secondary"' : 'light'?> <?=$habilitar_inscricao ? "" : "disabled"?>" id=salvar  onclick="go_link('/?controller=DocumentosController&method=listar_ficha&id_ficha=<?php echo $inscricao->id_ficha_rascunho; ?>');"><font size=3 color=black><?=$pagina=="pessoal"?'<b><font color=blue>':''?>2. Doc. Pessoais</br>e formulários</font><?=$pagina=="pessoal"?'</font></b>':''?></a>&nbsp;  
-<a style="color:black;cursor:pointer;padding-left: 6px;padding-top: 3px;padding-right: 6px;padding-bottom: 3px;cursor:pointer" class="btn btn-sm btn-<?=$pagina=="curriculo" ? 'secondary"' : 'light'?> <?=$habilitar_inscricao ? "" : "disabled"?>" id=salvar  onclick="go_link('/?controller=DocumentosController&method=listar_curriculo&id_ficha=<?php echo $ficha->id_ficha; ?>');"><font size=3 color=black><?=$pagina=="curriculo"?'<b><font color=blue>':''?>3. Currículo</br>e anexos</font><?=$pagina=="curriculo"?'</font></b>':''?></a>&nbsp;  
+<a style="color:black;cursor:pointer;padding-left: 6px;padding-top: 3px;padding-right: 6px;padding-bottom: 3px;cursor:pointer" class="btn btn-sm btn-<?=$pagina=="curriculo" ? 'secondary"' : 'light'?> <?=$habilitar_inscricao ? "" : "disabled"?>" id=salvar  onclick="go_link('/?controller=DocumentosController&method=listar_curriculo&id_ficha=<?php echo $inscricao->id_ficha_rascunho; ?>');"><font size=3 color=black><?=$pagina=="curriculo"?'<b><font color=blue>':''?>3. Currículo</br>e anexos</font><?=$pagina=="curriculo"?'</font></b>':''?></a>&nbsp;  
 <!--span class="d-flex d-sm-flex d-md-flex d-lg-none"></br></span-->
 </br></br>
 <?php } ?>
