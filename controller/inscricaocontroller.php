@@ -362,6 +362,45 @@ class InscricaoController extends Controller
         }
     }
 
+    public function list_inscricao($dados){
+        if(!isset($dados['action'])){
+            $processo = Processos::find($dados['id_processo']);
+            if(!isset($processo->id_processo)){
+                return "erro";
+            }
+            return $this->view('inscricao'.S.'grade_inscricoes',['processo' => $processo]);                                
+        }else{
+            if($dados['action'] == "list"){
+                                //Return result to jTable
+                
+                $result = Inscricao::all_inscricao($dados);
+
+                $rows = array();
+                
+                if($result){
+                    $row = [];
+                    $recordCount = 0;
+                    foreach($result as $res){
+                            $row['id_inscricao'] = $res->id_inscricao;
+                            $row['id_inscricao2'] = $res->id_inscricao;
+                            $row['txt_nome'] = $res->txt_nome;
+                            $row['key_inscricao'] = $res->key_inscricao;
+                            $row['dt_enviado'] = $res->dt_enviado;                        
+                            $rows[] = $row;
+                            $recordCount++;
+                    }  
+               }   
+
+                $recordCount = 0;
+                $jTableResult = array();
+                $jTableResult['Result'] = "OK";
+                $jTableResult['TotalRecordCount'] = $recordCount;
+                $jTableResult['Records'] = $rows;
+                print json_encode($jTableResult);       
+            } 
+        }
+    }
+    
 
     public function entregar($dados){
         $home = new HomeController();
