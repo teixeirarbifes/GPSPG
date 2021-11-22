@@ -48,7 +48,7 @@ class Processos
                 implode(', ', array_values($colunas)).");";
         } else {
             foreach ($colunas as $key => $value) {
-                if ($key !== 'id_processo') {
+                if ($key !== 'id_processo' || $key !== 'data_fim' || $key !== 'data_inicio') {
                     $definir[] = "{$key}={$value}";
                 }
             }
