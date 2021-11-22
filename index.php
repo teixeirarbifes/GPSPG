@@ -153,11 +153,11 @@ ob_start();
     <link href='/utils/css/modal.css?v=13' rel='stylesheet' />
     <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js' integrity='sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49' crossorigin='anonymous'></script>
     <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js' integrity='sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T' crossorigin='anonymous'></script>
-		<!--script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script-->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-		<!--link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" /-->
-		<!--script src="http://code.jquery.com/jquery-1.8.2.js"></script-->
-		<!--script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script-->
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
+		<script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+		<script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
     <script src="/assets/function.js?v=13"></script>
 		<script src="/assets/js/captcha.js?v=13"></script>
 		<script src="/ajax/ajax_submit.js??v=13"></script>
@@ -168,9 +168,9 @@ ob_start();
     <link href="/utils/vendor/jtable/themes/redmond/jquery-ui-1.8.16.custom.css" rel="stylesheet" type="text/css" />
     <link href="/utils/vendor/jtable/Scripts/jtable/themes/lightcolor/blue/jtable.css" rel="stylesheet" type="text/css" />
     
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!--script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script-->
     <!--script src="/utils/vendor/jtable/scripts/jquery-1.6.4.min.js" type="text/javascript"></script-->
-    <script src="/utils/vendor/jtable/scripts/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
+    <!--script src="/utils/vendor/jtable/scripts/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script-->
     <script src="/utils/vendor/jtable/scripts/jtable/jquery.jtable.js" type="text/javascript"></script>  
 
   <link rel="shortcut icon" href="images/favicon.png" />

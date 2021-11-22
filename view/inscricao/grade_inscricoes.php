@@ -14,7 +14,7 @@
 	            defaultSorting: 'Name ASC',
 	            selecting: true, //Enable selecting
 				actions: {
-					listAction: 'index.php?controller=inscricaocontroller&method=list_inscricao&action=list&inscrito=1&id_processo=<?=$processo->id_processo?>',
+					listAction: 'index.php?controller=inscricaocontroller&method=list_inscricao&action=list&inscrito=0&id_processo=<?=$processo->id_processo?>',
 					//createAction: 'PersonActions.php?action=create',
 					//updateAction: 'PersonActions.php?action=update',
 					//deleteAction: 'PersonActions.php?action=delete'
