@@ -362,6 +362,53 @@ class InscricaoController extends Controller
         }
     }
 
+    public function download_inscricao($dados){
+            $zip = new ZipArchive();
+            $dir = UPLOAD_DIR_FILES.'user_'.UsuariosController::get_usuario()['id_user'];
+
+            $filename = 'inscricao_'.uniqid().'.zip';
+
+            if ($zip->open($dir.S.$filename, ZipArchive::CREATE)!==TRUE) {
+                exit("cannot open <$filename>\n");
+            }
+
+            
+            $inscricao = Inscricao::find_user($dados['p'],UsuariosController::get_usuario()['id_user']);
+            $documentos = Documentos::all_ficha($inscricao->id_ficha_enviada,1);
+            
+            foreach($documentos as $doc){
+               $new_filename = substr($doc->txt_location,strrpos($doc->txt_location,S) + 1);
+               $zip->addFile($doc->txt_location,'documentos_pessoais'.S.$new_filename);
+            }          
+
+            $documentos = Documentos::all_ficha($inscricao->id_ficha_enviada,2);
+            
+            foreach($documentos as $doc){
+               $new_filename = substr($doc->txt_location,strrpos($doc->txt_location,S) + 1);
+               $zip->addFile($doc->txt_location,'curriculo'.S.$new_filename);
+            }          
+
+            $zip->addFromString("testfilephp.txt" . time(), "#1 This is a test string added as testfilephp.txt.\n");
+            $zip->addFromString("testfilephp2.txt" . time(), "#2 This is a test string added as testfilephp2.txt.\n");
+            //$zip->addFile($thisdir . "/too.php","/testfromfile.php");
+            $zip->close();
+            if($zip->status==0){
+                //header('Content-type: application/zip');
+                header('Content-Description: File Transfer');
+                header('Content-Type: application/octet-stream');
+                header('Content-Disposition: attachment; filename="'.$filename.'"');
+                header('Content-Transfer-Encoding: binary');
+                header('Expires: 0');
+                header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+                header('Pragma: public');
+                header('Content-Length: ' . filesize($dir.S.$filename)); //Absolute URL
+                header('Content-Disposition: attachment;filename="'.$filename.'"');
+                //echo $file;
+                readfile($dir.S.$filename);
+                exit();
+            }
+
+    }
 
     public function list_inscricao($dados){
         if(!isset($dados['action'])){
@@ -377,10 +424,10 @@ class InscricaoController extends Controller
                 $result = Inscricao::all_inscricao($dados);
 
                 $rows = array();
-                
+                $recordCount = 0;
                 if($result){
                     $row = [];
-                    $recordCount = 0;
+
                     foreach($result as $res){
                             $row['id_inscricao'] = $res->id_inscricao;
                             $row['id_inscricao2'] = $res->id_inscricao;
@@ -388,14 +435,14 @@ class InscricaoController extends Controller
                             $row['key_inscricao'] = $res->key_inscricao;
                             $row['dt_enviado'] = $res->dt_enviado;                        
                             $rows[] = $row;
-                            $recordCount++;
+                            $recordCount += 1;
                     }  
                }   
 
-                $recordCount = 0;
+                $recordCount = inscricao::contar_inscricao($dados);
                 $jTableResult = array();
                 $jTableResult['Result'] = "OK";
-                $jTableResult['TotalRecordCount'] = $recordCount;
+                $jTableResult['TotalRecordCount'] = (int)$recordCount;
                 $jTableResult['Records'] = $rows;
                 print json_encode($jTableResult);       
             } 

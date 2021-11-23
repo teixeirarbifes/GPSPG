@@ -1,20 +1,50 @@
 
-	
 	<h2><?=$processo->txt_processo?></h2>
-	<div id="PeopleTableContainer" style="width: 600px;"></div>
+	<table width=100% height=100%>
+		<tr><td>
+	<div id="lista_inscricoes" style="width: 600px;"></div>
+</td>
+<td style="width:100%;vertical-align:top">	
+</BR>
+</BR>
+	<iframe id=iframe src="https://www.w3schools.com" title="W3Schools Free Online Web Tutorials" width=100% height=100%></iframe>
+		<script>
+ $(function() {
+   window.updateIframe = function() {
+     var h = $(window).height();
+     $("#iframe").height(h - 250);
+   }
+   function reportWindowSize() {
+		window.updateIframe();
+	}
+   window.onresize = reportWindowSize;
+   window.resize(window.updateIframe);
+ });
+ </script>
+
+	</td>
+	</tr>
+	</table>
+
 	<script>
 
 		$(document).ready(function () {
-			
+			var lista_inscricoes_list = 'index.php?controller=inscricaocontroller&method=list_inscricao&action=list&inscrito=0&id_processo=<?=$processo->id_processo?>&jtStartIndex=1&jtPageSize=10&jtSorting=tab_inscricao.id_inscricao';
 		    //Prepare jTable
-			$('#PeopleTableContainer').jtable({
+			$('#lista_inscricoes').jtable({
 				title: 'Lista de inscritos do processo seletivo',
+				resizable: true,
 				paging: true,
-	            sorting: true,
-	            defaultSorting: 'Name ASC',
+				pageList: 'normal', //possible values: 'minimal', 'normal'
+				pageSize: 10,
+				messages: {
+					pagingInfo: 'Mostrando {0}-{1} of {2}',
+					pageSizeChangeLabel: 'Número de linhas',
+					gotoPageLabel: 'Ir para pág.'
+				},
 	            selecting: true, //Enable selecting
 				actions: {
-					listAction: 'index.php?controller=inscricaocontroller&method=list_inscricao&action=list&inscrito=0&id_processo=<?=$processo->id_processo?>',
+					listAction: lista_inscricoes_list,
 					//createAction: 'PersonActions.php?action=create',
 					//updateAction: 'PersonActions.php?action=update',
 					//deleteAction: 'PersonActions.php?action=delete'
@@ -47,12 +77,12 @@
 					}
 				},
 				selectionChanged: function () {
-					go_link('/?controller=usuarioscontroller&method=form_perfil	');
+					go_link('/?controller=usuarioscontroller&method=form_perfil	','detalhe');
 				}
 			});
 
 			//Load person list from server
-			$('#PeopleTableContainer').jtable('load');
+			$('#lista_inscricoes').jtable('load');
 		});
 
 	</script>

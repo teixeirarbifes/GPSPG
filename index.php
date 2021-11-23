@@ -16,6 +16,10 @@ if($_REQUEST['action'] == 'download'){
     $_REQUEST['id_ficha'] = $_REQUEST['f'];
     $_REQUEST['pag'] = 1;
     $_REQUEST['num'] = 1000;
+}else if($_REQUEST['action'] == 'zip'){
+    $_REQUEST['controller'] = "inscricaocontroller";
+    $_REQUEST['method'] = 'download_inscricao';
+    $_REQUEST['id_processo'] = $_REQUEST['p'];
 }
 
 $data = Session::getInstance(); 
@@ -164,14 +168,16 @@ ob_start();
 		<script src="https://cdn.tiny.cloud/1/l5hr79dltkjldhpincf3rzg93ch5tz7yjblanibpzinyjize/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <link rel="stylesheet" href="https://unpkg.com/balloon-css/balloon.min.css">	
     <script src="/utils/change_form.js?v=13"></script>
-    
+    <script src="regal/vendors/base/vendor.bundle.base.js?v=12"></script>
     <link href="/utils/vendor/jtable/themes/redmond/jquery-ui-1.8.16.custom.css" rel="stylesheet" type="text/css" />
     <link href="/utils/vendor/jtable/Scripts/jtable/themes/lightcolor/blue/jtable.css" rel="stylesheet" type="text/css" />
+    <!--link href="/utils/vendor/jtable//Scripts/jtable/themes/metro/blue/jtable.css" rel="stylesheet" type="text/css" /-->
     
     <!--script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script-->
     <!--script src="/utils/vendor/jtable/scripts/jquery-1.6.4.min.js" type="text/javascript"></script-->
-    <!--script src="/utils/vendor/jtable/scripts/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script-->
-    <script src="/utils/vendor/jtable/scripts/jtable/jquery.jtable.js" type="text/javascript"></script>  
+    <script src="/utils/vendor/jtable/scripts/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
+
+    <script src="/utils/vendor/jtable/scripts/jtable/jquery.jtable2.js" type="text/javascript"></script>  
 
   <link rel="shortcut icon" href="images/favicon.png" />
 </head>
@@ -509,8 +515,7 @@ ob_start();
   <!-- container-scroller -->
 
   <!-- base:js -->
-  <!--script src="regal/vendors/base/vendor.bundle.base.js?v=12"></script-->
-  <!-- endinject -->
+    <!-- endinject -->
   <!-- Plugin js for this page-->
   <!-- End plugin js for this page-->
   <!-- inject:js -->
