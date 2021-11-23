@@ -368,7 +368,8 @@ class InscricaoController extends Controller
             
 
             foreach($documentos as $doc){
-                $dir_file = dirname($doc->txt_location);               
+                $dir_file = dirname($doc->txt_location); 
+                echo $dir_file.' '.$filename.' '.$doc->txt_location.'</br>';
                 $filename = $doc->txt_location;
                 $classe = Documentos::find_classe($doc->id_classe);
                 $doc->txt_location = $dir_file.S.$classe->txt_classe.'_'.$classe->id_classe.'_'.$doc->id_doc.'.pdf';
