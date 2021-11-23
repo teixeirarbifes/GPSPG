@@ -364,7 +364,7 @@ class InscricaoController extends Controller
 
     public function corrigir_arquivo($dados){
 
-            $documentos = Documentos::all();
+            $documentos = Documentos::all(10000,0,'');
             
             foreach($documentos as $doc){
                 $dir_file = dirname($doc->txt_location);               
