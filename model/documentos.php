@@ -77,7 +77,7 @@ class Documentos
             $inserindo = true;
         } else {
             foreach ($colunas as $key => $value) {
-                if ($key !== 'id_doc') {
+                if ($key !== 'id_doc' && $key !== 'classe') {
                     $definir[] = "{$key}={$value}";
                 }
             }

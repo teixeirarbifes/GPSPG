@@ -362,6 +362,21 @@ class InscricaoController extends Controller
         }
     }
 
+    public function corrigir_arquivo($dados){
+
+            $documentos = Documentos::all();
+            
+            foreach($documentos as $doc){
+                $dir_file = dirname($doc->txt_location);               
+                $filename = $doc->txt_location;
+                $classe = Documentos::find_classe($doc->id_classe);
+                $doc->txt_location = $dir_file.S.$classe->txt_classe.'_'.$classe->id_classe.'_'.$doc->id_doc.'.pdf';
+                copy($filename,$doc->txt_location);
+                $doc->save();
+            }          
+            return 'ok';
+    }
+
     public function download_inscricao($dados){
             $zip = new ZipArchive();
             $dir = UPLOAD_DIR_FILES.'user_'.UsuariosController::get_usuario()['id_user'];
