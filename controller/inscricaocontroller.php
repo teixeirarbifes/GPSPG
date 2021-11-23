@@ -362,6 +362,11 @@ class InscricaoController extends Controller
         }
     }
 
+
+    public function gerar_pdf_inscricao($dados){
+        
+    }
+
     public function corrigir_arquivo($dados){
 
             $documentos = Documentos::all(10000,0,'');
