@@ -169,7 +169,7 @@ class DocumentosController extends Controller
                                     mkdir($dir, 0777);
                                 }
                                 if($doc->save()){
-                                    $doc->txt_location = $dir.S.str_replace(' ','_',$classe->id_classe).'_doc_'.$doc->id_doc.'.pdf';
+                                    $doc->txt_location = $dir.S.$classe->txt_classe.'_'.$classe->id_classe.'_'.$doc->id_doc.'.pdf';
                                     move_uploaded_file($_FILES['txt_filename']['tmp_name'],$doc->txt_location);
                                     if($doc->save()){
                                         $this->msg('O arquivo foi carregado com êxito!',0); 
