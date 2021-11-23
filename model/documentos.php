@@ -192,31 +192,13 @@ class Documentos
      * Retorna uma lista de contatos
      * @return array/boolean
      */
-    public static function all($num=5,$pag=0,$orderby='')
+    public static function all()
     {         
              
         $conexao = Conexao::getInstance();                      
-        $torder = "";
-        if($orderby!=''){
-            $orderbyexp = explode("#",$orderby);
-            foreach($orderbyexp as $o){            
-                if($torder=="") $torder = " ORDER BY ";
-                else $torder.", ";
-                $e = explode("|",$o);
-                $torder.=$e[0].' '.$e[1];
-            }
-        }
+       
 
-        $conta = Documentos::count();
-
-        $pags = ceil($conta/5);
-        if($pag>$pags) $pag = $pags;
-
-        $offset = ($pag-1)*$num;
-        if($offset <0) $offset  = 0;
-        $limit = $num;
-
-        $stmt    = $conexao->prepare("SELECT tab_docs.*, tab_docs.id_classe as classe FROM tab_docs LEFT JOIN tab_classe ON tab_docs.id_classe = tab_classe.id_classe {$torder} LIMIT {$offset},{$limit}  ;");
+        $stmt    = $conexao->prepare("SELECT tab_docs.*, tab_docs.id_classe as classe FROM tab_docs LEFT JOIN tab_classe ON tab_docs.id_classe = tab_classe.id_classe;");
         $result  = array();
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
         if ($stmt->execute()) {
