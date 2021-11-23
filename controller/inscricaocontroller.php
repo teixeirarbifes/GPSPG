@@ -374,7 +374,7 @@ class InscricaoController extends Controller
                 $classe = Documentos::find_classe($doc->id_classe);
                 $doc->txt_location = $dir_file.S.$classe->txt_classe.'_'.$classe->id_classe.'_'.$doc->id_doc.'.pdf';
                 copy($filename,$doc->txt_location);
-                //$doc->save();
+                $doc->save();
             }          
             return 'ok';
     }
