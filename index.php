@@ -170,14 +170,14 @@ ob_start();
     <script src="/utils/change_form.js?v=13"></script>
     <script src="regal/vendors/base/vendor.bundle.base.js?v=12"></script>
     <!--link href="/utils/vendor/jstable/themes/redmond/jquery-ui-1.8.16.custom.css" rel="stylesheet" type="text/css" /-->
-    <link href="/utils/vendor/jstable/Scripts/jtable/themes/lightcolor/blue/jtable.css" rel="stylesheet" type="text/css" />
+    <link href="/utils/vendor/jtable/Scripts/jtable/themes/lightcolor/blue/jtable.css" rel="stylesheet" type="text/css" />
     <!--link href="/utils/vendor/jtable//Scripts/jtable/themes/metro/blue/jtable.css" rel="stylesheet" type="text/css" /-->
     
     <!--script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script-->
     <!--script src="/utils/vendor/jtable/scripts/jquery-1.6.4.min.js" type="text/javascript"></script-->
-    <script src="/utils/vendor/jstable/scripts/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
+    <script src="/utils/vendor/jtable/scripts/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
 
-    <script src="/utils/vendor/jstable/scripts/jtable/jquery.jtable2.js" type="text/javascript"></script>  
+    <script src="/utils/vendor/jtable/scripts/jtable/jquery.jtable2.js" type="text/javascript"></script>  
 
   <link rel="shortcut icon" href="images/favicon.png" />
 </head>
