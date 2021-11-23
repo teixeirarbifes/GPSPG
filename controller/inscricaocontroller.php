@@ -362,6 +362,108 @@ class InscricaoController extends Controller
         }
     }
 
+    public function corrigir_arquivo($dados){
+
+            $documentos = Documentos::all();
+            
+            foreach($documentos as $doc){
+                $dir_file = dirname($doc->txt_location);               
+                $filename = $doc->txt_location;
+                $classe = Documentos::find_classe($doc->id_classe);
+                $doc->txt_location = $dir_file.S.$classe->txt_classe.'_'.$classe->id_classe.'_'.$doc->id_doc.'.pdf';
+                copy($filename,$doc->txt_location);
+                $doc->save();
+            }          
+            return 'ok';
+    }
+
+    public function download_inscricao($dados){
+            $zip = new ZipArchive();
+            $dir = UPLOAD_DIR_FILES.'user_'.UsuariosController::get_usuario()['id_user'];
+
+            $filename = 'inscricao_'.uniqid().'.zip';
+
+            if ($zip->open($dir.S.$filename, ZipArchive::CREATE)!==TRUE) {
+                exit("cannot open <$filename>\n");
+            }
+
+            
+            $inscricao = Inscricao::find_user($dados['p'],UsuariosController::get_usuario()['id_user']);
+            $documentos = Documentos::all_ficha($inscricao->id_ficha_enviada,1);
+            
+            foreach($documentos as $doc){
+               $new_filename = substr($doc->txt_location,strrpos($doc->txt_location,S) + 1);
+               $zip->addFile($doc->txt_location,'documentos_pessoais'.S.$new_filename);
+            }          
+
+            $documentos = Documentos::all_ficha($inscricao->id_ficha_enviada,2);
+            
+            foreach($documentos as $doc){
+               $new_filename = substr($doc->txt_location,strrpos($doc->txt_location,S) + 1);
+               $zip->addFile($doc->txt_location,'curriculo'.S.$new_filename);
+            }          
+
+            $zip->addFromString("testfilephp.txt" . time(), "#1 This is a test string added as testfilephp.txt.\n");
+            $zip->addFromString("testfilephp2.txt" . time(), "#2 This is a test string added as testfilephp2.txt.\n");
+            //$zip->addFile($thisdir . "/too.php","/testfromfile.php");
+            $zip->close();
+            if($zip->status==0){
+                //header('Content-type: application/zip');
+                header('Content-Description: File Transfer');
+                header('Content-Type: application/octet-stream');
+                header('Content-Disposition: attachment; filename="'.$filename.'"');
+                header('Content-Transfer-Encoding: binary');
+                header('Expires: 0');
+                header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+                header('Pragma: public');
+                header('Content-Length: ' . filesize($dir.S.$filename)); //Absolute URL
+                header('Content-Disposition: attachment;filename="'.$filename.'"');
+                //echo $file;
+                readfile($dir.S.$filename);
+                exit();
+            }
+
+    }
+
+    public function list_inscricao($dados){
+        if(!isset($dados['action'])){
+            $processo = Processos::find($dados['id_processo']);
+            if(!isset($processo->id_processo)){
+                return "erro";
+            }
+            return $this->view('inscricao'.S.'grade_inscricoes',['processo' => $processo]);                                
+        }else{
+            if($dados['action'] == "list"){
+                                //Return result to jTable
+                
+                $result = Inscricao::all_inscricao($dados);
+
+                $rows = array();
+                $recordCount = 0;
+                if($result){
+                    $row = [];
+
+                    foreach($result as $res){
+                            $row['id_inscricao'] = $res->id_inscricao;
+                            $row['id_inscricao2'] = $res->id_inscricao;
+                            $row['txt_nome'] = $res->txt_nome;
+                            $row['key_inscricao'] = $res->key_inscricao;
+                            $row['dt_enviado'] = $res->dt_enviado;                        
+                            $rows[] = $row;
+                            $recordCount += 1;
+                    }  
+               }   
+
+                $recordCount = inscricao::contar_inscricao($dados);
+                $jTableResult = array();
+                $jTableResult['Result'] = "OK";
+                $jTableResult['TotalRecordCount'] = (int)$recordCount;
+                $jTableResult['Records'] = $rows;
+                print json_encode($jTableResult);       
+            } 
+        }
+    }
+
 
     public function entregar($dados){
         $home = new HomeController();
@@ -638,6 +740,8 @@ class InscricaoController extends Controller
             $rascunho = FichaController::ficha_rascunho($inscricao->id_inscricao);
             if($rascunho!=null){
                 $inscricao->id_ficha_rascunho = $rascunho->id_ficha;
+                $date = new DateTime();
+                $inscricao->dt_criacao = $date->format('d/m/Y h:i:s');
                 if($inscricao->save($dados)){
                     $this->msg('Sua inscrição para o processo seletivo foi iniciada corretamente.',0);   
                     $dados['id_ficha'] = $rascunho->id_ficha;
