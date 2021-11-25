@@ -172,6 +172,24 @@ class Inscricao
        return false;
    }
 
+   public static function all_processo($id_processo)
+   {                     
+       $conexao = Conexao::getInstance();                      
+      
+       $stmt    = $conexao->prepare("SELECT tab_users.*, tab_inscricao.*, tab_processos.txt_processo as txt_processo FROM tab_inscricao LEFT JOIN tab_processos ON tab_inscricao.id_processo = tab_processos.id_processo LEFT JOIN tab_users ON tab_inscricao.id_user = tab_users.id_user WHERE tab_processos.id_processo = '{$id_processo}';");
+       $result  = array();
+       $stmt->setFetchMode(PDO::FETCH_ASSOC);
+       if ($stmt->execute()) {
+           while ($rs = $stmt->fetchObject(Inscricao::class)) {
+               $result[] = $rs;
+           }
+       }
+       if (count($result) > 0) {
+           return $result;
+       }
+       return false;
+   }
+
    public static function contar_inscricao($dados)
    {                     
        $conexao = Conexao::getInstance();                      

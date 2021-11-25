@@ -472,6 +472,43 @@ class InscricaoController extends Controller
     }
 
 
+    public static function enviar_email_lembrete($dados,$modelo){
+        $status = criar_email($dados['to_email'],$dados['txt_nome'],'',$modelo,$dados);
+        if($status==2){        
+            echo $dados['to_email'].' - um e-mail de confirmação da sua inscrição foi enviado.</br>';
+        }else{
+            echo $dados['to_email'].' - não enviado!</br>';
+        }
+    }
+
+    public function enviar_lembrete($dados){
+                       
+                $result = Inscricao::all_processo($dados['id_processo']);
+
+                $rows = array();
+                $recordCount = 0;
+                if($result){
+                    $row = [];
+
+                    foreach($result as $res){
+                            $usuario = Usuarios::find($res->id_user);
+                            $row['txt_nome'] = $usuario->txt_nome;
+                            $row['to_email'] = $usuario->txt_email;     
+                            $date = new DateTime($res->dt_enviado);
+                            $row['key'] = $res->key_inscricao;
+                            $row['txt_processo'] = $res->txt_processo;
+                            $row['dt_enviado'] = $date->format('d/m/Y h:i:s');      
+                            if($res->id_ficha_enviada >= 0){
+                                echo 'Retificacao - ';
+                                $this->enviar_email_lembrete($row,'lembrar_retificacao');
+                            }else{
+                                echo 'Envio - ';
+                                $this->enviar_email_lembrete($dados,'lembrar_envio');
+                            }
+                    }  
+               }      
+    }
+
     public function entregar($dados){
         $home = new HomeController();
         $pproc = new ProcessosController();
