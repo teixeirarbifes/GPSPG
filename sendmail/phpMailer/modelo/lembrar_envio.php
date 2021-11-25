@@ -9,10 +9,13 @@ $titulo = "Envio de inscrição pendente";
 <hr>
 <div style="text-align:left;font-family: Arial, Helvetica, sans-serif;">
 <p>
+    Prezado(a) <?=$data['txt_nome']?>,
+</p>
+<p>
 <span style="font-size:14px">
-Referente ao processo seletivo <b><?=$data['txt_processo']?></b> consta em nossos registros que não foi concluído o  envio de inscrição para análise</b>.
+Referente ao processo seletivo <b><?=$data['txt_processo']?></b> consta em nossos registros que não foi concluído o envio de inscrição para análise</b>.
 </br></br>
-<font color=red>Ainda dá tempo! Verifique a sua inscrição quanto à ficha e documentos e faça o envio dentro do prazo!</font>
+<font color=red>Ainda dá tempo! Verifique a sua inscrição quanto à ficha e aos documentos. Faça o envio dentro do prazo!</font>
 </br></br>
 Lembrando que inscrições já enviadas para análise podem ser reenvidas (retificadas) dentro do prazo de inscrição.
 </br></br>

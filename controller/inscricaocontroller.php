@@ -498,12 +498,12 @@ class InscricaoController extends Controller
                             $row['key'] = $res->key_inscricao;
                             $row['txt_processo'] = $res->txt_processo;
                             $row['dt_enviado'] = $date->format('d/m/Y h:i:s');      
-                            if($res->id_ficha_enviada >= 0){
+                            if($res->id_ficha_enviada > 0){
                                 echo 'Retificacao - ';
                                 $this->enviar_email_lembrete($row,'lembrar_retificacao');
                             }else{
                                 echo 'Envio - ';
-                                $this->enviar_email_lembrete($dados,'lembrar_envio');
+                                $this->enviar_email_lembrete($row,'lembrar_envio');
                             }
                     }  
                }      

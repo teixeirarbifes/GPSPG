@@ -9,10 +9,13 @@ $titulo = "Lembrete para verificação de inscrição já enviada!";
 <hr>
 <div style="text-align:left;font-family: Arial, Helvetica, sans-serif;">
 <p>
+<p>
+    Prezado(a) <?=$data['txt_nome']?>,
+</p>
 <span style="font-size:14px">
 Referente ao processo seletivo <b><?=$data['txt_processo']?></b> consta em nossos registros um envio de inscrição para análise no dia <b><?=$data['dt_enviado']?></b> conforme protocolo <b><?=$data['key']?></b>.
 </br></br>
-<font color=red>Se desejar, é possível ainda verificar novamente a sua inscrição para conferir sua ficha e documentos.</font>
+<font color=red>Se desejar, é possível ainda verificar novamente a sua inscrição para conferir ficha e documentos.</font>
 </br></br>
 Lembrando que inscrições já enviadas para análise podem ser reenvidas (retificadas) dentro do prazo de inscrição.
 </br></br>
