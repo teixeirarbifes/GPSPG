@@ -22,8 +22,8 @@ Seu e-mail foi alterado no seu cadastro. É necessário reativar a sua conta par
 <p>
 Cordialmente,
 </br></br>
-GPS-PG - Sistema de Gestão de Processos Seletivos
-GEMAD - Grupo de Estudos em Manufatura Digital
+GPS-PG - Sistema de Gestão de Processos Seletivos</br>
+GEMAD - Grupo de Estudos em Manufatura Digital</br>
 <a href="https://gpspg.gemad.net">https://gpspg.gemad.net</a>
 </p>
 </div>

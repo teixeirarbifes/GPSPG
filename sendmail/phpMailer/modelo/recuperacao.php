@@ -27,7 +27,8 @@ Para continuar a sua recuperação de acesso, é importante que você forneça o
 <p>
 Cordialmente,
 </br></br>
-GPS-PG - Ifes - Campus Cariacica
+GPS-PG - Sistema de Gestão de Processos Seletivos</br>
+GEMAD - Grupo de Estudos em Manufatura Digital</br>
 <a href="https://gpspg.gemad.net">https://gpspg.gemad.net</a>
 </p>
 </div>
