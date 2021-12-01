@@ -291,11 +291,42 @@ function ChangeUrl(title, url) {
                 if(retorna.localidade_code!=false){
                     $('#erro_txt_cep').html('');                      
                     $('#txt_cep').removeClass( "field-with-error" );
+                    if(retorna.logradouro!=""){
                     $('#txt_logadouro').val(retorna.logradouro);
+                    $('#txt_logadouro').prop("disabled", true);
+                    $('#txt_logadouro').removeClass( "field-with-error");
+                    $('#erro_txt_logadouro').html('');
+                    }else{
+                    if($('#txt_logadouro').prop("disabled"))
+                    $('#txt_logadouro').val('');
+                    $('#txt_logadouro').prop("disabled", false)
+                    }
+
+
+
+
+                    if(retorna.bairro!=""){
                     $('#txt_bairro').val(retorna.bairro);
+                    $('#txt_bairro').prop("disabled", true)
+                    $('#txt_bairro').removeClass( "field-with-error");
+                    $('#erro_txt_bairro').html('');
+                    }else{
+                    if($('#txt_bairro').prop("disabled"))
+                    $('#txt_bairro').val('');
+                    $('#txt_bairro').prop("disabled", false)
+                    }
+
                     $('#txt_cidade').val(retorna.localidade);
                     $('#txt_estado').val(retorna.uf);
                 }else{
+                    $('#txt_bairro').prop("disabled", true)
+                    $('#txt_logadouro').prop("disabled", true)
+
+                    $('#txt_bairro').removeClass( "field-with-error");
+                    $('#erro_txt_bairro').html('');
+                    $('#txt_logadouro').removeClass( "field-with-error");
+                    $('#erro_txt_logadouro').html('');
+
                     $('#txt_logadouro').val('');
                     $('#txt_bairro').val('');
                     $('#txt_cidade').val('');

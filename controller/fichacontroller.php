@@ -147,7 +147,11 @@ class FichaController extends Controller
                             }
                         }
                         $modalidade = Modalidade::get_vagas($inscricao->id_processo);
-                        return $this->view('ficha'.S.'form_ficha', ['data_table' => $dados, 'modalidade' => $modalidade, 'ficha' => $ficha,'processo' => $processo, 'inscricao' => $inscricao]);
+
+
+                        $cep = get_by_CEP($ficha->txt_cep,true);
+
+                        return $this->view('ficha'.S.'form_ficha', ['data_table' => $dados, 'cep' => $cep, 'modalidade' => $modalidade, 'ficha' => $ficha,'processo' => $processo, 'inscricao' => $inscricao]);
                     }else{
                         $this->msg('Inscrição da ficha id#'.$id_ficha.' não associada a um processo.',1);
                         return $this->listar_candidato($dados); 
@@ -353,9 +357,13 @@ class FichaController extends Controller
             $ficha->txt_cep = $dados['txt_cep'];
             
             $cep = get_by_CEP($dados['txt_cep'],true);
-                                    
+            
+            if($cep['logradouro']!="")
             $dados['txt_logadouro'] = $cep['logradouro'];
+
+            if($cep['bairro']!="")
             $dados['txt_bairro'] = $cep['bairro'];
+
             $dados['txt_cidade'] = $cep['localidade'];
             $dados['txt_estado'] = $cep['uf'];
 

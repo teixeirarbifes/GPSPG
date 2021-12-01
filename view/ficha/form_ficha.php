@@ -229,11 +229,20 @@ $pagina = "ficha";
     <?php textfield('CEP',            'txt_cep',          'col-md-2 col-sm-12',true); ?>
     </div>
     <div class="row">
-    <?php textfield('Logadouro',      'txt_logadouro',    'col-md-8 col-sm-12', false,' disabled '); ?>
+      <?php 
+      if($cep['logradouro']!="")
+      textfield('Logadouro',      'txt_logadouro',    'col-md-8 col-sm-12', false,' disabled '); 
+      else
+      textfield('Logadouro',      'txt_logadouro',    'col-md-8 col-sm-12', false);
+      ?>
     <?php textfield('Número',         'txt_numero',       'col-md-1 col-sm-12',true); ?>
     </div>
     <div class="row">
-    <?php textfield('Bairro',         'txt_bairro',       'col-md-3 col-sm-12', false,' disabled '); ?>
+    <?php if($cep['bairro']!="")
+          textfield('Bairro',         'txt_bairro',       'col-md-3 col-sm-12', false,' disabled ');
+          else
+          textfield('Bairro',         'txt_bairro',       'col-md-3 col-sm-12', false);
+          ?>
     <?php textfield('Complemento',    'txt_complemento',  'col-md-6 col-sm-12'); ?>
 </div>
     <div class="row">   
