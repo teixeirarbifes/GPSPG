@@ -4,7 +4,7 @@ require_once(GPATH.'controller'.S.'mensageirocontroller.php');
 require_once(GPATH.'controller'.S.'usuarioscontroller.php');
 require_once(GPATH.'request'.S.'session.php');
 require_once(GPATH.'utils'.S.'util_local.php');
-
+define('VERSION',156);
 setlocale(LC_ALL, 'pt_BR.utf-8', 'portuguese');
 date_default_timezone_set('America/Sao_Paulo');
 
@@ -162,13 +162,13 @@ ob_start();
 		<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
 		<script src="http://code.jquery.com/jquery-1.8.2.js"></script>
 		<script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
-    <script src="/assets/function.js?155"></script>
-		<script src="/assets/js/captcha.js?155"></script>
-		<script src="/ajax/ajax_submit.js??155"></script>
+    <script src="/assets/function.js?<?=VERSION?>"></script>
+		<script src="/assets/js/captcha.js?<?=VERSION?>"></script>
+		<script src="/ajax/ajax_submit.js?<?=VERSION?>"></script>
 		<script src="https://cdn.tiny.cloud/1/l5hr79dltkjldhpincf3rzg93ch5tz7yjblanibpzinyjize/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <link rel="stylesheet" href="https://unpkg.com/balloon-css/balloon.min.css">	
-    <script src="/utils/change_form.js?155"></script>
-    <script src="regal/vendors/base/vendor.bundle.base.js?v=12"></script>
+    <script src="/utils/change_form.js?<?=VERSION?>"></script>
+    <script src="regal/vendors/base/vendor.bundle.base.js"></script>
     <!--link href="/utils/vendor/jstable/themes/redmond/jquery-ui-1.8.16.custom.css" rel="stylesheet" type="text/css" /-->
     <link href="/utils/vendor/jtable/scripts/jtable/themes/lightcolor/blue/jtable.css" rel="stylesheet" type="text/css" />
     <!--link href="/utils/vendor/jtable//Scripts/jtable/themes/metro/blue/jtable.css" rel="stylesheet" type="text/css" /-->
@@ -519,22 +519,22 @@ ob_start();
   <!-- Plugin js for this page-->
   <!-- End plugin js for this page-->
   <!-- inject:js -->
-  <script src="regal/js/off-canvas.js?v=12"></script>
-  <script src="regal/js/hoverable-collapse.js?v=12"></script>
-  <script src="regal/js/template.js?v=12"></script>
+  <script src="regal/js/off-canvas.js"></script>
+  <script src="regal/js/hoverable-collapse.js"></script>
+  <script src="regal/js/template.js"></script>
   <!-- endinject -->
   <!-- plugin js for this page -->
-  <script src="regal/vendors/chart.js/Chart.min.js?v=12"></script>
-  <script src="regal/vendors/jquery-bar-rating/jquery.barrating.min.js?v=12"></script>
+  <script src="regal/vendors/chart.js/Chart.min.js"></script>
+  <script src="regal/vendors/jquery-bar-rating/jquery.barrating.min.js"></script>
   <!-- End plugin js for this page -->
   <!-- Custom js for this page-->
-  <script src="regal/js/dashboard.js?v=12"></script>
+  <script src="regal/js/dashboard.js?<?=VERSION?>"></script>
   <!-- End custom js for this page-->
 		<!-- Scripts -->
     <!--script src="assets/js/jquery.min.js?v=12"></script-->
-			<script src="assets/js/browser.min.js?v=12"></script>
-			<script src="assets/js/breakpoints.min.js?v=12"></script>
-			<script src="assets/js/util.js?v=12"></script>
+			<script src="assets/js/browser.min.js?<?=VERSION?>"></script>
+			<script src="assets/js/breakpoints.min.js?<?=VERSION?>"></script>
+			<script src="assets/js/util.js?<?=VERSION?>"></script>
 			<!--script src="assets/js/main.js"></script-->
 		
 <script>
