@@ -148,8 +148,12 @@ class FichaController extends Controller
                         }
                         $modalidade = Modalidade::get_vagas($inscricao->id_processo);
 
+                        if($ficha->txt_cep!=""){
+                            $cep = get_by_CEP($ficha->txt_cep,true);
+                        }else{
+                            $cep = false;
+                        }
 
-                        $cep = get_by_CEP($ficha->txt_cep,true);
 
                         return $this->view('ficha'.S.'form_ficha', ['data_table' => $dados, 'cep' => $cep, 'modalidade' => $modalidade, 'ficha' => $ficha,'processo' => $processo, 'inscricao' => $inscricao]);
                     }else{
