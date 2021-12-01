@@ -152,9 +152,9 @@ ob_start();
   <link rel="stylesheet" href="regal/css/style.css">
   <!-- endinject -->
   
-    <link rel="stylesheet" href="assets/css/main2.css?v=14" />
+    <link rel="stylesheet" href="assets/css/main2.css?155" />
     <link href='https://use.fontawesome.com/releases/v5.1.0/css/all.css' rel='stylesheet' integrity='sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt' crossorigin='anonymous' />
-    <link href='/utils/css/modal.css?v=14' rel='stylesheet' />
+    <link href='/utils/css/modal.css?155' rel='stylesheet' />
     <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js' integrity='sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49' crossorigin='anonymous'></script>
     <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js' integrity='sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T' crossorigin='anonymous'></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -162,12 +162,12 @@ ob_start();
 		<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
 		<script src="http://code.jquery.com/jquery-1.8.2.js"></script>
 		<script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
-    <script src="/assets/function.js?v=14"></script>
-		<script src="/assets/js/captcha.js?v=14"></script>
-		<script src="/ajax/ajax_submit.js??v=14"></script>
+    <script src="/assets/function.js?155"></script>
+		<script src="/assets/js/captcha.js?155"></script>
+		<script src="/ajax/ajax_submit.js??155"></script>
 		<script src="https://cdn.tiny.cloud/1/l5hr79dltkjldhpincf3rzg93ch5tz7yjblanibpzinyjize/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <link rel="stylesheet" href="https://unpkg.com/balloon-css/balloon.min.css">	
-    <script src="/utils/change_form.js?v=14"></script>
+    <script src="/utils/change_form.js?155"></script>
     <script src="regal/vendors/base/vendor.bundle.base.js?v=12"></script>
     <!--link href="/utils/vendor/jstable/themes/redmond/jquery-ui-1.8.16.custom.css" rel="stylesheet" type="text/css" /-->
     <link href="/utils/vendor/jtable/scripts/jtable/themes/lightcolor/blue/jtable.css" rel="stylesheet" type="text/css" />
