@@ -182,6 +182,13 @@ ob_start();
   <link rel="shortcut icon" href="images/favicon.png" />
 </head>
 <body>
+  <?php if(isset($_GET['teste']) && $_GET['teste']==1){?>
+      <script>
+
+        teste();
+      </script>
+
+  <?php }?>
 <div id="carregando" class="dialog-loading-wrapper" style="display:none;padding:10px">
 			<span class="dialog-loading-icon">
 				<img width=60px src="/images/loading.gif"/>
