@@ -4,7 +4,7 @@ require_once(GPATH.'controller'.S.'mensageirocontroller.php');
 require_once(GPATH.'controller'.S.'usuarioscontroller.php');
 require_once(GPATH.'request'.S.'session.php');
 require_once(GPATH.'utils'.S.'util_local.php');
-define('VERSION',156);
+define('VERSION',157);
 setlocale(LC_ALL, 'pt_BR.utf-8', 'portuguese');
 date_default_timezone_set('America/Sao_Paulo');
 
