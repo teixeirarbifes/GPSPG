@@ -230,7 +230,7 @@ $pagina = "ficha";
     </div>
     <div class="row">
       <?php 
-      if($cep['logradouro']!="")
+      if($cep == false || $cep['logradouro']!="")
       textfield('Logadouro',      'txt_logadouro',    'col-md-8 col-sm-12', false,' disabled '); 
       else
       textfield('Logadouro',      'txt_logadouro',    'col-md-8 col-sm-12', false);
@@ -238,7 +238,7 @@ $pagina = "ficha";
     <?php textfield('Número',         'txt_numero',       'col-md-1 col-sm-12',true); ?>
     </div>
     <div class="row">
-    <?php if($cep['bairro']!="")
+    <?php if($cep == false || $cep['bairro']!="")
           textfield('Bairro',         'txt_bairro',       'col-md-3 col-sm-12', false,' disabled ');
           else
           textfield('Bairro',         'txt_bairro',       'col-md-3 col-sm-12', false);
