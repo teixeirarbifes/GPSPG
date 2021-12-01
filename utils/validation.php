@@ -13,7 +13,7 @@
 
         public static function exist_cep($validation){
             $cep = get_by_CEP($validation->value,true);
-            if($cep['logradouro']==false)
+            if($cep['localidade']==false)
                 $validation->errors[$validation->field] = 'O CEP informado é inexistente.';
             else
                 return true;
@@ -258,20 +258,22 @@
             
             $val->field('txt_cep')->name('CEP')->value($data['txt_cep'])->pattern('cep')->funcao('exist_cep')->required();
 
-                       
+            
               //  $data['txt_logadouro'] = $cep['logradouro'];
               //  $data['txt_bairro'] = $cep['bairro'];
              //  $data['txt_cidade'] = $cep['localidade'];
             //$data['txt_estado'] = $cep['uf'];
             //    }
             
+            if(isset($data['txt_logadouro']))
+            $val->field('txt_logadouro')->name('Logadouro')->value($data['txt_logadouro'])->required();
             
-            //$val->field('txt_logadouro')->name('Logadouro')->value($data['txt_logadouro'])->required();
-            
-            
+            if(isset($data['txt_bairro']))
+            $val->field('txt_bairro')->name('Bairro')->value($data['txt_bairro'])->required();
+
             $val->field('txt_numero')->name('Número')->value($data['txt_numero'])->required();
 
-            //$val->field('txt_bairro')->name('Bairro')->value($data['txt_bairro'])->required();
+            
             //$val->field('txt_cidade')->name('Cidade')->value($data['txt_cidade'])->required();
             //$val->field('txt_estado')->name('Estado')->value($data['txt_estado'])->required();
 

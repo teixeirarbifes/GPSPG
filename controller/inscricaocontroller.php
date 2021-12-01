@@ -288,6 +288,22 @@ class InscricaoController extends Controller
                     $ficha->desc_modalidade = '';    
                 }
 
+
+                if(isset($ficha->txt_natural_pais)){
+                    $ficha->txt_natural_pais = get_pais($ficha->txt_natural_pais)[0]['nome'];
+                }
+
+                if(isset($ficha->txt_natural_estado)){
+                    $ficha->txt_natural_estado = get_uf($ficha->txt_natural_estado)[0]['nome'];
+                }
+
+
+                if(isset($ficha->txt_natural_cidade)){
+                    $ficha->txt_natural_cidade = get_city_by_code($ficha->txt_natural_cidade);
+                }
+
+                
+
                 if(isset($ficha->txt_sexo)){
                     if($ficha->txt_sexo == 1)   
                         $ficha->txt_sexo = "Masculino";

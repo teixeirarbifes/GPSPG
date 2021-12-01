@@ -36,6 +36,15 @@ function get_pais($codigo){
     return $arr;
 }
 
+function get_uf($codigo){
+    $readJSONFile = file_get_contents('https://servicodados.ibge.gov.br/api/v1/localidades/estados/'.$codigo);
+    $array = json_decode($readJSONFile, TRUE);    
+
+    $arr = array();
+    $arr[] = $array;
+    return $arr;
+}
+
 
 
 function get_by_CEP($cep,$json=False){
