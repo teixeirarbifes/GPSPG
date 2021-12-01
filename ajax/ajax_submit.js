@@ -1,5 +1,5 @@
-function conf_form(form){
-   
+function teste(){
+   alert('');
 }
 
 function dF(s){
