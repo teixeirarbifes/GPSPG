@@ -350,10 +350,10 @@ $(document).ready(function(){
 $("#file_picture").change(function(){
     var fd = new FormData();
     var files = $('#file_picture')[0].files;
-    var max =  1048576;
+    var max =  2097152;
     if (files[0].size > max) {
       files.value = null; // Clear the field.
-      $('#erro_txt_picture').html('<b><font color=red size=1>Carregue uma figua JPG ou PNG de máximo de 200kbytes.</font></b>');
+      $('#erro_txt_picture').html('<b><font color=red size=1>Carregue uma figua JPG ou PNG de máximo de 2Mbytes.</font></b>');
       return;
    }
     // Check file selected or not

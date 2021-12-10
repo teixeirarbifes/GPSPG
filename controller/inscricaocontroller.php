@@ -402,6 +402,12 @@ class InscricaoController extends Controller
 
     public function download_inscricao($dados){
             $zip = new ZipArchive();
+
+            if(!isset($dados['id_user'])) 
+                $id_user = UsuariosController::get_usuario()['id_user'];
+            else
+                $id_user = $dados['id_user'];
+
             $dir = UPLOAD_DIR_FILES.'user_'.UsuariosController::get_usuario()['id_user'];
 
             $filename = 'inscricao_'.uniqid().'.zip';
