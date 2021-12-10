@@ -78,8 +78,21 @@ function enviar_emails(){
             $rs = $stmt->fetchAll();
         }
         if (count($rs) > 0) {
-            foreach($rs as $email)
-                send($email['id_email'],$email['txt_para'],$email['txt_nome'],$email['txt_titulo'],$email['txt_conteudo']);
+            foreach($rs as $email){            
+                $relatorio = send($email['id_email'],$email['txt_para'],$email['txt_nome'],$email['txt_titulo'],$email['txt_conteudo']);
+                if($relatorio[0]=="OK"){
+                    $query = "UPDATE tab_emails SET dt_envio = '".(new DateTime())->format('Y-m-d H:i:s')."',id_status = 2,txt_resposta = '".$relatorio[1]."' WHERE id_email = '".$email['id_email']."'";
+                    $status = 2;
+                }else{
+                    $query = "UPDATE tab_emails SET id_status = 1,txt_resposta = '".$relatorio[1]."' WHERE id_email = '".$email['id_email']."'";
+                    $status = 1;
+                }
+                if ($conexao = Conexao::getInstance()) {            
+                    $stmt = $conexao->prepare($query);
+                    $stmt->execute();
+                }   
+                sleep(1);
+            }
         }
     }
 }
