@@ -68,18 +68,20 @@ function enviar_emails(){
 
     $conta =  conta_emails_enviados_hora();
     $envios = 200 - $conta;
-    
+    echo "Envios = ".$envios."</br>"; 
     if($envios > 0){
         $conexao = Conexao::getInstance();
-        $stmt    = $conexao->prepare("SELECT * FROM tab_emails WHERE NOT id_status = 2;");
+        $stmt    = $conexao->prepare("SELECT * FROM tab_emails WHERE NOT id_status = 2 LIMIT 0,{$envios};");
         $result  = array();
         if ($stmt->execute()) {
             
             $rs = $stmt->fetchAll();
         }
         if (count($rs) > 0) {
-            foreach($rs as $email){            
+            foreach($rs as $email){    
+                echo $email['txt_para'];
                 $relatorio = send($email['id_email'],$email['txt_para'],$email['txt_nome'],$email['txt_titulo'],$email['txt_conteudo']);
+                echo ' '.$relatorio[0].'</br>';
                 if($relatorio[0]=="OK"){
                     $query = "UPDATE tab_emails SET dt_envio = '".(new DateTime())->format('Y-m-d H:i:s')."',id_status = 2,txt_resposta = '".$relatorio[1]."' WHERE id_email = '".$email['id_email']."'";
                     $status = 2;
@@ -93,7 +95,12 @@ function enviar_emails(){
                 }   
                 sleep(1);
             }
+            
+        }else{
+            echo "</br>Sem envios pendentes."; 
         }
+    }else{
+        echo "/br>Extrapolado";
     }
 }
 
