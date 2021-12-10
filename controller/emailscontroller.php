@@ -2,6 +2,7 @@
 require_once('controller.php');
 require_once(GPATH.'model'.S.'emails.php');
 require_once(GPATH.'utils'.S.'validation.php');
+require_once(GPATH.'sendmail'.S.'mail.php');
 
 
 class EmailsController extends Controller
@@ -159,6 +160,10 @@ class EmailsController extends Controller
         }
         return $this->editar($dados);
     }    
+
+    public function pendentes($dados){
+        enviar_emails();
+    }
  
 }
 ?>
