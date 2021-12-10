@@ -353,7 +353,7 @@ $("#file_picture").change(function(){
     var max =  2097152;
     if (files[0].size > max) {
       files.value = null; // Clear the field.
-      $('#erro_txt_picture').html('<b><font color=red size=1>Carregue uma figua JPG ou PNG de máximo de 2Mbytes.</font></b>');
+      $('#erro_txt_picture').html('<b><font color=red size=1>Carregue uma figura JPG ou PNG de máximo de 2Mbytes.</font></b>');
       return;
    }
     // Check file selected or not
