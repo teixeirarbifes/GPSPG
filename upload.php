@@ -19,7 +19,7 @@ if(isset($_FILES['file']['name'])){
 
    $response = 0;
    /* Check file extension */
-   if(($size > 1048576)){
+   if(($size > 2097152)){
       $response = 'wrong_size';      
    }else if(in_array(strtolower($imageFileType), $valid_extensions)) {
 
