@@ -29,7 +29,7 @@ function criar_email($to_email,$to_nome,$titulo,$modelo,$data){
             $status = 1;
         }
     }else{
-            $query = "INSERT INTO tab_emails (txt_para,txt_nome,txt_titulo,txt_conteudo,dt_criacao,id_status,txt_resposta) VALUES ('".$to_email."','".$to_nome."','".$titulo."','".$message."','".(new DateTime())->format('Y-m-d H:i:s')."',0,'".$relatorio[1]."');";
+            $query = "INSERT INTO tab_emails (txt_para,txt_nome,txt_titulo,txt_conteudo,dt_criacao,id_status,txt_resposta) VALUES ('".$to_email."','".$to_nome."','".$titulo."','".$message."','".(new DateTime())->format('Y-m-d H:i:s')."',0,'');";
             $status = 0;
     }
 
