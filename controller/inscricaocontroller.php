@@ -1,4 +1,5 @@
 <?php
+use FFI\Exception;
 require_once('controller.php');
 require_once(GPATH.'controller'.S.'processoscontroller.php');
 require_once(GPATH.'controller'.S.'fichacontroller.php');
@@ -402,7 +403,7 @@ class InscricaoController extends Controller
 
     public function download_inscricao($dados){
             $zip = new ZipArchive();
-
+            
             if(!isset($dados['id_user'])) 
                 $id_user = UsuariosController::get_usuario()['id_user'];
             else
@@ -410,12 +411,12 @@ class InscricaoController extends Controller
 
             $dir = UPLOAD_DIR_FILES.'user_'.UsuariosController::get_usuario()['id_user'];
 
-            $filename = 'inscricao_'.uniqid().'.zip';
-
+            $filename = str_replace(' ','_',UsuariosController::get_usuario()['txt_nome']).'_inscricao_'.uniqid().'.zip';
+            
             if ($zip->open($dir.S.$filename, ZipArchive::CREATE)!==TRUE) {
                 exit("cannot open <$filename>\n");
             }
-
+            
             
             $inscricao = Inscricao::find_user($dados['p'],UsuariosController::get_usuario()['id_user']);
             $documentos = Documentos::all_ficha($inscricao->id_ficha_enviada,1);
@@ -423,6 +424,7 @@ class InscricaoController extends Controller
             foreach($documentos as $doc){
                $new_filename = substr($doc->txt_location,strrpos($doc->txt_location,S) + 1);
                $zip->addFile($doc->txt_location,'documentos_pessoais'.S.$new_filename);
+               echo $new_filename;
             }          
 
             $documentos = Documentos::all_ficha($inscricao->id_ficha_enviada,2);
@@ -430,14 +432,13 @@ class InscricaoController extends Controller
             foreach($documentos as $doc){
                $new_filename = substr($doc->txt_location,strrpos($doc->txt_location,S) + 1);
                $zip->addFile($doc->txt_location,'curriculo'.S.$new_filename);
+               echo $new_filename;
             }          
 
-            $zip->addFromString("testfilephp.txt" . time(), "#1 This is a test string added as testfilephp.txt.\n");
-            $zip->addFromString("testfilephp2.txt" . time(), "#2 This is a test string added as testfilephp2.txt.\n");
             //$zip->addFile($thisdir . "/too.php","/testfromfile.php");
             $zip->close();
             if($zip->status==0){
-                //header('Content-type: application/zip');
+                header('Content-type: application/zip');
                 header('Content-Description: File Transfer');
                 header('Content-Type: application/octet-stream');
                 header('Content-Disposition: attachment; filename="'.$filename.'"');
@@ -446,7 +447,7 @@ class InscricaoController extends Controller
                 header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
                 header('Pragma: public');
                 header('Content-Length: ' . filesize($dir.S.$filename)); //Absolute URL
-                header('Content-Disposition: attachment;filename="'.$filename.'"');
+                header('Content-Disposition: attachment;filename="'.str_replace(' ','_',UsuariosController::get_usuario()['txt_nome']).'_'.$inscricao->key_inscricao.'.zip"');
                 //echo $file;
                 readfile($dir.S.$filename);
                 exit();

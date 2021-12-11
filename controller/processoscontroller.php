@@ -163,7 +163,8 @@ class ProcessosController extends Controller
     }
 
     public function update_status($dados){
-        
+        $agora = new DateTime();
+        echo $agora->format('d-m-Y H:i:s');
     }
 
     public static function aberto($id_processo){
