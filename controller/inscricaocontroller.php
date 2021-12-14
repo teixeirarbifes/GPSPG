@@ -401,13 +401,11 @@ class InscricaoController extends Controller
             return 'ok';
     }
 
-    public function download_inscricao($dados){
+    public static function zip_inscricao($id_processo,$id_user = 0){
             $zip = new ZipArchive();
             
-            if(!isset($dados['id_user'])) 
+            if($id_user==0) 
                 $id_user = UsuariosController::get_usuario()['id_user'];
-            else
-                $id_user = $dados['id_user'];
 
             $dir = UPLOAD_DIR_FILES.'user_'.UsuariosController::get_usuario()['id_user'];
 
@@ -418,13 +416,12 @@ class InscricaoController extends Controller
             }
             
             
-            $inscricao = Inscricao::find_user($dados['p'],UsuariosController::get_usuario()['id_user']);
+            $inscricao = Inscricao::find_user($id_processo,UsuariosController::get_usuario()['id_user']);
             $documentos = Documentos::all_ficha($inscricao->id_ficha_enviada,1);
             
             foreach($documentos as $doc){
                $new_filename = substr($doc->txt_location,strrpos($doc->txt_location,S) + 1);
                $zip->addFile($doc->txt_location,'documentos_pessoais'.S.$new_filename);
-               echo $new_filename;
             }          
 
             $documentos = Documentos::all_ficha($inscricao->id_ficha_enviada,2);
@@ -432,28 +429,37 @@ class InscricaoController extends Controller
             foreach($documentos as $doc){
                $new_filename = substr($doc->txt_location,strrpos($doc->txt_location,S) + 1);
                $zip->addFile($doc->txt_location,'curriculo'.S.$new_filename);
-               echo $new_filename;
             }          
 
             //$zip->addFile($thisdir . "/too.php","/testfromfile.php");
             $zip->close();
             if($zip->status==0){
-                header('Content-type: application/zip');
-                header('Content-Description: File Transfer');
-                header('Content-Type: application/octet-stream');
-                header('Content-Disposition: attachment; filename="'.$filename.'"');
-                header('Content-Transfer-Encoding: binary');
-                header('Expires: 0');
-                header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
-                header('Pragma: public');
-                header('Content-Length: ' . filesize($dir.S.$filename)); //Absolute URL
-                header('Content-Disposition: attachment;filename="'.str_replace(' ','_',UsuariosController::get_usuario()['txt_nome']).'_'.$inscricao->key_inscricao.'.zip"');
-                //echo $file;
-                readfile($dir.S.$filename);
-                exit();
-            }
+                return [$dir.S.$filename,str_replace(' ','_',UsuariosController::get_usuario()['txt_nome']).'_'.$inscricao->key_inscricao.'.zip'];
+            }else return "";
 
     }
+
+    public function download_zip($dados){
+        $zip = InscricaoController::zip_inscricao($dados['p'],isset($dados['u']) ? $dados['u'] : 0);
+        if($zip == ""){
+
+        }else{
+            header('Content-type: application/zip');
+            header('Content-Description: File Transfer');
+            header('Content-Type: application/octet-stream');
+            header('Content-Transfer-Encoding: binary');
+            header('Expires: 0');
+            header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+            header('Pragma: public');
+            header('Content-Length: ' . filesize($zip[0])); //Absolute URL
+            header('Content-Disposition: attachment;filename="'.$zip[1].'"');
+            //echo $file;
+            readfile($zip[0]);
+            exit();
+        }
+    }
+
+
 
     public function list_inscricao($dados){
         if(!isset($dados['action'])){
