@@ -31,7 +31,7 @@ function textfield($label,$field,$class,$obrigatorio = false,$adicional="",$msg=
    <div class="col-md-10 col-sm-12 p-2">
     <div class="row">
       <div class='col-md-12'><b><font color=darkblue>Dados gerais:</font></b></div>
-      <?php textfield('Nome completo',  '',         'col-lg-6 col-md-6 col-sm-12',  false, 'disabled',"<b><font color=green size=1px>O nome completo pode ser alterado na página do perfil.</font></b>",UsuariosController::get_usuario()['txt_nome'] ); ?>
+      <?php textfield('Nome completo',  'txt_nome',         'col-lg-6 col-md-6 col-sm-12',  false, 'disabled',"<b><font color=green size=1px>O nome completo pode ser alterado na página do perfil.</font></b>" ); ?>
       <?php textfield('E-mail',         '',        'col-lg-6 col-md-6 col-sm-12', false, 'disabled',"<b><font color=green size=1px>O e-mail pode ser alterado na página do perfil.</font></b>",UsuariosController::get_usuario()['txt_email']); ?>
       <?php textfield('Data de nascimento',    'txt_nascimento',     'col-lg-3 col-md-3 col-sm-12'); ?>
       <?php textfield('Nome da mãe',    'txt_nome_mae',     'col-lg-5 col-md-5 col-sm-12'); ?>
