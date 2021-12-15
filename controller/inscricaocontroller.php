@@ -470,11 +470,11 @@ class InscricaoController extends Controller
     
     public function generate_zips($dados){
 
-        $inscricao = Inscricao::all_processo($dados['p']);
+        $inscricao = Inscricao::all_inscricao($dados);
 
         foreach($inscricao as $i){
             if($i->id_ficha_enviada > 0){
-                $zip = InscricaoController::zip_inscricao($dados['p'],$i->id_user);
+                $zip = InscricaoController::zip_inscricao($dados['id_processo'],$i->id_user);
                 if($zip == ""){
 
                 }else{
