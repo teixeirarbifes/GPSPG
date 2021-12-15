@@ -407,9 +407,10 @@ class InscricaoController extends Controller
             if($id_user==0) 
                 $id_user = UsuariosController::get_usuario()['id_user'];
 
+            $user = Usuarios::find($id_user);
             $dir = UPLOAD_DIR_FILES;
 
-            $filename = str_replace(' ','_',UsuariosController::get_usuario()['txt_nome']).'_inscricao_'.uniqid().'.zip';
+            $filename = str_replace(' ','_',$user->txt_nome).'_'.uniqid().'.zip';
             
             if ($zip->open($dir.S.$filename, ZipArchive::CREATE)!==TRUE) {
                 exit("cannot open <$filename>\n");
@@ -431,8 +432,8 @@ class InscricaoController extends Controller
                $zip->addFile($doc->txt_location,'curriculo'.S.$new_filename);
             }          
 
-            $dados['id_processo'] = 45;
-            $dados['user'] = 5;
+            $dados['id_processo'] = $id_processo;
+            $dados['user'] = $id_user;
             
             $inscricao = new InscricaoController();
             $arquivo = explode(';',$inscricao->ver_entregue($dados,1));
@@ -442,7 +443,7 @@ class InscricaoController extends Controller
             //$zip->addFile($thisdir . "/too.php","/testfromfile.php");
             $zip->close();
             if($zip->status==0){
-                return [$dir.S.$filename,str_replace(' ','_',UsuariosController::get_usuario()['txt_nome']).'.zip'];
+                return [$dir.S.$filename,$filename];
             }else return "";
 
     }
