@@ -499,6 +499,23 @@ class InscricaoController extends Controller
     }
 
 
+    public function generate_csv($dados){
+
+        $_SESSION['usuario']['id_user'] = 5;
+        $_SESSION['usuario']['id_role'] = 4;
+        $inscricao = Inscricao::all_inscricao($dados);
+        $insc = new InscricaoController();
+        foreach($inscricao as $i){
+            if($i->id_ficha_enviada > 0){
+                $dados['user'] = $i->id_user;
+                $csv = $insc->ver_entregue($dados,2);
+                return $csv.'</br>';
+            }
+        }
+    }
+
+
+
 
     public function list_inscricao($dados){
         if(!isset($dados['action'])){
@@ -796,8 +813,8 @@ class InscricaoController extends Controller
                 $documentos_curriculo = Documentos::all_ficha($ficha->id_ficha,2);  
 
                 $matriz_classe = Documentos::matriz($ficha->id_ficha);
-                if($pdf==1){
-
+                if($pdf==1 || $pdf==2){
+                    $user = Usuarios::find($usuario);
                     $dados['txt_photo'] = "https://gpspg.gemad.net/photo.php?uniq=".uniqid()."&id=".$ficha->id_ficha;
                     $dados['txt_nome'] = $ficha->txt_nome;
                     $dados['txt_email'] = $ficha->txt_email;
@@ -812,7 +829,7 @@ class InscricaoController extends Controller
                     $dados['txt_natural_pais'] = $ficha->txt_natural_pais;
                     $dados['txt_natural_estado'] = $ficha->txt_natural_estado;
                     $dados['txt_natural_cidade'] = $ficha->txt_natural_cidade;
-                    $dados['txt_cpf'] = $ficha->txt_cpf;
+                    $dados['txt_cpf'] = $user->txt_cpf;
                     $dados['txt_rg'] = $ficha->txt_rg;
                     $dados['txt_rg_orgao'] = $ficha->txt_rg_orgao;
                     $dados['txt_rg_uf'] = $ficha->txt_rg_uf;
@@ -835,15 +852,57 @@ class InscricaoController extends Controller
                     $dados['txt_envio'] = date('d-m-Y', strtotime($inscricao->dt_enviado));
                     $dados['txt_chave'] = $inscricao->key_inscricao;
                     $dados['key']=$_GET['key'];
-                    $user = Usuarios::find($usuario);
+
                     
                     $dados['txt_usuario'] = $user->txt_usuario;
 
                     $dados['txt_IP'] = $inscricao->ip_envio;
+                    if($pdf==1)
+                        return FichaController::criar_pdf($dados,$dir.S.'FICHA_'.str_replace(' ','_',$ficha->txt_nome).'_'.$inscricao->key_inscricao.'.pdf').';'.'FICHA_'.str_replace(' ','_',$ficha->txt_nome).'_'.$inscricao->key_inscricao.'.pdf';
+                    else if($pdf==2){
+                        $x = '"'.$dados['txt_nome'].'",';
 
-                    return FichaController::criar_pdf($dados,$dir.S.'FICHA_'.str_replace(' ','_',$ficha->txt_nome).'_'.$inscricao->key_inscricao.'.pdf').';'.'FICHA_'.str_replace(' ','_',$ficha->txt_nome).'_'.$inscricao->key_inscricao.'.pdf';
+                        $x .= '"'.$dados['txt_email'].'",';
+
+                        $x .= '"'.$dados['txt_nascimento'].'",';
+
+                        $x .= '"'.$dados['txt_nome_mae'].'",';
+                        $x .= '"'.$dados['txt_nome_pai'].'",';
+                        $x .= '"'.$dados['txt_telefone'].'",';
+                        $x .= '"'.$dados['txt_celular'].'",';
+                        $x .= '"'.$dados['txt_civil'].'",';
+                        $x .= '"'.$dados['txt_sexo'].'",';
+                        $x .= '"'.$dados['txt_escolaridade'].'",';
+                        $x .= '"'.$dados['txt_natural_pais'].'",';
+                        $x .= '"'.$dados['txt_natural_estado'].'",';
+                        $x .= '"'.$dados['txt_natural_cidade'].'",';
+                        $user = Usuarios::find($usuario);
+                        $x .= '"'.$user->txt_cpf.'",';
+                        $x .= '"'.$dados['txt_rg'].'",';
+                        $x .= '"'.$dados['txt_rg_orgao'].'",';
+                        $x .= '"'.$dados['txt_rg_uf'].'",';
+                        $x .= '"'.$dados['txt_rg_expedicao'].'",';
+                        $x .= '"'.$dados['txt_titulo'].'",';
+                        $x .= '"'.$dados['txt_titulo_zona'].'",';
+                        $x .= '"'.$dados['txt_titulo_secao'].'",';
+                        $x .= '"'.$dados['txt_titulo_uf'].'",';
+                        $x .= '"'.$dados['txt_titulo_emissao'].'",';
+                        $x .= '"'.$dados['txt_logadouro'].'",';
+                        $x .= '"'.$dados['txt_numero'].'",';
+                        $x .= '"'.$dados['txt_complemento'].'",';
+                        $x .= '"'.$dados['txt_cep'].'",';
+                        $x .= '"'.$dados['txt_bairro'].'",';
+                        $x .= '"'.$dados['txt_cidade'].'",';   
+                        $x .= '"'.$dados['txt_estado'].'",';
+                        $x .= '"'.$dados['txt_modalidade'].'",';
+                        $x .= '"'.$dados['txt_sigla'].'",';
+                        $x .= '"'.$dados['txt_processo'].'",';
+                        $x .= '"'.date('d-m-Y', strtotime($inscricao->dt_enviado)).'",';
+                        $x .= '"'.$inscricao->key_inscricao.'"';
+                        return $x;
+                    }
                 }else{
-                return $this->view('ficha'.S.'form_verificar', ['matriz_classe' => $matriz_classe,'documentos_curriculo' => $documentos_curriculo, 'documentos_pessoais' => $documentos_pessoais, 'documentos' => $documentos, 'data_table' => $dados, 'processo' => $processo, 'inscricao' => $inscricao, 'ficha' => $ficha, 'usuario' => UsuariosController::get_usuario()]);                    
+                     return $this->view('ficha'.S.'form_verificar', ['matriz_classe' => $matriz_classe,'documentos_curriculo' => $documentos_curriculo, 'documentos_pessoais' => $documentos_pessoais, 'documentos' => $documentos, 'data_table' => $dados, 'processo' => $processo, 'inscricao' => $inscricao, 'ficha' => $ficha, 'usuario' => UsuariosController::get_usuario()]);                    
                 }
             }else{
                 $this->msg("Não há inscricao para esse processo seletivo",2);
