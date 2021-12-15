@@ -686,6 +686,10 @@ class InscricaoController extends Controller
         $usuario = UsuariosController::get_usuario()['id_user'];
 
         $dir = UPLOAD_DIR_FILES.'user_'.$usuario;
+
+        if (!file_exists($dir.S)) {
+            mkdir($dir, 0777);
+        }
             
         if(isset($processo->id_processo)){
             $inscricao = Inscricao::find_user($dados['id_processo'],$usuario);
