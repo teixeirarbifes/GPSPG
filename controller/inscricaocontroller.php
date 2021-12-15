@@ -407,7 +407,7 @@ class InscricaoController extends Controller
             if($id_user==0) 
                 $id_user = UsuariosController::get_usuario()['id_user'];
 
-            $dir = UPLOAD_DIR_FILES.'user_'.UsuariosController::get_usuario()['id_user'];
+            $dir = UPLOAD_DIR_FILES;
 
             $filename = str_replace(' ','_',UsuariosController::get_usuario()['txt_nome']).'_inscricao_'.uniqid().'.zip';
             
@@ -431,10 +431,18 @@ class InscricaoController extends Controller
                $zip->addFile($doc->txt_location,'curriculo'.S.$new_filename);
             }          
 
+            $dados['id_processo'] = 45;
+            $dados['user'] = 5;
+            
+            $inscricao = new InscricaoController();
+            $arquivo = explode(';',$inscricao->ver_entregue($dados,1));
+
+            $zip->addFile($arquivo[0],$arquivo[1]);
+
             //$zip->addFile($thisdir . "/too.php","/testfromfile.php");
             $zip->close();
             if($zip->status==0){
-                return [$dir.S.$filename,str_replace(' ','_',UsuariosController::get_usuario()['txt_nome']).'_'.$inscricao->key_inscricao.'.zip'];
+                return [$dir.S.$filename,str_replace(' ','_',UsuariosController::get_usuario()['txt_nome']).'.zip'];
             }else return "";
 
     }
@@ -456,6 +464,33 @@ class InscricaoController extends Controller
             //echo $file;
             readfile($zip[0]);
             exit();
+        }
+    }
+    
+    public function generate_zips($dados){
+
+        $inscricao = Inscricao::all_processo($dados['p']);
+
+        foreach($inscricao as $i){
+            if($i->id_ficha_enviada > 0){
+                $zip = InscricaoController::zip_inscricao($dados['p'],$i->id_user);
+                if($zip == ""){
+
+                }else{
+                    /*header('Content-type: application/zip');
+                    header('Content-Description: File Transfer');
+                    header('Content-Type: application/octet-stream');
+                    header('Content-Transfer-Encoding: binary');
+                    header('Expires: 0');
+                    header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+                    header('Pragma: public');
+                    header('Content-Length: ' . filesize($zip[0])); //Absolute URL
+                    header('Content-Disposition: attachment;filename="'.$zip[1].'"');
+                    //echo $file;
+                    readfile($zip[0]);
+                    exit();*/
+                }
+            }
         }
     }
 
@@ -623,8 +658,10 @@ class InscricaoController extends Controller
         return $this->ver_entregue($dados,true);
     }
 
-    public function ver_entregue($dados,$pdf = false)
+    public function ver_entregue($dados,$pdf = 0)
     {
+        if(isset($dados['pdf']))
+            $pdf = $dados['pdf'];
         $home = new HomeController();
         $pproc = new ProcessosController();
         if(!UsuariosController::is_logged()){
@@ -637,9 +674,20 @@ class InscricaoController extends Controller
         #}
 
         $processo = Processos::find($dados['id_processo']);       
+            
+        $usuario = UsuariosController::get_usuario()['id_user'];
+        if(isset($dados['user']))
+            if($this->check_auth([3,4],true)){
+                $usuario = $dados['user'];
+            }
+        
+        if($usuario==0) 
+        $usuario = UsuariosController::get_usuario()['id_user'];
 
+        $dir = UPLOAD_DIR_FILES.'user_'.$usuario;
+            
         if(isset($processo->id_processo)){
-            $inscricao = Inscricao::find_user($dados['id_processo'],UsuariosController::get_usuario()['id_user']);
+            $inscricao = Inscricao::find_user($dados['id_processo'],$usuario);
             if(isset($inscricao->id_inscricao)){
                 $dados['rascunho'] = 0;
                 $id_ficha = $inscricao->id_ficha_enviada;
@@ -715,6 +763,18 @@ class InscricaoController extends Controller
                         $ficha->txt_escolaridade = "Não sei informar";                 
                 }
 
+                if(isset($ficha->txt_natural_pais)){
+                    $ficha->txt_natural_pais = get_pais($ficha->txt_natural_pais)[0]['nome'];
+                }
+
+                if(isset($ficha->txt_natural_estado)){
+                    $ficha->txt_natural_estado = get_uf($ficha->txt_natural_estado)[0]['nome'];
+                }
+
+                if(isset($ficha->txt_natural_cidade)){
+                    $ficha->txt_natural_cidade = get_city_by_code($ficha->txt_natural_cidade);
+                }
+
                 if(isset($ficha->txt_nascimento)){
                     $ficha->txt_nascimento = date('d-m-Y', strtotime($ficha->txt_nascimento) );
                 }
@@ -730,19 +790,58 @@ class InscricaoController extends Controller
                 $documentos_curriculo = Documentos::all_ficha($ficha->id_ficha,2);  
 
                 $matriz_classe = Documentos::matriz($ficha->id_ficha);
-                if($pdf)
-                return $this->view('ficha'.S.'template_ficha_pdf', ['matriz_classe' => $matriz_classe,'documentos_curriculo' => $documentos_curriculo, 'documentos_pessoais' => $documentos_pessoais, 'documentos' => $documentos, 'data_table' => $dados, 'processo' => $processo, 'inscricao' => $inscricao, 'ficha' => $ficha, 'usuario' => UsuariosController::get_usuario()]);                    
-                else
+                if($pdf==1){
+                    $dados['txt_photo'] = "/photo.php?id=".$ficha->id_ficha;
+                    $dados['txt_nome'] = $ficha->txt_nome;
+                    $dados['txt_email'] = $ficha->txt_email;
+                    $dados['txt_nascimento'] = $ficha->txt_nascimento;
+                    $dados['txt_nome_mae'] = $ficha->txt_nome_mae;
+                    $dados['txt_nome_pai'] = $ficha->txt_nome_pai;
+                    $dados['txt_telefone'] = $ficha->txt_telefone;
+                    $dados['txt_celular'] = $ficha->txt_celular;
+                    $dados['txt_civil'] = $ficha->txt_civil;
+                    $dados['txt_sexo'] = $ficha->txt_sexo;
+                    $dados['txt_escolaridade'] = $ficha->txt_escolaridade;
+                    $dados['txt_natural_pais'] = $ficha->txt_natural_pais;
+                    $dados['txt_natural_estado'] = $ficha->txt_natural_estado;
+                    $dados['txt_natural_cidade'] = $ficha->txt_natural_cidade;
+                    $dados['txt_cpf'] = $ficha->txt_cpf;
+                    $dados['txt_rg'] = $ficha->txt_rg;
+                    $dados['txt_rg_orgao'] = $ficha->txt_rg_orgao;
+                    $dados['txt_rg_uf'] = $ficha->txt_rg_uf;
+                    $dados['txt_rg_expedicao'] = $ficha->txt_rg_expedicao;
+                    $dados['txt_titulo'] = $ficha->txt_eleitor;
+                    $dados['txt_titulo_zona'] = $ficha->txt_eleitor_zona;
+                    $dados['txt_titulo_secao'] = $ficha->txt_eleitor_secao;
+                    $dados['txt_titulo_uf'] = $ficha->txt_eleitor_estado;
+                    $dados['txt_titulo_emissao'] = $ficha->txt_eleitor_emissao;
+                    $dados['txt_logadouro'] = $ficha->txt_logadouro;
+                    $dados['txt_numero'] = $ficha->txt_numero;
+                    $dados['txt_complemento'] = $ficha->txt_complemento;
+                    $dados['txt_cep'] = $ficha->txt_cep;
+                    $dados['txt_bairro'] = $ficha->txt_bairro;
+                    $dados['txt_cidade'] = $ficha->txt_cidade;       
+                    $dados['txt_estado'] = $ficha->txt_estado;  
+                    $dados['txt_modalidade'] =  $ficha->modalidade;
+                    $dados['txt_sigla'] =  $ficha->sigla;
+
+                    
+                    return FichaController::criar_pdf($dados,$dir.S.'FICHA_'.str_replace(' ','_',$ficha->txt_nome).'_'.$inscricao->key_inscricao.'.pdf').';'.'FICHA_'.str_replace(' ','_',$ficha->txt_nome).'_'.$inscricao->key_inscricao.'.pdf';            
+                }else{
                 return $this->view('ficha'.S.'form_verificar', ['matriz_classe' => $matriz_classe,'documentos_curriculo' => $documentos_curriculo, 'documentos_pessoais' => $documentos_pessoais, 'documentos' => $documentos, 'data_table' => $dados, 'processo' => $processo, 'inscricao' => $inscricao, 'ficha' => $ficha, 'usuario' => UsuariosController::get_usuario()]);                    
+                }
             }else{
                 $this->msg("Não há inscricao para esse processo seletivo",2);
                 return $pproc->visualizar_candidato($dados);
             }
+
+
         }
+        
 
         if(isset($processo->id_processo)){
-            $status = Processos::all_status();
-            return $this->view('processos'.S.'form_processos', ['data_table' => $dados, 'processo' => $processo, 'status' => $status]);
+                $status = Processos::all_status();
+                return $this->view('processos'.S.'form_processos', ['data_table' => $dados, 'processo' => $processo, 'status' => $status]);
         }else{
             $this->msg('Processos id#'.$id_processo.' não encontrado.',1);
             return $this->listar($dados);
