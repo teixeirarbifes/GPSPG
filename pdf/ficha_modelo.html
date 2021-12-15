@@ -1,194 +1,104 @@
-<!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>fichapdf</title>
-</head>
-
-<body>
 <h2>GPS-PG - Sistema de Gestão de Processos Seletivos - Pós-Graduação</h2>
-<h2>FICHA DE INSCRIÇÃO</h2>
-	<h3><font color=darkblue>PROCESSO SELETIVO...</FONT></h3>
-	<font color=darkred>Inscrição enviada para análise em <b>{datahora envio}</b>. Protocolo: <b>{txt_chave}</b></font>, pelo usuário <b>{usuario}</b>, IP <b>{IP}</b>.
-	</br></br>
-<table style="borderstyle:solid;width:400px border-collapse: separate;
-           border-spacing: 2px;">
-    <tr >
-      <td style="vertical-align: top; padding:6px;width:100px">Foto:<br>
-<img border=1 src="https://gpspgdev.gemad.net/photo.php?uq=619b6843dfd4f&id=110" width=100px height=150px/></td>
-		<td style="padding:6px;vertical-align: top">
-			<b>Dados Gerais:</b>
-			<table style="border-spacing: 5px;">	  
-			  <tr ><td width=400px>
-				<table style="border-spacing: 0px;" width=100%><tr><td>Nome Completo:</td></tr><tr>
-					<td style="padding:6px; border: 1px solid midnightblue"><b>{txt_nome}</b></td></tr>
-				</table>
-				</td>
-		     <td width=300px>
-				<table style="border-spacing: 0px;" width=100%><tr><td>Email:</td></tr><tr></tr><td style="padding:6px; border: 1px solid midnightblue"><b>{txt_email}</b></td></tr></table>
-				</td>
-			</tr>				  
-			</table>	
-	
-				<table style="border-spacing: 5px;">	  
-			  <tr ><td  width=150px>
-				<table style="border-spacing: 0px;" width=100%><tr><td>Data de Nascimento:</td></tr><tr>
-					<td style="padding:6px; border: 1px solid midnightblue"><b>{txt_nascimento}</b></td></tr>
-				</table>
-				</td>
-		     <td width=272px>
-				<table style="border-spacing: 0px;" width=100%><tr><td>Nome da Mãe:</td></tr><tr></tr><td style="padding:6px; border: 1px solid midnightblue"><b>{txt_nome_mae}</b></td></tr></table>
-				</td>
-		     <td width=271px>
-				<table style="border-spacing: 0px;" width=100%><tr><td>Nome do Pai:</td></tr><tr></tr><td style="padding:6px; border: 1px solid midnightblue"><b>{txt_nome_pai}</b></td></tr></table>
-				</td>
-			</tr>				  
-			</table>
+	<h3><font color="darkblue">PROCESSO SELETIVO...</font></h3>
+	<style type="text/css">
+		.tg  {border-collapse:collapse;border-spacing:0;}
+		.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:11px;
+		  overflow:hidden;padding:3px 2px;word-break:normal;}
+		.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:11px;
+		  font-weight:normal;overflow:hidden;padding:3px 2px;word-break:normal;}
+		.tg .tg-0lax{text-align:left;vertical-align:top}
+		</style>
 
+<p>
+DADOS GERAIS:
+</p>
+		<table class="tg">
+		<thead>
+		  <tr>
+			<td class="tg-0lax" rowspan="4"><span style="font-weight:bold"><img src="http://localhost/photo.php?uq=61b981d919a80&id=127"/></span></td>
+			<td class="tg-0lax" colspan="3">Nome completo:<br><span style="font-weight:bold">{txt_nome}</span><br></td>
+			<td class="tg-0lax" colspan="2">E-mail:<br><span style="font-weight:bold">{txt_email}</span></td>
+		  </tr>
+		  <tr>
+			<td class="tg-0lax" colspan="1">Data Nasc:<br><span style="font-weight:bold">{txt_nascimento}</span><br></td>
+			<td class="tg-0lax" colspan="2">Nome da mãe:<br><span style="font-weight:bold">{txt_nome_mae}</span></td>
+			<td class="tg-0lax" colspan="2">Nome do pai:<br><span style="font-weight:bold">{txt_nome_pai}</span></td>
+		  </tr>
+		  <tr>
+			<td class="tg-0lax" colspan="2">Telefone:<br><span style="font-weight:bold">{txt_telefone}</span></td>
+			<td class="tg-0lax" colspan="2">Celular:<br><span style="font-weight:bold">{txt_celular}</span><br></td>
+			<td class="tg-0lax"></td>
+		  </tr>
+		  <tr>
+			<td class="tg-0lax" colspan="2">Estado civil:<br><span style="font-weight:bold">{txt_civil}</span></td>
+			<td class="tg-0lax" colspan="1">Sexo:<br><span style="font-weight:bold">{txt_sexo}</span></td>
+			<td class="tg-0lax" colspan="2">Escolaridade:<br><span style="font-weight:bold">{txt_escolaridade}</span></td>
+		  </tr>
+		</thead>
+		</table>
+<p>
+NATURALIDADE:
+</p>
+	<table class="tg">
+		<thead>
+		  <tr>
+			<td class="tg-0lax">Pais:<br><span style="font-weight:bold">{txt_natural_pais}</span><br></td>
+			<td class="tg-0lax">Estado:<br><span style="font-weight:bold">{txt_natural_estado}</span></td>
+			<td class="tg-0lax">Cidade:<br><span style="font-weight:bold">{txt_natural_cidade}</span></td>
+		  </tr>
+		</thead>
+		</table>
 
-			<table style="border-spacing: 5px;">	  
-			  <tr ><td width=400px>
-				<table style="border-spacing: 0px;" width=100%><tr><td>Telefone:</td></tr><tr>
-					<td style="padding:6px; border: 1px solid midnightblue"><b>{txt_telefone}</b></td></tr>
-				</table>
-				</td>
-		     <td width=300px>
-				<table style="border-spacing: 0px;" width=100%><tr><td>Celular:</td></tr><tr></tr><td style="padding:6px; border: 1px solid midnightblue"><b>{txt_celular}</b></td></tr></table>
-				</td>
-			</tr>				  
-			</table>	
-
-			<table style="border-spacing: 5px;">	  
-			  <tr ><td width=200px>
-				<table style="border-spacing: 0px;" width=100%><tr><td>Estado Civil:</td></tr><tr>
-					<td style="padding:6px; border: 1px solid midnightblue"><b>{txt_civil}</b></td></tr>
-				</table>
-				</td>
-		     <td width=200px>
-				<table style="border-spacing: 0px;" width=100%><tr><td>Sexo:</td></tr><tr></tr><td style="padding:6px; padding:6px; border: 1px solid midnightblue"><b>{txt_sexo}</b></td></tr></table>
-				</td>
-		     <td width=295px>
-				<table style="border-spacing: 0px;" width=100%><tr><td>Escolaridade:</td></tr><tr></tr><td style="padding:6px; border: 1px solid midnightblue"><b>{txt_escolaridade}</b></td></tr></table>
-				</td>
-			</tr>			
-					  
-			</table>																										
-		</td>
-    </tr>
-</table>
-</br>
-<b>&nbsp;&nbsp;Naturalidade:</b>
-	<table style="border-spacing: 5px;">	  
-			  <tr ><td  width=200px>
-				<table style="border-spacing: 0px;" width=100%><tr><td>País</td></tr><tr>
-					<td style="padding:6px; border: 1px solid midnightblue"><b>{txt_natural_pais}</b></td></tr>
-				</table>
-				</td>
-		     <td width=200px>
-				<table style="border-spacing: 0px;" width=100%><tr><td>Estado</td></tr><tr></tr><td style="padding:6px; border: 1px solid midnightblue"><b>{txt_natural_estado}</b></td></tr></table>
-				</td>
-		     <td width=420px>
-				<table style="border-spacing: 0px;" width=100%><tr><td>Cidade</td></tr><tr></tr><td style="padding:6px; border: 1px solid midnightblue"><b>{txt_natural_cidade}</b></td></tr></table>
-				</td>
-			</tr>				  
+<p>
+	DOCUMENTOS:
+</p>
+	<table class="tg">
+		<tbody>
+			<tr>
+				<td class="tg-0lax">CPF:<br><span style="font-weight:bold">{txt_cpf}</span><br></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>				
+			</tr>					
+		  <tr>
+			<td class="tg-0lax">RG:<br><span style="font-weight:bold">{txt_rg}</span><br></td>
+			<td class="tg-0lax" >Orgão Exp:<br><span style="font-weight:bold">{txt_rg_orgao}</span><br></td>
+			<td class="tg-0lax">UF:<br><span style="font-weight:bold">{txt_rg_uf}</span></td>
+			<td class="tg-0lax">Data Exp:<br><span style="font-weight:bold">{txt_rg_expedicao}</span><br></td>
+		  </tr>
+		  <tr>
+			<td class="tg-0lax">Titulo de Eleitor:<br><span style="font-weight:bold">{txt_titulo}</span><br></td>
+			<td class="tg-0lax">Zona:<br><span style="font-weight:bold">{txt_titulo_zona}</span><br></td>
+			<td class="tg-0lax">Seção:<br><span style="font-weight:bold">{txt_titulo_secao}</span><br></td>
+			<td class="tg-0lax">Estado:<br><span style="font-weight:bold">{txt_titulo_uf}</span><br></td>
+			<td class="tg-0lax">Data Emissão:<br><span style="font-weight:bold">{txt_titulo_emissao}</span><br></td>
+		  </tr>
+		</tbody>
+		</table>
+<p>
+	ENDEREÇO
+</p>
+<table class="tg">
+	<tbody>
+	  <tr>
+		<td class="tg-0pky" colspan="4">Logradouro:<br><span style="font-weight:bold">{txt_logadouro}</span><br></td>
+		<td class="tg-0lax">Número:<br><span style="font-weight:bold">{txt_numero}</span><br></td>
+	  </tr>
+	  <tr>
+		<td class="tg-0pky" colspan="2">Complemento:<br><span style="font-weight:bold">{txt_complemento}</span><br></td>
+		<td class="tg-0pky">CEP:<br><span style="font-weight:bold">{txt_cep}</span></td>
+		<td class="tg-0pky" colspan="2">Bairro:<br><span style="font-weight:bold">{txt_bairro}</span></td>
+	  </tr>
+	  <tr>
+		<td class="tg-0pky" colspan="3">Cidade:<br><span style="font-weight:bold">{txt_cidade}</span><br></td>
+		<td class="tg-0pky" colspan="2">Estado:<br><span style="font-weight:bold">{txt_estado}</span><br></td>
+	  </tr>
+	</tbody>
 	</table>
-</br>
-<b>&nbsp;&nbsp;Documentos:</b>
-	<table style="border-spacing: 5px;">	  
-			  <tr ><td  width=200px>
-				<table style="border-spacing: 0px;" width=100%><tr><td>CPF</td></tr><tr>
-					<td style="padding:6px; border: 1px solid midnightblue"><b>{txt_cpf}</b></td></tr>
-				</table>
-				</td>
-</table>
-</br>
-&nbsp;&nbsp;Registro Geral (RG):
-	<table style="border-spacing: 5px;">	  
-			  <tr ><td  width=250px>
-				<table style="border-spacing: 0px;" width=100%><tr><td>Número:</td></tr><tr>
-					<td style="padding:6px; border: 1px solid midnightblue"><b>{txt_rg}</b></td></tr>
-				</table>
-				</td>
-		     <td width=150px>
-				<table style="border-spacing: 0px;" width=100%><tr><td>Orgão Expedidor</td></tr><tr></tr><td style="padding:6px; border: 1px solid midnightblue"><b>{txt_rg_expedidor}</b></td></tr></table>
-				</td>
-		     <td width=160px>
-				<table style="border-spacing: 0px;" width=100%><tr><td>UF</td></tr><tr></tr><td style="padding:6px; border: 1px solid midnightblue"><b>{txt_rg_uf}</b></td></tr></table>
-				</td>
-		     <td width=250px>
-				<table style="border-spacing: 0px;" width=100%><tr><td>Data de expedição</td></tr><tr></tr><td style="padding:6px; border: 1px solid midnightblue"><b>{txt_data_expedicao}</b></td></tr></table>
-				</td>
-			</tr>				  
-	</table>
-</br>
-&nbsp;&nbsp;Título de Eleitor:
-	<table style="border-spacing: 5px;">	  
-			  <tr ><td  width=200px>
-				<table style="border-spacing: 0px;" width=100%><tr><td>Número</td></tr><tr>
-					<td style="padding:6px; border: 1px solid midnightblue"><b>{txt_rg}</b></td></tr>
-				</table>
-				</td>
-		     <td width=50px>
-				<table style="border-spacing: 0px;" width=100%><tr><td>Zona</td></tr><tr></tr><td style="padding:6px; border: 1px solid midnightblue"><b>{txt_titulo_zona}</b></td></tr></table>
-				</td>
-		     <td width=60px>
-				<table style="border-spacing: 0px;" width=100%><tr><td>Seção</td></tr><tr></tr><td style="padding:6px; border: 1px solid midnightblue"><b>{txt_titulo_secao}</b></td></tr></table>
-				</td>
-		     <td width=100px>
-				<table style="border-spacing: 0px;" width=100%><tr><td>Estado</td></tr><tr></tr><td style="padding:6px; border: 1px solid midnightblue"><b>{txt_titulo_uf}</b></td></tr></table>
-				</td>
-		     <td width=225px>
-				<table style="border-spacing: 0px;" width=100%><tr><td>Data de emissão</td></tr><tr></tr><td style="padding:6px; border: 1px solid midnightblue"><b>{txt_titulo_emissao}</b></td></tr></table>
-				</td>
-			</tr>				  
-	</table>
-</br>
-&nbsp;&nbsp;<b>Endereço Residencial</b>:
-	<table style="border-spacing: 5px;">	  
-			  <tr ><td  width=693px>
-				<table style="border-spacing: 0px;" width=100%><tr><td>Logadouro</td></tr><tr>
-					<td style="padding:6px; border: 1px solid midnightblue"><b>{txt_logadouro}</b></td></tr>
-				</table>
-				</td>
-		     <td width=50px>
-				<table style="border-spacing: 0px;" width=100%><tr><td>Número</td></tr><tr></tr><td style="padding:6px; border: 1px solid midnightblue"><b>{txt_titulo_zona}</b></td></tr></table>
-				</td>
-			</tr>				  
-	</table>
-	<table style="border-spacing: 5px;">	  
-			  <tr ><td  width=368px>
-				<table style="border-spacing: 0px;" width=100%><tr><td>Complemento</td></tr><tr>
-					<td style="padding:6px; border: 1px solid midnightblue"><b>{txt_complemento}</b></td></tr>
-				</table>
-				</td>
-			<td  width=150px>
-				<table style="border-spacing: 0px;" width=100%><tr><td>CEP</td></tr><tr>
-					<td style="padding:6px; border: 1px solid midnightblue"><b>{txt_cep}</b></td></tr>
-				</table>
-				</td>
-		     <td width=300px>
-				<table style="border-spacing: 0px;" width=100%><tr><td>Bairro</td></tr><tr></tr><td style="padding:6px; border: 1px solid midnightblue"><b>{txt_bairro}</b></td></tr></table>
-				</td>
-			</tr>				  
-	</table>
-
-	<table style="border-spacing: 5px;">	  
-			  <tr ><td  width=368px>
-				<table style="border-spacing: 0px;" width=100%><tr><td>Cidade</td></tr><tr>
-					<td style="padding:6px; border: 1px solid midnightblue"><b>{txt_cidade}</b></td></tr>
-				</table>
-				</td>
-		     <td width=200px>
-				<table style="border-spacing: 0px;" width=100%><tr><td>Estado</td></tr><tr></tr><td style="padding:6px; border: 1px solid midnightblue"><b>{txt_estado}</b></td></tr></table>
-				</td>
-			</tr>				  
-	</table>
-
 <p>
 * Não foi solicitada condição especial para a realização da prova.
-</p>
-<p>
-* A modalidade de inscrição selecionada foi *** - (Não selecionada),
+</br>* A modalidade de inscrição selecionada foi <b>{txt_sigla} - txt_modalidade}</b>.
 </p>
 
 <h2>Documentos pessoais e formulários</h2>
@@ -198,5 +108,6 @@
 <p>Lista de documentos de currículo apresentados:</p>
 
 <p>Matriz de pontuação de currículo:</p>
-</body>
-</html>
+
+<font color=darkred>Inscrição enviada para análise em <b>{datahora envio}</b>. Protocolo: <b>{txt_chave}</b></font>, pelo usuário <b>{usuario}</b>, IP <b>{IP}</b>.
+</br></br>
