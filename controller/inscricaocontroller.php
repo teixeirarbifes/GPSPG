@@ -832,7 +832,7 @@ class InscricaoController extends Controller
                     $dados['txt_processo'] =  $processo->txt_processo;
                     $dados['txt_envio'] = date('d-m-Y', strtotime($inscricao->dt_enviado));
                     $dados['txt_chave'] = $inscricao->key_inscricao;
-
+                    $dados['key']=$dados['key'];
                     $user = Usuarios::find($usuario);
                     
                     $dados['txt_usuario'] = $user->txt_usuario;
