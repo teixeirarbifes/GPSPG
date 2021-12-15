@@ -828,6 +828,7 @@ class InscricaoController extends Controller
                     $dados['txt_estado'] = $ficha->txt_estado;  
                     $dados['txt_modalidade'] =  $ficha->modalidade;
                     $dados['txt_sigla'] =  $ficha->sigla;
+                    $dados['txt_processo'] =  $processo->txt_processo;
 
                     return FichaController::criar_pdf($dados,$dir.S.'FICHA_'.str_replace(' ','_',$ficha->txt_nome).'_'.$inscricao->key_inscricao.'.pdf').';'.'FICHA_'.str_replace(' ','_',$ficha->txt_nome).'_'.$inscricao->key_inscricao.'.pdf';
                 }else{
