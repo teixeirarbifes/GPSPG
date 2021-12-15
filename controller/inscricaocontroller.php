@@ -505,13 +505,15 @@ class InscricaoController extends Controller
         $_SESSION['usuario']['id_role'] = 4;
         $inscricao = Inscricao::all_inscricao($dados);
         $insc = new InscricaoController();
+        $csv = '';
         foreach($inscricao as $i){
             if($i->id_ficha_enviada > 0){
                 $dados['user'] = $i->id_user;
-                $csv = $insc->ver_entregue($dados,2);
-                return $csv.'</br>';
+                $csv .= $insc->ver_entregue($dados,2).'</br>';
+              
             }
         }
+        return $csv;        
     }
 
 
