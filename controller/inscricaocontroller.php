@@ -453,7 +453,6 @@ class InscricaoController extends Controller
         if($zip == ""){
 
         }else{
-            return $zip[0].' '.$zip[1];
             header('Content-type: application/zip');
             header('Content-Description: File Transfer');
             header('Content-Type: application/octet-stream');
