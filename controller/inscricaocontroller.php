@@ -412,11 +412,10 @@ class InscricaoController extends Controller
 
             $filename = str_replace(' ','_',$user->txt_nome).'_'.uniqid().'.zip';
             
-            if ($zip->open($dir.S.$filename, ZipArchive::CREATE)!==TRUE) {
+            if ($zip->open($dir.$filename, ZipArchive::CREATE)!==TRUE) {
                 exit("cannot open <$filename>\n");
             }
-            
-            
+                     
             $inscricao = Inscricao::find_user($id_processo,$id_user);
             $documentos = Documentos::all_ficha($inscricao->id_ficha_enviada,1);
             
@@ -443,16 +442,17 @@ class InscricaoController extends Controller
             //$zip->addFile($thisdir . "/too.php","/testfromfile.php");
             $zip->close();
             if($zip->status==0){
-                return [$dir.S.$filename,$filename];
+                return [$dir.$filename,$filename];
             }else return "";
 
     }
 
     public function download_zip($dados){
-        $zip = InscricaoController::zip_inscricao($dados['p'],isset($dados['u']) ? $dados['u'] : 0);
+        $zip = InscricaoController::zip_inscricao($dados['id_processo'],isset($dados['user']) ? $dados['user'] : 0);
         if($zip == ""){
 
         }else{
+            return $zip[0].' '.$zip[1];
             header('Content-type: application/zip');
             header('Content-Description: File Transfer');
             header('Content-Type: application/octet-stream');
@@ -681,7 +681,6 @@ class InscricaoController extends Controller
             if($this->check_auth([3,4],true)){
                 $usuario = $dados['user'];
             }
-        
         //if($usuario==0) 
         //$usuario = UsuariosController::get_usuario()['id_user'];
 
@@ -830,8 +829,7 @@ class InscricaoController extends Controller
                     $dados['txt_modalidade'] =  $ficha->modalidade;
                     $dados['txt_sigla'] =  $ficha->sigla;
 
-                    
-                    return FichaController::criar_pdf($dados,$dir.S.'FICHA_'.str_replace(' ','_',$ficha->txt_nome).'_'.$inscricao->key_inscricao.'.pdf').';'.'FICHA_'.str_replace(' ','_',$ficha->txt_nome).'_'.$inscricao->key_inscricao.'.pdf';            
+                    return FichaController::criar_pdf($dados,$dir.S.'FICHA_'.str_replace(' ','_',$ficha->txt_nome).'_'.$inscricao->key_inscricao.'.pdf').';'.'FICHA_'.str_replace(' ','_',$ficha->txt_nome).'_'.$inscricao->key_inscricao.'.pdf';
                 }else{
                 return $this->view('ficha'.S.'form_verificar', ['matriz_classe' => $matriz_classe,'documentos_curriculo' => $documentos_curriculo, 'documentos_pessoais' => $documentos_pessoais, 'documentos' => $documentos, 'data_table' => $dados, 'processo' => $processo, 'inscricao' => $inscricao, 'ficha' => $ficha, 'usuario' => UsuariosController::get_usuario()]);                    
                 }
