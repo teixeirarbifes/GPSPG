@@ -416,7 +416,7 @@ class InscricaoController extends Controller
             }
             
             
-            $inscricao = Inscricao::find_user($id_processo,UsuariosController::get_usuario()['id_user']);
+            $inscricao = Inscricao::find_user($id_processo,$id_user);
             $documentos = Documentos::all_ficha($inscricao->id_ficha_enviada,1);
             
             foreach($documentos as $doc){
