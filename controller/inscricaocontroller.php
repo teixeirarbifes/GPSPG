@@ -682,8 +682,8 @@ class InscricaoController extends Controller
                 $usuario = $dados['user'];
             }
         
-        if($usuario==0) 
-        $usuario = UsuariosController::get_usuario()['id_user'];
+        //if($usuario==0) 
+        //$usuario = UsuariosController::get_usuario()['id_user'];
 
         $dir = UPLOAD_DIR_FILES.'user_'.$usuario;
 
