@@ -796,7 +796,7 @@ class InscricaoController extends Controller
                 $matriz_classe = Documentos::matriz($ficha->id_ficha);
                 if($pdf==1){
 
-                    $dados['txt_photo'] = "https://gpspg.gemad.net/photo.php?id=".$ficha->id_ficha;
+                    $dados['txt_photo'] = "https://gpspg.gemad.net/photo.php?uniq=".uniqid()."&id=".$ficha->id_ficha;
                     $dados['txt_nome'] = $ficha->txt_nome;
                     $dados['txt_email'] = $ficha->txt_email;
                     $dados['txt_nascimento'] = $ficha->txt_nascimento;
