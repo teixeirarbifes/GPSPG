@@ -154,7 +154,7 @@ class Inscricao
        $conexao = Conexao::getInstance();                      
       
        $id_processo = $dados['id_processo'];
-       $inscrito = isset($dados['inscrito']) && $dados['inscrito'] == 1 ? " AND dt_enviado != '0000-00-00 00:00:00' " : " ";
+       $inscrito = isset($dados['inscrito']) && $dados['inscrito'] == 1 ? " AND id_ficha_enviada > 0 " : " ";
        $jtStartIndex=$_GET['jtStartIndex'];
        $jtPageSize=$_GET['jtPageSize'];
        $jtSorting='txt_processo ASC'; //$_POST['jtSorting'];
