@@ -419,13 +419,14 @@ class InscricaoController extends Controller
             $inscricao = Inscricao::find_user($id_processo,$id_user);
             $documentos = Documentos::all_ficha($inscricao->id_ficha_enviada,1);
             
+            if($documentos)
             foreach($documentos as $doc){
                $new_filename = substr($doc->txt_location,strrpos($doc->txt_location,S) + 1);
                $zip->addFile($doc->txt_location,'documentos_pessoais'.S.$new_filename);
             }          
 
             $documentos = Documentos::all_ficha($inscricao->id_ficha_enviada,2);
-            
+            if($documentos)
             foreach($documentos as $doc){
                $new_filename = substr($doc->txt_location,strrpos($doc->txt_location,S) + 1);
                $zip->addFile($doc->txt_location,'curriculo'.S.$new_filename);
