@@ -830,6 +830,14 @@ class InscricaoController extends Controller
                     $dados['txt_modalidade'] =  $ficha->modalidade;
                     $dados['txt_sigla'] =  $ficha->sigla;
                     $dados['txt_processo'] =  $processo->txt_processo;
+                    $dados['txt_envio'] = date('d-m-Y', strtotime($inscricao->dt_enviado));
+                    $dados['txt_chave'] = $inscricao->key_inscricao;
+
+                    $user = Usuarios::find($usuario);
+                    
+                    $dados['txt_usuario'] = $user->txt_usuario;
+
+                    $dados['txt_ip'] = $inscricao->ip_envio;
 
                     return FichaController::criar_pdf($dados,$dir.S.'FICHA_'.str_replace(' ','_',$ficha->txt_nome).'_'.$inscricao->key_inscricao.'.pdf').';'.'FICHA_'.str_replace(' ','_',$ficha->txt_nome).'_'.$inscricao->key_inscricao.'.pdf';
                 }else{
