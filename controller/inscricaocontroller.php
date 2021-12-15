@@ -685,7 +685,7 @@ class InscricaoController extends Controller
         //if($usuario==0) 
         //$usuario = UsuariosController::get_usuario()['id_user'];
 
-        $dir = UPLOAD_DIR_FILES.'user_'.$usuario;
+        $dir = UPLOAD_DIR_FILES;
 
         if (!file_exists($dir.S)) {
             mkdir($dir, 0777);
