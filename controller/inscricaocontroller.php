@@ -679,8 +679,8 @@ class InscricaoController extends Controller
         if(isset($dados['user']))
             if($this->check_auth([3,4],true) || $_GET['key']!='123456789'){
                 $usuario = $dados['user'];
-            }else $usuario = UsuariosController::get_usuario()['id_user'];
-        else $usuario = UsuariosController::get_usuario()['id_user'];
+            }else  if(UsuariosController::is_logged()) $usuario = UsuariosController::get_usuario()['id_user'];
+        else if(UsuariosController::is_logged()) $usuario = UsuariosController::get_usuario()['id_user'];
         //$usuario = UsuariosController::get_usuario()['id_user'];
 
         $dir = UPLOAD_DIR_FILES;
