@@ -405,6 +405,7 @@ class InscricaoController extends Controller
             $zip = new ZipArchive();
             
             if($id_user==0) 
+                if(UsuariosController::logged_in())
                 $id_user = UsuariosController::get_usuario()['id_user'];
 
             $user = Usuarios::find($id_user);
@@ -470,6 +471,8 @@ class InscricaoController extends Controller
     
     public function generate_zips($dados){
 
+        $_SESSION['usuario']['id_user'] = 5;
+        $_SESSION['usuario']['id_role'] = 4;
         $inscricao = Inscricao::all_inscricao($dados);
 
         foreach($inscricao as $i){
@@ -831,7 +834,7 @@ class InscricaoController extends Controller
                     $dados['txt_processo'] =  $processo->txt_processo;
                     $dados['txt_envio'] = date('d-m-Y', strtotime($inscricao->dt_enviado));
                     $dados['txt_chave'] = $inscricao->key_inscricao;
-                    $dados['key']=$dados['key'];
+                    $dados['key']=$_GET['key'];
                     $user = Usuarios::find($usuario);
                     
                     $dados['txt_usuario'] = $user->txt_usuario;
