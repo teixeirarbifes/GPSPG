@@ -34,6 +34,8 @@
         $retorna = Validation_Classe::validation_perfil($data);
     }else if($data['classe'] == 'processo'){
         $retorna = Validation_Classe::validation_processo($data);
+    }else if($data['classe'] == 'recurso'){
+        $retorna = Validation_Classe::validation_recurso($data);
     }else if($data['classe'] == 'status'){
         $retorna = Validation_Classe::validation_status($data);
     }else if($data['classe'] == 'cronograma'){

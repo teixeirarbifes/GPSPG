@@ -295,6 +295,13 @@
             }
         }
         
+
+        public static function validation_recurso($data,$buscacep=true){
+
+            $val = new Validation();   
+    
+            return null;
+        }
     }
 
     /**

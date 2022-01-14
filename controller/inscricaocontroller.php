@@ -945,7 +945,7 @@ class InscricaoController extends Controller
     /**
      * Salvar o contato submetido pelo formulário
      */
-
+            
     public function getRandomString($n,$letters) {
         if($letters)
         $characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
