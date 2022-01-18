@@ -6,7 +6,7 @@
 if(isset($data_table['sucess']) && $data_table['sucess'] >= 1){
 ?>
 
-O seu recurso foi submetido com êxito e um e-mail com o conteúdo submetido foi enviado para seu e-mail de cadastro.
+O seu recurso foi submetido com êxito e um registro da sua argumentação foi enviada para o seu e-mail de cadastro.
 
 </br></br>
 
@@ -100,7 +100,7 @@ Arquivo anexado!
   </div>
     </br>
     
-    O envio de anexo não é obrigatório para apresentar seu recurso.</br>Caso necessite anexar um documento (máximo 20mbytes), anexe logo após enviar a argumentação do seu recurso.
+    O envio de anexo não é obrigatório para apresentar seu recurso.</br>Caso necessite anexar um documento (máximo 2Mbytes), anexe logo após enviar a argumentação do seu recurso.
     </br>
     </br>
     <input type="hidden" name="id_processo" id="id_processo" value="<?php echo isset($processo->id_processo) ? $processo->id_processo : null; ?>" />
