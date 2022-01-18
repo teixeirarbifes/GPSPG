@@ -4,7 +4,7 @@ require_once(GPATH.'controller'.S.'mensageirocontroller.php');
 require_once(GPATH.'controller'.S.'usuarioscontroller.php');
 require_once(GPATH.'request'.S.'session.php');
 require_once(GPATH.'utils'.S.'util_local.php');
-define('VERSION',157);
+define('VERSION',160);
 setlocale(LC_ALL, 'pt_BR.utf-8', 'portuguese');
 date_default_timezone_set('America/Sao_Paulo');
 
@@ -279,12 +279,12 @@ ob_start();
             </a>
           </li>
           
-          <li class="nav-item">
-            <a class="nav-link" href="#" style="cursor:pointer" onclick="go_link('/?controller=usuarioscontroller&method=listar');" >
+          <!--li class="nav-item">
+            <a class="nav-link" href="#" style="cursor:pointer" onclick="go_link('/?controller=usuarioscontroller&method=listar');">
               <i class="icon-archive menu-icon" style="color:black"></i>
               <span class="menu-title" style="color:black">Meus recursos</span>
             </a>
-          </li>    
+          </li-->    
 
           <?php }
           if(!UsuariosController::is_logged()){ ?>

@@ -245,7 +245,7 @@ class InscricaoController extends Controller
             if($aberto == 0){
                 $i->txt_aberto = "<b><font color=red>Não, prazo expirado!</font></b>";
             }else if($aberto == 1){
-                    $i->txt_aberto = "<b><font color=red>Não, em breve!</font></b>";
+                    $i->txt_aberto = "<b><font color=red>Não!</font></b>";
             }else{
                 $i->txt_aberto = "<b><font color=darkgreen>Sim, dentro do prazo</font></b>";
             }

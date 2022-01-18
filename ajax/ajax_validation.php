@@ -42,6 +42,8 @@
         $retorna = Validation_Classe::validation_cronograma($data);
     }else if($data['classe'] == 'upload'){
         $retorna = Validation_Classe::validation_upload($data);
+    }else if($data['classe'] == 'upload_recurso'){
+        $retorna = Validation_Classe::validation_upload_recurso($data);
     }else if($data['classe'] == 'ficha'){
         $c = new Controller();
         

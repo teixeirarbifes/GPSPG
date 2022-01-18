@@ -200,10 +200,15 @@ class Recursos
      * @param type $id
      * @return type
      */
-    public static function find($id_recurso)
+    public static function find($id_recurso,$clean = false)
     {
         $conexao = Conexao::getInstance();
-        $stmt    = $conexao->prepare("SELECT DATE_FORMAT(tab_recurso.dt_submissao, '%d de %M de %Y') as data_sub, DATE_FORMAT(tab_recurso.dt_submissao, '%H:%i:%S') as hora_sub, tab_recurso.* FROM tab_recurso WHERE id_recurso='{$id_recurso}';");
+        if($clean){
+            $stmt    = $conexao->prepare("SELECT tab_recurso.* FROM tab_recurso WHERE id_recurso='{$id_recurso}';");
+        }else{
+            $stmt    = $conexao->prepare("SELECT DATE_FORMAT(tab_recurso.dt_submissao, '%d de %M de %Y') as data_sub, DATE_FORMAT(tab_recurso.dt_submissao, '%H:%i:%S') as hora_sub, tab_recurso.* FROM tab_recurso WHERE id_recurso='{$id_recurso}';");
+        }
+
 
         //$controller = new MensageiroController();
         //$controller->msg("SELECT tab_processos.*,  tab_status.txt_status as status FROM tab_processos LEFT JOIN tab_status ON tab_processos.id_status = tab_status.id_status WHERE id_processo={$id_processo};",1);

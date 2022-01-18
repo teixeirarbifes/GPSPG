@@ -120,9 +120,64 @@ class RecursoController extends Controller
         }
         $processos = Processos::find($dados['id_processo'],false);
         if(isset($dados['recurso'])) $recurso = $dados['recurso'];
+        else $recurso = null;
         //$status = Processos::all_status();
         return $this->view('recurso'.S.'form_recurso',['data_table' => $dados, 'processo' => $processos, 'recurso' => $recurso]); //, 'status' => $status]);
     }
+
+
+    public function upload($dados){      
+        if(!UsuariosController::is_logged()){
+            $this->msg('Você não está autorizado.',2);
+            $home = new HomeController();
+            return $home->home();
+        /*}else if(!$this->check_auth([1],true)){
+            return $this->listar();*/
+        }
+
+        $id_recurso = (int) $dados['id_recurso'];
+        $recurso = Recursos::find($id_recurso,true);       
+        if(isset($recurso->id_recurso)){   
+            $dados['recurso'] = $recurso;
+            
+            if(!isset($_FILES['txt_filename']) || $_FILES['txt_filename']['tmp_name']==''){
+                $this->msg('O arquivo precisa ser selecionado para ser carregado2.',2); 
+                return $this->criar($dados);
+            }else if($_FILES['txt_filename']['error']!=UPLOAD_ERR_OK){
+                if($_FILES['txt_filename']['error']==UPLOAD_ERR_CANT_WRITE){
+                    $this->msg('Ocorreu um erro ao salvar o arquivo.',2); 
+                }else if($_FILES['txt_filename']['error']==UPLOAD_ERR_EXTENSION){
+                    $this->msg('A extensão do arquivo não é permitida.tar',2); 
+                }else if($_FILES['txt_filename']['error']==UPLOAD_ERR_NO_FILE){
+                    $this->msg('O arquivo não foi selecionado',2); 
+                }else if($_FILES['txt_filename']['error']==UPLOAD_ERR_INI_SIZE){
+                    $this->msg('O arquivo excede o tamanho máximo de upload',2); 
+                }else{
+                    $this->msg('Ocorreu um erro ao salvar o arquivo.',2); 
+                }
+                return $this->criar($dados);
+            }else{
+                $recurso->txt_filename = $_FILES['txt_filename']['name'];               
+                $dir = UPLOAD_DIR_FILES.'user_'.UsuariosController::get_usuario()['id_user'];
+                if (!file_exists($dir.S)) {
+                    mkdir($dir, 0777);
+                }
+                if($recurso->save()){
+                    $recurso->txt_fullfile = $dir.S.$recurso->id_recurso.'_'.$recurso->txt_protocolo.'.pdf';
+                    move_uploaded_file($_FILES['txt_filename']['tmp_name'],$recurso->txt_fullfile);
+                    if($recurso->save()){
+                        $dados['sucess'] = 2;
+                        $this->msg('O arquivo foi carregado com êxito!',0); 
+                    }else{
+                        $this->msg('Houve um problema no banco de dados.',0); 
+                    }
+                }else{
+                    $this->msg('Ocorreu um erro ao salvar o arquivo',2); 
+                }
+                return $this->criar($dados);
+            }                            
+        }
+    }    
     
 
     public static function all_recurso($dados)
@@ -286,6 +341,10 @@ class RecursoController extends Controller
                 $this->msg('Salvo com sucesso',0);
                 $dados['sucess'] = 1;
                 $dados['recurso'] = $recurso;
+                $processo = Processos::find($dados['id_processo']);
+                $dados['processo'] = $processo;
+                $dados['id_recurso'] = $recurso->id_recurso;
+                $this->enviar_email_recurso($dados);
                 return $this->criar($dados);
             }else{
                 $this->msg('Ocorreu um erro ao tentar salvar recurso',2);
@@ -297,6 +356,23 @@ class RecursoController extends Controller
             
             return; //$this->listar($dados);
         }
+    }
+
+    public function enviar_email_recurso($dados){
+        $usuario = Usuarios::find(UsuariosController::get_usuario()['id_usuario']);
+        $row['txt_nome'] = $usuario->txt_nome;
+        $row['to_email'] = $usuario->txt_email;     
+        $date = new DateTime($dados['recurso']->dt_submissao);
+        $row['recurso'] = $dados['recurso'];
+        $row['processo'] = $dados['processo'];
+        $row['dt_submissao'] = $date->format('d/m/Y h:i:s');   
+        
+        $status = criar_email($row['to_email'],$row['txt_nome'],'','recurso_enviado',$row);
+        /*if($status==2){        
+            echo $dados['to_email'].' - um e-mail de confirmação da sua inscrição foi enviado.</br>';
+        }else{
+            echo $dados['to_email'].' - não enviado!</br>';
+        }*/
     }
  
     /**

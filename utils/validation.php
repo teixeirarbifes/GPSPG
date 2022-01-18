@@ -107,7 +107,18 @@
             $val = new Validation();
         
             $val->field('id_classe')->name('TIPO DE DOCUMENTO')->value($data['id_classe'])->check_classe_num($data['id_ficha'])->required();            
-            $val->field('txt_filename')->name('ARQUIVO')->check_file($data['txt_filename_file'],$data['txt_filename_size'],$data['txt_filename_type']);
+            $val->field('txt_filename')->name('ARQUIVO')->check_file($data['txt_filename_file'],$data['txt_filename_size'],$data['txt_filename_type'],2);
+            if($val->isSuccess()){
+                return null;
+            }else{
+                return $val->getErrors();
+            }
+        }
+
+        public static function validation_upload_recurso($data){
+            $val = new Validation();
+        
+            $val->field('txt_filename')->name('ARQUIVO')->check_file($data['txt_filename_file'],$data['txt_filename_size'],$data['txt_filename_type'],2);
             if($val->isSuccess()){
                 return null;
             }else{
@@ -638,15 +649,15 @@
             
         }
 
-        public function check_file($file,$size,$type){
+        public function check_file($file,$size,$type,$maxsize = 1){
         
             
             if($file=='' || $file==null){
                 $this->errors[$this->field] = 'O arquivo precisa ser selecionado.';
             }else if(substr(strrchr($file,'.'),1)!='pdf'){
                 $this->errors[$this->field] = 'O arquivo precisa ser PDF.';
-            }else if($size>2097152){
-                $this->errors[$this->field] = 'O arquivo não pode ser maior que 2mbytes.';
+            }else if($size>1048576*$maxsize){
+                $this->errors[$this->field] = 'O arquivo não pode ser maior que '.$maxsize.' mbytes.';
             }
 
             return $this;

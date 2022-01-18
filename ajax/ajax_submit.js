@@ -58,7 +58,7 @@ function validar_bak(form, classe){
     });
 }
 
-function validar_upload(form,classe,sobe=true){
+function validar_upload(form,classe,sobe=true,local = 'conteudo'){
     var fd = new FormData();
     
     var fp = $("#txt_filename");
@@ -73,15 +73,16 @@ function validar_upload(form,classe,sobe=true){
         var type = "";        
     }
     fd.append('id_ficha', $('#id_ficha').val());
+    fd.append('id_recurso', $('#id_recurso').val());
     fd.append('id_classe', $('#id_classe').val());
     fd.append('txt_filename_size', size);
     fd.append('txt_filename_file', file);
     fd.append('txt_filename_type', type);
-    validar(form,classe,fd,sobe);
+    validar(form,classe,fd,sobe,false,local);
 }
 
 var xhr = 3;
-function validar(form, classe,dados = null,sobe=true,changecheck=true){    
+function validar(form, classe,dados = null,sobe=true,changecheck=true,local = 'conteudo'){    
     display_modal_loading('Validando formulário...');
     display_modal_loading_before();
     $('.msg_error').html('');
@@ -107,7 +108,7 @@ function validar(form, classe,dados = null,sobe=true,changecheck=true){
         },               
         success: function( retorna ) {
             if(retorna=='200'){
-                submit(form,sobe);
+                submit(form,sobe,changecheck,local);
             }else{
                 if(sobe){
                     $('html, body').animate({
@@ -149,11 +150,11 @@ function check_change(){
     }
 }
 
-function submit(form,sobe = true,changecheck = true){
+function submit(form,sobe = true,changecheck = true,local = 'conteudo'){
     display_modal_loading('Processando dados...');
     display_modal_loading_before();
-    var dados = new FormData($('#'+form)[0]);
-
+    var dados = new FormData($('#'+form)[0]);    
+    alert('teste');
     xhr = $.ajax({
         url: $('#' + form).attr('action'),
         type: "POST",
@@ -167,7 +168,7 @@ function submit(form,sobe = true,changecheck = true){
         },               
         success: function( retorna ) {            
             //var data = JSON.parse(retorna);            
-            return result_ajax(retorna,'conteudo',true,sobe);
+            return result_ajax(retorna,local,true,sobe);
         },
         error: function (xhr, status, error) {
             error_ajax(xhr,status,error);

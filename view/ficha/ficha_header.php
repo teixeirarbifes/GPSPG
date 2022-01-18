@@ -87,6 +87,7 @@ if(isset($inscricao->id_inscricao) && $inscricao->id_inscricao>0 && $aberto==2){
      <?php if(isset($inscricao->id_inscricao) && $inscricao->id_ficha_enviada > 0){ ?>
         <a style="color:black;cursor:pointer;padding-left: 6px;padding-top: 3px;padding-right: 6px;padding-bottom: 3px;cursor:pointer" class="btn btn-sm btn-<?=$pagina=="conferir" ? 'secondary"' : 'light'?> <?=$habilitar_inscricao ? "" : "disabled"?>" id=salvar  onclick="go_link('/?controller=InscricaoController&method=ver_entregue&id_processo=<?php echo $processo->id_processo; ?>');"><font size=2 color=black><?=$pagina=="conferir"?'<b><font color=blue>':''?>Conferir</br>último envio.<?=$pagina=="verificar"?'</font></b>':''?></font></a>&nbsp;          
         <?php } ?>      
+        <a style="color:black;cursor:pointer;padding-left: 6px;padding-top: 3px;padding-right: 6px;padding-bottom: 3px;cursor:pointer" class="btn btn-sm btn-<?=$pagina=="conferir" ? 'secondary"' : 'light'?> <?=$habilitar_inscricao ? "" : "disabled"?>" id=salvar  onclick="go_link('/?controller=RecursoController&method=criar&id_processo=<?php echo $processo->id_processo; ?>');"><font size=2 color=black><?=$pagina=="conferir"?'<b><font color=blue>':''?>Apresentar</br>recurso.<?=$pagina=="verificar"?'</font></b>':''?></font></a>&nbsp;          
       <?php } ?>
 
 <hr>
