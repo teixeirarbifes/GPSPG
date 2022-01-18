@@ -154,7 +154,6 @@ function submit(form,sobe = true,changecheck = true,local = 'conteudo'){
     display_modal_loading('Processando dados...');
     display_modal_loading_before();
     var dados = new FormData($('#'+form)[0]);    
-    alert('teste');
     xhr = $.ajax({
         url: $('#' + form).attr('action'),
         type: "POST",
