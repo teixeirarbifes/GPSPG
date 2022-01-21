@@ -82,8 +82,8 @@ Arquivo anexado!
  <div class="row">
   <div class="col-12 col-md-12 col-lg-12">
         Destinado à: <select class="combo" id="id_classe_recurso" name="id_classe_recurso" value="">
-          <option value="">Selecione uma opção</option>                    
-          <option value="1">recurso contra o resultado parcial das inscrições</option>                    
+          <option value="">Não há opção destino disponível.</option>                    
+          <!--option value="1">recurso contra o resultado parcial das inscrições</option-->                    
         </select>
         </br></br>
    </div>
@@ -103,10 +103,13 @@ Arquivo anexado!
     O envio de anexo não é obrigatório para apresentar seu recurso.</br>Caso necessite anexar um documento (máximo 2Mbytes), anexe logo após enviar a argumentação do seu recurso.
     </br>
     </br>
+    <font color=red>Nesse momento, o envio de recursos está fechado por não haver destino disponível. Confira calendário.</font>
+    </br>
+    </br>
     <input type="hidden" name="id_processo" id="id_processo" value="<?php echo isset($processo->id_processo) ? $processo->id_processo : null; ?>" />
     <input type="hidden" name="salvar" id="salvar" value="1" />
-    <a class="btn btn-success" id=bt_submit name=submit onclick="validar('form','recurso');"><font color=black>Enviar</font></a>
-    <a class="btn btn-secondary" id=bt_limpar onclick="form.clear();"><font color=black>Limpar</font></a>
+    <a class="btn btn-success disabled"  id=bt_submit name=submit onclick="validar('form','recurso');"><font color=black>Enviar</font></a>
+    <a class="btn btn-secondary disabled" id=bt_limpar onclick="form.clear();"><font color=black>Limpar</font></a>
     </div>
     
 
