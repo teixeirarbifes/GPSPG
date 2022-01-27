@@ -558,6 +558,35 @@ class InscricaoController extends Controller
         }
     }
 
+    public function enviar_senha_moodle($dados){                       
+                $result = Inscricao::all_processo($dados['id_processo']);
+                $rows = array();
+                $recordCount = 0;
+                if($result){
+                    $row = [];
+                    foreach($result as $res){
+                            if($res->id_status == 1){
+                                $usuario = Usuarios::find($res->id_user);
+                                $row['txt_nome'] = $usuario->txt_nome;
+                                $row['to_email'] = $usuario->txt_email;     
+                                $row['txt_cpf'] = $usuario->txt_cpf; 
+                                //$date = new DateTime($res->dt_enviado);
+                                //$row['key'] = $res->key_inscricao;
+                                $row['txt_processo'] = $res->txt_processo;
+                                //$row['dt_enviado'] = $date->format('d/m/Y h:i:s');      
+                                //if($dados['r']==1 && $res->id_ficha_enviada > 0){
+                                //    echo 'Retificacao - ';
+                                //    $this->enviar_email_lembrete($row,'lembrar_retificacao');
+                                //}else if($dados['l']==1 && $res->id_ficha_enviada == 0){
+                                //    echo 'Envio - ';
+                                //    $this->enviar_email_lembrete($row,'lembrar_envio');
+                            // }
+                            criar_email($row['to_email'],$row['txt_nome'],'','senha_moodle',$row);
+                        }
+                    }  
+               }      
+    }
+
 
     public static function enviar_email_lembrete($dados,$modelo){
         $status = criar_email($dados['to_email'],$dados['txt_nome'],'',$modelo,$dados);
