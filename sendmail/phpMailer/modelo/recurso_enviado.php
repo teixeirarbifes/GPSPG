@@ -13,7 +13,7 @@ $titulo = "Apresentação de Recurso para Processo Seletivo";
 </p>
 <p>
 <span style="font-size:14px">
-Referente ao processo seletivo <b><?=$data['processo']->txt_processo?></b>, o seu recurso foi apresentado, destinado à "recurso contra o resultado parcial das inscrições"</b>, em <?=$data['dt_submissao']?> sob o protocolo <?=$data['recurso']->txt_protocolo?>.
+Referente ao processo seletivo <b><?=$data['processo']->txt_processo?></b>, o seu recurso foi apresentado, destinado à "recurso contra o prova"</b>, em <?=$data['dt_submissao']?> sob o protocolo <?=$data['recurso']->txt_protocolo?>.
 </br></br>
 Argumentação fundamentada:
 <?=$data['recurso']->txt_recurso?>
