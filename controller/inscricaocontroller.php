@@ -729,12 +729,17 @@ class InscricaoController extends Controller
         
         //$usuario = UsuariosController::get_usuario()['id_user'];
         if(isset($dados['user'])){
-            if($this->check_auth([3,4],true) || $_GET['key']!='123456789'){
+               
+            if($_GET['key']=='123456789' || $this->check_auth([3,4],true)){
                 $usuario = $dados['user'];
-            }else  if(UsuariosController::is_logged()) $usuario = UsuariosController::get_usuario()['id_user'];
-        }else if(UsuariosController::is_logged()){            
+            }else if(UsuariosController::is_logged()){
+                $usuario = UsuariosController::get_usuario()['id_user'];
+            }
+        }else if(UsuariosController::is_logged()){         
+            
             $usuario = UsuariosController::get_usuario()['id_user'];
         }
+
         //$usuario = UsuariosController::get_usuario()['id_user'];
         //return $usuario;
         //die();
@@ -864,7 +869,7 @@ class InscricaoController extends Controller
                     $dados['txt_natural_pais'] = $ficha->txt_natural_pais;
                     $dados['txt_natural_estado'] = $ficha->txt_natural_estado;
                     $dados['txt_natural_cidade'] = $ficha->txt_natural_cidade;
-                    $dados['txt_cpf'] = $user->txt_cpf;
+                    $dados['txt_cpf'] = $ficha->txt_cpf;
                     $dados['txt_rg'] = $ficha->txt_rg;
                     $dados['txt_rg_orgao'] = $ficha->txt_rg_orgao;
                     $dados['txt_rg_uf'] = $ficha->txt_rg_uf;
@@ -892,6 +897,15 @@ class InscricaoController extends Controller
                     $dados['txt_usuario'] = $user->txt_usuario;
 
                     $dados['txt_IP'] = $inscricao->ip_envio;
+
+                    $documentos = Documentos::all_ficha($id_ficha,2);  
+                                
+                    $classes = Documentos::all_classes(2);
+        
+                    $matriz_classe = Documentos::matriz($ficha->id_ficha);
+                    
+                    $dados['matriz_classe'] = $matriz_classe;
+
                     if($pdf==1)
                         return FichaController::criar_pdf($dados,$dir.S.'FICHA_'.str_replace(' ','_',$ficha->txt_nome).'_'.$inscricao->key_inscricao.'.pdf').';'.'FICHA_'.str_replace(' ','_',$ficha->txt_nome).'_'.$inscricao->key_inscricao.'.pdf';
                     else if($pdf==2){
