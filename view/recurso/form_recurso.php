@@ -11,7 +11,7 @@ O seu recurso foi submetido com êxito e um registro da sua argumentação foi e
 </br></br>
 
 Processo Seletivo: <b><?=$processo->txt_processo?></b></br></br>
-Destinado à: Recurso contra a prova</br></br>
+Destinado à: recurso contra o resultado preliminar da prova</br></br>
 Argumentação Fundamentada: </br><?=$recurso->txt_recurso?></br></br>
 Submetido em: <?=$recurso->dt_submissao?> sob o protocolo <?=$recurso->txt_protocolo?> 
 </br></br>
@@ -85,6 +85,7 @@ Arquivo anexado!
           <option value="">Escolha uma opção</option>                    
           <!--option value="1">recurso contra o resultado parcial das inscrições</option-->      
           <!--option value="2">recurso contra a prova</option-->                    
+          <option value="3">recurso contra o resultado preliminar da prova</option-->    
         </select>
         </br></br>
    </div>
@@ -104,13 +105,13 @@ Arquivo anexado!
     O envio de anexo não é obrigatório para apresentar seu recurso.</br>Caso necessite anexar um documento (máximo 2Mbytes), anexe logo após enviar a argumentação do seu recurso.
     </br>
     </br>
-    <font color=red>Nesse momento, o envio de recursos está suspenso. Confira calendário.</font>
-    <!--font color=green>Nesse momento, o envio de recursos está aberto, confira calendário.</font-->
+    <!--font color=red>Nesse momento, o envio de recursos está suspenso. Confira calendário.</font-->
+    <font color=green>Nesse momento, o envio de recursos está aberto, confira calendário.</font>
     </br>
     </br>
     <input type="hidden" name="id_processo" id="id_processo" value="<?php echo isset($processo->id_processo) ? $processo->id_processo : null; ?>" />
     <input type="hidden" name="salvar" id="salvar" value="1" />
-    <a class="btn btn-success disabled"  id=bt_submit name=submit onclick="validar('form','recurso');"><font color=black>Enviar</font></a>
+    <a class="btn btn-success"  id=bt_submit name=submit onclick="validar('form','recurso');"><font color=black>Enviar</font></a>
     <!--a class="btn btn-secondary" id=bt_limpar onclick="form.clear();"><font color=black>Limpar</font></a-->
     </div>
     

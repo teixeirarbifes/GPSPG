@@ -5,9 +5,8 @@ require_once(GPATH.'controller'.S.'usuarioscontroller.php');
 require_once(GPATH.'request'.S.'session.php');
 require_once(GPATH.'utils'.S.'util_local.php');
 define('VERSION',161);
-setlocale(LC_ALL, 'pt_BR.utf-8', 'portuguese');
+setlocale(LC_ALL, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
 date_default_timezone_set('America/Sao_Paulo');
-
 
 if($_REQUEST['action'] == 'download'){
     $_REQUEST['controller'] = "documentoscontroller";
