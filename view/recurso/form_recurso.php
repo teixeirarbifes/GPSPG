@@ -85,7 +85,9 @@ Arquivo anexado!
           <option value="">Escolha uma opção</option>                    
           <!--option value="1">recurso contra o resultado parcial das inscrições</option-->      
           <!--option value="2">recurso contra a prova</option-->                    
-          <option value="3">recurso contra o resultado preliminar da prova</option-->    
+          <!--option value="3">recurso contra o resultado preliminar da prova</option-->    
+          <option value="4">recurso contra o resultado da análise do currículo</option>    
+
         </select>
         </br></br>
    </div>
@@ -106,7 +108,7 @@ Arquivo anexado!
     </br>
     </br>
     <!--font color=red>Nesse momento, o envio de recursos está suspenso. Confira calendário.</font-->
-    <font color=green>Nesse momento, o envio de recursos está aberto, confira calendário.</font>
+    <font color=green>Nesse momento, o envio de recursos está permitido de 16/02/2022 à 17/02/2022 conforme calendário.</font>
     </br>
     </br>
     <input type="hidden" name="id_processo" id="id_processo" value="<?php echo isset($processo->id_processo) ? $processo->id_processo : null; ?>" />
